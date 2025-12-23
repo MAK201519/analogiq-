@@ -1,6 +1,13 @@
-export default function Attribution() {
+import { cn } from "../lib/utils";
+
+export default function Attribution({ className }: { className?: string }) {
   return (
-    <footer className="w-full py-6 px-4 text-center text-sm text-gray-600 border-t border-gray-200">
+    <footer
+      className={cn(
+        "w-full py-6 px-4 text-center text-sm text-gray-600 border-t border-gray-200",
+        className
+      )}
+    >
       <div className="max-w-7xl mx-auto">
         <p className="mb-2">
           Design by{" "}

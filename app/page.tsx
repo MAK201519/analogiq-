@@ -6,6 +6,7 @@ import DebugCompare from "./components/DebugCompare";
 import HeadingSubheading from "./components/HeadingSubheading";
 import Services from "./components/Services";
 import CTA from "./components/CTA";
+import CaseStudies from "./components/CaseStudies";
 
 export default async function Home({
   searchParams: searchParamsPromise,
@@ -28,6 +29,12 @@ export default async function Home({
         />
         <Services className="mt-[80px]" />
         <CTA className="mt-[100px]" />
+        <HeadingSubheading
+          className="mt-[140px]"
+          heading="Case Studies"
+          subheading="Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies"
+        />
+        <CaseStudies className="mt-[80px]" />
         <Attribution className="mt-[70px]" />
       </div>
     </>

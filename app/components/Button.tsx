@@ -19,7 +19,7 @@ export default function Button({
   className,
 }: ButtonProps) {
   const baseStyles =
-    "flex items-start px-[35px] py-[20px] relative rounded-[14px] shrink-0 font-normal leading-[28px] text-[20px] text-center transition-colors";
+    "flex items-start px-[35px] py-[20px] relative rounded-[14px] shrink-0 font-normal leading-[28px] text-[20px] text-center transition-colors cursor-pointer";
 
   const variantStyles = {
     primary: "bg-[#191a23] text-white hover:bg-[#2a2b35]",

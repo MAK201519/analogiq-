@@ -5,6 +5,7 @@ import Attribution from "./components/Attribution";
 import DebugCompare from "./components/DebugCompare";
 import HeadingSubheading from "./components/HeadingSubheading";
 import Services from "./components/Services";
+import CTA from "./components/CTA";
 
 export default async function Home({
   searchParams: searchParamsPromise,
@@ -26,6 +27,7 @@ export default async function Home({
           subheading="At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:"
         />
         <Services className="mt-[80px]" />
+        <CTA className="mt-[100px]" />
         <Attribution className="mt-[70px]" />
       </div>
     </>

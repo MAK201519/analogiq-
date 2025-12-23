@@ -1,0 +1,27 @@
+import LogoIcon from "@/app/assets/icons/logo-icon.svg";
+import LogoPositivus from "@/app/assets/icons/logo-positivus.svg";
+
+type LogoProps = {
+  className?: string;
+};
+
+export default function Logo({ className }: LogoProps) {
+  return (
+    <div className={`relative ${className || ""}`}>
+      <div className="absolute inset-[0_83.6%_0_0]">
+        <LogoIcon
+          className="block max-w-none size-full"
+          width={36}
+          height={36}
+        />
+      </div>
+      <div className="absolute inset-[8.33%_0_12.33%_22.28%]">
+        <LogoPositivus
+          className="block max-w-none size-full"
+          width={170}
+          height={28}
+        />
+      </div>
+    </div>
+  );
+}

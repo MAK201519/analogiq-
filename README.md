@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Attribution
+
+This project is based on a design from Figma Community:
+
+- **Design by:** [Olga](https://www.figma.com/@olgaaverchenko)
+- **Figma Design:** [Positivus Landing Page Design](https://www.figma.com/community/file/1230604708032389430/positivus-landing-page-design)
+- **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+**Coded by:** [zakariamouhid](https://zakariamouhid.blogspot.com/)
+
 ## Getting Started
 
 First, run the development server:

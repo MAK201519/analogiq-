@@ -31,7 +31,7 @@ export default function CaseStudies({ className }: { className?: string }) {
       data-name="Case studies block"
     >
       <div
-        className="bg-[#191a23] flex gap-[128px] px-[60px] py-[70px] relative rounded-[45px] shrink-0 ml-[3px]"
+        className="bg-[#191a23] flex gap-[128px] px-[60px] pt-[70px] pb-[69px] relative rounded-[45px] shrink-0 ml-[3px]"
         data-name="Case studies"
       >
         {caseStudies.map((caseStudy, index) => (

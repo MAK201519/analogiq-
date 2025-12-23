@@ -4,12 +4,14 @@ type HeadingSubheadingProps = {
   heading: string;
   subheading: string;
   className?: string;
+  subheadingClassName?: string;
 };
 
 export default function HeadingSubheading({
   heading,
   subheading,
   className,
+  subheadingClassName,
 }: HeadingSubheadingProps) {
   return (
     <div
@@ -25,7 +27,12 @@ export default function HeadingSubheading({
           </h2>
         </div>
       </div>
-      <p className="font-normal leading-[normal] relative shrink-0 text-[18px] text-black w-[580px] whitespace-pre-wrap">
+      <p
+        className={cn(
+          "font-normal text-lg/[normal] relative shrink-0 text-black w-[580px] whitespace-pre-wrap",
+          subheadingClassName
+        )}
+      >
         {subheading}
       </p>
     </div>

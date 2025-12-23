@@ -1,7 +1,7 @@
-import Image from "next/image";
-import homeDesign from "@/app/home-design.png";
 import NavigationBar from "./components/NavigationBar";
+import Header from "./components/Header";
 import Attribution from "./components/Attribution";
+import DebugCompare from "./components/DebugCompare";
 
 export default async function Home({
   searchParams: searchParamsPromise,
@@ -12,16 +12,10 @@ export default async function Home({
   const isDebug = searchParams.debug === "1";
   return (
     <>
-      {isDebug && (
-        <Image
-          src={homeDesign}
-          alt="home design"
-          width={homeDesign.width / 2}
-          className="h-auto block mx-auto absolute top-0 left-0 right-0 min-w-[1440px]"
-        />
-      )}
+      {isDebug && <DebugCompare />}
       <div className="relative pt-[60px] min-w-[1440px]">
         <NavigationBar />
+        <Header className="mt-[70px]" />
         <Attribution />
       </div>
     </>

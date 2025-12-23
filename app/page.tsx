@@ -4,6 +4,7 @@ import Logotypes from "./components/Logotypes";
 import Attribution from "./components/Attribution";
 import DebugCompare from "./components/DebugCompare";
 import HeadingSubheading from "./components/HeadingSubheading";
+import Services from "./components/Services";
 
 export default async function Home({
   searchParams: searchParamsPromise,
@@ -24,6 +25,7 @@ export default async function Home({
           heading="Services"
           subheading="At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:"
         />
+        <Services className="mt-[80px]" />
         <Attribution className="mt-[70px]" />
       </div>
     </>

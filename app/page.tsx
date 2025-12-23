@@ -8,6 +8,7 @@ import Services from "./components/Services";
 import CTA from "./components/CTA";
 import CaseStudies from "./components/CaseStudies";
 import Process from "./components/Process";
+import Team from "./components/Team";
 
 export default async function Home({
   searchParams: searchParamsPromise,
@@ -43,6 +44,25 @@ export default async function Home({
           subheadingClassName="w-[292px]"
         />
         <Process className="mt-[80px]" />
+        <HeadingSubheading
+          className="mt-[140px]"
+          heading="Team"
+          subheading="Meet the skilled and experienced team behind our successful digital marketing strategies"
+          subheadingClassName="w-[473px]"
+        />
+        <Team className="mt-[80px]" />
+        <HeadingSubheading
+          className="mt-[100px]"
+          heading="Testimonials"
+          subheading="Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
+          subheadingClassName="w-[473px]"
+        />
+        <HeadingSubheading
+          className="mt-[140px]"
+          heading="Contact Us"
+          subheading="Connect with Us: Let's Discuss Your Digital Marketing Needs"
+          subheadingClassName="w-[323px]"
+        />
         <Attribution className="mt-[70px]" />
       </div>
     </>

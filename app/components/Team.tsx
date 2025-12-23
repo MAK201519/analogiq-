@@ -1,0 +1,80 @@
+import { cn } from "@/app/lib/utils";
+import TeamCard from "./TeamCard";
+import type { StaticImageData } from "next/image";
+import personImage1 from "@/app/assets/team/person-1.jpg";
+import personImage2 from "@/app/assets/team/person-2.jpg";
+import personImage3 from "@/app/assets/team/person-3.jpg";
+import Button from "./Button";
+
+type TeamMember = {
+  name: string;
+  title: string;
+  description: string;
+  imageSrc: StaticImageData;
+};
+
+const teamMembers: TeamMember[] = [
+  {
+    name: "John Smith",
+    title: "CEO and Founder",
+    description:
+      "10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy",
+    imageSrc: personImage1,
+  },
+  {
+    name: "Jane Doe",
+    title: "Director of Operations",
+    description:
+      "7+ years of experience in project management and team leadership. Strong organizational and communication skills",
+    imageSrc: personImage3,
+  },
+  {
+    name: "Michael Brown",
+    title: "Senior SEO Specialist",
+    description:
+      "5+ years of experience in SEO and content creation. Proficient in keyword research and on-page optimization",
+    imageSrc: personImage2,
+  },
+  {
+    name: "Emily Johnson",
+    title: "PPC Manager",
+    description:
+      "3+ years of experience in paid search advertising. Skilled in campaign management and performance analysis",
+    imageSrc: personImage2,
+  },
+  {
+    name: "Brian Williams",
+    title: "Social Media Specialist",
+    description:
+      "4+ years of experience in social media marketing. Proficient in creating and scheduling content, analyzing metrics, and building engagement",
+    imageSrc: personImage3,
+  },
+  {
+    name: "Sarah Kim",
+    title: "Content Creator",
+    description:
+      "2+ years of experience in writing and editing.\nSkilled in creating compelling, SEO-optimized content for various industries",
+    imageSrc: personImage1,
+  },
+];
+
+export default function Team({ className }: { className?: string }) {
+  return (
+    <div className="max-w-[1440px] mx-auto px-[100px]">
+      <div
+        className={cn("grid grid-cols-3 gap-[40px] relative", className)}
+        data-name="Group of cards"
+      >
+        {teamMembers.map((member, index) => (
+          <TeamCard key={index} {...member} />
+        ))}
+      </div>
+      <Button
+        variant="primary"
+        className="mt-[40px] block ml-auto py-[19px] px-[76px]"
+      >
+        See all team
+      </Button>
+    </div>
+  );
+}

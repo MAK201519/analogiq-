@@ -1,5 +1,6 @@
 import NavigationBar from "./components/NavigationBar";
 import Header from "./components/Header";
+import Logotypes from "./components/Logotypes";
 import Attribution from "./components/Attribution";
 import DebugCompare from "./components/DebugCompare";
 
@@ -16,6 +17,7 @@ export default async function Home({
       <div className="relative pt-[60px] min-w-[1440px]">
         <NavigationBar />
         <Header className="mt-[70px]" />
+        <Logotypes className="mt-[70px]" />
         <Attribution />
       </div>
     </>

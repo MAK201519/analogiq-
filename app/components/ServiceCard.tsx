@@ -2,6 +2,7 @@ import { cn } from "@/app/lib/utils";
 import LearnMoreLink from "./LearnMoreLink";
 import Heading, { type HeadingVariant } from "./Heading";
 import type { StaticImageData } from "next/image";
+import Image from "next/image";
 
 type LearnMoreLinkVariant =
   | "White"
@@ -17,10 +18,10 @@ type LearnMoreLinkVariant =
 export type CardVariant = "Grey" | "Green" | "DarkWhite" | "DarkGreen";
 
 export type IllustrationStyle = {
-  containerHeight: string;
-  containerWidth: string;
-  backgroundSize: string;
-  backgroundPosition?: string;
+  containerHeight: number;
+  containerWidth: number;
+  backgroundSize: { width: number; height: number };
+  backgroundPosition?: { x: number; y: number };
   transform?: string;
 };
 
@@ -97,23 +98,25 @@ export default function ServiceCard({
         className="relative shrink-0 overflow-hidden"
         data-name="Illustration"
         style={{
-          height: illustrationStyle.containerHeight,
-          width: illustrationStyle.containerWidth,
+          height: illustrationStyle.containerHeight + "px",
+          width: illustrationStyle.containerWidth + "px",
         }}
       >
-        <div
-          className="absolute inset-0"
+        <Image
+          src={illustrationSrc}
+          alt={illustrationAlt}
+          className="absolute max-w-none max-h-none"
           style={{
-            backgroundImage: `url(${illustrationSrc.src})`,
-            backgroundSize: illustrationStyle.backgroundSize,
-            backgroundPosition:
-              illustrationStyle.backgroundPosition || "center",
-            backgroundRepeat: "no-repeat",
-            ...(illustrationStyle.transform && {
-              transform: illustrationStyle.transform,
-            }),
+            width: illustrationStyle.backgroundSize.width + "%",
+            height: illustrationStyle.backgroundSize.height + "%",
+            left:
+              (illustrationStyle.backgroundPosition?.x ??
+                50 - illustrationStyle.backgroundSize.width / 2) + "%",
+            top:
+              (illustrationStyle.backgroundPosition?.y ??
+                50 - illustrationStyle.backgroundSize.height / 2) + "%",
+            transform: illustrationStyle.transform,
           }}
-          aria-label={illustrationAlt}
         />
       </div>
     </div>

@@ -81,6 +81,7 @@ export default function Contact({ className }: ContactProps) {
               id="name"
               name="name"
               type="text"
+              autoComplete="name"
               value={formData.name}
               onChange={handleInputChange}
               label="Name"
@@ -90,6 +91,7 @@ export default function Contact({ className }: ContactProps) {
               id="email"
               name="email"
               type="email"
+              autoComplete="email"
               value={formData.email}
               onChange={handleInputChange}
               label="Email*"

@@ -12,7 +12,7 @@ export default function Attribution({ className }: { className?: string }) {
         className={cn(
           "bg-[#191a23] text-white flex gap-[20px] flex-wrap justify-center relative",
           "border-t border-white px-[20px] py-[10px]",
-          "[&_a]:text-[#b9ff66] [&_a]:underline-offset-1 [&_a]:decoration-solid [&_a:hover]:underline"
+          "[&_a]:text-[#b9ff66] [&_a]:font-medium [&_a]:decoration-solid [&_a]:decoration-[#b9ff66] [&_a]:hover:text-[#cfff7f]"
         )}
       >
         <p>

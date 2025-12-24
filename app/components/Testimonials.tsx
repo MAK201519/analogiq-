@@ -132,11 +132,20 @@ export default function Testimonials({ className }: { className?: string }) {
               data-name="Navigation stars"
             >
               <div className="col-1 h-[14px] ml-0 mt-0 relative row-1 w-[146px] flex items-center gap-[19px]">
-                {Array.from({ length: 5 }).map((_, index) => (
+                {Array.from({ length: testimonials.length }).map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setActualIndex(index)}
                     className="p-0 m-0 border-none bg-transparent cursor-pointer"
+                    aria-label={
+                      index === actualIndex
+                        ? `Current testimonial ${index + 1} of ${
+                            testimonials.length
+                          }`
+                        : `Go to testimonial ${index + 1} of ${
+                            testimonials.length
+                          }`
+                    }
                   >
                     <StarIcon
                       className={cn(

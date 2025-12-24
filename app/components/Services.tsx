@@ -26,9 +26,9 @@ const services: ServiceItem[] = [
     illustrationSrc: imgSEO,
     illustrationAlt: "Search engine optimization illustration",
     illustrationStyle: {
-      containerHeight: "170px",
-      containerWidth: "210px",
-      backgroundSize: "148.84% 188.24%",
+      containerHeight: 170,
+      containerWidth: 210,
+      backgroundSize: { width: 148.84, height: 183.86 },
     },
   },
   {
@@ -37,9 +37,9 @@ const services: ServiceItem[] = [
     illustrationSrc: imgPPC,
     illustrationAlt: "Pay-per-click advertising illustration",
     illustrationStyle: {
-      containerHeight: "147.624px",
-      containerWidth: "210px",
-      backgroundSize: "126.73% 180.28%",
+      containerHeight: 147.624,
+      containerWidth: 210,
+      backgroundSize: { width: 126.73, height: 180.28 },
     },
   },
   {
@@ -48,9 +48,9 @@ const services: ServiceItem[] = [
     illustrationSrc: imgSocialMedia,
     illustrationAlt: "Social Media Marketing illustration",
     illustrationStyle: {
-      containerHeight: "210px",
-      containerWidth: "210px",
-      backgroundSize: "141.44% 140.66%",
+      containerHeight: 210,
+      containerWidth: 210,
+      backgroundSize: { width: 141.44, height: 141.44 },
     },
   },
   {
@@ -59,11 +59,11 @@ const services: ServiceItem[] = [
     illustrationSrc: imgEmail,
     illustrationAlt: "Email Marketing illustration",
     illustrationStyle: {
-      containerHeight: "192.68px",
-      containerWidth: "210px",
-      backgroundSize: "140.67% 153.3%",
-      backgroundPosition: "59% 50%",
-      transform: "rotate(180deg) scaleY(-1)",
+      containerHeight: 192.68,
+      containerWidth: 210,
+      backgroundSize: { width: 140.67, height: 153.3 },
+      backgroundPosition: { x: 59 - 75.7, y: 50 - 76.6 },
+      transform: "scaleX(-1)",
     },
   },
   {
@@ -72,9 +72,9 @@ const services: ServiceItem[] = [
     illustrationSrc: imgContent,
     illustrationAlt: "Content Creation illustration",
     illustrationStyle: {
-      containerHeight: "195.915px",
-      containerWidth: "210px",
-      backgroundSize: "132.08% 141.26%",
+      containerHeight: 195.915,
+      containerWidth: 210,
+      backgroundSize: { width: 132.08, height: 141.26 },
     },
   },
   {
@@ -83,9 +83,9 @@ const services: ServiceItem[] = [
     illustrationSrc: imgAnalytics,
     illustrationAlt: "Analytics and Tracking illustration",
     illustrationStyle: {
-      containerHeight: "170px",
-      containerWidth: "210px",
-      backgroundSize: "108.36% 134.02%",
+      containerHeight: 170,
+      containerWidth: 210,
+      backgroundSize: { width: 108.36, height: 134.02 },
     },
   },
 ];

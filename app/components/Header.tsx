@@ -4,7 +4,7 @@ import HeaderIllustration from "@/app/assets/illustrations/header.svg";
 
 export default function Header({ className }: { className?: string }) {
   return (
-    <div
+    <main
       className={cn(
         "flex items-start justify-between px-[100px] py-0 relative w-full max-w-[1440px] mx-auto",
         className
@@ -30,6 +30,6 @@ export default function Header({ className }: { className?: string }) {
           height={515}
         />
       </div>
-    </div>
+    </main>
   );
 }

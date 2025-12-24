@@ -16,6 +16,7 @@ export default function NavigationBar() {
       <Link
         href="/"
         className="flex items-start overflow-clip px-0 py-[10px] relative shrink-0"
+        aria-label="Home"
       >
         <Logo className="h-[36px] relative shrink-0 w-[219.537px]" />
       </Link>

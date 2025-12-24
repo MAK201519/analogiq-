@@ -1,9 +1,11 @@
 import { cn } from "@/app/lib/utils";
+import { HTMLInputAutoCompleteAttribute } from "react";
 
 type InputTextProps = {
   id: string;
   name: string;
   type?: "text" | "email" | "tel" | "password" | "textarea";
+  autoComplete?: HTMLInputAutoCompleteAttribute;
   value: string;
   onChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -21,6 +23,7 @@ export default function InputText({
   id,
   name,
   type = "text",
+  autoComplete,
   value,
   onChange,
   label,
@@ -62,6 +65,7 @@ export default function InputText({
         <textarea
           id={id}
           name={name}
+          autoComplete={autoComplete}
           value={value}
           onChange={onChange}
           placeholder={placeholder}
@@ -75,6 +79,7 @@ export default function InputText({
           type={type}
           id={id}
           name={name}
+          autoComplete={autoComplete}
           value={value}
           onChange={onChange}
           placeholder={placeholder}

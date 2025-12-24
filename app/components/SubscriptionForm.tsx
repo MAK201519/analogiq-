@@ -45,6 +45,7 @@ export default function SubscriptionForm({ className }: SubscriptionFormProps) {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Email"
+        autoComplete="email"
         required
         disabled={isSubmitting}
         className="border border-solid border-white flex items-start overflow-clip px-[35px] py-[21px] relative rounded-[14px] shrink-0 w-[285px] font-normal leading-[normal] text-[18px] text-white placeholder:text-white bg-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#292a32] disabled:opacity-50 disabled:cursor-not-allowed"

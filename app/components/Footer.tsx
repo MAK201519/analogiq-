@@ -31,6 +31,7 @@ export default function Footer({ className }: { className?: string }) {
             <Link
               href="."
               className="flex items-center gap-[11px] shrink-0 h-[29px] w-[180px]"
+              aria-label="Home"
             >
               <LogoIcon
                 className="block max-w-none [&_path]:fill-white"
@@ -63,20 +64,24 @@ export default function Footer({ className }: { className?: string }) {
                 {
                   icon: LinkedInIcon,
                   href: ".",
+                  label: "LinkedIn",
                 },
                 {
                   icon: FacebookIcon,
                   href: ".",
+                  label: "Facebook",
                 },
                 {
                   icon: TwitterIcon,
                   href: ".",
+                  label: "Twitter",
                 },
-              ].map(({ icon: Icon, href }, index) => (
+              ].map(({ icon: Icon, href, label }, index) => (
                 <Link
                   key={index}
                   href={href}
                   className="block max-w-none size-full"
+                  aria-label={label}
                 >
                   <Icon width={30} height={30} />
                 </Link>

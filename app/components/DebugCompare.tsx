@@ -1,5 +1,5 @@
 "use client";
-import homeDesign from "@/app/home-design.png";
+import homeDesign from "@/app/home-design-3x.png";
 import Image from "next/image";
 import { cn } from "../lib/utils";
 import useLocalStorageState from "use-local-storage-state";
@@ -31,7 +31,7 @@ export default function DebugCompare() {
       <Image
         src={homeDesign}
         alt="home design"
-        width={homeDesign.width / 2}
+        width={1440}
         className={cn(
           "h-auto block mx-auto absolute top-0 left-0 right-0 pointer-events-none min-w-[1440px]",
           isVisible ? "opacity-100" : "opacity-0",
@@ -42,7 +42,7 @@ export default function DebugCompare() {
       />
       <div
         className={cn(
-          "fixed bottom-2 right-2 flex gap-2 z-20",
+          "fixed bottom-2 flex gap-2 z-20",
           position === "right" ? "right-2" : "left-2"
         )}
       >

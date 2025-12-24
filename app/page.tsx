@@ -11,6 +11,7 @@ import Process from "./components/Process";
 import Team from "./components/Team";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default async function Home({
   searchParams: searchParamsPromise,
@@ -67,7 +68,8 @@ export default async function Home({
           subheadingClassName="w-[323px]"
         />
         <Contact className="mt-[80px]" />
-        <Attribution className="mt-[70px]" />
+        <Footer className="mt-[139px]" />
+        <Attribution />
       </div>
     </>
   );

@@ -43,7 +43,7 @@ export default function CaseStudies({ className }: { className?: string }) {
             >
               {index > 0 && (
                 <div
-                  className="absolute -left-[64px] top-0 bottom-0 w-px h-full bg-white opacity-20"
+                  className="absolute -left-[64px] top-0 bottom-0 w-px h-full bg-white"
                   aria-hidden="true"
                 />
               )}

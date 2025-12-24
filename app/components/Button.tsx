@@ -10,6 +10,7 @@ type ButtonProps = {
   href?: string;
   onClick?: () => void;
   className?: string;
+  disabled?: boolean;
 };
 
 export default function Button({
@@ -19,9 +20,10 @@ export default function Button({
   href,
   onClick,
   className,
+  disabled,
 }: ButtonProps) {
   const baseStyles =
-    "flex items-start px-[35px] py-[20px] relative rounded-[14px] shrink-0 font-normal leading-[28px] text-[20px] text-center transition-colors cursor-pointer";
+    "flex items-start px-[35px] py-[20px] relative rounded-[14px] shrink-0 font-normal leading-[28px] text-[20px] text-center transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variantStyles = {
     primary: "bg-[#191a23] text-white hover:bg-[#2a2b35]",
@@ -41,7 +43,12 @@ export default function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={combinedClassName}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={combinedClassName}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

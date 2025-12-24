@@ -45,18 +45,25 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+const fixModulo = (value: number, modulo: number) => {
+  return ((value % modulo) + modulo) % modulo;
+};
+
 export default function Testimonials({ className }: { className?: string }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const actualIndex = fixModulo(currentIndex, testimonials.length);
 
   const handlePrevious = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1
-    );
+    setCurrentIndex((prev) => prev - 1);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev === testimonials.length - 1 ? 0 : prev + 1
+    setCurrentIndex((prev) => prev + 1);
+  };
+
+  const setActualIndex = (index: number) => {
+    setCurrentIndex(
+      (prev) => prev + (index - fixModulo(prev, testimonials.length))
     );
   };
 
@@ -80,27 +87,18 @@ export default function Testimonials({ className }: { className?: string }) {
             <div
               className="flex items-start gap-[50px] transition-transform duration-300 ease-in-out"
               style={{
-                transform: `translateX(calc(-${currentIndex} * (606px + 50px) + 50% - 310px))`,
+                transform: `translateX(calc(${-currentIndex} * (606px + 50px) + 50% - 310px))`,
               }}
             >
               {testimonials.map((testimonial, index) => {
-                const offset =
-                  currentIndex === 0 && index === testimonials.length - 1
-                    ? -testimonials.length
-                    : currentIndex === testimonials.length - 1 && index === 0
-                    ? testimonials.length
-                    : 0;
-                const transform = `translateX(calc(656px * ${offset}))`;
+                const N = testimonials.length;
+                const offset = Math.round((currentIndex - index) / N) * N;
+                const transform = `translateX(calc((606px + 50px) * ${offset}))`;
                 return (
                   <TestimonialCard
                     key={index}
                     quote={testimonial.quote}
-                    authorName={
-                      testimonial.authorName +
-                      (process.env.NODE_ENV === "development"
-                        ? ` #${index + 1}`
-                        : "")
-                    }
+                    authorName={testimonial.authorName}
                     authorTitle={testimonial.authorTitle}
                     style={{ transform }}
                   />
@@ -116,7 +114,7 @@ export default function Testimonials({ className }: { className?: string }) {
               onClick={handlePrevious}
               className={cn(
                 "h-0 relative shrink-0 w-[20px] cursor-pointer hover:opacity-30 transition-opacity",
-                currentIndex === 0 && "opacity-30"
+                actualIndex === 0 && "opacity-30"
               )}
               data-name="Arrow left"
               aria-label="Previous testimonial"
@@ -137,13 +135,13 @@ export default function Testimonials({ className }: { className?: string }) {
                 {Array.from({ length: 5 }).map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => setCurrentIndex(index)}
+                    onClick={() => setActualIndex(index)}
                     className="p-0 m-0 border-none bg-transparent cursor-pointer"
                   >
                     <StarIcon
                       className={cn(
                         "block max-w-none size-full",
-                        index === currentIndex ? "text-[#B9FF66]" : "text-white"
+                        index === actualIndex ? "text-[#B9FF66]" : "text-white"
                       )}
                       width={14}
                       height={14}
@@ -156,7 +154,7 @@ export default function Testimonials({ className }: { className?: string }) {
               onClick={handleNext}
               className={cn(
                 "flex items-center justify-center relative shrink-0 cursor-pointer hover:opacity-30 transition-opacity",
-                currentIndex === testimonials.length - 1 && "opacity-30"
+                actualIndex === testimonials.length - 1 && "opacity-30"
               )}
               data-name="Arrow right"
               aria-label="Next testimonial"

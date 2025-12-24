@@ -14,10 +14,10 @@ import Footer from "./components/Footer";
 
 export default async function Home() {
   return (
-    <div className="relative pt-[60px] min-w-[1440px]">
+    <div className="relative pt-[60px] max-sm:pt-[30px]">
       <NavigationBar />
-      <Header className="mt-[70px]" />
-      <Logotypes className="mt-[70px]" />
+      <Header className="mt-[70px] max-sm:mt-[40px]" />
+      <Logotypes className="mt-[70px] max-sm:mt-[40px]" />
       <HeadingSubheading
         className="mt-[140px]"
         heading="Services"

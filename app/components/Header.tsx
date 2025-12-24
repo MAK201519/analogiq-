@@ -6,28 +6,38 @@ export default function Header({ className }: { className?: string }) {
   return (
     <main
       className={cn(
-        "flex items-start justify-between px-[100px] py-0 relative w-full max-w-[1440px] mx-auto",
+        "flex items-center max-md:flex-col justify-between gap-[20px] px-[100px] max-xl:px-[60px] max-sm:px-[30px] py-0 relative w-full max-w-[1440px] mx-auto",
         className
       )}
     >
-      <div className="flex flex-col gap-[35px] items-start relative shrink-0">
-        <h1 className="font-medium leading-[normal] relative shrink-0 text-[60px] text-black w-[531px] whitespace-pre-wrap">
+      <div className="flex flex-col gap-[35px] max-xl:gap-[25px] items-start relative shrink-0 flex-1 pb-[34px] max-md:pb-0 max-w-[531px] max-md:max-w-none">
+        <h1 className="font-medium relative shrink-0 text-[60px]/[normal] max-xl:text-[48px]/[1] whitespace-pre-wrap">
           Navigating the digital landscape for success
         </h1>
-        <p className="font-normal leading-[28px] relative shrink-0 text-[20px] text-black w-[498px] whitespace-pre-wrap">
+        <svg
+          viewBox="0 0 601 515"
+          className="hidden max-md:block mx-auto max-w-[480px]"
+        >
+          <use href="#header-illustration" />
+        </svg>
+        <p className="font-normal relative shrink-0 text-[20px]/[28px] max-xl:text-[16px]/[24px] max-w-[498px] max-md:max-w-none whitespace-pre-wrap">
           Our digital marketing agency helps businesses grow and succeed online
           through a range of services including SEO, PPC, social media
           marketing, and content creation.
         </p>
-        <Button variant="primary" className="py-[19px] pr-[36px]">
+        <Button
+          variant="primary"
+          className="py-[19px] pr-[36px] max-md:w-full justify-center"
+        >
           Book a consultation
         </Button>
       </div>
-      <div className="relative shrink-0">
+      <div className="relative shrink-0 flex-1 max-md:hidden">
         <HeaderIllustration
-          className="block max-w-none"
+          className="block max-w-full h-auto ml-auto"
           width={601}
           height={515}
+          id="header-illustration"
         />
       </div>
     </main>

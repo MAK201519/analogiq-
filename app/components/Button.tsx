@@ -11,7 +11,7 @@ type ButtonProps = {
   onClick?: () => void;
   className?: string;
   disabled?: boolean;
-};
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function Button({
   type,
@@ -21,9 +21,10 @@ export default function Button({
   onClick,
   className,
   disabled,
+  ...props
 }: ButtonProps) {
   const baseStyles =
-    "flex items-start px-[35px] py-[20px] relative rounded-[14px] shrink-0 font-normal leading-[28px] text-[20px] text-center transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed";
+    "flex items-start px-[35px] py-[20px] max-xl:px-[25px] max-xl:py-[15px] max-sm:px-[20px] max-sm:py-[10px] relative rounded-[14px] shrink-0 font-normal leading-[28px] text-[20px] text-center transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variantStyles = {
     primary: "bg-[#191a23] text-white hover:bg-[#2a2b35]",
@@ -48,6 +49,7 @@ export default function Button({
       onClick={onClick}
       className={combinedClassName}
       disabled={disabled}
+      {...props}
     >
       {children}
     </button>

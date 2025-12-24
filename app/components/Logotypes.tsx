@@ -40,23 +40,27 @@ const logos: LogoItem[] = [
 
 export default function Logotypes({ className }: { className?: string }) {
   return (
-    <div
-      className={cn(
-        "flex items-start justify-between px-[100px] py-0 relative w-full max-w-[1440px] mx-auto",
-        className
-      )}
-    >
-      {logos.map(({ Logo, width }, index) => (
-        <div
-          key={index}
-          className={cn(
-            "h-[48px] mix-blend-luminosity overflow-clip relative shrink-0 flex items-center justify-center",
-            width
-          )}
-        >
-          <Logo className="block max-w-none size-full" />
-        </div>
-      ))}
+    <div className="relative">
+      <div
+        className={cn(
+          "flex items-start justify-between px-[100px] max-xl:px-[60px] max-sm:px-[40px] max-xl:gap-[35px] overflow-x-auto [scrollbar-width:none] py-0 w-full max-w-[1440px] mx-auto",
+          className
+        )}
+      >
+        {logos.map(({ Logo, width }, index) => (
+          <div
+            key={index}
+            className={cn(
+              "h-[48px] mix-blend-luminosity overflow-clip relative shrink-0 flex items-center justify-center",
+              width
+            )}
+          >
+            <Logo className="block max-w-none size-full" />
+          </div>
+        ))}
+      </div>
+      <div className="absolute left-0 top-0 h-full w-[60px] max-sm:w-[30px] bg-linear-to-r from-white to-transparent"></div>
+      <div className="absolute right-0 top-0 h-full w-[60px] max-sm:w-[30px] bg-linear-to-l from-white to-transparent"></div>
     </div>
   );
 }

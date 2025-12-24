@@ -4,6 +4,7 @@ import { cn } from "@/app/lib/utils";
 type ButtonVariant = "primary" | "secondary" | "tertiary";
 
 type ButtonProps = {
+  type?: "button" | "submit" | "reset";
   variant?: ButtonVariant;
   children: React.ReactNode;
   href?: string;
@@ -12,6 +13,7 @@ type ButtonProps = {
 };
 
 export default function Button({
+  type,
   variant = "secondary",
   children,
   href,
@@ -39,7 +41,7 @@ export default function Button({
   }
 
   return (
-    <button onClick={onClick} className={combinedClassName}>
+    <button type={type} onClick={onClick} className={combinedClassName}>
       {children}
     </button>
   );

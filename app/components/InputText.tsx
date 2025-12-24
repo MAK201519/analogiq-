@@ -1,0 +1,88 @@
+import { cn } from "@/app/lib/utils";
+
+type InputTextProps = {
+  id: string;
+  name: string;
+  type?: "text" | "email" | "tel" | "password" | "textarea";
+  value: string;
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  label: string;
+  placeholder?: string;
+  required?: boolean;
+  rows?: number;
+  className?: string;
+  inputClassName?: string;
+  dataName?: string;
+};
+
+export default function InputText({
+  id,
+  name,
+  type = "text",
+  value,
+  onChange,
+  label,
+  placeholder,
+  required = false,
+  rows = 8,
+  className,
+  inputClassName,
+  dataName,
+}: InputTextProps) {
+  const isTextarea = type === "textarea";
+
+  const containerClassName = cn(
+    "flex flex-col gap-[4px] items-start relative shrink-0",
+    isTextarea && "h-[223px]",
+    className
+  );
+
+  const baseInputClassName =
+    "bg-white border border-black border-solid flex items-start overflow-clip px-[30px] py-[18px] relative rounded-[14px] shrink-0 w-[556px] font-normal leading-[normal] text-[18px] text-black placeholder:text-[#898989] focus:outline-none focus:ring-2 focus:ring-[#191a23] focus:ring-offset-2";
+
+  const textareaClassName = cn(
+    baseInputClassName,
+    "h-[190px] resize-none",
+    inputClassName
+  );
+
+  const inputClassNameFinal = cn(baseInputClassName, inputClassName);
+
+  return (
+    <div className={containerClassName} data-name={dataName || "Field"}>
+      <label
+        htmlFor={id}
+        className="font-normal leading-[28px] relative shrink-0 text-[16px] text-black"
+      >
+        {label}
+      </label>
+      {isTextarea ? (
+        <textarea
+          id={id}
+          name={name}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          required={required}
+          rows={rows}
+          className={textareaClassName}
+          data-name="Input"
+        />
+      ) : (
+        <input
+          type={type}
+          id={id}
+          name={name}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          required={required}
+          className={inputClassNameFinal}
+          data-name="Input"
+        />
+      )}
+    </div>
+  );
+}

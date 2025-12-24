@@ -25,12 +25,12 @@ export default function NavigationBar() {
           <Link
             key={index}
             href={href}
-            className="font-normal leading-[28px] relative shrink-0 text-[20px] text-black pl-px"
+            className="font-normal leading-[28px] relative shrink-0 text-[20px] text-black ml-px"
           >
             {label}
           </Link>
         ))}
-        <Button href="." variant="secondary" className="py-[18px] pl-[34px]">
+        <Button href="." variant="secondary" className="py-[18px] px-[34px]">
           Request a quote
         </Button>
       </div>

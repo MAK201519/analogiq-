@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    inlineCss: true,
+  },
   // Webpack configuration (for --webpack flag)
   webpack(config) {
     // Find the rule that handles SVG files

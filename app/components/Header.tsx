@@ -16,7 +16,7 @@ export default function Header({ className }: { className?: string }) {
         </h1>
         <svg
           viewBox="0 0 601 515"
-          className="hidden max-md:block mx-auto max-w-[480px]"
+          className="hidden max-md:block mx-auto max-w-[480px] -mb-[25px]"
         >
           <use href="#header-illustration" />
         </svg>

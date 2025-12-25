@@ -27,7 +27,6 @@ const services: ServiceItem[] = [
     illustrationAlt: "Search engine optimization illustration",
     illustrationStyle: {
       containerHeight: 170,
-      containerWidth: 210,
       backgroundSize: { width: 148.84, height: 183.86 },
     },
   },
@@ -38,7 +37,6 @@ const services: ServiceItem[] = [
     illustrationAlt: "Pay-per-click advertising illustration",
     illustrationStyle: {
       containerHeight: 147.624,
-      containerWidth: 210,
       backgroundSize: { width: 126.73, height: 180.28 },
     },
   },
@@ -49,7 +47,6 @@ const services: ServiceItem[] = [
     illustrationAlt: "Social Media Marketing illustration",
     illustrationStyle: {
       containerHeight: 210,
-      containerWidth: 210,
       backgroundSize: { width: 141.44, height: 141.44 },
     },
   },
@@ -60,7 +57,6 @@ const services: ServiceItem[] = [
     illustrationAlt: "Email Marketing illustration",
     illustrationStyle: {
       containerHeight: 192.68,
-      containerWidth: 210,
       backgroundSize: { width: 140.67, height: 153.3 },
       backgroundPosition: { x: 59 - 75.7, y: 50 - 76.6 },
       transform: "scaleX(-1)",
@@ -73,7 +69,6 @@ const services: ServiceItem[] = [
     illustrationAlt: "Content Creation illustration",
     illustrationStyle: {
       containerHeight: 195.915,
-      containerWidth: 210,
       backgroundSize: { width: 132.08, height: 141.26 },
     },
   },
@@ -84,7 +79,6 @@ const services: ServiceItem[] = [
     illustrationAlt: "Analytics and Tracking illustration",
     illustrationStyle: {
       containerHeight: 170,
-      containerWidth: 210,
       backgroundSize: { width: 108.36, height: 134.02 },
     },
   },
@@ -94,29 +88,14 @@ export default function Services({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex flex-col gap-[40px] items-start relative w-full max-w-[1440px] mx-auto",
+        "grid grid-cols-2 gap-[40px] max-xl:gap-[30px] max-lg:grid-cols-1 items-start relative w-full max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-[30px]",
         className
       )}
       data-name="Services block"
     >
-      {services.map((service, index) => {
-        // Group services into rows of 2
-        const isFirstInRow = index % 2 === 0;
-
-        if (isFirstInRow) {
-          return (
-            <div
-              key={index}
-              className="flex gap-[40px] items-start px-[100px] py-0 relative shrink-0 w-full"
-              data-name="Cards section"
-            >
-              <ServiceCard {...service} />
-              {services[index + 1] && <ServiceCard {...services[index + 1]} />}
-            </div>
-          );
-        }
-        return null;
-      })}
+      {services.map((service, index) => (
+        <ServiceCard key={index} {...service} />
+      ))}
     </div>
   );
 }

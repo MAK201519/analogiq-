@@ -19,7 +19,6 @@ export type CardVariant = "Grey" | "Green" | "DarkWhite" | "DarkGreen";
 
 export type IllustrationStyle = {
   containerHeight: number;
-  containerWidth: number;
   backgroundSize: { width: number; height: number };
   backgroundPosition?: { x: number; y: number };
   transform?: string;
@@ -81,25 +80,29 @@ export default function ServiceCard({
   return (
     <div
       className={cn(
-        "border border-[#191a23] border-solid flex items-center justify-between overflow-clip p-[49px] relative rounded-[45px] shadow-[0px_5px_0px_0px_#191a23] shrink-0 w-[600px]",
+        "border border-[#191a23] border-solid flex items-center justify-between gap-[10px] overflow-clip p-[49px] max-xl:p-[35px] relative rounded-[45px] shadow-[0px_5px_0px_0px_#191a23] shrink-0 w-full",
         className
       )}
       style={{ backgroundColor }}
       data-name="Card"
     >
       <div
-        className="flex flex-col gap-[93px] items-start justify-center relative shrink-0"
+        className="flex flex-col gap-[93px] max-xl:gap-[60px] items-start justify-center relative shrink-0"
         data-name="Heading and link"
       >
-        <Heading lines={lines} variant={headingVariant} fontSize="30px" />
+        <Heading
+          lines={lines}
+          variant={headingVariant}
+          headingClassName="text-[30px]/[1.27] max-xl:text-[25px]/[1.27]"
+          as="h3"
+        />
         <LearnMoreLink variant={linkVariant} />
       </div>
       <div
-        className="relative shrink-0 overflow-hidden"
+        className="relative shrink-0 overflow-hidden flex-1 h-auto max-w-[210px]"
         data-name="Illustration"
         style={{
-          height: illustrationStyle.containerHeight + "px",
-          width: illustrationStyle.containerWidth + "px",
+          aspectRatio: `210 / ${illustrationStyle.containerHeight}`,
         }}
       >
         <Image

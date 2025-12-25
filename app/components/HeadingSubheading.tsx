@@ -16,20 +16,20 @@ export default function HeadingSubheading({
   return (
     <div
       className={cn(
-        "flex gap-[40px] items-start px-[100px] py-0 relative w-full max-w-[1440px] mx-auto",
+        "flex max-sm:flex-col gap-[40px] max-lg:gap-[30px] max-sm:gap-[20px] items-start px-[100px] max-xl:px-[60px] max-sm:px-[30px] py-0 relative w-full max-w-[1440px] mx-auto",
         className
       )}
     >
       <div className="flex flex-col items-start relative shrink-0">
         <div className="bg-[#b9ff66] flex flex-col items-start px-[7px] py-0 relative rounded-[7px] shrink-0">
-          <h2 className="font-medium leading-[normal] relative shrink-0 text-[40px] text-black">
+          <h2 className="font-medium relative shrink-0 text-[40px]/[normal] max-sm:text-[30px]/[normal] text-black">
             {heading}
           </h2>
         </div>
       </div>
       <p
         className={cn(
-          "font-normal text-lg/[normal] relative shrink-0 text-black w-[580px] whitespace-pre-wrap",
+          "font-normal text-lg/[normal] relative shrink-0 flex-1 text-black max-w-[580px] whitespace-pre-wrap",
           subheadingClassName
         )}
       >

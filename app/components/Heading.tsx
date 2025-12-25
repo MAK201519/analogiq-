@@ -5,15 +5,17 @@ export type HeadingVariant = "Green" | "White" | "Black";
 type HeadingProps = {
   lines: string[];
   variant?: HeadingVariant;
-  fontSize?: string;
   className?: string;
+  headingClassName?: string;
+  as?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
 
 export default function Heading({
   lines,
   variant = "Green",
-  fontSize = "40px",
   className,
+  headingClassName,
+  as: HeadingTag = "h2",
 }: HeadingProps) {
   // Limit to 3 lines
   const displayLines = lines.slice(0, 3);
@@ -35,25 +37,23 @@ export default function Heading({
   const textColor = getTextColor();
 
   return (
-    <div
+    <HeadingTag
       className={cn("flex flex-col items-start relative", className)}
       data-name="Heading"
     >
       {displayLines.map((line, index) => (
-        <div
+        <span
           key={index}
-          className="flex flex-col items-start px-[7px] py-0 relative rounded-[7px] shrink-0"
-          style={{ backgroundColor }}
+          className={cn(
+            "block font-medium text-[40px]/[1.27] relative shrink-0 px-[7px] py-0 rounded-[7px]",
+            headingClassName
+          )}
+          style={{ backgroundColor, color: textColor }}
           data-name="Label"
         >
-          <p
-            className="font-medium leading-[1.27] relative shrink-0"
-            style={{ color: textColor, fontSize }}
-          >
-            {line}
-          </p>
-        </div>
+          {line}
+        </span>
       ))}
-    </div>
+    </HeadingTag>
   );
 }

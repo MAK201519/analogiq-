@@ -19,12 +19,12 @@ export default async function Home() {
       <Header className="mt-[70px] max-sm:mt-[40px]" />
       <Logotypes className="mt-[70px] max-sm:mt-[40px]" />
       <HeadingSubheading
-        className="mt-[140px]"
+        className="mt-[140px] max-lg:mt-[100px] max-sm:mt-[60px]"
         heading="Services"
         subheading="At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:"
       />
-      <Services className="mt-[80px]" />
-      <CTA className="mt-[100px]" />
+      <Services className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
+      <CTA className="mt-[100px] max-sm:mt-[40px]" />
       <HeadingSubheading
         className="mt-[140px]"
         heading="Case Studies"

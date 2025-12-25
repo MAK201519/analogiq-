@@ -1,7 +1,7 @@
 import { cn } from "@/app/lib/utils";
 
 type HeadingSubheadingProps = {
-  heading: string;
+  heading: string | React.ReactNode;
   subheading: string;
   className?: string;
   subheadingClassName?: string;

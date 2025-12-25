@@ -26,16 +26,16 @@ export default async function Home() {
       <Services className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
       <CTA className="mt-[100px] max-sm:mt-[40px]" />
       <HeadingSubheading
-        className="mt-[140px]"
+        className="mt-[140px] max-lg:mt-[100px] max-sm:mt-[60px]"
         heading="Case Studies"
         subheading="Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies"
       />
-      <CaseStudies className="mt-[80px]" />
+      <CaseStudies className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
       <HeadingSubheading
-        className="mt-[140px]"
+        className="mt-[140px] max-md:flex-col"
         heading="Our Working Process"
         subheading="Step-by-Step Guide to Achieving Your Business Goals"
-        subheadingClassName="w-[292px]"
+        subheadingClassName="max-w-[292px]"
       />
       <Process className="mt-[80px]" />
       <HeadingSubheading

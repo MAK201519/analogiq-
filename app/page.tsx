@@ -46,12 +46,12 @@ export default async function Home() {
       />
       <Team className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
       <HeadingSubheading
-        className="mt-[100px]"
+        className="mt-[100px] max-lg:mt-[80px] max-sm:mt-[60px]"
         heading="Testimonials"
         subheading="Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
-        subheadingClassName="w-[473px]"
+        subheadingClassName="max-w-[473px]"
       />
-      <Testimonials className="mt-[80px]" />
+      <Testimonials className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
       <HeadingSubheading
         className="mt-[140px]"
         heading="Contact Us"

@@ -68,7 +68,12 @@ export default function Testimonials({ className }: { className?: string }) {
   };
 
   return (
-    <div className={cn("max-w-[1440px] mx-auto px-[100px]", className)}>
+    <div
+      className={cn(
+        "max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-[30px]",
+        className
+      )}
+    >
       <div
         className={cn(
           "bg-[#191a23] overflow-clip relative rounded-[45px] size-full",
@@ -77,37 +82,47 @@ export default function Testimonials({ className }: { className?: string }) {
         data-name="Testimonials block"
       >
         <div
-          className="flex flex-col gap-[124px] items-center relative pt-[84px] pb-[68px]"
+          className="flex flex-col gap-[124px] max-md:gap-[80px] max-sm:gap-[40px] items-center relative pt-[84px] pb-[68px] max-md:py-[60px] max-sm:py-[40px]"
           data-name="Testimonials"
         >
           <div
-            className="flex items-start justify-center gap-0 relative shrink-0 w-full overflow-hidden"
+            className="flex items-start justify-center gap-0 relative shrink-0 w-full overflow-hidden xl:pr-[14px] max-lg:px-[30px]"
             data-name="Cards"
           >
-            <div
-              className="flex items-start gap-[50px] transition-transform duration-300 ease-in-out"
-              style={{
-                transform: `translateX(calc(${-currentIndex} * (606px + 50px) + 50% - 310px))`,
-              }}
-            >
-              {testimonials.map((testimonial, index) => {
-                const N = testimonials.length;
-                const offset = Math.round((currentIndex - index) / N) * N;
-                const transform = `translateX(calc((606px + 50px) * ${offset}))`;
-                return (
-                  <TestimonialCard
-                    key={index}
-                    quote={testimonial.quote}
-                    authorName={testimonial.authorName}
-                    authorTitle={testimonial.authorTitle}
-                    style={{ transform }}
-                  />
-                );
-              })}
+            <div className="w-full max-w-[656px] mx-auto">
+              <div
+                className="flex items-start transition-transform duration-300 ease-in-out"
+                style={{
+                  width: `${testimonials.length * 100}%`,
+                  transform: `translateX(${
+                    (-currentIndex * 100) / testimonials.length
+                  }%)`,
+                }}
+              >
+                {testimonials.map((testimonial, index) => {
+                  const N = testimonials.length;
+                  const offset = Math.round((currentIndex - index) / N) * N;
+                  const transform = `translateX(${offset * 100}%)`;
+                  return (
+                    <TestimonialCard
+                      key={index}
+                      quote={testimonial.quote}
+                      authorName={
+                        testimonial.authorName +
+                        (process.env.NODE_ENV === "development"
+                          ? ` #${index + 1}${" ".repeat(60)}#${index + 1}`
+                          : "")
+                      }
+                      authorTitle={testimonial.authorTitle}
+                      style={{ transform }}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </div>
           <div
-            className="content-stretch flex items-center justify-between relative shrink-0 w-[564px] mr-[14px]"
+            className="content-stretch flex items-center justify-between gap-[10px] relative shrink-0 w-full px-[40px] max-w-[644px] xl:mr-[14px]"
             data-name="Navigation"
           >
             <button
@@ -127,37 +142,32 @@ export default function Testimonials({ className }: { className?: string }) {
                 />
               </div>
             </button>
-            <div
-              className="grid-cols-[max-content] grid-rows-[max-content] inline-grid justify-items-start leading-0 relative shrink-0"
-              data-name="Navigation stars"
-            >
-              <div className="col-1 h-[14px] ml-0 mt-0 relative row-1 w-[146px] flex items-center gap-[19px]">
-                {Array.from({ length: testimonials.length }).map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActualIndex(index)}
-                    className="p-0 m-0 border-none bg-transparent cursor-pointer"
-                    aria-label={
-                      index === actualIndex
-                        ? `Current testimonial ${index + 1} of ${
-                            testimonials.length
-                          }`
-                        : `Go to testimonial ${index + 1} of ${
-                            testimonials.length
-                          }`
-                    }
-                  >
-                    <StarIcon
-                      className={cn(
-                        "block max-w-none size-full",
-                        index === actualIndex ? "text-[#B9FF66]" : "text-white"
-                      )}
-                      width={14}
-                      height={14}
-                    />
-                  </button>
-                ))}
-              </div>
+            <div className="col-1 h-[14px] ml-0 mt-0 relative row-1 w-full max-w-[146px] flex items-center justify-between flex-1">
+              {Array.from({ length: testimonials.length }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActualIndex(index)}
+                  className="p-0 m-0 border-none bg-transparent cursor-pointer"
+                  aria-label={
+                    index === actualIndex
+                      ? `Current testimonial ${index + 1} of ${
+                          testimonials.length
+                        }`
+                      : `Go to testimonial ${index + 1} of ${
+                          testimonials.length
+                        }`
+                  }
+                >
+                  <StarIcon
+                    className={cn(
+                      "block max-w-none size-full",
+                      index === actualIndex ? "text-[#B9FF66]" : "text-white"
+                    )}
+                    width={14}
+                    height={14}
+                  />
+                </button>
+              ))}
             </div>
             <button
               onClick={handleNext}

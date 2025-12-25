@@ -39,12 +39,12 @@ export default async function Home() {
       />
       <Process className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
       <HeadingSubheading
-        className="mt-[140px]"
+        className="mt-[140px] max-lg:mt-[100px] max-sm:mt-[60px]"
         heading="Team"
         subheading="Meet the skilled and experienced team behind our successful digital marketing strategies"
-        subheadingClassName="w-[473px]"
+        subheadingClassName="max-w-[473px]"
       />
-      <Team className="mt-[80px]" />
+      <Team className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
       <HeadingSubheading
         className="mt-[100px]"
         heading="Testimonials"

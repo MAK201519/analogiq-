@@ -9,16 +9,20 @@ type TeamCardProps = {
   className?: string;
 };
 
-function PersonPicture({ imageSrc }: { imageSrc: StaticImageData }) {
+function PersonPicture({
+  imageSrc,
+  className,
+}: {
+  imageSrc: StaticImageData;
+  className?: string;
+}) {
   return (
     <svg
-      width="103"
-      height="103"
       viewBox="0 0 103 103"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      className="relative"
+      className={cn("relative", className)}
     >
       <path
         d="m88.631 53.9117c32.842 37.4096 2.5145 67.7373-34.8951 34.8951-37.4096 32.8422-67.7375 2.5145-34.8951-34.8951-32.8424-37.4096-2.5145-67.7375 34.8951-34.8951 37.4096-32.8424 67.7371-2.5145 34.8951 34.8951z"
@@ -89,50 +93,47 @@ export default function TeamCard({
   return (
     <div
       className={cn(
-        "bg-white border border-[#191a23] border-solid flex flex-col items-start overflow-clip px-[34px] py-[39px] relative rounded-[45px] shadow-[0px_5px_0px_0px_#191a23] shrink-0 w-[387px]",
+        "bg-white border border-[#191a23] border-solid",
+        "grid grid-rows-[auto_auto_minmax(0,1fr)] items-start overflow-clip",
+        "px-[34px] py-[39px] max-xl:p-[25px]",
+        "relative rounded-[45px] shadow-[0px_5px_0px_0px_#191a23]",
+        "shrink-0 gap-[28px] max-md:gap-[20px] w-full",
         className
       )}
       data-name="Card"
     >
       <div
-        className="flex flex-col gap-[28px] items-start relative shrink-0 w-full"
-        data-name="Content"
+        className="grid grid-rows-[auto_auto] grid-cols-[min-content_minmax(0,1fr)] gap-x-[20px] relative shrink-0 w-full min-h-px min-w-px mr-[-34px]"
+        data-name="Person"
       >
+        <PersonPicture
+          imageSrc={imageSrc}
+          className="row-span-2 self-end size-[103px] max-xl:size-[80px] max-sm:size-[60px]"
+        />
         <div
-          className="flex items-end gap-[20px] relative shrink-0 w-full min-h-px min-w-px mr-[-34px]"
-          data-name="Person"
+          className="shrink-0 size-[34px] self-start justify-self-end -mb-[2px]"
+          data-name="Social icon"
         >
-          <div
-            className="grid-cols-[max-content] grid-rows-[max-content] inline-grid justify-items-start relative shrink-0"
-            data-name="Picture"
-          >
-            <PersonPicture imageSrc={imageSrc} />
-          </div>
-          <div className="leading-[normal] text-black" data-name="Name">
-            <p className="font-medium text-[20px]" data-node-id="name">
-              {name}
-            </p>
-            <p className="font-normal text-[18px]" data-node-id="title">
-              {title}
-            </p>
-          </div>
-          <div
-            className="absolute top-0 right-0 shrink-0 size-[34px] flex items-center justify-center"
-            data-name="Social icon"
-          >
-            <SocialIcon />
-          </div>
+          <SocialIcon />
         </div>
-        <div className="h-0 relative shrink-0 w-[317px]" data-name="Divider">
-          <div className="absolute inset-[-1px_0_0_0] border-t border-[#191a23]"></div>
+        <div className="leading-[normal] text-black self-end" data-name="Name">
+          <p className="font-medium text-[20px]" data-node-id="name">
+            {name}
+          </p>
+          <p className="font-normal text-[18px]" data-node-id="title">
+            {title}
+          </p>
         </div>
-        <p
-          className="font-normal leading-[normal] relative shrink-0 text-[18px] text-black w-[317px] whitespace-pre-wrap"
-          data-name="Description"
-        >
-          {description}
-        </p>
       </div>
+      <div className="h-0 relative shrink-0 w-full" data-name="Divider">
+        <div className="absolute inset-[-1px_0_0_0] border-t border-[#191a23]"></div>
+      </div>
+      <p
+        className="font-normal leading-[normal] relative shrink-0 text-[18px] text-black max-w-[317px] max-xl:max-w-none whitespace-pre-wrap"
+        data-name="Description"
+      >
+        {description}
+      </p>
     </div>
   );
 }

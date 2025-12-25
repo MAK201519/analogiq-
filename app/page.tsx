@@ -32,12 +32,12 @@ export default async function Home() {
       />
       <CaseStudies className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
       <HeadingSubheading
-        className="mt-[140px] max-md:flex-col"
+        className="mt-[140px] max-lg:mt-[100px] max-sm:mt-[60px] max-md:flex-col"
         heading="Our Working Process"
         subheading="Step-by-Step Guide to Achieving Your Business Goals"
         subheadingClassName="max-w-[292px]"
       />
-      <Process className="mt-[80px]" />
+      <Process className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
       <HeadingSubheading
         className="mt-[140px]"
         heading="Team"

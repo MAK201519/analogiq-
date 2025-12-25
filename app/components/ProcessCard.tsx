@@ -38,7 +38,7 @@ export default function ProcessCard({
   return (
     <div
       className={cn(
-        "border border-[#191a23] border-solid transition-colors duration-300 flex flex-col items-start overflow-clip px-[59px] py-[40px] relative rounded-[45px] shadow-[0px_5px_0px_0px_#191a23] shrink-0 w-full max-w-[1234px] cursor-pointer",
+        "border border-[#191a23] border-solid transition-colors duration-300 flex flex-col items-start overflow-clip px-[59px] max-xl:px-[40px] max-sm:px-[30px] py-[40px] max-xl:py-[30px] max-sm:py-[20px] relative rounded-[45px] shadow-[0px_5px_0px_0px_#191a23] shrink-0 w-full max-w-[1234px] cursor-pointer",
         isExpanded ? "bg-[#b9ff66]" : "bg-[#f3f3f3]",
         className
       )}
@@ -53,15 +53,17 @@ export default function ProcessCard({
       }}
     >
       <div
-        className="content-stretch flex items-center justify-between relative shrink-0 w-full"
+        className="content-stretch flex items-center justify-between relative shrink-0 w-full gap-[10px]"
         data-name="Content"
       >
         <div
-          className="content-stretch flex font-medium gap-[25px] items-center leading-[normal] relative shrink-0 text-black"
+          className="content-stretch flex font-medium gap-[25px] items-center leading-[normal] relative flex-1 text-black"
           data-name="Label"
         >
-          <p className="relative shrink-0 text-[60px] font-medium">{number}</p>
-          <p className="relative shrink-0 text-[30px] font-medium whitespace-pre-wrap">
+          <p className="relative shrink-0 text-[60px] max-xl:text-[50px] max-sm:text-[30px] font-medium">
+            {number}
+          </p>
+          <p className="relative flex-1 text-[30px] max-xl:text-[25px] max-sm:text-[20px] font-medium whitespace-pre-wrap">
             {title}
           </p>
         </div>
@@ -84,13 +86,13 @@ export default function ProcessCard({
           }
         >
           <div
-            className="h-px relative shrink-0 w-full mt-[30px] mb-[29px]"
+            className="h-px relative shrink-0 w-full mt-[30px] mb-[29px] max-xl:my-[20px] max-sm:my-[15px]"
             data-name="Divider"
             aria-hidden="true"
           >
             <div className="absolute inset-[-1px_0_0_0] border-t border-[#191a23]"></div>
           </div>
-          <p className="font-normal h-auto leading-[normal] relative shrink-0 text-[18px] text-black w-full whitespace-pre-wrap pb-[14px]">
+          <p className="font-normal h-auto leading-[normal] relative shrink-0 text-[18px] text-black w-full whitespace-pre-wrap pb-[14px] max-xl:pb-[10px] max-sm:pb-[5px]">
             {description}
           </p>
         </div>

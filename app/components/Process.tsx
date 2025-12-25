@@ -59,7 +59,7 @@ export default function Process({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "content-stretch flex flex-col gap-[30px] items-start px-[100px] py-0 relative w-full max-w-[1440px] mx-auto",
+        "content-stretch flex flex-col gap-[30px] items-start px-[100px] max-xl:px-[60px] max-sm:px-[30px] py-0 relative w-full max-w-[1440px] mx-auto",
         className
       )}
       data-name="Process block"

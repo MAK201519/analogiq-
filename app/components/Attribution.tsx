@@ -4,14 +4,14 @@ export default function Attribution({ className }: { className?: string }) {
   return (
     <footer
       className={cn(
-        "w-full px-[100px] pr-[99px] max-w-[1440px] mx-auto",
+        "w-full px-[100px] pr-[99px] max-xl:px-[60px] max-sm:px-[30px] max-w-[1440px] mx-auto",
         className
       )}
     >
       <div
         className={cn(
-          "bg-[#191a23] text-white flex gap-[20px] flex-wrap justify-center relative",
-          "border-t border-white px-[20px] py-[10px]",
+          "bg-[#292a32] text-white flex gap-x-[20px] gap-y-[10px] max-lg:flex-wrap justify-center items-center relative",
+          "px-[20px] py-[15px]",
           "[&_a]:text-[#b9ff66] [&_a]:font-medium [&_a]:decoration-solid [&_a]:decoration-[#b9ff66] [&_a]:hover:text-[#cfff7f]"
         )}
       >
@@ -33,7 +33,7 @@ export default function Attribution({ className }: { className?: string }) {
             Figma Community
           </a>
         </p>
-        <span className="text-white">|</span>
+        <span className="text-white max-lg:hidden">|</span>
         <p>
           Licensed under{" "}
           <a
@@ -44,7 +44,7 @@ export default function Attribution({ className }: { className?: string }) {
             CC BY 4.0
           </a>
         </p>
-        <span className="text-white">|</span>
+        <span className="text-white max-lg:hidden">|</span>
         <p>
           Coded by{" "}
           <a

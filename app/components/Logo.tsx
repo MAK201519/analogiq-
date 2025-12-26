@@ -10,14 +10,14 @@ export default function Logo({ className }: LogoProps) {
     <div className={`relative ${className || ""}`}>
       <div className="absolute inset-[0_83.6%_0_0]">
         <LogoIcon
-          className="block max-w-none size-full"
+          className="block max-w-none size-full fill-current"
           width={36}
           height={36}
         />
       </div>
       <div className="absolute inset-[8.33%_0_12.33%_22.28%]">
         <LogoPositivus
-          className="block max-w-none size-full"
+          className="block max-w-none size-full fill-current"
           width={170}
           height={28}
         />

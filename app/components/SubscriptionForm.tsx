@@ -35,7 +35,10 @@ export default function SubscriptionForm({ className }: SubscriptionFormProps) {
     <form
       onSubmit={handleSubmit}
       className={cn(
-        "bg-[#292a32] flex gap-[20px] items-start overflow-clip px-[40px] py-[58px] relative rounded-[14px] shrink-0",
+        "bg-[#292a32] flex gap-[20px] items-start overflow-clip relative rounded-[14px] xl:mr-px flex-3 max-w-[634px]",
+        "px-[40px] max-xl:px-[30px] py-[58px] max-xl:py-[40px] max-md:px-[20px] max-md:py-[30px]",
+        "max-lg:flex-col",
+        "max-md:flex-row max-sm:flex-col max-sm:w-full",
         className
       )}
     >
@@ -48,12 +51,14 @@ export default function SubscriptionForm({ className }: SubscriptionFormProps) {
         autoComplete="email"
         required
         disabled={isSubmitting}
-        className="border border-solid border-white flex items-start overflow-clip px-[35px] py-[21px] relative rounded-[14px] shrink-0 w-[285px] font-normal leading-[normal] text-[18px] text-white placeholder:text-white bg-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#292a32] disabled:opacity-50 disabled:cursor-not-allowed"
+        className={cn(
+          "border border-solid border-white flex flex-1 w-full items-start overflow-clip px-[35px] py-[21px] max-xl:py-[17px] max-md:py-[12px] max-md:px-[20px] relative rounded-[14px] font-normal text-[18px]/[normal] max-xl:leading-[24px] text-white placeholder:text-white bg-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#292a32] disabled:opacity-50 disabled:cursor-not-allowed"
+        )}
       />
       <Button
         type="submit"
         variant="tertiary"
-        className="px-[35px] py-[19px] rounded-[14px] shrink-0"
+        className="px-[35px] py-[19px] max-md:px-[20px] max-md:py-[10px] rounded-[14px] shrink-0 max-lg:w-full max-lg:text-[16px]/[30px] justify-center max-md:w-auto max-sm:w-full"
         disabled={isSubmitting}
       >
         {isSubmitting ? "Subscribing..." : "Subscribe to news"}

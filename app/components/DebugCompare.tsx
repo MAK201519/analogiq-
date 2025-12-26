@@ -42,7 +42,7 @@ export default function DebugCompare() {
       />
       <div
         className={cn(
-          "fixed bottom-2 flex gap-2 z-20",
+          "fixed bottom-2 flex gap-2 z-50",
           position === "right" ? "right-2" : "left-2"
         )}
       >

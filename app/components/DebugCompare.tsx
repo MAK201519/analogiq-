@@ -35,7 +35,7 @@ export default function DebugCompare() {
         className={cn(
           "h-auto block mx-auto absolute top-0 left-0 right-0 pointer-events-none min-w-[1440px] max-[1457px]:hidden",
           isVisible ? "opacity-100" : "opacity-0",
-          overDesign ? "z-10" : "z-0"
+          overDesign ? "z-50" : "z-0"
         )}
         style={{ opacity: isVisible ? opacity / 100 : 0 }}
         loading="eager"

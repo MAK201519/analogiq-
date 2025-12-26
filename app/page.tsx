@@ -53,13 +53,13 @@ export default async function Home() {
       />
       <Testimonials className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
       <HeadingSubheading
-        className="mt-[140px]"
+        className="mt-[140px] max-lg:mt-[100px] max-sm:mt-[60px]"
         heading="Contact Us"
         subheading="Connect with Us: Let's Discuss Your Digital Marketing Needs"
-        subheadingClassName="w-[323px]"
+        subheadingClassName="max-w-[323px]"
       />
-      <Contact className="mt-[80px]" />
-      <Footer className="mt-[139px]" />
+      <Contact className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
+      <Footer className="mt-[140px] max-lg:mt-[100px] max-sm:mt-[60px]" />
       <Attribution />
     </div>
   );

@@ -43,7 +43,7 @@ export default function InputText({
   );
 
   const baseInputClassName =
-    "bg-white border border-black border-solid flex items-start overflow-clip px-[30px] py-[18px] relative rounded-[14px] shrink-0 w-[556px] font-normal leading-[normal] text-[18px] text-black placeholder:text-[#898989] focus:outline-none focus:ring-2 focus:ring-[#191a23] focus:ring-offset-2";
+    "bg-white border border-black border-solid flex items-start overflow-clip px-[30px] py-[18px] max-sm:px-[20px] max-sm:py-[16px] relative rounded-[14px] shrink-0 w-full font-normal text-[18px]/[21px] text-black placeholder:text-[#898989] focus:outline-none focus:ring-2 focus:ring-[#191a23] focus:ring-offset-2";
 
   const textareaClassName = cn(
     baseInputClassName,
@@ -57,7 +57,7 @@ export default function InputText({
     <div className={containerClassName} data-name={dataName || "Field"}>
       <label
         htmlFor={id}
-        className="font-normal leading-[28px] relative shrink-0 text-[16px] text-black"
+        className="font-normal relative shrink-0 text-[16px]/[28px] text-black"
       >
         {label}
       </label>

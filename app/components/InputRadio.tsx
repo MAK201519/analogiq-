@@ -37,13 +37,14 @@ export default function InputRadio({
       />
       <div className="col-1 ml-0 mt-0 relative row-1 size-[28px]">
         <div className="absolute inset-[-3.57%]">
-          {checked ? (
-            <div className="bg-[#191a23] border border-[#191a23] border-solid rounded-full size-full flex items-center justify-center">
-              <div className="bg-white rounded-full size-[12px]" />
-            </div>
-          ) : (
-            <div className="bg-white border border-black border-solid rounded-full size-full" />
-          )}
+          <div className="bg-white border border-black border-solid rounded-full size-full flex items-center justify-center">
+            <div
+              className={cn(
+                "bg-[#B9FF66] rounded-full size-[16px] transition-all duration-300 ease-in-out",
+                checked ? "scale-100 opacity-100" : "scale-50 opacity-0"
+              )}
+            />
+          </div>
         </div>
       </div>
       <p className="col-1 font-normal leading-[normal] ml-[42px] mt-[2px] relative row-1 text-[18px] text-black">

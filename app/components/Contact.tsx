@@ -35,23 +35,23 @@ export default function Contact({ className }: ContactProps) {
   return (
     <div
       className={cn(
-        "flex items-center pl-[100px] pr-[467px] py-0 relative w-full max-w-[1440px] mx-auto",
+        "flex items-center px-[100px] max-xl:px-[60px] max-sm:px-[30px] py-0 relative w-full max-w-[1440px] mx-auto",
         className
       )}
       data-name="Contact block"
     >
       <div
-        className="bg-[#f3f3f3] flex items-start pb-[78px] pt-[60px] px-[100px] relative rounded-[45px] shrink-0 w-[1240px] overflow-hidden"
+        className="bg-[#f3f3f3] flex gap-[28px] pb-[80px] pt-[60px] max-xl:py-[50px] max-sm:py-[30px] pl-[100px] max-xl:pl-[60px] max-lg:px-[40px] max-sm:px-[30px] relative rounded-[45px] shrink-0 w-full overflow-hidden"
         data-name="Block with illustration"
       >
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-[40px] items-start relative shrink-0 z-10"
+          className="flex flex-col gap-[39px] w-full relative flex-1 z-10"
           data-name="Form"
         >
           {/* Radio Buttons */}
           <div
-            className="flex gap-[36px] items-start leading-0 relative shrink-0"
+            className="flex flex-wrap gap-x-[36px] gap-y-[20px] items-start leading-0 relative"
             data-name="Radio buttons"
           >
             <InputRadio
@@ -74,7 +74,7 @@ export default function Contact({ className }: ContactProps) {
 
           {/* Form Fields */}
           <div
-            className="flex flex-col gap-[20px] pt-px items-start relative shrink-0"
+            className="flex flex-col gap-[26px] pt-[2px] relative"
             data-name="Fields"
           >
             <InputText
@@ -114,21 +114,18 @@ export default function Contact({ className }: ContactProps) {
           <Button
             type="submit"
             variant="primary"
-            className="w-[556px] justify-center"
+            className="w-full justify-center py-[19px]"
             data-name="Button"
           >
             Send Message
           </Button>
         </form>
 
-        {/* Illustration -367px-42px 0+62.5px */}
-        <div
-          className="h-[648px] absolute right-[-325px] top-[62.5px] shrink-0 w-[691.57px]"
-          data-name="Illustration"
-        >
-          <div className="absolute inset-0 flex items-center justify-center">
+        {/* Illustration */}
+        <div className="relative flex-1 max-lg:hidden" data-name="Illustration">
+          <div className="absolute top-[2px] right-0 -bottom-[18px] w-full max-w-[367px] flex items-start justify-start">
             <ContactIllustration
-              className="block max-w-none h-[648px] w-[691.57px]"
+              className="block max-w-[200%] h-full w-auto absolute top-0 left-0 bottom-0"
               width={692}
               height={649}
             />

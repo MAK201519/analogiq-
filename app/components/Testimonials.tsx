@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/app/lib/utils";
 import TestimonialCard from "./TestimonialCard";
 import ArrowLeftIcon from "@/app/assets/icons/testimonials/arrow-left.svg";
+import ArrowRightIcon from "@/app/assets/icons/testimonials/arrow-right.svg";
 import StarIcon from "@/app/assets/icons/testimonials/star.svg";
 
 type Testimonial = {
@@ -134,7 +135,7 @@ export default function Testimonials({ className }: { className?: string }) {
         data-name="Testimonials block"
       >
         <div
-          className="flex flex-col gap-[124px] max-md:gap-[80px] max-sm:gap-[40px] items-center relative pt-[84px] pb-[68px] max-md:py-[60px] max-sm:py-[40px]"
+          className="flex flex-col gap-[120px] max-md:gap-[80px] max-sm:gap-[40px] items-center relative pt-[84px] pb-[64px] max-md:py-[60px] max-sm:py-[40px]"
           data-name="Testimonials"
         >
           <div
@@ -180,19 +181,17 @@ export default function Testimonials({ className }: { className?: string }) {
             <button
               onClick={handlePrevious}
               className={cn(
-                "h-0 relative shrink-0 w-[20px] cursor-pointer hover:opacity-30 transition-opacity",
+                "relative shrink-0 w-[20px] h-[22px] cursor-pointer hover:opacity-30 transition-opacity flex items-center justify-center",
                 actualIndex === 0 && "opacity-30"
               )}
               data-name="Arrow left"
               aria-label="Previous testimonial"
             >
-              <div className="absolute inset-[-11.05px_-7.5%]">
-                <ArrowLeftIcon
-                  className="block max-w-none size-full"
-                  width={23}
-                  height={22}
-                />
-              </div>
+              <ArrowLeftIcon
+                className="block max-w-none size-full"
+                width={23}
+                height={22}
+              />
             </button>
             <div className="col-1 h-[14px] ml-0 mt-0 relative row-1 w-full max-w-[146px] flex items-center justify-between flex-1">
               {Array.from({ length: testimonials.length }).map((_, index) => (
@@ -224,23 +223,17 @@ export default function Testimonials({ className }: { className?: string }) {
             <button
               onClick={handleNext}
               className={cn(
-                "flex items-center justify-center relative shrink-0 cursor-pointer hover:opacity-30 transition-opacity",
+                "relative shrink-0 w-[20px] h-[22px] cursor-pointer hover:opacity-30 transition-opacity flex items-center justify-center",
                 actualIndex === testimonials.length - 1 && "opacity-30"
               )}
               data-name="Arrow right"
               aria-label="Next testimonial"
             >
-              <div className="flex-none rotate-180">
-                <div className="h-0 relative w-[20px]">
-                  <div className="absolute inset-[-11.05px_-7.5%]">
-                    <ArrowLeftIcon
-                      className="block max-w-none size-full"
-                      width={23}
-                      height={22}
-                    />
-                  </div>
-                </div>
-              </div>
+              <ArrowRightIcon
+                className="block max-w-none size-full"
+                width={23}
+                height={22}
+              />
             </button>
           </div>
         </div>

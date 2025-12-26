@@ -69,27 +69,73 @@ export default function Testimonials({ className }: { className?: string }) {
   };
 
   const cardsRef = useRef<HTMLDivElement | null>(null);
-  const [pointer, setPointer] = useState<{ x: number; x0: number } | null>(
-    null
-  );
-  const pointerRef = useRef<{ x: number; x0: number } | null>(pointer);
+  const [pointer, setPointer] = useState<{
+    x: number;
+    x0: number;
+    y: number;
+    y0: number;
+    isHorizontal: boolean | null;
+  } | null>(null);
+  const pointerRef = useRef(pointer);
+  const handlePointerMoveRef = useRef<((e: PointerEvent) => void) | null>(null);
+  const handlePointerUpRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     pointerRef.current = pointer;
   }, [pointer]);
 
   const handlePointerMove = useCallback((e: PointerEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setPointer((prev) => ({ x: e.pageX, x0: prev?.x0 ?? e.pageX }));
+    const currentPointer = pointerRef.current;
+    if (!currentPointer) return;
+
+    // Determine if this is a horizontal gesture
+    const deltaX = Math.abs(e.pageX - currentPointer.x0);
+    const deltaY = Math.abs(e.pageY - currentPointer.y0);
+
+    // If we haven't determined direction yet, check now
+    if (currentPointer.isHorizontal === null) {
+      const isHorizontal = deltaX > deltaY && deltaX > 5;
+      if (isHorizontal) {
+        // Once we know it's horizontal, prevent default to stop scrolling
+        e.preventDefault();
+        e.stopPropagation();
+        setPointer((prev) => (prev ? { ...prev, isHorizontal: true } : null));
+      } else if (deltaY > 10) {
+        // If it's clearly vertical, cancel the gesture
+        const moveHandler = handlePointerMoveRef.current;
+        const upHandler = handlePointerUpRef.current;
+        if (moveHandler) {
+          window.removeEventListener("pointermove", moveHandler);
+        }
+        if (upHandler) {
+          window.removeEventListener("pointerup", upHandler);
+        }
+        setPointer(null);
+        return;
+      }
+    } else if (currentPointer.isHorizontal) {
+      // Only prevent default if we've confirmed it's horizontal
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    setPointer((prev) => (prev ? { ...prev, x: e.pageX, y: e.pageY } : null));
   }, []);
 
   const handlePointerUp = useCallback(() => {
-    window.removeEventListener("pointermove", handlePointerMove);
-    // eslint-disable-next-line react-hooks/immutability
-    window.removeEventListener("pointerup", handlePointerUp);
+    const moveHandler = handlePointerMoveRef.current;
+    const upHandler = handlePointerUpRef.current;
+    if (moveHandler) {
+      window.removeEventListener("pointermove", moveHandler);
+    }
+    if (upHandler) {
+      window.removeEventListener("pointerup", upHandler);
+    }
     const pointer = pointerRef.current;
-    if (!pointer) return;
+    if (!pointer || pointer.isHorizontal === false) {
+      setPointer(null);
+      return;
+    }
     const cardWidth = cardsRef.current?.clientWidth ?? 0;
     const deltaX = pointer.x - pointer.x0;
     const deltaSign = Math.abs(deltaX) > 10 ? Math.sign(deltaX) : 0;
@@ -100,17 +146,34 @@ export default function Testimonials({ className }: { className?: string }) {
       setCurrentIndex((prev) => prev - deltaIndex);
     }
     setPointer(null);
-  }, [handlePointerMove]);
+  }, []);
+
+  useEffect(() => {
+    handlePointerMoveRef.current = handlePointerMove;
+    handlePointerUpRef.current = handlePointerUp;
+  }, [handlePointerMove, handlePointerUp]);
 
   const handlePointerDown = useCallback(
     (e: React.PointerEvent<HTMLDivElement>) => {
-      e.preventDefault();
+      // Don't prevent default immediately - wait to see direction
       e.stopPropagation();
-      window.addEventListener("pointermove", handlePointerMove);
-      window.addEventListener("pointerup", handlePointerUp);
-      setPointer(() => ({ x: e.pageX, x0: e.pageX }));
+      const moveHandler = handlePointerMoveRef.current;
+      const upHandler = handlePointerUpRef.current;
+      if (moveHandler) {
+        window.addEventListener("pointermove", moveHandler, { passive: false });
+      }
+      if (upHandler) {
+        window.addEventListener("pointerup", upHandler);
+      }
+      setPointer(() => ({
+        x: e.pageX,
+        x0: e.pageX,
+        y: e.pageY,
+        y0: e.pageY,
+        isHorizontal: null,
+      }));
     },
-    [handlePointerMove, handlePointerUp]
+    []
   );
 
   const translateXPercentage =
@@ -142,6 +205,7 @@ export default function Testimonials({ className }: { className?: string }) {
             className="flex items-start justify-center gap-0 relative shrink-0 w-full overflow-hidden xl:pr-[14px] max-lg:px-[30px]"
             data-name="Cards"
             onPointerDown={handlePointerDown}
+            style={{ touchAction: "pan-x" }}
           >
             <div className="w-full max-w-[656px] mx-auto" ref={cardsRef}>
               <div

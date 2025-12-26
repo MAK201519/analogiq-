@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/app/lib/utils";
 import TestimonialCard from "./TestimonialCard";
 import ArrowLeftIcon from "@/app/assets/icons/testimonials/arrow-left.svg";
@@ -67,6 +67,58 @@ export default function Testimonials({ className }: { className?: string }) {
     );
   };
 
+  const cardsRef = useRef<HTMLDivElement | null>(null);
+  const [pointer, setPointer] = useState<{ x: number; x0: number } | null>(
+    null
+  );
+  const pointerRef = useRef<{ x: number; x0: number } | null>(pointer);
+
+  useEffect(() => {
+    pointerRef.current = pointer;
+  }, [pointer]);
+
+  const handlePointerMove = useCallback((e: PointerEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setPointer((prev) => ({ x: e.pageX, x0: prev?.x0 ?? e.pageX }));
+  }, []);
+
+  const handlePointerUp = useCallback(() => {
+    window.removeEventListener("pointermove", handlePointerMove);
+    // eslint-disable-next-line react-hooks/immutability
+    window.removeEventListener("pointerup", handlePointerUp);
+    const pointer = pointerRef.current;
+    if (!pointer) return;
+    const cardWidth = cardsRef.current?.clientWidth ?? 0;
+    const deltaX = pointer.x - pointer.x0;
+    const deltaSign = Math.abs(deltaX) > 10 ? Math.sign(deltaX) : 0;
+    if (deltaSign) {
+      const deltaIndex = cardWidth
+        ? Math.ceil(Math.abs(deltaX) / cardWidth) * deltaSign
+        : deltaSign;
+      setCurrentIndex((prev) => prev - deltaIndex);
+    }
+    setPointer(null);
+  }, [handlePointerMove]);
+
+  const handlePointerDown = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.addEventListener("pointermove", handlePointerMove);
+      window.addEventListener("pointerup", handlePointerUp);
+      setPointer(() => ({ x: e.pageX, x0: e.pageX }));
+    },
+    [handlePointerMove, handlePointerUp]
+  );
+
+  const translateXPercentage =
+    (-currentIndex * 100) / testimonials.length + "%";
+  const translateXPixels = pointer ? `${pointer.x - pointer.x0}px` : "";
+  const translateX = translateXPixels
+    ? `calc(${translateXPercentage} + ${translateXPixels})`
+    : translateXPercentage;
+
   return (
     <div
       className={cn(
@@ -88,15 +140,15 @@ export default function Testimonials({ className }: { className?: string }) {
           <div
             className="flex items-start justify-center gap-0 relative shrink-0 w-full overflow-hidden xl:pr-[14px] max-lg:px-[30px]"
             data-name="Cards"
+            onPointerDown={handlePointerDown}
           >
-            <div className="w-full max-w-[656px] mx-auto">
+            <div className="w-full max-w-[656px] mx-auto" ref={cardsRef}>
               <div
                 className="flex items-start transition-transform duration-300 ease-in-out"
                 style={{
                   width: `${testimonials.length * 100}%`,
-                  transform: `translateX(${
-                    (-currentIndex * 100) / testimonials.length
-                  }%)`,
+                  transform: `translateX(${translateX})`,
+                  transition: pointer ? "none" : undefined,
                 }}
               >
                 {testimonials.map((testimonial, index) => {

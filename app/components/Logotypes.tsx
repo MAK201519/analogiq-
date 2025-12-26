@@ -51,7 +51,7 @@ export default function Logotypes({ className }: { className?: string }) {
           <div
             key={index}
             className={cn(
-              "h-[48px] mix-blend-luminosity overflow-clip relative shrink-0 flex items-center justify-center",
+              "h-[48px] grayscale overflow-clip relative shrink-0 flex items-center justify-center",
               width
             )}
           >

@@ -94,14 +94,15 @@ export default function Testimonials({ className }: { className?: string }) {
 
     // If we haven't determined direction yet, check now
     if (currentPointer.isHorizontal === null) {
-      const isHorizontal = deltaX > deltaY && deltaX > 5;
+      // Detect horizontal movement earlier (threshold of 3px instead of 5px)
+      const isHorizontal = deltaX > deltaY && deltaX > 3;
       if (isHorizontal) {
         // Once we know it's horizontal, prevent default to stop scrolling
         e.preventDefault();
         e.stopPropagation();
         setPointer((prev) => (prev ? { ...prev, isHorizontal: true } : null));
-      } else if (deltaY > 10) {
-        // If it's clearly vertical, cancel the gesture
+      } else if (deltaY > 8) {
+        // If it's clearly vertical, cancel the gesture early
         const moveHandler = handlePointerMoveRef.current;
         const upHandler = handlePointerUpRef.current;
         if (moveHandler) {
@@ -205,7 +206,6 @@ export default function Testimonials({ className }: { className?: string }) {
             className="flex items-start justify-center gap-0 relative shrink-0 w-full overflow-hidden xl:pr-[14px] max-lg:px-[30px]"
             data-name="Cards"
             onPointerDown={handlePointerDown}
-            style={{ touchAction: "pan-x" }}
           >
             <div className="w-full max-w-[656px] mx-auto" ref={cardsRef}>
               <div

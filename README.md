@@ -24,6 +24,14 @@ This project is based on a design from Figma Community:
 - 🎭 **Smooth Animations** - Engaging user interactions throughout
 - 🔍 **SEO Optimized** - Proper meta tags and semantic structure
 
+## ⚡ Performance
+
+Check out the performance metrics for this site:
+
+- **PageSpeed Insights Analysis:** [View Mobile Performance Report](https://pagespeed.web.dev/analysis/https-zakariamouhid-positivus-vercel-app/i6mvfrymag?form_factor=mobile)
+
+![Lighthouse Performance Score](Screenshot-Lighthouse-2025-12-27-132752.png)
+
 ## 🛠️ Tech Stack
 
 - **Framework:** [Next.js 16.1.1](https://nextjs.org/) (App Router)

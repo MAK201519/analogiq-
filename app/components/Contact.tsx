@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { cn } from "@/app/lib/utils";
 import ContactIllustration from "@/app/assets/illustrations/contact.svg";
 import Button from "./Button";
@@ -12,20 +11,6 @@ type ContactProps = {
 };
 
 export default function Contact({ className }: ContactProps) {
-  const [formType, setFormType] = useState<"say-hi" | "get-quote">("say-hi");
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: Form submission logic can be added here
@@ -34,19 +19,17 @@ export default function Contact({ className }: ContactProps) {
   return (
     <div
       className={cn(
-        "flex items-center px-[100px] max-xl:px-[60px] max-sm:px-[30px] py-0 relative w-full max-w-[1440px] mx-auto",
+        "flex items-center px-[100px] max-xl:px-[60px] max-sm:px-[30px] py-0 relative w-full max-w-[1440px] mx-auto scroll-mt-[40px]",
         className
       )}
-      data-name="Contact block"
+      id="contact"
     >
-      <div
-        className="bg-[#f3f3f3] flex gap-[28px] pb-[80px] pt-[60px] max-xl:py-[50px] max-sm:py-[30px] pl-[100px] max-xl:pl-[60px] max-lg:px-[40px] max-sm:px-[30px] relative rounded-[45px] shrink-0 w-full overflow-hidden"
-        data-name="Block with illustration"
-      >
+      <div className="bg-[#f3f3f3] flex gap-[28px] pb-[80px] pt-[60px] max-xl:py-[50px] max-sm:py-[30px] pl-[100px] max-xl:pl-[60px] max-lg:px-[40px] max-sm:px-[30px] relative rounded-[45px] shrink-0 w-full overflow-hidden">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-[39px] w-full relative flex-1 z-10"
-          data-name="Form"
+          id="contact-form"
+          method="POST"
         >
           {/* Radio Buttons */}
           <div
@@ -56,16 +39,13 @@ export default function Contact({ className }: ContactProps) {
             <InputRadio
               name="formType"
               value="say-hi"
-              checked={formType === "say-hi"}
-              onChange={(e) => setFormType(e.target.value as "say-hi")}
               label="Say Hi"
               dataName="Say hi"
+              defaultChecked={true}
             />
             <InputRadio
               name="formType"
               value="get-quote"
-              checked={formType === "get-quote"}
-              onChange={(e) => setFormType(e.target.value as "get-quote")}
               label="Get a Quote"
               dataName="Get a quote"
             />
@@ -81,8 +61,6 @@ export default function Contact({ className }: ContactProps) {
               name="name"
               type="text"
               autoComplete="name"
-              value={formData.name}
-              onChange={handleInputChange}
               label="Name"
               placeholder="Name"
             />
@@ -91,8 +69,6 @@ export default function Contact({ className }: ContactProps) {
               name="email"
               type="email"
               autoComplete="email"
-              value={formData.email}
-              onChange={handleInputChange}
               label="Email*"
               placeholder="Email"
               required
@@ -101,8 +77,6 @@ export default function Contact({ className }: ContactProps) {
               id="message"
               name="message"
               type="textarea"
-              value={formData.message}
-              onChange={handleInputChange}
               label="Message*"
               placeholder="Message"
               required

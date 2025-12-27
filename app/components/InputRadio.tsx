@@ -3,8 +3,9 @@ import { cn } from "@/app/lib/utils";
 type InputRadioProps = {
   name: string;
   value: string;
-  checked: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  defaultChecked?: boolean;
+  checked?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
   className?: string;
   dataName?: string;
@@ -13,6 +14,7 @@ type InputRadioProps = {
 export default function InputRadio({
   name,
   value,
+  defaultChecked,
   checked,
   onChange,
   label,
@@ -31,9 +33,10 @@ export default function InputRadio({
         type="radio"
         name={name}
         value={value}
+        defaultChecked={defaultChecked}
         checked={checked}
         onChange={onChange}
-        className="sr-only"
+        className="sr-only [&:checked+div_div]:scale-100 [&:checked+div_div]:opacity-100"
       />
       <div className="col-1 ml-0 mt-0 relative row-1 size-[28px]">
         <div className="absolute inset-[-3.57%]">
@@ -41,7 +44,7 @@ export default function InputRadio({
             <div
               className={cn(
                 "bg-[#B9FF66] rounded-full size-[16px] transition-all duration-300 ease-in-out",
-                checked ? "scale-100 opacity-100" : "scale-50 opacity-0"
+                "scale-50 opacity-0"
               )}
             />
           </div>

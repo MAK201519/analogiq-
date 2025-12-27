@@ -10,11 +10,13 @@ type SubscriptionFormProps = {
 
 export default function SubscriptionForm({ className }: SubscriptionFormProps) {
   const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setStatus("submitting");
 
     // TODO: Add your subscription API call here
     try {
@@ -22,11 +24,15 @@ export default function SubscriptionForm({ className }: SubscriptionFormProps) {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setEmail("");
       // TODO: Add success message here
+      setStatus("success");
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     } catch (error) {
       // TODO: Add error message here
       void error;
+      setStatus("error");
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     } finally {
-      setIsSubmitting(false);
+      setStatus("idle");
     }
   };
 
@@ -40,6 +46,7 @@ export default function SubscriptionForm({ className }: SubscriptionFormProps) {
         "max-md:flex-row max-sm:flex-col max-sm:w-full",
         className
       )}
+      method="POST"
     >
       <input
         type="email"
@@ -49,7 +56,7 @@ export default function SubscriptionForm({ className }: SubscriptionFormProps) {
         placeholder="Email"
         autoComplete="email"
         required
-        disabled={isSubmitting}
+        disabled={status === "submitting"}
         className={cn(
           "border border-solid border-white flex flex-1 w-full items-start overflow-clip px-[35px] py-[21px] max-xl:py-[17px] max-md:py-[12px] max-md:px-[20px] relative rounded-[14px] font-normal text-[18px]/[normal] max-xl:leading-[24px] text-white placeholder:text-white bg-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#292a32] disabled:opacity-50 disabled:cursor-not-allowed"
         )}
@@ -58,9 +65,16 @@ export default function SubscriptionForm({ className }: SubscriptionFormProps) {
         type="submit"
         variant="tertiary"
         className="px-[35px] py-[19px] max-md:px-[20px] max-md:py-[10px] rounded-[14px] shrink-0 max-lg:w-full max-lg:text-[16px]/[30px] justify-center max-md:w-auto max-sm:w-full"
-        disabled={isSubmitting}
+        disabled={status === "submitting"}
       >
-        {isSubmitting ? "Subscribing..." : "Subscribe to news"}
+        {
+          {
+            idle: "Subscribe to news",
+            submitting: "Please wait...",
+            success: "Thank you!",
+            error: "Try again",
+          }[status]
+        }
       </Button>
     </form>
   );

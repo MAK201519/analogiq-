@@ -5,15 +5,26 @@ import Button from "./Button";
 import { useState } from "react";
 
 const navLinks = [
-  { href: ".", label: "About us" },
-  { href: ".", label: "Services" },
-  { href: ".", label: "Use Cases" },
-  { href: ".", label: "Pricing" },
-  { href: ".", label: "Blog" },
+  { href: "#team", label: "About us" },
+  { href: "#services", label: "Services" },
+  { href: "/", label: "Use Cases" },
+  { href: "/", label: "Pricing" },
+  { href: "/", label: "Blog" },
 ];
 
 export default function NavigationBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    const dialog = document.getElementById(
+      "navigation-menu-dialog"
+    ) as HTMLDialogElement;
+    if (dialog && typeof dialog.hidePopover === "function") {
+      dialog.hidePopover();
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="flex items-center justify-between px-[100px] max-xl:px-[60px] max-sm:px-[30px] max-md:gap-[20px] py-0 relative w-full max-w-[1440px] mx-auto">
       <Link
@@ -28,12 +39,40 @@ export default function NavigationBar() {
           <Link
             key={index}
             href={href}
+            onClick={() => {
+              if (href.startsWith("#")) {
+                const element = document.querySelector(href);
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }
+            }}
             className="font-normal leading-[28px] relative shrink-0 text-[20px] text-black ml-px"
           >
             {label}
           </Link>
         ))}
-        <Button href="." variant="secondary" className="py-[18px] px-[34px]">
+        <Button
+          href="#contact"
+          variant="secondary"
+          className="py-[18px] px-[34px]"
+          onClick={() => {
+            const href = "#contact";
+            if (href.startsWith("#")) {
+              const form = document.getElementById(
+                "contact-form"
+              ) as HTMLFormElement;
+              const inputs = form?.elements?.namedItem?.("formType");
+              if (inputs && "value" in inputs) {
+                inputs.value = "get-quote";
+              }
+              const element = document.querySelector(href);
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }
+          }}
+        >
           Request a quote
         </Button>
       </div>
@@ -57,7 +96,7 @@ export default function NavigationBar() {
           <Button
             variant="secondary"
             className="py-[18px] px-[34px]"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={closeMenu}
             popoverTarget="navigation-menu-dialog"
             popoverTargetAction="hide"
           >
@@ -67,12 +106,28 @@ export default function NavigationBar() {
             <Link
               key={index}
               href={href}
+              onClick={(e) => {
+                closeMenu();
+                // For hash links or same page links, prevent default to allow menu to close
+                if (href === "." || href.startsWith("#")) {
+                  e.preventDefault();
+                }
+              }}
               className="font-normal leading-[28px] relative shrink-0 text-[20px] text-black ml-px"
+              popoverTarget="navigation-menu-dialog"
+              popoverTargetAction="hide"
             >
               {label}
             </Link>
           ))}
-          <Button href="." variant="secondary" className="py-[18px] px-[34px]">
+          <Button
+            href="#contact"
+            variant="secondary"
+            className="py-[18px] px-[34px]"
+            popoverTarget="navigation-menu-dialog"
+            popoverTargetAction="hide"
+            onClick={closeMenu}
+          >
             Request a quote
           </Button>
         </div>

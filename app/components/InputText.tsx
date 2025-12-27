@@ -6,8 +6,8 @@ type InputTextProps = {
   name: string;
   type?: "text" | "email" | "tel" | "password" | "textarea";
   autoComplete?: HTMLInputAutoCompleteAttribute;
-  value: string;
-  onChange: (
+  value?: string;
+  onChange?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
   label: string;

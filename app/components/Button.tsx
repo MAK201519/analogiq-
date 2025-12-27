@@ -3,26 +3,27 @@ import { cn } from "@/app/lib/utils";
 
 type ButtonVariant = "primary" | "secondary" | "tertiary";
 
-type ButtonProps = {
-  type?: "button" | "submit" | "reset";
+type SharedProps = {
   variant?: ButtonVariant;
   children: React.ReactNode;
-  href?: string;
-  onClick?: () => void;
   className?: string;
+};
+
+type AnchorProps = SharedProps & {
+  href: string;
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
+type ButtonProps = SharedProps & {
+  type?: "button" | "submit" | "reset";
   disabled?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function Button({
-  type,
   variant = "secondary",
   children,
-  href,
-  onClick,
   className,
-  disabled,
   ...props
-}: ButtonProps) {
+}: ButtonProps | AnchorProps) {
   const baseStyles =
     "flex items-start px-[35px] py-[20px] max-xl:px-[25px] max-xl:py-[15px] max-sm:px-[20px] max-sm:py-[10px] relative rounded-[14px] shrink-0 font-normal leading-[28px] text-[20px] text-center transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed";
 
@@ -35,22 +36,16 @@ export default function Button({
 
   const combinedClassName = cn(baseStyles, variantStyles[variant], className);
 
-  if (href) {
+  if ("href" in props) {
     return (
-      <Link href={href} className={combinedClassName}>
+      <Link {...props} className={combinedClassName}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={combinedClassName}
-      disabled={disabled}
-      {...props}
-    >
+    <button {...props} className={combinedClassName}>
       {children}
     </button>
   );

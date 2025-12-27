@@ -60,7 +60,10 @@ const teamMembers: TeamMember[] = [
 
 export default function Team({ className }: { className?: string }) {
   return (
-    <div className="max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-[30px]">
+    <div
+      className="max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-[30px] scroll-mt-[40px]"
+      id="team"
+    >
       <div
         className={cn(
           "grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-[40px] max-xl:gap-[30px] max-sm:gap-[20px] relative",

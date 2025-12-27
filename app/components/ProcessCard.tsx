@@ -2,7 +2,7 @@
 
 import { cn } from "@/app/lib/utils";
 import PlusIcon from "./PlusIcon";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 type ProcessCardProps = {
   number: string;
@@ -23,17 +23,34 @@ export default function ProcessCard({
 }: ProcessCardProps) {
   const [autoHeight, setAutoHeight] = useState<number>(2000);
   const descriptionRef = useRef<HTMLDivElement>(null);
-  const updateAutoHeight = () => {
+  const updateAutoHeight = useCallback(() => {
     if (descriptionRef.current) {
-      setAutoHeight(descriptionRef.current.scrollHeight);
+      setAutoHeight(descriptionRef.current.clientHeight);
     }
-  };
+  }, []);
 
-  useEffect(() => {
-    updateAutoHeight();
-    window.addEventListener("resize", updateAutoHeight);
-    return () => window.removeEventListener("resize", updateAutoHeight);
-  }, [description, isExpanded]);
+  useLayoutEffect(() => {
+    if (!descriptionRef.current) return;
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        updateAutoHeight();
+      }
+    });
+    let firstResize = false;
+    const resizeObserver = new ResizeObserver(() => {
+      if (!firstResize) {
+        firstResize = true;
+        return;
+      }
+      updateAutoHeight();
+    });
+    intersectionObserver.observe(descriptionRef.current);
+    resizeObserver.observe(descriptionRef.current);
+    return () => {
+      intersectionObserver.disconnect();
+      resizeObserver.disconnect();
+    };
+  }, [description, isExpanded, updateAutoHeight]);
 
   return (
     <div
@@ -74,7 +91,6 @@ export default function ProcessCard({
       </div>
       {description && (
         <div
-          ref={descriptionRef}
           className={cn(
             "transition-all duration-300 overflow-hidden",
             isExpanded ? `max-h-(--auto-height)` : "max-h-0 opacity-0 invisible"
@@ -85,16 +101,18 @@ export default function ProcessCard({
             } as React.CSSProperties
           }
         >
-          <div
-            className="h-px relative shrink-0 w-full mt-[30px] mb-[29px] max-xl:my-[20px] max-sm:my-[15px]"
-            data-name="Divider"
-            aria-hidden="true"
-          >
-            <div className="absolute inset-[-1px_0_0_0] border-t border-[#191a23]"></div>
+          <div ref={descriptionRef} className="overflow-hidden">
+            <div
+              className="h-px relative shrink-0 w-full mt-[30px] mb-[29px] max-xl:my-[20px] max-sm:my-[15px]"
+              data-name="Divider"
+              aria-hidden="true"
+            >
+              <div className="absolute inset-[-1px_0_0_0] border-t border-[#191a23]"></div>
+            </div>
+            <p className="font-normal h-auto leading-[normal] relative shrink-0 text-[18px] text-black w-full whitespace-pre-wrap pb-[14px] max-xl:pb-[10px] max-sm:pb-[5px]">
+              {description}
+            </p>
           </div>
-          <p className="font-normal h-auto leading-[normal] relative shrink-0 text-[18px] text-black w-full whitespace-pre-wrap pb-[14px] max-xl:pb-[10px] max-sm:pb-[5px]">
-            {description}
-          </p>
         </div>
       )}
     </div>

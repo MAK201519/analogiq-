@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
+import { RemovePolyfillPlugin } from "./lib/RemovePolyfillPlugin";
 
 const nextConfig: NextConfig = {
   experimental: {
     inlineCss: true,
   },
   // Webpack configuration (for --webpack flag)
-  webpack(config) {
+  webpack(config, { isServer }) {
     // Find the rule that handles SVG files
     const fileLoaderRule = config.module.rules.find(
       (rule: { test?: { test?: (str: string) => boolean } }) =>
@@ -31,6 +32,11 @@ const nextConfig: NextConfig = {
 
       // Modify the file loader rule to ignore *.svg, since we have it handled now.
       fileLoaderRule.exclude = /\.svg$/i;
+    }
+
+    // Add polyfill remover plugin (only for client-side builds)
+    if (!isServer) {
+      config.plugins.push(new RemovePolyfillPlugin());
     }
 
     return config;

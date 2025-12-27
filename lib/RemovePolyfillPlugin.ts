@@ -1,19 +1,52 @@
 type Compilation = {
   assets: {
     [key: string]: {
-      source: () => string;
+      source: () => string | Buffer;
       size: () => number;
+      sourceAndMap?: (options?: { columns?: boolean }) => {
+        source: string | Buffer;
+        map: unknown;
+      };
     };
   };
+  hooks: {
+    processAssets: {
+      tap: (
+        options: { name: string; stage: number },
+        callback: (assets: Compilation["assets"]) => void
+      ) => void;
+    };
+  };
+  updateAsset: (
+    filename: string,
+    newSource: {
+      source: () => string | Buffer;
+      size: () => number;
+      sourceAndMap?: (options?: { columns?: boolean }) => {
+        source: string | Buffer;
+        map: unknown;
+      };
+    }
+  ) => void;
+  PROCESS_ASSETS_STAGE_OPTIMIZE: number;
 };
 
 type Compiler = {
+  webpack: {
+    sources: {
+      RawSource: new (source: string | Buffer) => {
+        source: () => string | Buffer;
+        size: () => number;
+        sourceAndMap: (options?: { columns?: boolean }) => {
+          source: string | Buffer;
+          map: unknown;
+        };
+      };
+    };
+  };
   hooks: {
-    emit: {
-      tapAsync: (
-        name: string,
-        callback: (compilation: Compilation, callback: () => void) => void
-      ) => void;
+    compilation: {
+      tap: (name: string, callback: (compilation: Compilation) => void) => void;
     };
   };
 };
@@ -31,31 +64,38 @@ export class RemovePolyfillPlugin {
   ];
 
   apply(compiler: Compiler) {
-    compiler.hooks.emit.tapAsync(
-      "RemovePolyfillPlugin",
-      (compilation, callback) => {
-        // Iterate over all compiled assets
-        for (const filename in compilation.assets) {
-          // Only check JavaScript files
-          if (!filename.endsWith(".js")) continue;
+    compiler.hooks.compilation.tap("RemovePolyfillPlugin", (compilation) => {
+      compilation.hooks.processAssets.tap(
+        {
+          name: "RemovePolyfillPlugin",
+          stage: compilation.PROCESS_ASSETS_STAGE_OPTIMIZE,
+        },
+        (assets) => {
+          // Iterate over all compiled assets
+          for (const filename in assets) {
+            // Only check JavaScript files
+            if (!filename.endsWith(".js")) continue;
 
-          const asset = compilation.assets[filename];
-          let content = asset.source().toString();
+            const asset = assets[filename];
+            const source = asset.source();
+            const originalContent =
+              typeof source === "string" ? source : source.toString();
+            let content = originalContent;
 
-          // Remove polyfills using all regex patterns
-          for (const regex of this.polyfillRegexes) {
-            content = content.replace(regex, "");
+            // Remove polyfills using all regex patterns
+            for (const regex of this.polyfillRegexes) {
+              content = content.replace(regex, "");
+            }
+
+            // Only update if content changed
+            if (content !== originalContent) {
+              // Use webpack's RawSource to create a proper source object
+              const newSource = new compiler.webpack.sources.RawSource(content);
+              compilation.updateAsset(filename, newSource);
+            }
           }
-
-          // Update the asset with cleaned content
-          compilation.assets[filename] = {
-            source: () => content,
-            size: () => content.length,
-          };
         }
-
-        callback();
-      }
-    );
+      );
+    });
   }
 }

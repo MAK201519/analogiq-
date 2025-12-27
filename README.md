@@ -4,6 +4,8 @@ A modern, responsive landing page for a digital marketing agency, built from a F
 
 🌐 **Live Demo:** [https://zakariamouhid-positivus.vercel.app](https://zakariamouhid-positivus.vercel.app)
 
+![Project Mockup](Project-Mockup.png)
+
 ## 🎨 Design Attribution
 
 This project is based on a design from Figma Community:

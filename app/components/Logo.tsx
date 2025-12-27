@@ -1,13 +1,18 @@
 import LogoIcon from "@/app/assets/icons/logo-icon.svg";
 import LogoPositivus from "@/app/assets/icons/logo-positivus.svg";
+import { cn } from "../lib/utils";
 
-type LogoProps = {
-  className?: string;
-};
-
-export default function Logo({ className }: LogoProps) {
+export default function Logo({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={`relative ${className || ""}`} aria-label="Positivus Logo">
+    <div
+      role="img"
+      aria-label="Positivus Logo"
+      {...props}
+      className={cn("relative", className)}
+    >
       <div className="absolute inset-[0_83.6%_0_0]">
         <LogoIcon
           className="block max-w-none size-full fill-current"

@@ -28,8 +28,7 @@ export default function Contact({ className }: ContactProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic can be added here
-    console.log("Form submitted:", { formType, ...formData });
+    // TODO: Form submission logic can be added here
   };
 
   return (

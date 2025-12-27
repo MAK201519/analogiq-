@@ -9,9 +9,23 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Positivus",
+  title: "Positivus - Digital Marketing Agency",
   description:
-    "Based on a Figma design by Olga (@olgaaverchenko), coded by zakariamouhid.",
+    "A modern digital marketing agency landing page. Built with Next.js, TypeScript, and Tailwind CSS. Design by Olga (@olgaaverchenko) from Figma Community.",
+  keywords: ["digital marketing", "SEO", "PPC", "social media marketing"],
+  authors: [
+    { name: "zakariamouhid", url: "https://zakariamouhid.blogspot.com/" },
+  ],
+  openGraph: {
+    title: "Positivus - Digital Marketing Agency",
+    description: "A modern digital marketing agency landing page",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Positivus - Digital Marketing Agency",
+    description: "A modern digital marketing agency landing page",
+  },
 };
 
 export default function RootLayout({

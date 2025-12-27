@@ -7,7 +7,7 @@ type LogoProps = {
 
 export default function Logo({ className }: LogoProps) {
   return (
-    <div className={`relative ${className || ""}`}>
+    <div className={`relative ${className || ""}`} aria-label="Positivus Logo">
       <div className="absolute inset-[0_83.6%_0_0]">
         <LogoIcon
           className="block max-w-none size-full fill-current"

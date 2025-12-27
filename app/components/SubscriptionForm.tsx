@@ -20,12 +20,11 @@ export default function SubscriptionForm({ className }: SubscriptionFormProps) {
     try {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Subscribed:", email);
       setEmail("");
-      // You can add a success message here
+      // TODO: Add success message here
     } catch (error) {
-      console.error("Subscription error:", error);
-      // You can add an error message here
+      // TODO: Add error message here
+      void error;
     } finally {
       setIsSubmitting(false);
     }

@@ -6,7 +6,15 @@ import Eyebrow from "./Eyebrow";
 import { Button } from "@/components/ui/button";
 import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/animations";
 
-export default function FinalCTA() {
+interface FinalCTAProps {
+  heading?: string;
+  subheading?: string;
+}
+
+export default function FinalCTA({
+  heading = "Ready to close the Activation Gap?",
+  subheading = "Let's discuss how we can help your team turn digital investment into measurable outcomes.",
+}: FinalCTAProps) {
   return (
     <section className="bg-[var(--surface)] py-[70px] max-sm:py-[40px]">
       <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
@@ -42,7 +50,7 @@ export default function FinalCTA() {
                 className="mt-4 max-w-[620px]"
                 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: '#ffffff' }}
               >
-                Ready to close the Activation Gap?
+                {heading}
               </motion.h2>
 
               <motion.p
@@ -50,8 +58,7 @@ export default function FinalCTA() {
                 className="text-[16px] leading-[1.65] mt-5 max-w-[480px]"
                 style={{ color: '#9CA3AF' }}
               >
-                Let&apos;s discuss how we can help your team turn digital
-                investment into measurable outcomes.
+                {subheading}
               </motion.p>
 
               <motion.div variants={item} className="mt-10">

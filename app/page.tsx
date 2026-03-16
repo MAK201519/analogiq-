@@ -1,66 +1,81 @@
 import NavigationBar from "./components/NavigationBar";
-import Header from "./components/Header";
-import Logotypes from "./components/Logotypes";
-import Attribution from "./components/Attribution";
-import HeadingSubheading from "./components/HeadingSubheading";
-import Services from "./components/Services";
-import CTA from "./components/CTA";
-import CaseStudies from "./components/CaseStudies";
-import Process from "./components/Process";
-import Team from "./components/Team";
-import Testimonials from "./components/Testimonials";
-import Contact from "./components/Contact";
+import HeroSection from "./components/HeroSection";
+import WorkSection from "./components/WorkSection";
+import ClientLogos from "./components/ClientLogos";
+import StatsBar from "./components/StatsBar";
+import IndustryShift from "./components/IndustryShift";
+import ActivationGap from "./components/ActivationGap";
+import ProcessSteps from "./components/ProcessSteps";
+import InsightsSection from "./components/InsightsSection";
+import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
 
-export default async function Home() {
+const approachSteps = [
+  {
+    number: "01",
+    title: "Audit",
+    description:
+      "Assess current platform maturity, data readiness and activation gaps across your organisation. We interview stakeholders, analyse your martech stack and map the distance between ambition and capability.",
+    outcomes: [
+      "Clear picture of platform maturity across all capabilities",
+      "Prioritised list of activation gaps and quick wins",
+      "Executive-ready findings with supporting evidence",
+    ],
+  },
+  {
+    number: "02",
+    title: "Roadmap",
+    description:
+      "Build a pragmatic delivery plan aligned with specific business objectives and realistic timelines. We define the sequence of initiatives, estimated effort and success metrics for each workstream.",
+    outcomes: [
+      "12-month delivery roadmap with phased milestones",
+      "Business case and ROI model for each initiative",
+      "Defined ownership and governance structure",
+    ],
+  },
+  {
+    number: "03",
+    title: "Pilot",
+    description:
+      "Deliver focused solutions with measurable outcomes within defined timeframes — proving value fast. We embed with your team to build, test and iterate on the highest-impact capability first.",
+    outcomes: [
+      "Live capability delivered within 6–8 weeks",
+      "Measurable performance baseline established",
+      "Team upskilled and ready to iterate independently",
+    ],
+  },
+  {
+    number: "04",
+    title: "Scale",
+    description:
+      "Extend proven capabilities across teams, markets and the organisation with governance in place. We help you build the operating model, tooling and skills to sustain momentum after we step back.",
+    outcomes: [
+      "Capability rolled out across all relevant markets and channels",
+      "Internal Centre of Excellence established",
+      "Ongoing optimisation cadence embedded in BAU",
+    ],
+  },
+];
+
+export default function Home() {
   return (
-    <div className="relative pt-[60px] max-sm:pt-[30px]">
+    <div>
       <NavigationBar />
-      <Header className="mt-[70px] max-sm:mt-[40px]" />
-      <Logotypes className="mt-[70px] max-sm:mt-[40px]" />
-      <HeadingSubheading
-        className="mt-[140px] max-lg:mt-[100px] max-sm:mt-[60px]"
-        heading="Services"
-        subheading="At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:"
+      <HeroSection />
+      <WorkSection />
+      <ClientLogos />
+      <StatsBar />
+      <IndustryShift />
+      <ActivationGap />
+      <ProcessSteps
+        eyebrow="OUR APPROACH"
+        heading="From audit to scale."
+        subheading="We modernise your digital platform and embed new capabilities across the organisation."
+        steps={approachSteps}
       />
-      <Services className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
-      <CTA className="mt-[100px] max-sm:mt-[40px]" />
-      <HeadingSubheading
-        className="mt-[140px] max-lg:mt-[100px] max-sm:mt-[60px]"
-        heading="Case Studies"
-        subheading="Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies"
-      />
-      <CaseStudies className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
-      <HeadingSubheading
-        className="mt-[140px] max-lg:mt-[100px] max-sm:mt-[60px] max-md:flex-col"
-        heading="Our Working Process"
-        subheading="Step-by-Step Guide to Achieving Your Business Goals"
-        subheadingClassName="max-w-[292px]"
-      />
-      <Process className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
-      <HeadingSubheading
-        className="mt-[140px] max-lg:mt-[100px] max-sm:mt-[60px]"
-        heading="Team"
-        subheading="Meet the skilled and experienced team behind our successful digital marketing strategies"
-        subheadingClassName="max-w-[473px]"
-      />
-      <Team className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
-      <HeadingSubheading
-        className="mt-[100px] max-lg:mt-[80px] max-sm:mt-[60px]"
-        heading="Testimonials"
-        subheading="Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
-        subheadingClassName="max-w-[473px]"
-      />
-      <Testimonials className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
-      <HeadingSubheading
-        className="mt-[140px] max-lg:mt-[100px] max-sm:mt-[60px]"
-        heading="Contact Us"
-        subheading="Connect with Us: Let's Discuss Your Digital Marketing Needs"
-        subheadingClassName="max-w-[323px]"
-      />
-      <Contact className="mt-[80px] max-lg:mt-[60px] max-sm:mt-[40px]" />
-      <Footer className="mt-[140px] max-lg:mt-[100px] max-sm:mt-[60px]" />
-      <Attribution />
+      <InsightsSection />
+      <FinalCTA />
+      <Footer />
     </div>
   );
 }

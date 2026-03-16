@@ -1,127 +1,152 @@
-import { cn } from "../lib/utils";
-import LinkedInIcon from "@/app/assets/icons/linkedin.svg";
-import FacebookIcon from "@/app/assets/icons/facebook.svg";
-import TwitterIcon from "@/app/assets/icons/twitter.svg";
-import Link from "next/link";
-import SubscriptionForm from "./SubscriptionForm";
-import Logo from "./Logo";
+"use client";
 
-const navLinks = [
-  { href: ".", label: "About us" },
-  { href: ".", label: "Services" },
-  { href: ".", label: "Use Cases" },
-  { href: ".", label: "Pricing" },
-  { href: ".", label: "Blog" },
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+const footerColumns: { heading: string; links: { label: string; href: string }[] }[] = [
+  {
+    heading: "Services",
+    links: [
+      { label: "AI Marketing", href: "/ai" },
+      { label: "Platform Engineering", href: "/services/platform-engineering" },
+      { label: "UX & Product Design", href: "/services/ux-product-design" },
+      { label: "Data & Insights", href: "/services/data-insights" },
+      { label: "Personalisation", href: "/services/personalisation" },
+      { label: "AI Enablement", href: "/services/ai-enablement" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Work", href: "/work" },
+      { label: "Insights", href: "/insights" },
+      { label: "Contact", href: "/contact" },
+      { label: "Platforms", href: "/platforms" },
+    ],
+  },
+  {
+    heading: "Follow us",
+    links: [
+      { label: "LinkedIn", href: "/" },
+      { label: "Twitter", href: "/" },
+      { label: "Instagram", href: "/" },
+      { label: "YouTube", href: "/" },
+    ],
+  },
 ];
 
-export default function Footer({ className }: { className?: string }) {
+export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <div
-      className={cn(
-        "flex flex-col items-start px-[100px] pr-[99px] max-xl:px-[60px] max-sm:px-[30px] py-0 relative w-full max-w-[1440px] mx-auto",
-        className
-      )}
-    >
-      <div
-        className={cn(
-          "bg-[#191a23] flex flex-col items-start relative rounded-tl-[45px] rounded-tr-[45px] shrink-0 w-full",
-          "gap-[50px] max-lg:gap-[40px] max-md:gap-[30px]",
-          "px-[60px] max-lg:px-[40px] max-md:px-[30px]",
-          "pb-[50px] pt-[55px] max-lg:pb-[40px] max-lg:pt-[40px] max-md:pb-[30px] max-md:pt-[40px]"
-        )}
-      >
-        <div className="flex flex-col gap-[66px] max-lg:gap-[40px] items-start relative w-full">
-          {/* Top section: Logo, Navigation, Social Icons */}
-          <div className="flex justify-between items-center relative w-full gap-[20px] max-lg:flex-wrap">
-            {/* Logo with white fill */}
-            <Logo className="w-[180px] h-[30px] text-white" />
+    <footer className="bg-[var(--surface)] py-[70px] max-sm:py-[40px]" style={{ borderTop: '1px solid #E5E7EB' }}>
+      <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
+        {/* Main grid: 2fr 1fr 1fr 1fr */}
+        <div
+          className="grid gap-12 max-md:grid-cols-2 max-sm:grid-cols-1"
+          style={{ gridTemplateColumns: "2fr 1fr 1fr 1fr" }}
+        >
+          {/* Column 1: Logo, tagline, newsletter */}
+          <div className="flex flex-col gap-6">
+            <Link href="/">
+              <span className="font-serif-italic text-[22px]" style={{ color: '#191A23' }}>
+                Analogiq
+              </span>
+            </Link>
+            <p className="text-[14px] leading-[1.65] max-w-[260px]" style={{ color: '#6B7280' }}>
+              Helping enterprise organisations close the Digital Activation Gap.
+            </p>
 
-            {/* Navigation Links */}
-            <div className="flex font-normal gap-[40.5px] max-xl:gap-[20px] items-start leading-[normal] relative shrink-0 text-[18px] text-white underline max-lg:w-full max-lg:order-1 flex-wrap">
-              {navLinks.map(({ href, label }, index) => (
-                <Link
-                  key={index}
-                  href={href}
-                  className="[text-decoration-skip-ink:none] [text-underline-position:from-font] underline-offset-1 decoration-solid relative shrink-0"
-                >
-                  {label}
-                </Link>
-              ))}
-            </div>
+            {/* Newsletter */}
+            <form className="flex flex-col gap-2 mt-1" onSubmit={(e) => e.preventDefault()}>
+              <Input
+                type="email"
+                placeholder="Your email address"
+                className="w-full h-auto focus-visible:border-[#D4500F] focus-visible:ring-[#D4500F]/20"
+                style={{
+                  borderRadius: 10,
+                  padding: '12px 16px',
+                  fontSize: 14,
+                  color: '#191A23',
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #E5E7EB',
+                }}
+              />
+              <Button
+                type="submit"
+                className="w-full text-[14px] font-semibold border-0 hover:opacity-90 transition-opacity"
+                style={{
+                  borderRadius: 10,
+                  padding: '12px 0',
+                  height: 'auto',
+                  backgroundColor: '#D4500F',
+                  color: '#ffffff',
+                  boxShadow: '0 4px 0 0 #191A23',
+                }}
+              >
+                Subscribe to insights
+              </Button>
+            </form>
 
-            {/* Social Icons */}
-            <div className="h-[30px] relative shrink-0 flex gap-[20px] items-center">
-              {[
-                {
-                  icon: LinkedInIcon,
-                  href: ".",
-                  label: "LinkedIn",
-                },
-                {
-                  icon: FacebookIcon,
-                  href: ".",
-                  label: "Facebook",
-                },
-                {
-                  icon: TwitterIcon,
-                  href: ".",
-                  label: "Twitter",
-                },
-              ].map(({ icon: Icon, href, label }, index) => (
+            {/* Social links */}
+            <div className="flex gap-4">
+              {["LinkedIn", "Twitter", "Instagram", "YouTube"].map((platform) => (
                 <Link
-                  key={index}
-                  href={href}
-                  className="block max-w-none size-full"
-                  aria-label={label}
+                  key={platform}
+                  href="/"
+                  className="text-[13px] hover:underline transition-colors"
+                  style={{ color: '#6B7280' }}
                 >
-                  <Icon width={30} height={30} />
+                  {platform}
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Middle section: Contact Info and Subscription */}
-          <div className="flex gap-[30px] items-center justify-between relative shrink-0 w-full max-md:flex-col max-md:items-start">
-            {/* Contact Information */}
-            <div className="flex flex-col gap-[27px] items-start relative flex-2 max-lg:flex-3">
-              <div className="flex flex-col items-start relative">
-                <div className="bg-[#b9ff66] flex flex-col items-start px-[7px] py-0 relative rounded-[7px]">
-                  <p className="font-medium leading-[normal] relative shrink-0 text-[20px] text-black">
-                    Contact us:
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col font-normal gap-[20px] items-start relative text-[18px] text-white">
-                <p className="leading-[normal] relative">
-                  Email: info@positivus.com
-                </p>
-                <p className="leading-[normal] relative">Phone: 555-567-8901</p>
-                <div className="leading-[normal] relative">
-                  <p className="mb-0">Address: 1234 Main St</p>
-                  <p>Moonstone City, Stardust State 12345</p>
-                </div>
-              </div>
+          {/* Columns 2–4: link groups */}
+          {footerColumns.map(({ heading, links }) => (
+            <div key={heading} className="flex flex-col gap-4">
+              <h4 className="text-[12px] font-semibold uppercase tracking-[0.1em]" style={{ color: '#191A23' }}>
+                {heading}
+              </h4>
+              <ul className="flex flex-col gap-3">
+                {links.map(({ label, href }) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      className="text-[14px] hover:underline transition-colors"
+                      style={{ color: '#6B7280' }}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            {/* Subscription Form */}
-            <SubscriptionForm />
-          </div>
+          ))}
         </div>
 
-        {/* Divider */}
-        <div className="h-0 relative shrink-0 w-full border-t xl:-mt-px border-white"></div>
-
-        {/* Bottom section: Line and Copyright */}
-        <div className="flex font-normal gap-x-[41px] gap-y-[10px] items-start relative text-[18px]/[28px] text-white w-full flex-wrap">
-          <p className="relative">© 2023 Positivus. All Rights Reserved.</p>
-          <Link
-            href="."
-            className="[text-decoration-skip-ink:none] [text-underline-position:from-font] decoration-solid relative underline"
-          >
-            Privacy Policy
-          </Link>
+        {/* Bottom bar */}
+        <div className="mt-12 pt-8 flex items-center justify-between flex-wrap gap-4" style={{ borderTop: '1px solid #E5E7EB' }}>
+          <p className="text-[13px]" style={{ color: '#9CA3AF' }}>
+            © {year} Analogiq. All rights reserved.
+          </p>
+          <div className="flex gap-6">
+            {["Privacy Policy", "Terms of Service", "Cookie Settings"].map((item) => (
+              <Link
+                key={item}
+                href="/"
+                className="text-[13px] hover:underline transition-colors"
+                style={{ color: '#9CA3AF' }}
+              >
+                {item}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

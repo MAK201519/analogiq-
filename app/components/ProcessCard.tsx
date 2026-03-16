@@ -55,8 +55,8 @@ export default function ProcessCard({
   return (
     <div
       className={cn(
-        "border border-[#191a23] border-solid transition-colors duration-300 flex flex-col items-start overflow-clip px-[59px] max-xl:px-[40px] max-sm:px-[30px] py-[40px] max-xl:py-[30px] max-sm:py-[20px] relative rounded-[45px] shadow-[0px_5px_0px_0px_#191a23] shrink-0 w-full max-w-[1234px] cursor-pointer",
-        isExpanded ? "bg-[#b9ff66]" : "bg-[#f3f3f3]",
+        "border border-[var(--text)] border-solid transition-colors duration-300 flex flex-col items-start overflow-clip px-[59px] max-xl:px-[40px] max-sm:px-[30px] py-[40px] max-xl:py-[30px] max-sm:py-[20px] relative rounded-[45px] shadow-[0px_5px_0px_0px_var(--text)] shrink-0 w-full cursor-pointer",
+        isExpanded ? "bg-[var(--accent-light)]" : "bg-[var(--surface)]",
         className
       )}
       data-name="Card"
@@ -77,10 +77,10 @@ export default function ProcessCard({
           className="content-stretch flex font-medium gap-[25px] items-center leading-[normal] relative flex-1 text-black"
           data-name="Label"
         >
-          <p className="relative shrink-0 text-[60px] max-xl:text-[50px] max-sm:text-[30px] font-medium">
+          <p className="font-serif-italic relative shrink-0 text-[60px] max-xl:text-[50px] max-sm:text-[30px] text-[var(--accent)]">
             {number}
           </p>
-          <p className="relative flex-1 text-[30px] max-xl:text-[25px] max-sm:text-[20px] font-medium whitespace-pre-wrap">
+          <p className="relative flex-1 text-[30px] max-xl:text-[25px] max-sm:text-[20px] font-medium text-[var(--text)] whitespace-pre-wrap">
             {title}
           </p>
         </div>
@@ -107,7 +107,7 @@ export default function ProcessCard({
               data-name="Divider"
               aria-hidden="true"
             >
-              <div className="absolute inset-[-1px_0_0_0] border-t border-[#191a23]"></div>
+              <div className="absolute inset-[-1px_0_0_0] border-t border-[var(--border)]"></div>
             </div>
             <p className="font-normal h-auto leading-[normal] relative shrink-0 text-[18px] text-black w-full whitespace-pre-wrap pb-[14px] max-xl:pb-[10px] max-sm:pb-[5px]">
               {description}

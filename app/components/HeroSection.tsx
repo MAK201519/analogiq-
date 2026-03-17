@@ -33,8 +33,9 @@ export default function HeroSection() {
               color: '#ffffff',
             }}
           >
-            Build digital platforms ready for the{" "}
-            <span style={{ color: '#D4500F' }}>AI era.</span>
+            We close the{" "}
+            <span style={{ color: '#D4500F' }}>gap</span>{" "}
+            between marketing ambition and platform reality.
           </motion.h1>
 
           <motion.p
@@ -42,10 +43,12 @@ export default function HeroSection() {
             className="text-[18px] leading-[1.7] mt-8 max-w-[580px]"
             style={{ color: 'rgba(255,255,255,0.70)' }}
           >
-            Marketing is changing faster than most digital platforms can keep
-            up. Analogiq helps organisations modernise digital platforms so
-            marketing teams can move faster, experiment more and deliver better
-            customer experiences.
+            Most enterprise marketing teams are constrained by digital platforms
+            that were never designed for AI, experimentation or personalisation
+            at scale. We fix that. Analogiq has helped more than 40
+            organisations — including teams at the BBC, Sitecore and Capco —
+            modernise their platforms and activate AI across their marketing
+            operations.
           </motion.p>
 
           <motion.div
@@ -67,7 +70,7 @@ export default function HeroSection() {
                 boxShadow: '0 5px 0 0 #191A23',
               }}
             >
-              <Link href="/contact">Start a conversation</Link>
+              <Link href="/contact">Start the conversation</Link>
             </Button>
 
             {/* Ghost CTA — white on dark bg */}

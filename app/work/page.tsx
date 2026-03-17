@@ -1,0 +1,310 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import NavigationBar from "../components/NavigationBar";
+import FinalCTA from "../components/FinalCTA";
+import Footer from "../components/Footer";
+import Eyebrow from "../components/Eyebrow";
+import { Button } from "@/components/ui/button";
+import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/animations";
+
+/* ─── DATA ───────────────────────────────────────────────────────────────── */
+
+const cases = [
+  {
+    category: "PLATFORM / COMPOSABLE ARCHITECTURE",
+    client: "BBC",
+    title: "Composable platform transformation across 14 global markets",
+    outcome: "40% faster time-to-market",
+    body: "The BBC needed a digital platform capable of supporting content delivery across 14 international markets at pace. Legacy architecture was creating development bottlenecks that slowed campaign launches and limited the editorial team's ability to respond to breaking news and time-sensitive content requirements. We designed and delivered a composable architecture that reduced campaign launch time from weeks to days and gave editorial teams genuine control over their digital experience without engineering dependency.",
+    tags: ["Composable architecture", "Sitecore", "Platform engineering"],
+    href: "/work/bbc",
+    seed: "bbc",
+  },
+  {
+    category: "AI / PERSONALISATION",
+    client: "Capco",
+    title: "AI-powered personalisation programme delivering measurable conversion uplift",
+    outcome: "2.5× conversion uplift",
+    body: "Capco wanted to move personalisation from a pilot into production. Previous attempts had produced encouraging results in controlled environments but had not translated into consistent performance improvement at scale. We designed the data and platform infrastructure required to support real-time personalisation — connecting behavioural data to digital experience delivery and producing a 2.5× uplift in conversion within the first programme cycle.",
+    tags: ["AI activation", "Personalisation", "Data infrastructure"],
+    href: "/work/capco",
+    seed: "capco",
+  },
+  {
+    category: "EXPERIMENTATION / PLATFORM",
+    client: "White Moss",
+    title: "Experimentation infrastructure enabling continuous optimisation",
+    outcome: "60% reduction in content publishing cycle",
+    body: "White Moss needed the capability to test, learn and improve continuously rather than relying on periodic campaign reviews. The existing platform made experimentation slow and resource-intensive — each test required significant engineering involvement and the time between insight and implementation was measured in weeks. We built the experimentation infrastructure and workflow that reduced their content publishing cycle by 60% and gave the marketing team the tools to optimise performance without engineering dependency.",
+    tags: ["Experimentation", "Platform engineering", "Workflow design"],
+    href: "/work/white-moss",
+    seed: "whitemoss",
+  },
+];
+
+const metrics = [
+  { number: "40+", label: "organisations helped across platform modernisation and AI activation" },
+  { number: "10+", label: "years of digital platform and AI delivery experience" },
+  { number: "3", label: "case studies showing measurable commercial outcomes" },
+];
+
+const sectors = [
+  "Financial Services",
+  "Media & Publishing",
+  "Retail & Commerce",
+  "Professional Services",
+  "Technology",
+  "Higher Education",
+];
+
+/* ─── PAGE ───────────────────────────────────────────────────────────────── */
+
+export default function WorkPage() {
+  return (
+    <div>
+      <NavigationBar />
+
+      {/* ── 1. HERO ──────────────────────────────────────────────────── */}
+      <section style={{ backgroundColor: "#0D0D0D" }} className="pt-[140px] pb-[80px] max-sm:pt-[100px] max-sm:pb-[40px]">
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
+          <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[760px]">
+            <motion.div variants={item}><Eyebrow muted>OUR WORK</Eyebrow></motion.div>
+            <motion.h1 variants={item} className="mt-5"
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 72, fontWeight: 800, lineHeight: 1.0, color: "#ffffff" }}>
+              Proof that the{" "}
+              <span style={{ color: "#D4500F" }}>gap can be closed.</span>
+            </motion.h1>
+            <motion.p variants={item} className="mt-6 text-[18px] leading-[1.65] max-w-[620px]" style={{ color: "#9CA3AF" }}>
+              The clearest measure of a consultancy is what it has delivered. The work below represents a selection of engagements where Analogiq has helped organisations modernise their digital platforms, activate AI across marketing workflows and build the foundations for sustained digital performance.
+            </motion.p>
+            <motion.div variants={item} className="mt-10 flex gap-4 flex-wrap">
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button asChild className="font-medium text-[16px] border-0 hover:opacity-90 transition-opacity"
+                  style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontWeight: 500, borderRadius: 14, padding: "20px 35px", height: "auto", backgroundColor: "#D4500F", color: "#ffffff", boxShadow: "0 5px 0 0 #3a1a05" }}>
+                  <Link href="/contact">Start a conversation</Link>
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button asChild className="font-medium text-[16px] border-0 hover:opacity-90 transition-opacity"
+                  style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontWeight: 500, borderRadius: 14, padding: "20px 35px", height: "auto", backgroundColor: "transparent", color: "#ffffff", border: "1px solid rgba(255,255,255,0.2)" }}>
+                  <Link href="/services">View our services</Link>
+                </Button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 2. WORK INTRO — white, centred ───────────────────────────── */}
+      <section className="bg-white py-[70px] max-sm:py-[40px]">
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
+          <motion.div
+            variants={stagger}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-80px" }}
+            className="flex flex-col items-center text-center max-w-[700px] mx-auto"
+          >
+            <motion.div variants={item}><Eyebrow>SELECTED WORK</Eyebrow></motion.div>
+            <motion.h2 variants={item} className="mt-4"
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+              Different starting points. The same outcome.
+            </motion.h2>
+            <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
+              Each engagement below reflects a different organisation, a different sector and a different set of constraints. The common thread is a structured approach to change that produces measurable outcomes — reducing platform debt, activating AI within marketing workflows and building the foundations for continuous improvement.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 3. FEATURED CASE STUDIES — stacked full-width cards ──────── */}
+      <section className="bg-white pb-[70px] max-sm:pb-[40px]">
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5 flex flex-col gap-8">
+          {cases.map(({ category, client, title, outcome, body, tags, href, seed }, i) => (
+            <motion.div
+              key={client}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.07 }}
+              viewport={{ once: true, margin: "-60px" }}
+              className="grid grid-cols-2 gap-0 max-md:grid-cols-1 group"
+              style={{ backgroundColor: "#ffffff", borderRadius: 20, border: "1px solid #E5E7EB", boxShadow: "0 5px 0 0 #191A23", overflow: "hidden" }}
+            >
+              {/* Left — text */}
+              <div className="flex flex-col justify-between p-12 max-sm:p-8">
+                <div>
+                  <span
+                    className="inline-block px-[10px] py-1 rounded-[6px] text-[11px] font-semibold uppercase tracking-[0.05em] mb-4"
+                    style={{ background: "#FDF0E8", color: "#D4500F" }}
+                  >
+                    {category}
+                  </span>
+                  <p className="eyebrow mb-3">{client}</p>
+                  <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 26, fontWeight: 700, lineHeight: 1.2, color: "#111111" }}>
+                    {title}
+                  </h3>
+                  <p className="text-[15px] font-semibold mt-3" style={{ color: "#D4500F" }}>{outcome}</p>
+                  <p className="text-[15px] leading-[1.7] mt-4" style={{ color: "#6B7280" }}>{body}</p>
+                </div>
+                <div className="mt-8 flex flex-col gap-4">
+                  <div className="flex flex-wrap gap-2">
+                    {tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-block px-4 py-1 text-[12px] font-medium rounded-full"
+                        style={{ backgroundColor: "#F3F3F3", color: "#6B7280", border: "1px solid #E5E7EB" }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <Link href={href} className="text-[14px] font-medium hover:underline" style={{ color: "#D4500F" }}>
+                    Read case study →
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right — image */}
+              <div className="overflow-hidden max-md:h-[280px]" style={{ minHeight: 400 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`https://picsum.photos/seed/${seed}/800/600`}
+                  alt={title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 4. IMPACT STATS — dark metrics strip ─────────────────────── */}
+      <section style={{ backgroundColor: "#0D0D0D" }} className="py-[70px] max-sm:py-[40px]">
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
+          <motion.div
+            variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-80px" }}
+            className="grid grid-cols-3 max-md:grid-cols-1"
+          >
+            {metrics.map(({ number, label }, i) => (
+              <motion.div
+                key={number}
+                variants={{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
+                className={`flex flex-col items-center text-center px-10 py-12 ${i > 0 ? "border-l border-[rgba(255,255,255,0.1)] max-md:border-l-0 max-md:border-t" : ""}`}
+              >
+                <span style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 64, fontWeight: 700, lineHeight: 1, color: "#D4500F" }}>
+                  {number}
+                </span>
+                <p className="text-[15px] leading-[1.5] mt-4 max-w-[200px]" style={{ color: "#9CA3AF" }}>
+                  {label}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 5. SECTORS — surface, centred ────────────────────────────── */}
+      <section style={{ backgroundColor: "#F3F3F3" }} className="py-[70px] max-sm:py-[40px]">
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
+          <motion.div
+            variants={stagger}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-80px" }}
+            className="flex flex-col items-center text-center"
+          >
+            <motion.div variants={item}><Eyebrow>SECTORS</Eyebrow></motion.div>
+            <motion.h2 variants={item} className="mt-4 max-w-[620px]"
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+              Organisations we have worked with span multiple sectors.
+            </motion.h2>
+            <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65] max-w-[560px]" style={{ color: "#6B7280" }}>
+              Our experience spans financial services, media, retail, professional services and technology — giving us a breadth of context that informs how we approach each new engagement.
+            </motion.p>
+            <motion.div variants={item} className="mt-10 flex flex-wrap gap-3 justify-center">
+              {sectors.map((sector) => (
+                <span
+                  key={sector}
+                  className="inline-block text-[14px] font-semibold"
+                  style={{ backgroundColor: "#FDF0E8", color: "#D4500F", borderRadius: 999, padding: "10px 20px" }}
+                >
+                  {sector}
+                </span>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 6. HOW WE DOCUMENT WORK — white, two col ─────────────────── */}
+      <section className="bg-white py-[70px] max-sm:py-[40px]">
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
+          <div className="grid grid-cols-2 gap-16 items-start max-md:grid-cols-1">
+            {/* Left */}
+            <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
+              <motion.div variants={item}><Eyebrow>CASE STUDIES</Eyebrow></motion.div>
+              <motion.h2 variants={item} className="mt-4"
+                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+                Real work, real outcomes.
+              </motion.h2>
+              <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
+                Each case study follows a consistent structure — client background, the platform challenge, the approach we took, the technology architecture involved and the business results achieved. We document what worked, what we learned and what the organisation was able to do differently as a result.
+              </motion.p>
+              <motion.ul variants={item} className="mt-8 flex flex-col gap-5">
+                {[
+                  { title: "Client background", desc: "Understanding the organisation, its market and the context in which the challenge arose" },
+                  { title: "The challenge", desc: "The specific platform or activation problem that was limiting marketing performance" },
+                  { title: "The approach", desc: "How Analogiq approached the problem — audit, roadmap, pilot and scale" },
+                  { title: "The outcome", desc: "Measurable results — campaign velocity, conversion uplift, cost reduction or capability gained" },
+                ].map(({ title, desc }) => (
+                  <li key={title} className="flex items-start gap-3">
+                    <span className="shrink-0 mt-[7px]" style={{ width: 6, height: 6, borderRadius: 1, backgroundColor: "#D4500F", display: "inline-block" }} aria-hidden="true" />
+                    <span>
+                      <span className="text-[15px] font-medium block" style={{ color: "#111111" }}>{title}</span>
+                      <span className="text-[14px] leading-[1.6] mt-[2px] block" style={{ color: "#6B7280" }}>{desc}</span>
+                    </span>
+                  </li>
+                ))}
+              </motion.ul>
+            </motion.div>
+
+            {/* Right — case study anatomy card */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true, margin: "-80px" }}
+              style={{ borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", overflow: "hidden" }}>
+              <div className="px-8 py-5" style={{ borderBottom: "1px solid #191A23", backgroundColor: "#F3F3F3" }}>
+                <span className="text-[11px] font-semibold uppercase tracking-[0.1em]" style={{ color: "#6B7280" }}>Case study anatomy</span>
+              </div>
+              {[
+                { number: "01", label: "Client background" },
+                { number: "02", label: "The challenge" },
+                { number: "03", label: "The approach" },
+                { number: "04", label: "The outcome" },
+              ].map(({ number, label }, i) => (
+                <div key={label} className="flex items-center gap-5 px-8 py-5"
+                  style={{ borderBottom: i < 3 ? "1px solid #E5E7EB" : "none" }}>
+                  <span style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 20, fontWeight: 700, color: "#D4500F", flexShrink: 0, minWidth: 32 }}>
+                    {number}
+                  </span>
+                  <span className="text-[15px] font-medium" style={{ color: "#111111" }}>{label}</span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. FINAL CTA ─────────────────────────────────────────────── */}
+      <FinalCTA
+        heading="Want to see more of our work?"
+        subheading="We are selective about what we publish — preferring to document fewer engagements in depth rather than many engagements superficially. If you would like to discuss work relevant to your specific sector or challenge, we would be glad to share more detail in a conversation."
+      />
+
+      <Footer />
+    </div>
+  );
+}

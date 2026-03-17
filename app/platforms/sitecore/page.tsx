@@ -37,15 +37,15 @@ function FeatureList({ items }: { items: { title: string; desc: string }[] }) {
 const experienceCards = [
   {
     title: "40+ organisations",
-    body: "Over a decade working with more than forty organisations using Sitecore across implementations, upgrades, integrations and ongoing optimisation.",
+    body: "More than forty organisations have trusted Analogiq to deliver Sitecore work — from initial implementations to complex migrations, composable transitions and long-term platform governance.",
   },
   {
     title: "Multiple versions",
-    body: "Experience spanning traditional XP implementations through to modern composable architectures and the evolving Sitecore product ecosystem.",
+    body: "Our experience spans every major Sitecore release. We have delivered projects on Sitecore 8, 9, 10, XP, XM and XM Cloud — and supported organisations through each transition.",
   },
   {
     title: "End to end",
-    body: "Supporting organisations from initial platform selection through implementation, migration, integration and long-term platform governance.",
+    body: "We work across the full Sitecore lifecycle. Platform selection, architecture, implementation, integration, optimisation, migration and the ongoing governance that keeps environments healthy.",
   },
 ];
 
@@ -113,7 +113,7 @@ export default function SitecorePage() {
               <span style={{ color: "#D4500F" }}>a decade.</span>
             </motion.h1>
             <motion.p variants={item} className="mt-6 text-[18px] leading-[1.65] max-w-[600px]" style={{ color: "#9CA3AF" }}>
-              Sitecore has long been recognised as one of the leading enterprise digital experience platforms. Analogiq has extensive experience working with Sitecore — over the past decade our teams have worked with more than forty organisations using Sitecore across a wide range of projects.
+              We are one of the most experienced Sitecore consultancies in the UK. Over ten years our teams have delivered more than 40 Sitecore engagements — spanning implementations, upgrades, composable transitions, AI integrations and long-term platform governance. When organisations need Sitecore to work harder, they come to us.
             </motion.p>
             <motion.div variants={item} className="mt-10 flex gap-4 flex-wrap">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -145,7 +145,7 @@ export default function SitecorePage() {
                 What Sitecore offers enterprise organisations.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
-                Sitecore offers powerful capabilities for organisations looking to manage complex digital ecosystems. Its content management capabilities allow organisations to manage large volumes of digital content across multiple channels. Personalisation features allow experiences to adapt to individual user behaviour. Integration capabilities allow Sitecore to operate within broader marketing technology ecosystems.
+                Sitecore is one of the most powerful digital experience platforms available to enterprise organisations. When it is well-implemented and properly governed, it gives marketing teams genuine control over complex digital environments — content at scale, personalisation, automation and analytics in a single connected platform. The challenge is getting there and staying there.
               </motion.p>
               <motion.div variants={item}>
                 <FeatureList items={[
@@ -208,7 +208,7 @@ export default function SitecorePage() {
                 The challenges of legacy Sitecore implementations.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
-                Like many enterprise platforms, the value organisations derive from Sitecore depends heavily on how the platform is implemented and operated. Without clear architectural planning and effective governance, even powerful platforms can become difficult to manage. Technical debt accumulates. Development cycles slow. Marketing teams find themselves constrained by the very platform designed to support them.
+                Most Sitecore problems are not Sitecore&apos;s fault. They are the result of implementations that grew organically, governance that was never established, and architecture decisions that made sense at the time but compound over years. We have seen this pattern more than forty times. We know where the bodies are buried — and we know how to fix it without starting from scratch.
               </motion.p>
               <motion.div variants={item}>
                 <FeatureList items={[
@@ -235,7 +235,7 @@ export default function SitecorePage() {
                 How Analogiq modernises Sitecore.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
-                Our teams support both new Sitecore implementations and the optimisation of existing environments. This may involve improving platform architecture, introducing modern development practices, integrating Sitecore with broader marketing technology ecosystems or helping marketing teams make better use of the platform&apos;s personalisation and content management capabilities.
+                Our teams have worked across every major version of Sitecore — from traditional XP implementations through to XM Cloud and modern composable architectures. We support both new implementations and the modernisation of existing environments. More importantly, we understand the organisational complexity that surrounds Sitecore projects — the competing priorities, the technical debt, the internal politics. We have navigated all of it.
               </motion.p>
               <motion.div variants={item}>
                 <FeatureList items={[
@@ -308,7 +308,7 @@ export default function SitecorePage() {
       {/* ── 7. FINAL CTA ─────────────────────────────────────────────── */}
       <FinalCTA
         heading="Ready to get more from your Sitecore investment?"
-        subheading="Whether you are implementing Sitecore for the first time or looking to modernise an existing environment, we would be glad to understand your situation."
+        subheading="Whether you are implementing Sitecore for the first time, dealing with a platform that has drifted from its original design, or planning a migration to XM Cloud — we have done it before and we can help you do it well."
       />
 
       <Footer />

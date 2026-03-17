@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/animations";
 
 const stats = [
-  { number: "73%",  label: "of enterprises say their digital platform underdelivers" },
-  { number: "4.2×", label: "more budget allocated to tools than to activation" },
-  { number: "67%",  label: "of martech capabilities go unused after 12 months" },
-  { number: "8wks", label: "average campaign launch cycle in legacy platforms" },
+  { number: "40+", label: "organisations helped to close the Digital Activation Gap" },
+  { number: "10+", label: "years delivering digital platform and AI projects" },
+  { number: "3×",  label: "faster campaign velocity after platform modernisation" },
+  { number: "60%", label: "average reduction in content publishing cycle across engagements" },
 ];
 
 export default function StatsBar() {

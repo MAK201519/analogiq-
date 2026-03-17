@@ -12,8 +12,8 @@ interface FinalCTAProps {
 }
 
 export default function FinalCTA({
-  heading = "Ready to close the Activation Gap?",
-  subheading = "Let's discuss how we can help your team turn digital investment into measurable outcomes.",
+  heading = "If your platform is limiting your marketing, let's talk about it.",
+  subheading = "We work with a focused number of organisations at any given time. If you are a CMO, Head of Digital or marketing technology leader dealing with the gap between what you want to achieve and what your current infrastructure allows — we would be glad to understand the situation and share a clear-eyed perspective on what closing that gap realistically looks like. No pitch. Just a conversation.",
 }: FinalCTAProps) {
   return (
     <section className="bg-[var(--surface)] py-[70px] max-sm:py-[40px]">
@@ -77,7 +77,7 @@ export default function FinalCTA({
                       boxShadow: '0 5px 0 0 #191A23',
                     }}
                   >
-                    <Link href="/contact">Start a conversation</Link>
+                    <Link href="/contact">Start the conversation</Link>
                   </Button>
                 </motion.div>
               </motion.div>

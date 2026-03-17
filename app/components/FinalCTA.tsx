@@ -9,11 +9,13 @@ import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/anima
 interface FinalCTAProps {
   heading?: string;
   subheading?: string;
+  eyebrow?: string;
 }
 
 export default function FinalCTA({
   heading = "If your platform is limiting your marketing, let's talk about it.",
   subheading = "We work with a focused number of organisations at any given time. If you are a CMO, Head of Digital or marketing technology leader dealing with the gap between what you want to achieve and what your current infrastructure allows — we would be glad to understand the situation and share a clear-eyed perspective on what closing that gap realistically looks like. No pitch. Just a conversation.",
+  eyebrow = "NEXT STEP",
 }: FinalCTAProps) {
   return (
     <section className="bg-[var(--surface)] py-[70px] max-sm:py-[40px]">
@@ -42,7 +44,7 @@ export default function FinalCTA({
               className="flex flex-col items-center"
             >
               <motion.div variants={item}>
-                <Eyebrow muted>NEXT STEP</Eyebrow>
+                <Eyebrow muted>{eyebrow}</Eyebrow>
               </motion.div>
 
               <motion.h2

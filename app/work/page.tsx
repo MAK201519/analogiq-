@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import NavigationBar from "../components/NavigationBar";
@@ -13,6 +14,17 @@ import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/anima
 
 const cases = [
   {
+    category: "CRO / EXPERIMENTATION / PAID MEDIA",
+    client: "Wilderness Destinations",
+    title: "Doubling conversion rate and cutting acquisition costs in half for a luxury safari brand",
+    outcome: "2× conversion rate · 63% reduction in CPA",
+    body: "Following a new website launch, Wilderness's landing pages for paid traffic were underperforming — conversion rates were not reflecting the quality of the product or the intent of the traffic. Analogiq mapped the full customer journey, designed two purpose-built landing page variants and ran a structured A/B test. The result was a conversion rate that went from 0.9% to 1.9%, a 63% reduction in CPA, and a full rollout across all paid campaigns.",
+    tags: ["CRO", "A/B Testing", "Landing Page Design", "Paid Media Optimisation"],
+    href: "/work/wilderness",
+    image: "/clients/wilderness/banner.png",
+    seed: null,
+  },
+  {
     category: "PLATFORM / COMPOSABLE ARCHITECTURE",
     client: "BBC",
     title: "Composable platform transformation across 14 global markets",
@@ -20,6 +32,7 @@ const cases = [
     body: "The BBC needed a digital platform capable of supporting content delivery across 14 international markets at pace. Legacy architecture was creating development bottlenecks that slowed campaign launches and limited the editorial team's ability to respond to breaking news and time-sensitive content requirements. We designed and delivered a composable architecture that reduced campaign launch time from weeks to days and gave editorial teams genuine control over their digital experience without engineering dependency.",
     tags: ["Composable architecture", "Sitecore", "Platform engineering"],
     href: "/work/bbc",
+    image: null,
     seed: "bbc",
   },
   {
@@ -30,6 +43,7 @@ const cases = [
     body: "Capco wanted to move personalisation from a pilot into production. Previous attempts had produced encouraging results in controlled environments but had not translated into consistent performance improvement at scale. We designed the data and platform infrastructure required to support real-time personalisation — connecting behavioural data to digital experience delivery and producing a 2.5× uplift in conversion within the first programme cycle.",
     tags: ["AI activation", "Personalisation", "Data infrastructure"],
     href: "/work/capco",
+    image: null,
     seed: "capco",
   },
   {
@@ -40,6 +54,7 @@ const cases = [
     body: "White Moss needed the capability to test, learn and improve continuously rather than relying on periodic campaign reviews. The existing platform made experimentation slow and resource-intensive — each test required significant engineering involvement and the time between insight and implementation was measured in weeks. We built the experimentation infrastructure and workflow that reduced their content publishing cycle by 60% and gave the marketing team the tools to optimise performance without engineering dependency.",
     tags: ["Experimentation", "Platform engineering", "Workflow design"],
     href: "/work/white-moss",
+    image: null,
     seed: "whitemoss",
   },
 ];
@@ -122,7 +137,7 @@ export default function WorkPage() {
       {/* ── 3. FEATURED CASE STUDIES — stacked full-width cards ──────── */}
       <section className="bg-white pb-[70px] max-sm:pb-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5 flex flex-col gap-8">
-          {cases.map(({ category, client, title, outcome, body, tags, href, seed }, i) => (
+          {cases.map(({ category, client, title, outcome, body, tags, href, seed, image }, i) => (
             <motion.div
               key={client}
               initial={{ opacity: 0, y: 24 }}
@@ -167,12 +182,12 @@ export default function WorkPage() {
               </div>
 
               {/* Right — image */}
-              <div className="overflow-hidden max-md:h-[280px]" style={{ minHeight: 400 }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`https://picsum.photos/seed/${seed}/800/600`}
+              <div className="overflow-hidden max-md:h-[280px] relative" style={{ minHeight: 400 }}>
+                <Image
+                  src={image ?? `https://picsum.photos/seed/${seed}/800/600`}
                   alt={title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </motion.div>

@@ -25,6 +25,17 @@ const cases = [
     seed: null,
   },
   {
+    category: "CRO / EXPERIMENTATION / PERSONALISATION",
+    client: "HSBC Commercial Banking",
+    title: "A data-driven optimisation programme across six Asian markets delivering a 12:1 ROI",
+    outcome: "12:1 ROI · $2.6M client lifetime value · 24 experiments",
+    body: "HSBC Commercial Banking needed to commercialise years of investment in marketing technology across India, China, Singapore, Malaysia, Indonesia and Hong Kong. Analogiq designed and ran a Journey Orchestration programme — mapping the funnel, building an experimentation backlog and personalising journeys at scale. 24 experiments. 2.5× conversion uplift on the best-performing tests. $2.6M in client lifetime value from a $210k spend.",
+    tags: ["Journey Orchestration", "A/B Testing", "Personalisation", "Adobe Analytics", "Adobe Target"],
+    href: "/work/hsbc",
+    image: "/clients/hsbc/hero.png",
+    seed: null,
+  },
+  {
     category: "PLATFORM / COMPOSABLE ARCHITECTURE",
     client: "BBC",
     title: "Composable platform transformation across 14 global markets",

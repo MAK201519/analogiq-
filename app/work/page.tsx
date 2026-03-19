@@ -36,6 +36,17 @@ const cases = [
     seed: null,
   },
   {
+    category: "PLATFORM / CMS / UX & DESIGN",
+    client: "Keith Prowse",
+    title: "Modernising the digital sales channel for the UK's leading sports hospitality brand",
+    outcome: "Long-term technical partnership since 2016",
+    body: "Keith Prowse are the official hospitality provider for Wimbledon, Twickenham and The O2. Analogiq has been their technical partner since 2016 — delivering a Sitecore platform upgrade, ongoing UX and design work, complex third-party integrations and continuous performance improvement across their primary sales channel.",
+    tags: ["Sitecore", "Platform Engineering", "UX & Design", "CRO"],
+    href: "/work/keith-prowse",
+    image: "/clients/keith-prowse/homepage.webp",
+    seed: null,
+  },
+  {
     category: "PLATFORM / COMPOSABLE ARCHITECTURE",
     client: "BBC",
     title: "Composable platform transformation across 14 global markets",

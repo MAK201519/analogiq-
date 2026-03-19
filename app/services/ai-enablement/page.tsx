@@ -12,24 +12,6 @@ export default function AIEnablementPage() {
         primaryCTA: "Talk to us about AI enablement",
         primaryHref: "/contact",
       }}
-      challenge={{
-        h2: "Why AI pilots do not become programmes.",
-        body: "The pattern is familiar. A pilot delivers a promising result. Investment is made in a new AI capability. But the results do not translate into consistent performance improvement — and the organisation finds itself running multiple AI initiatives that each work in isolation but do not add up to a transformed operation. The reasons are structural rather than technical.",
-        features: [
-          { title: "Fragmented data environments", desc: "AI systems that cannot produce reliable results without reliable, connected data" },
-          { title: "Legacy platform constraints", desc: "Digital platforms not designed to receive and act on AI-generated signals in real time" },
-          { title: "Missing operational workflows", desc: "No processes for content review, data governance or model monitoring that AI requires to function sustainably" },
-          { title: "Organisational isolation", desc: "Marketing and technology teams that are not aligned on how AI should be deployed and governed" },
-        ],
-        visualHeader: "Why AI stalls at pilot stage",
-        visualItems: [
-          "Data too fragmented for reliable model output",
-          "Platform cannot act on AI-generated signals",
-          "No workflow for reviewing AI-generated content",
-          "Marketing and technology teams misaligned",
-          "No governance framework for responsible deployment",
-        ],
-      }}
       whatWeDo={{
         h2: "Moving AI from experimentation to operation.",
         body: "Analogiq helps organisations introduce AI capabilities into marketing environments in a way that is structured, practical and grounded in measurable outcomes. Rather than focusing on abstract AI concepts, our work focuses on identifying the specific areas where AI can deliver clear value within marketing operations — and building the infrastructure required to make that value sustainable.",

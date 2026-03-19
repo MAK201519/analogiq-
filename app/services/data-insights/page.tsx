@@ -12,24 +12,6 @@ export default function DataInsightsPage() {
         primaryCTA: "Talk to us about data and insights",
         primaryHref: "/contact",
       }}
-      challenge={{
-        h2: "When data exists but cannot be used.",
-        body: "Marketing teams often find themselves data-rich and insight-poor. Analytics platforms generate reports. CRM systems hold customer records. Campaign tools track engagement. But without the infrastructure to connect these sources and the processes to act on what they reveal, data becomes a reporting exercise rather than a decision-making asset.",
-        features: [
-          { title: "Fragmented data sources", desc: "Customer data sitting across multiple disconnected platforms without integration" },
-          { title: "Reporting without insight", desc: "Dashboards that describe what happened rather than informing what to do next" },
-          { title: "No foundation for AI", desc: "AI systems that cannot function effectively without well-structured, connected data" },
-          { title: "Slow decision cycles", desc: "Insight that arrives too late to influence the campaigns and decisions it should be informing" },
-        ],
-        visualHeader: "Common data environment problems",
-        visualItems: [
-          "CRM disconnected from web analytics",
-          "Campaign data siloed by channel",
-          "No unified customer identifier across systems",
-          "Reporting delivered weekly, decisions needed daily",
-          "AI tools without data integration path",
-        ],
-      }}
       whatWeDo={{
         h2: "Building the data foundations modern marketing requires.",
         body: "Analogiq helps organisations design data environments that support informed decision-making and enable marketing teams to operate more effectively. This work often begins by reviewing how data is currently collected, structured and used across the organisation — assessing analytics implementations, data pipelines, reporting environments and the broader marketing technology ecosystem.",

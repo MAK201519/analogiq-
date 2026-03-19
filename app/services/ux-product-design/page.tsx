@@ -12,24 +12,6 @@ export default function UXProductDesignPage() {
         primaryCTA: "Talk to us about UX and design",
         primaryHref: "/contact",
       }}
-      challenge={{
-        h2: "When design becomes a commercial problem.",
-        body: "Poor digital experience has a direct commercial cost. Customers who cannot find what they need do not convert. Journeys that create friction reduce engagement. Interfaces that confuse rather than guide undermine the performance of even the best marketing campaigns. Most UX problems are not design problems — they are business problems that manifest in design.",
-        features: [
-          { title: "High friction journeys", desc: "Users encountering barriers at the points that matter most to commercial performance" },
-          { title: "Legacy UX patterns", desc: "Interface designs that reflect how the organisation works rather than how customers think" },
-          { title: "Slow iteration", desc: "Design and development cycles that make it difficult to test and improve experiences continuously" },
-          { title: "Disconnected design and engineering", desc: "Design decisions that cannot be implemented efficiently within the chosen platform architecture" },
-        ],
-        visualHeader: "Where UX creates commercial cost",
-        visualItems: [
-          "Drop-off at key conversion points",
-          "High bounce rate on landing pages",
-          "Low form completion rates",
-          "Abandoned checkout or sign-up journeys",
-          "Support volume driven by interface confusion",
-        ],
-      }}
       whatWeDo={{
         h2: "Design that is measured in outcomes, not aesthetics.",
         body: "Analogiq works with organisations to design digital experiences that are clear, effective and commercially impactful. Our design work typically begins with understanding the needs of the users interacting with the platform — researching customer behaviour, analysing existing digital journeys and identifying the points where users encounter friction or confusion.",

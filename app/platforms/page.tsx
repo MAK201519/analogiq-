@@ -1,9 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import NavigationBar from "../components/NavigationBar";
-import ProcessSteps from "../components/ProcessSteps";
 import FinalCTA from "../components/FinalCTA";
 import Footer from "../components/Footer";
 import Eyebrow from "../components/Eyebrow";
@@ -11,6 +11,38 @@ import { Button } from "@/components/ui/button";
 import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/animations";
 
 /* ─── SHARED HELPERS ─────────────────────────────────────────────────────── */
+
+const wordmarkStyle: React.CSSProperties = {
+  fontFamily: "'Inter', 'Plus Jakarta Sans', system-ui, sans-serif",
+  fontSize: 20,
+  fontWeight: 700,
+  color: "#111111",
+  letterSpacing: "-0.02em",
+  display: "inline-block",
+};
+
+function PartnerWordmark({ name }: { name: string }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <span
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        fontFamily: "'Inter', 'Plus Jakarta Sans', system-ui, sans-serif",
+        fontSize: 18,
+        fontWeight: 700,
+        color: "#111111",
+        letterSpacing: "-0.02em",
+        opacity: hovered ? 1 : 0.5,
+        transition: "opacity 0.2s ease",
+        cursor: "default",
+        whiteSpace: "nowrap",
+      }}
+    >
+      {name}
+    </span>
+  );
+}
 
 function FeatureList({ items }: { items: { title: string; desc: string }[] }) {
   return (
@@ -301,7 +333,28 @@ export default function PlatformsPage() {
         </div>
       </section>
 
-      {/* ── 5. PLATFORMS WE WORK WITH — surface, 3 cards ─────────────── */}
+      {/* ── 5. PARTNER LOGO STRIP — white ────────────────────────────── */}
+      <section className="bg-white" style={{ padding: "64px 0" }}>
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
+          <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
+            <motion.div variants={item} className="mb-10">
+              <Eyebrow>PLATFORMS WE WORK WITH</Eyebrow>
+            </motion.div>
+            <motion.div variants={item} className="flex items-center flex-wrap gap-0 max-sm:gap-6">
+              {["Sitecore", "Uniform", "Optimizely", "Umbraco", "Contentful"].map((name, i, arr) => (
+                <div key={name} className="flex items-center">
+                  <PartnerWordmark name={name} />
+                  {i < arr.length - 1 && (
+                    <span style={{ display: "inline-block", width: 1, height: 20, backgroundColor: "#E5E7EB", margin: "0 32px", flexShrink: 0 }} />
+                  )}
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 6. PLATFORMS WE WORK WITH — surface, 3 cards ─────────────── */}
       <section style={{ backgroundColor: "#F3F3F3" }} className="py-[70px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
           <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }} className="mb-12">
@@ -317,28 +370,62 @@ export default function PlatformsPage() {
 
           <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}
             className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
-            {platformCards.map(({ name, body, href, cta }) => (
-              <motion.div key={name} variants={item}
-                className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px]"
-                style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
-                <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{name}</h3>
-                <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{body}</p>
-                <div className="mt-6">
-                  <Link href={href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>{cta} →</Link>
-                </div>
-              </motion.div>
-            ))}
+
+            {/* Sitecore */}
+            <motion.div variants={item}
+              className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px]"
+              style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
+              <div style={{ height: 32, display: "flex", alignItems: "center", marginBottom: 24 }}>
+                <span style={wordmarkStyle}>Sitecore</span>
+              </div>
+              <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{platformCards[0].name}</h3>
+              <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{platformCards[0].body}</p>
+              <div className="mt-6">
+                <Link href={platformCards[0].href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>{platformCards[0].cta} →</Link>
+              </div>
+            </motion.div>
+
+            {/* Uniform */}
+            <motion.div variants={item}
+              className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px]"
+              style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
+              <div style={{ height: 32, display: "flex", alignItems: "center", marginBottom: 24 }}>
+                <span style={wordmarkStyle}>Uniform</span>
+              </div>
+              <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{platformCards[1].name}</h3>
+              <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{platformCards[1].body}</p>
+              <div className="mt-6">
+                <Link href={platformCards[1].href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>{platformCards[1].cta} →</Link>
+              </div>
+            </motion.div>
+
+            {/* And more */}
+            <motion.div variants={item}
+              className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px]"
+              style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
+              <div style={{ height: 32, display: "flex", alignItems: "center", gap: 12, marginBottom: 24, flexWrap: "wrap" }}>
+                {["Optimizely", "Umbraco", "Contentful"].map((n) => (
+                  <span key={n} style={{
+                    fontFamily: "'Inter', 'Plus Jakarta Sans', system-ui, sans-serif",
+                    fontSize: 14,
+                    fontWeight: 700,
+                    color: "#111111",
+                    letterSpacing: "-0.02em",
+                    opacity: 0.6,
+                    filter: "grayscale(1)",
+                  }}>{n}</span>
+                ))}
+              </div>
+              <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{platformCards[2].name}</h3>
+              <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{platformCards[2].body}</p>
+              <div className="mt-6">
+                <Link href={platformCards[2].href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>{platformCards[2].cta} →</Link>
+              </div>
+            </motion.div>
+
           </motion.div>
         </div>
       </section>
-
-      {/* ── 6. THE ANALOGIQ APPROACH — white, ProcessSteps ───────────── */}
-      <ProcessSteps
-        eyebrow="OUR APPROACH"
-        heading="How we approach platform work."
-        subheading="We support organisations at multiple stages of the platform lifecycle."
-        steps={approachSteps}
-      />
 
       {/* ── 7. CASE STUDIES — surface, 3 cards ───────────────────────── */}
       <section style={{ backgroundColor: "#F3F3F3" }} className="py-[70px] max-sm:py-[40px]">

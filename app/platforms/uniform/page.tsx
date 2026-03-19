@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import NavigationBar from "../../components/NavigationBar";
-import ProcessSteps from "../../components/ProcessSteps";
 import FinalCTA from "../../components/FinalCTA";
 import Footer from "../../components/Footer";
 import Eyebrow from "../../components/Eyebrow";
@@ -260,16 +259,6 @@ export default function UniformPage() {
           </div>
         </div>
       </section>
-
-      {/* ── 5. 4-STEP APPROACH — surface ─────────────────────────────── */}
-      <div style={{ backgroundColor: "#F3F3F3" }}>
-        <ProcessSteps
-          eyebrow="OUR APPROACH"
-          heading="How we deliver Uniform."
-          subheading="A structured approach from architecture design to full composable deployment."
-          steps={approachSteps}
-        />
-      </div>
 
       {/* ── 6. FINAL CTA ─────────────────────────────────────────────── */}
       <FinalCTA

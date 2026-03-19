@@ -3,13 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import NavigationBar from "./NavigationBar";
-import ProcessSteps from "./ProcessSteps";
 import FinalCTA from "./FinalCTA";
 import Footer from "./Footer";
 import Eyebrow from "./Eyebrow";
 import { Button } from "@/components/ui/button";
 import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/animations";
-import type { Step } from "./ProcessSteps";
 
 /* ─── TYPES ──────────────────────────────────────────────────────────────── */
 
@@ -23,13 +21,6 @@ export interface ServicePageProps {
     primaryCTA: string;
     primaryHref: string;
   };
-  challenge: {
-    h2: string;
-    body: string;
-    features: { title: string; desc: string }[];
-    visualHeader: string;
-    visualItems: string[];
-  };
   whatWeDo: {
     h2: string;
     body: string;
@@ -41,10 +32,10 @@ export interface ServicePageProps {
     h2: string;
     cards: { title: string; body: string }[];
   };
-  approach: {
+  approach?: {
     h2: string;
     sub: string;
-    steps: Step[];
+    steps: unknown[];
   };
   cta: {
     heading: string;
@@ -105,7 +96,7 @@ const workCards = [
 
 /* ─── TEMPLATE ───────────────────────────────────────────────────────────── */
 
-export default function ServicePage({ hero, challenge, whatWeDo, capabilities, approach, cta }: ServicePageProps) {
+export default function ServicePage({ hero, whatWeDo, capabilities, approach, cta }: ServicePageProps) {
   return (
     <div>
       <NavigationBar />
@@ -139,28 +130,6 @@ export default function ServicePage({ hero, challenge, whatWeDo, capabilities, a
               </motion.div>
             </motion.div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* ── CHALLENGE — surface, two col ─────────────────────────────── */}
-      <section style={{ backgroundColor: "#F3F3F3" }} className="py-[70px] max-sm:py-[40px]">
-        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="grid grid-cols-2 gap-16 items-start max-md:grid-cols-1">
-            {/* Left — visual */}
-            <StackCard header={challenge.visualHeader} items={challenge.visualItems} />
-            {/* Right — text */}
-            <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
-              <motion.div variants={item}><Eyebrow>THE CHALLENGE</Eyebrow></motion.div>
-              <motion.h2 variants={item} className="mt-4"
-                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
-                {challenge.h2}
-              </motion.h2>
-              <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
-                {challenge.body}
-              </motion.p>
-              <motion.div variants={item}><FeatureList items={challenge.features} /></motion.div>
-            </motion.div>
-          </div>
         </div>
       </section>
 
@@ -209,14 +178,6 @@ export default function ServicePage({ hero, challenge, whatWeDo, capabilities, a
           </motion.div>
         </div>
       </section>
-
-      {/* ── APPROACH — white, ProcessSteps ───────────────────────────── */}
-      <ProcessSteps
-        eyebrow="OUR APPROACH"
-        heading={approach.h2}
-        subheading={approach.sub}
-        steps={approach.steps}
-      />
 
       {/* ── CASE STUDIES — surface ────────────────────────────────────── */}
       <section style={{ backgroundColor: "#F3F3F3" }} className="py-[70px] max-sm:py-[40px]">

@@ -11,24 +11,6 @@ export default function PlatformEngineeringPage() {
         primaryCTA: "Talk to us about platform engineering",
         primaryHref: "/contact",
       }}
-      challenge={{
-        h2: "When the platform becomes the bottleneck.",
-        body: "Marketing teams should not need to wait weeks for platform changes that should take hours. Development cycles that once felt acceptable now create meaningful competitive disadvantage. Every delay is a campaign that launched late, a personalisation that never ran, an experiment that never happened.",
-        features: [
-          { title: "Slow development cycles", desc: "Every change requires engineering resource and lengthy deployment processes" },
-          { title: "Rigid architectures", desc: "Platforms that resist integration with modern marketing and AI technologies" },
-          { title: "Fragmented systems", desc: "Data and tools that cannot connect or activate across the stack" },
-          { title: "Accumulated technical debt", desc: "Years of incremental decisions creating architectural complexity" },
-        ],
-        visualHeader: "Common platform bottlenecks",
-        visualItems: [
-          "2–4 week content change cycle",
-          "Engineering required for every update",
-          "Integrations that break on each release",
-          "Personalisation stuck in pilot",
-          "AI systems with no integration path",
-        ],
-      }}
       whatWeDo={{
         h2: "Platform engineering that enables, not constrains.",
         body: "Analogiq works with organisations to design and implement digital architectures that support modern marketing operations. Our work often begins with a detailed assessment of the existing platform environment — reviewing current technologies, understanding integration patterns, identifying architectural constraints and evaluating how effectively marketing teams can operate within the existing environment.",

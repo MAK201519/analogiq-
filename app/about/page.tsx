@@ -263,7 +263,7 @@ export default function AboutPage() {
                 { label: "Platform Engineering", href: "/services/platform-engineering" },
                 { label: "UX & Product Design", href: "/services/ux-product-design" },
                 { label: "Data & Insights", href: "/services/data-insights" },
-                { label: "Personalisation", href: "/services/personalisation" },
+                { label: "Personalisation & Experimentation", href: "/services/personalisation-experimentation" },
                 { label: "AI Enablement", href: "/services/ai-enablement" },
               ].map(({ label, href }, i) => (
                 <Link key={label} href={href} className="flex items-center justify-between px-8 py-5 group"

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import NavigationBar from "../../components/NavigationBar";
-import ProcessSteps from "../../components/ProcessSteps";
 import FinalCTA from "../../components/FinalCTA";
 import Footer from "../../components/Footer";
 import Eyebrow from "../../components/Eyebrow";
@@ -296,14 +295,6 @@ export default function SitecorePage() {
           </motion.div>
         </div>
       </section>
-
-      {/* ── 6. 4-STEP APPROACH — white ───────────────────────────────── */}
-      <ProcessSteps
-        eyebrow="OUR APPROACH"
-        heading="How we work."
-        subheading="A structured approach to Sitecore implementation and modernisation."
-        steps={approachSteps}
-      />
 
       {/* ── 7. FINAL CTA ─────────────────────────────────────────────── */}
       <FinalCTA

@@ -4,31 +4,13 @@ export default function PersonalisationPage() {
   return (
     <ServicePage
       hero={{
-        eyebrow: "PERSONALISATION",
-        h1Before: "Personalisation that",
+        eyebrow: "PERSONALISATION & EXPERIMENTATION",
+        h1Before: "Personalisation and experimentation that",
         h1Highlight: "runs in production,",
         h1After: "not just pilots.",
         sub: "Most organisations have attempted personalisation. Few have made it operational. The difference between a personalisation pilot and a personalisation programme is not the ambition — it is the infrastructure, the data and the operational frameworks that allow personalisation to run continuously rather than occasionally.",
         primaryCTA: "Talk to us about personalisation",
         primaryHref: "/contact",
-      }}
-      challenge={{
-        h2: "Why personalisation pilots rarely become programmes.",
-        body: "Personalisation fails to scale for predictable reasons. The platform was not designed to receive and act on personalisation signals. The data required to drive meaningful personalisation is fragmented across systems that do not communicate. The operational workflows to manage personalised content do not exist. Each of these problems is solvable — but they require a structured approach rather than another isolated initiative.",
-        features: [
-          { title: "Platform limitations", desc: "Digital experience platforms not designed to support real-time personalisation at scale" },
-          { title: "Data fragmentation", desc: "Behavioural and customer data that cannot be connected to drive meaningful personalisation" },
-          { title: "Operational complexity", desc: "No workflows or processes for managing personalised content at the volume required" },
-          { title: "Measurement gaps", desc: "No framework for understanding whether personalisation is actually improving commercial performance" },
-        ],
-        visualHeader: "Why personalisation stalls",
-        visualItems: [
-          "Personalisation stuck at proof-of-concept stage",
-          "Audience segments defined in isolation from data",
-          "Content variants created manually, not systematically",
-          "No measurement framework for personalisation ROI",
-          "Platform not connected to behavioural data sources",
-        ],
       }}
       whatWeDo={{
         h2: "Building personalisation infrastructure that lasts.",
@@ -62,6 +44,10 @@ export default function PersonalisationPage() {
           {
             title: "Experimentation and optimisation",
             body: "Building the testing frameworks that allow personalisation strategies to evolve continuously — moving from assumption to evidence as the programme matures.",
+          },
+          {
+            title: "Experimentation programme design",
+            body: "Building the testing infrastructure and workflow that allows organisations to run high-velocity experiments continuously — without engineering dependency on every test.",
           },
         ],
       }}

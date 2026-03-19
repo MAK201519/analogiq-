@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import NavigationBar from "../components/NavigationBar";
-import ProcessSteps from "../components/ProcessSteps";
 import FinalCTA from "../components/FinalCTA";
 import Footer from "../components/Footer";
 import Eyebrow from "../components/Eyebrow";
@@ -783,16 +782,6 @@ export default function AIMarketingPage() {
           </div>
         </div>
       </section>
-
-      {/* ── 7. THE ACTIVATION METHOD ─────────────────────────────────── */}
-      <div id="approach" style={{ backgroundColor: "#F3F3F3" }}>
-        <ProcessSteps
-          eyebrow="THE METHOD"
-          heading="How we operationalise AI."
-          subheading="A proven four-stage approach that takes you from audit to scaled capability — with measurable outcomes at every stage."
-          steps={aiSteps}
-        />
-      </div>
 
       {/* ── 8. AI IN PRACTICE ─────────────────────────────────────────── */}
       <section className="bg-white py-[70px] max-sm:py-[40px]">

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import NavigationBar from "../components/NavigationBar";
@@ -84,9 +85,9 @@ const services = [
   },
   {
     icon: <IconPersonalisation />,
-    title: "Personalisation",
+    title: "Personalisation & Experimentation",
     body: "Building the infrastructure required to deliver personalised digital experiences at scale — connecting data, platform and content in ways that produce measurable commercial outcomes.",
-    href: "/services/personalisation",
+    href: "/services/personalisation-experimentation",
   },
   {
     icon: <IconAI />,
@@ -181,6 +182,152 @@ const approachSteps = [
   },
 ];
 
+/* ─── TAB SWITCHER DATA & COMPONENTS ────────────────────────────────────── */
+
+const tabPanels = [
+  {
+    id: "platform-engineering",
+    label: "Platform Engineering",
+    title: "Platform Engineering",
+    description: "Designing and modernising digital architectures that let marketing move at the speed it needs to.",
+    features: ["Composable architecture", "Legacy CMS modernisation", "Integration design", "Performance optimisation"],
+    href: "/services/platform-engineering",
+    visualHeader: "Platform stack",
+    visualItems: ["CMS / Content management", "Personalisation engine", "CDP / Customer data platform", "Analytics and attribution", "AI integration layer"],
+  },
+  {
+    id: "ux-product-design",
+    label: "UX & Product Design",
+    title: "UX & Product Design",
+    description: "Digital experiences that convert, not just impress — designed around user behaviour and commercial objectives.",
+    features: ["UX research", "Journey architecture", "Interface design", "Design systems"],
+    href: "/services/ux-product-design",
+    visualHeader: "Design process",
+    visualItems: ["Research / Understand user behaviour", "Architecture / Structure around needs", "Design / Create clear interfaces", "Test / Validate with real users", "Iterate / Improve continuously"],
+  },
+  {
+    id: "data-insights",
+    label: "Data & Insights",
+    title: "Data & Insights",
+    description: "Building the data foundations that allow AI and personalisation to function effectively.",
+    features: ["Data architecture", "Analytics implementation", "Reporting frameworks", "AI data readiness"],
+    href: "/services/data-insights",
+    visualHeader: "Data stack",
+    visualItems: ["Collection / Events and tracking", "Integration / Pipelines and connectors", "Storage / Data warehouse", "Analysis / Modelling and attribution", "Activation / AI and decisioning"],
+  },
+  {
+    id: "personalisation-experimentation",
+    label: "Personalisation & Experimentation",
+    title: "Personalisation & Experimentation",
+    description: "Moving personalisation from pilot to production — and building the experimentation infrastructure to improve it continuously.",
+    features: ["Personalisation strategy", "Platform integration", "Experimentation programme design", "Measurement frameworks"],
+    href: "/services/personalisation-experimentation",
+    visualHeader: "Personalisation stack",
+    visualItems: ["Audience data / CDP and behavioural signals", "Segmentation / Models and rules", "Content variants / Personalised assets", "Delivery / Real-time decisioning", "Measurement / Impact and attribution"],
+  },
+  {
+    id: "ai-enablement",
+    label: "AI Enablement",
+    title: "AI Enablement",
+    description: "Moving AI from experimentation to operation — identifying use cases, building infrastructure and embedding capability.",
+    features: ["Use case identification", "Infrastructure design", "Workflow integration", "Governance frameworks"],
+    href: "/services/ai-enablement",
+    visualHeader: "AI enablement layers",
+    visualItems: ["Use cases / High-value marketing workflows", "Data infrastructure / Clean, connected signals", "Platform integration / Real-time activation", "Workflow design / Operational processes", "Governance / Responsible deployment"],
+  },
+];
+
+function PanelStackCard({ header, items }: { header: string; items: string[] }) {
+  return (
+    <div style={{ borderRadius: 32, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", overflow: "hidden" }}>
+      <div className="px-8 py-5" style={{ borderBottom: "1px solid #191A23", backgroundColor: "#F3F3F3" }}>
+        <span className="text-[11px] font-semibold uppercase tracking-[0.1em]" style={{ color: "#6B7280" }}>{header}</span>
+      </div>
+      {items.map((cap, i) => (
+        <div key={cap} className="flex items-center gap-4 px-8 py-[14px]"
+          style={{ borderBottom: i < items.length - 1 ? "1px solid #E5E7EB" : "none", backgroundColor: "#ffffff" }}>
+          <span style={{ width: 7, height: 7, borderRadius: 2, backgroundColor: "#D4500F", display: "inline-block", flexShrink: 0 }} aria-hidden="true" />
+          <span className="text-[14px] font-medium" style={{ color: "#111111" }}>{cap}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ServiceTabSwitcher() {
+  const [active, setActive] = useState(0);
+  const panel = tabPanels[active];
+
+  return (
+    <div>
+      {/* Tab button row */}
+      <div className="flex flex-wrap gap-2 mb-10">
+        {tabPanels.map((tab, i) => (
+          <button
+            key={tab.id}
+            onClick={() => setActive(i)}
+            style={{
+              fontFamily: "'Inter', 'Plus Jakarta Sans', system-ui, sans-serif",
+              fontWeight: 500,
+              fontSize: 15,
+              padding: "12px 24px",
+              borderRadius: 999,
+              border: `1px solid ${active === i ? "#D4500F" : "#E5E7EB"}`,
+              backgroundColor: active === i ? "#D4500F" : "#F9F7F4",
+              color: active === i ? "#ffffff" : "#6B7280",
+              boxShadow: active === i ? "0 5px 0 0 #B84309" : "none",
+              cursor: "pointer",
+              transition: "background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease",
+            }}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Content panel */}
+      <motion.div
+        key={active}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+        className="grid grid-cols-2 gap-12 items-start max-md:grid-cols-1"
+        style={{ backgroundColor: "#ffffff", borderRadius: 32, border: "1px solid #E5E7EB", padding: 48 }}
+      >
+        {/* Left — text */}
+        <div>
+          <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 32, fontWeight: 700, lineHeight: 1.15, color: "#111111" }}>
+            {panel.title}
+          </h3>
+          <p className="mt-4 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>{panel.description}</p>
+          <ul className="mt-7 flex flex-col gap-4">
+            {panel.features.map((feat) => (
+              <li key={feat} className="flex items-start gap-3">
+                <span
+                  className="shrink-0 mt-[8px]"
+                  style={{ width: 6, height: 6, borderRadius: 1, backgroundColor: "#D4500F", display: "inline-block" }}
+                  aria-hidden="true"
+                />
+                <span className="text-[15px] font-medium" style={{ color: "#111111" }}>{feat}</span>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href={panel.href}
+            className="inline-block mt-8 text-[14px] font-medium hover:underline"
+            style={{ color: "#D4500F" }}
+          >
+            Learn more →
+          </Link>
+        </div>
+
+        {/* Right — visual */}
+        <PanelStackCard header={panel.visualHeader} items={panel.visualItems} />
+      </motion.div>
+    </div>
+  );
+}
+
 /* ─── PAGE ───────────────────────────────────────────────────────────────── */
 
 export default function ServicesPage() {
@@ -247,11 +394,24 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── 3. FIVE SERVICE CARDS — surface ──────────────────────────── */}
+      {/* ── 3. SERVICE TAB SWITCHER + SECONDARY CARDS — surface ─────── */}
       <section style={{ backgroundColor: "#F3F3F3" }} className="py-[70px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }} className="mb-12">
-            <motion.div variants={item}><Eyebrow>WHAT WE DO</Eyebrow></motion.div>
+
+          {/* Tab switcher */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, margin: "-80px" }}
+            className="mb-16"
+          >
+            <ServiceTabSwitcher />
+          </motion.div>
+
+          {/* Secondary service cards grid */}
+          <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }} className="mb-10">
+            <motion.div variants={item}><Eyebrow>ALL SERVICES</Eyebrow></motion.div>
             <motion.h2
               variants={item}
               className="mt-4"
@@ -276,29 +436,19 @@ export default function ServicesPage() {
                 className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}
               >
-                <div
-                  className="flex items-center justify-center"
-                  style={{ width: 48, height: 48, borderRadius: 12, backgroundColor: "#FDF0E8", flexShrink: 0 }}
-                >
+                <div className="flex items-center justify-center" style={{ width: 48, height: 48, borderRadius: 12, backgroundColor: "#FDF0E8", flexShrink: 0 }}>
                   {icon}
                 </div>
-                <h3
-                  className="mt-5"
-                  style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}
-                >
-                  {title}
-                </h3>
+                <h3 className="mt-5" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{title}</h3>
                 <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{body}</p>
                 <div className="mt-6">
-                  <Link href={href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>
-                    Learn more →
-                  </Link>
+                  <Link href={href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>Learn more →</Link>
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Row 2 — 2 cards, centred */}
+          {/* Row 2 — 2 cards */}
           <motion.div
             variants={stagger}
             initial="initial"
@@ -313,27 +463,18 @@ export default function ServicesPage() {
                 className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}
               >
-                <div
-                  className="flex items-center justify-center"
-                  style={{ width: 48, height: 48, borderRadius: 12, backgroundColor: "#FDF0E8", flexShrink: 0 }}
-                >
+                <div className="flex items-center justify-center" style={{ width: 48, height: 48, borderRadius: 12, backgroundColor: "#FDF0E8", flexShrink: 0 }}>
                   {icon}
                 </div>
-                <h3
-                  className="mt-5"
-                  style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}
-                >
-                  {title}
-                </h3>
+                <h3 className="mt-5" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{title}</h3>
                 <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{body}</p>
                 <div className="mt-6">
-                  <Link href={href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>
-                    Learn more →
-                  </Link>
+                  <Link href={href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>Learn more →</Link>
                 </div>
               </motion.div>
             ))}
           </motion.div>
+
         </div>
       </section>
 

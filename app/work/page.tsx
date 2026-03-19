@@ -47,6 +47,17 @@ const cases = [
     seed: null,
   },
   {
+    category: "ECOMMERCE / UX & DESIGN / SITECORE",
+    client: "The Experience Golf",
+    title: "Launching a luxury ecommerce website for the UK's leading golf tour operator",
+    outcome: "From zero ecommerce to fully live — in six months",
+    body: "The Experience Golf had no ecommerce capability and all bookings were made over the phone. Analogiq designed and built a full ecommerce platform on Sitecore — with multilingual capability, a bespoke experience builder and integrations with events management and CRM systems — and delivered it within a six-month deadline ahead of peak booking season.",
+    tags: ["Ecommerce", "Sitecore", "UX & Design", "Platform Engineering"],
+    href: "/work/experience-golf",
+    image: "/clients/experience-golf/homepage.png",
+    seed: null,
+  },
+  {
     category: "PLATFORM / COMPOSABLE ARCHITECTURE",
     client: "BBC",
     title: "Composable platform transformation across 14 global markets",

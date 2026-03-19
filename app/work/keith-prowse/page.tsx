@@ -80,7 +80,7 @@ export default function KeithProwsePage() {
             className="grid grid-cols-3 max-md:grid-cols-1"
           >
             {[
-              { stat: "2016", label: "Year Analogiq partnership began" },
+              { stat: "2021", label: "Year Analogiq partnership began" },
               { stat: "Ongoing", label: "Long-term technical partnership" },
               { stat: "6", label: "Core service areas delivered" },
             ].map(({ stat, label }, i) => (

@@ -1,8 +1,63 @@
 "use client";
 
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-const logos = ["BBC", "Sitecore", "Uniform", "Capco", "White Moss"];
+const logos: { src: string; alt: string; height: number; svg?: boolean }[] = [
+  { src: "/logos/hsbc.svg",                alt: "HSBC",                  height: 22,  svg: true },
+  { src: "/logos/jet2.svg",                alt: "Jet2",                  height: 36,  svg: true },
+  { src: "/logos/bhf.svg",                 alt: "British Heart Foundation", height: 40, svg: true },
+  { src: "/logos/keith-prowse.png",        alt: "Keith Prowse",          height: 36 },
+  { src: "/logos/sunlife.webp",            alt: "SunLife",               height: 32 },
+  { src: "/logos/capco.png",               alt: "Capco",                 height: 28 },
+  { src: "/logos/cystic-fibrosis-trust.png", alt: "Cystic Fibrosis Trust", height: 44 },
+  { src: "/logos/shoosmiths.png",          alt: "Shoosmiths",            height: 28 },
+  { src: "/logos/hogan-lovells.svg",       alt: "Hogan Lovells",         height: 32,  svg: true },
+  { src: "/logos/adtran.svg",              alt: "Adtran",                height: 28,  svg: true },
+];
+
+const logoStyle = (hovered: boolean): React.CSSProperties => ({
+  filter: hovered ? "grayscale(0%)" : "grayscale(100%)",
+  opacity: hovered ? 1 : 0.6,
+  transition: "filter 300ms ease, opacity 300ms ease",
+  objectFit: "contain",
+  display: "block",
+});
+
+function LogoItem({ src, alt, height, svg }: { src: string; alt: string; height: number; svg?: boolean }) {
+  const [hovered, setHovered] = useState(false);
+
+  if (svg) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={src}
+        alt={alt}
+        height={height}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{ ...logoStyle(hovered), height, width: "auto" }}
+      />
+    );
+  }
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{ height, display: "flex", alignItems: "center" }}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        height={height}
+        width={160}
+        style={{ ...logoStyle(hovered), height, width: "auto" }}
+      />
+    </div>
+  );
+}
 
 export default function ClientLogos() {
   return (
@@ -23,28 +78,11 @@ export default function ClientLogos() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
-          className="mt-8 flex items-center justify-center flex-wrap gap-0 max-w-[900px]"
+          className="mt-10 flex items-center justify-center flex-wrap max-w-[1100px] mx-auto"
+          style={{ gap: "32px 40px" }}
         >
-          {logos.map((name, i) => (
-            <div key={name} className="flex items-center">
-              <span
-                className="transition-opacity duration-200 cursor-default px-8"
-                style={{
-                  fontFamily: "'Inter', system-ui, sans-serif",
-                  fontSize: 18,
-                  fontWeight: 600,
-                  color: '#191A23',
-                  opacity: 0.7,
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
-              >
-                {name}
-              </span>
-              {i < logos.length - 1 && (
-                <div className="shrink-0" style={{ width: 1, height: 28, background: "#E5E7EB" }} />
-              )}
-            </div>
+          {logos.map(({ src, alt, height, svg }) => (
+            <LogoItem key={alt} src={src} alt={alt} height={height} svg={svg} />
           ))}
         </motion.div>
       </div>

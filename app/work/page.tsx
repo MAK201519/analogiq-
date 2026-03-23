@@ -80,6 +80,17 @@ const cases = [
     seed: null,
   },
   {
+    category: "CRO / A/B TESTING / SITECORE",
+    client: "Cystic Fibrosis Trust",
+    title: "Optimising the donation journey for one of the UK's most recognised health charities",
+    outcome: "29% increase in donation page visits from a single experiment",
+    body: "The Cystic Fibrosis Trust wanted to use data-driven insight and A/B testing to improve their donation funnel. Analogiq conducted stakeholder interviews, an analytics and heuristic review, and built a picture of typical donor motivations — before designing and implementing experiments in Google Optimize. One experiment alone increased donation page visits by 29%.",
+    tags: ["CRO", "A/B Testing", "Sitecore", "Charity"],
+    href: "/work/cystic-fibrosis-trust",
+    image: "/clients/cystic-fibrosis-trust/homepage.webp",
+    seed: null,
+  },
+  {
     category: "PLATFORM / COMPOSABLE ARCHITECTURE",
     client: "BBC",
     title: "Composable platform transformation across 14 global markets",

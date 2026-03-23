@@ -106,7 +106,7 @@ export default function SitecorePage() {
             <motion.h1
               variants={item}
               className="mt-5"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 72, fontWeight: 800, lineHeight: 1.0, color: "#ffffff" }}
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.0, color: "#ffffff" }}
             >
               Sitecore expertise built over{" "}
               <span style={{ color: "#D4500F" }}>a decade.</span>
@@ -140,7 +140,7 @@ export default function SitecorePage() {
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>THE PLATFORM</Eyebrow></motion.div>
               <motion.h2 variants={item} className="mt-4"
-                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
                 What Sitecore offers enterprise organisations.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
@@ -203,7 +203,7 @@ export default function SitecorePage() {
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>THE CHALLENGE</Eyebrow></motion.div>
               <motion.h2 variants={item} className="mt-4"
-                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
                 The challenges of legacy Sitecore implementations.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
@@ -230,7 +230,7 @@ export default function SitecorePage() {
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>OUR APPROACH</Eyebrow></motion.div>
               <motion.h2 variants={item} className="mt-4"
-                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
                 How Analogiq modernises Sitecore.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
@@ -277,7 +277,7 @@ export default function SitecorePage() {
           <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }} className="mb-12">
             <motion.div variants={item}><Eyebrow>OUR EXPERIENCE</Eyebrow></motion.div>
             <motion.h2 variants={item} className="mt-4"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
               A decade of Sitecore delivery.
             </motion.h2>
           </motion.div>
@@ -286,7 +286,7 @@ export default function SitecorePage() {
             className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
             {experienceCards.map(({ title, body }) => (
               <motion.div key={title} variants={item}
-                className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px]"
+                className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{title}</h3>
                 <p className="text-[15px] leading-[1.65] mt-4" style={{ color: "#6B7280" }}>{body}</p>

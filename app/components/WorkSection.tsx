@@ -57,7 +57,7 @@ export default function WorkSection() {
           <motion.h2
             variants={item}
             className="mt-4"
-            style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: '#111111' }}
+            style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#111111' }}
           >
             Work that closed the gap.
           </motion.h2>
@@ -82,7 +82,7 @@ export default function WorkSection() {
             <motion.div
               key={title}
               variants={item}
-              className="group cursor-pointer flex flex-col hover:-translate-y-1 transition-transform duration-200"
+              className="group cursor-pointer flex flex-col hover:-translate-y-1 transition-transform duration-200 max-sm:[border-radius:24px]"
               style={{
                 borderRadius: 45,
                 border: '1px solid #191A23',
@@ -116,7 +116,7 @@ export default function WorkSection() {
               </div>
 
               {/* Content */}
-              <div className="flex flex-col flex-1 p-[50px]">
+              <div className="flex flex-col flex-1 p-[50px] max-sm:p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <p className="eyebrow">{client}</p>
                   <span

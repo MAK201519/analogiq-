@@ -291,7 +291,7 @@ function ServiceTabSwitcher() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
-        className="grid grid-cols-2 gap-12 items-start max-md:grid-cols-1"
+        className="grid grid-cols-2 gap-12 items-start max-md:grid-cols-1 max-sm:p-6"
         style={{ backgroundColor: "#ffffff", borderRadius: 32, border: "1px solid #E5E7EB", padding: 48 }}
       >
         {/* Left — text */}
@@ -343,7 +343,7 @@ export default function ServicesPage() {
             <motion.h1
               variants={item}
               className="mt-5"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 72, fontWeight: 800, lineHeight: 1.0, color: "#ffffff" }}
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "#ffffff" }}
             >
               The capabilities that{" "}
               <span style={{ color: "#D4500F" }}>close the gap.</span>
@@ -383,7 +383,7 @@ export default function ServicesPage() {
             <motion.h2
               variants={item}
               className="mt-4"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}
             >
               Five capabilities. One outcome.
             </motion.h2>
@@ -415,7 +415,7 @@ export default function ServicesPage() {
             <motion.h2
               variants={item}
               className="mt-4"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}
             >
               How we help.
             </motion.h2>
@@ -433,7 +433,7 @@ export default function ServicesPage() {
               <motion.div
                 key={title}
                 variants={item}
-                className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px]"
+                className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}
               >
                 <div className="flex items-center justify-center" style={{ width: 48, height: 48, borderRadius: 12, backgroundColor: "#FDF0E8", flexShrink: 0 }}>
@@ -460,7 +460,7 @@ export default function ServicesPage() {
               <motion.div
                 key={title}
                 variants={item}
-                className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px]"
+                className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}
               >
                 <div className="flex items-center justify-center" style={{ width: 48, height: 48, borderRadius: 12, backgroundColor: "#FDF0E8", flexShrink: 0 }}>
@@ -486,7 +486,7 @@ export default function ServicesPage() {
             <motion.h2
               variants={item}
               className="mt-4"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}
             >
               Built around how you actually buy.
             </motion.h2>
@@ -506,7 +506,7 @@ export default function ServicesPage() {
               <motion.div
                 key={title}
                 variants={item}
-                className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px]"
+                className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}
               >
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>
@@ -529,7 +529,7 @@ export default function ServicesPage() {
               <motion.h2
                 variants={item}
                 className="mt-4"
-                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}
+                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}
               >
                 What makes us different.
               </motion.h2>
@@ -606,7 +606,7 @@ export default function ServicesPage() {
             <motion.h2
               variants={item}
               className="mt-4"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}
             >
               Services in practice.
             </motion.h2>

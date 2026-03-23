@@ -40,7 +40,7 @@ export default function ClientLogos() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
-          className="mt-10 flex flex-wrap justify-center items-center gap-x-10 gap-y-6 max-w-[1100px] mx-auto"
+          className="mt-10 flex flex-wrap justify-center items-center gap-x-10 gap-y-6 max-sm:gap-x-8 max-sm:gap-y-5 max-w-[1100px] mx-auto"
         >
           {logos.map(({ src, alt, height, invert }) => (
             // eslint-disable-next-line @next/next/no-img-element

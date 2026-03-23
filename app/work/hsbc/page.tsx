@@ -28,7 +28,7 @@ export default function HSBCPage() {
       <NavigationBar />
 
       {/* ── 1. HERO ──────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#0D0D0D", ...gridOverlay, paddingTop: 180, paddingBottom: 80 }}>
+      <section className="max-sm:pt-[120px] max-sm:pb-[40px]" style={{ backgroundColor: "#0D0D0D", ...gridOverlay, paddingTop: 180, paddingBottom: 80 }}>
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
           <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[720px]">
             <motion.div variants={item}>
@@ -118,7 +118,7 @@ export default function HSBCPage() {
       {/* ── 3. CLIENT OVERVIEW ───────────────────────────────────────── */}
       <section className="bg-white py-[80px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="grid gap-[80px] items-start max-md:grid-cols-1" style={{ gridTemplateColumns: "1fr 1.4fr" }}>
+          <div className="grid grid-cols-[1fr_1.4fr] gap-[80px] items-start max-md:grid-cols-1 max-md:gap-10">
             {/* Left */}
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>CLIENT</Eyebrow></motion.div>
@@ -196,7 +196,7 @@ export default function HSBCPage() {
       {/* ── 5. THE CHALLENGE ─────────────────────────────────────────── */}
       <section className="bg-white py-[80px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="grid gap-[80px] items-start max-md:grid-cols-1" style={{ gridTemplateColumns: "1fr 1.4fr" }}>
+          <div className="grid grid-cols-[1fr_1.4fr] gap-[80px] items-start max-md:grid-cols-1 max-md:gap-10">
             {/* Left */}
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>THE CHALLENGE</Eyebrow></motion.div>
@@ -242,7 +242,7 @@ export default function HSBCPage() {
       {/* ── 6. THE APPROACH ──────────────────────────────────────────── */}
       <section style={{ backgroundColor: "#F3F3F3" }} className="py-[80px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="grid gap-[80px] items-start max-md:grid-cols-1" style={{ gridTemplateColumns: "1fr 1.4fr" }}>
+          <div className="grid grid-cols-[1fr_1.4fr] gap-[80px] items-start max-md:grid-cols-1 max-md:gap-10">
             {/* Left */}
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>THE APPROACH</Eyebrow></motion.div>
@@ -419,7 +419,7 @@ export default function HSBCPage() {
       {/* ── 9. GREATEST IMPACT CALLOUT ───────────────────────────────── */}
       <section style={{ backgroundColor: "#F3F3F3" }} className="py-[80px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="grid gap-[80px] items-start max-md:grid-cols-1" style={{ gridTemplateColumns: "1fr 1.4fr" }}>
+          <div className="grid grid-cols-[1fr_1.4fr] gap-[80px] items-start max-md:grid-cols-1 max-md:gap-10">
             {/* Left */}
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>SINGLE GREATEST IMPACT</Eyebrow></motion.div>

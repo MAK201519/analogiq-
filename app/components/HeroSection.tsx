@@ -25,12 +25,12 @@ export default function HeroSection() {
         >
           <motion.h1
             variants={item}
-            className="font-serif-italic max-md:text-[52px] max-sm:text-[38px]"
+            className="font-serif-italic"
             style={{
               fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
-              fontSize: 72,
+              fontSize: "clamp(36px, 6vw, 72px)",
               fontWeight: 800,
-              lineHeight: 1.0,
+              lineHeight: 1.05,
               color: '#ffffff',
             }}
           >
@@ -40,7 +40,7 @@ export default function HeroSection() {
 
           <motion.p
             variants={item}
-            className="text-[18px] leading-[1.7] mt-8 max-w-[580px]"
+            className="text-[18px] max-sm:text-[16px] leading-[1.7] mt-8 max-w-[580px]"
             style={{ color: 'rgba(255,255,255,0.70)' }}
           >
             We activate AI on Uniform, Sitecore and Optimizely, so marketing
@@ -50,12 +50,12 @@ export default function HeroSection() {
 
           <motion.div
             variants={item}
-            className="flex gap-4 flex-wrap items-center justify-center mt-10"
+            className="flex gap-4 flex-col max-sm:w-full items-center justify-center mt-10 sm:flex-row"
           >
             {/* Primary CTA */}
             <Button
               asChild
-              className="font-medium text-[16px] border-0 hover:opacity-90 transition-opacity"
+              className="font-medium text-[16px] border-0 hover:opacity-90 transition-opacity max-sm:w-full max-sm:justify-center"
               style={{
                 fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
                 fontWeight: 500,
@@ -73,7 +73,7 @@ export default function HeroSection() {
             {/* Ghost CTA — white on dark bg */}
             <Button
               asChild
-              className="font-medium text-[16px] bg-transparent hover:bg-transparent hover:opacity-80 transition-opacity"
+              className="font-medium text-[16px] bg-transparent hover:bg-transparent hover:opacity-80 transition-opacity max-sm:w-full max-sm:justify-center"
               style={{
                 fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
                 fontWeight: 500,

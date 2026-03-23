@@ -178,7 +178,7 @@ export default function ContactPage() {
           <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[680px]">
             <motion.div variants={item}><Eyebrow muted>CONTACT</Eyebrow></motion.div>
             <motion.h1 variants={item} className="mt-5"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 72, fontWeight: 800, lineHeight: 1.0, color: "#ffffff" }}>
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.0, color: "#ffffff" }}>
               Let&apos;s start a{" "}
               <span style={{ color: "#D4500F" }}>conversation.</span>
             </motion.h1>
@@ -203,7 +203,7 @@ export default function ContactPage() {
             >
               <motion.div variants={item}><Eyebrow>SEND US A MESSAGE</Eyebrow></motion.div>
               <motion.h2 variants={item} className="mt-4"
-                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
                 Tell us about your situation.
               </motion.h2>
               <motion.p variants={item} className="mt-4 text-[16px] leading-[1.65] mb-8" style={{ color: "#6B7280" }}>
@@ -255,6 +255,7 @@ export default function ContactPage() {
               {/* What happens next card */}
               <motion.div
                 variants={item}
+                className="max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50, backgroundColor: "#ffffff" }}
               >
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 18, fontWeight: 600, color: "#111111" }}>
@@ -288,7 +289,7 @@ export default function ContactPage() {
           <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }} className="mb-12">
             <motion.div variants={item}><Eyebrow>WHAT TO EXPECT</Eyebrow></motion.div>
             <motion.h2 variants={item} className="mt-4"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
               How we approach new conversations.
             </motion.h2>
           </motion.div>
@@ -297,7 +298,7 @@ export default function ContactPage() {
             className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
             {expectCards.map(({ title, body }) => (
               <motion.div key={title} variants={item}
-                className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px]"
+                className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{title}</h3>
                 <p className="text-[15px] leading-[1.65] mt-4" style={{ color: "#6B7280" }}>{body}</p>
@@ -329,7 +330,7 @@ export default function ContactPage() {
               >
                 <motion.div variants={item}><Eyebrow muted>NOT READY YET?</Eyebrow></motion.div>
                 <motion.h2 variants={item} className="mt-4 max-w-[560px]"
-                  style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#ffffff" }}>
+                  style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#ffffff" }}>
                   Not ready to reach out yet?
                 </motion.h2>
                 <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65] max-w-[480px]" style={{ color: "#9CA3AF" }}>

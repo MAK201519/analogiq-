@@ -41,7 +41,7 @@ export default function ProcessSteps({
           <motion.h2
             variants={item}
             className="mt-4"
-            style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: '#111111' }}
+            style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#111111' }}
           >
             {heading}
           </motion.h2>
@@ -75,7 +75,7 @@ export default function ProcessSteps({
             <div className="flex flex-col">
               <span
                 className="font-serif-italic leading-none"
-                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 80, fontWeight: 800, lineHeight: 1, color: '#D4500F' }}
+                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(48px, 6vw, 80px)", fontWeight: 800, lineHeight: 1, color: '#D4500F' }}
               >
                 {number}
               </span>

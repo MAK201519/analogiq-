@@ -81,7 +81,7 @@ export default function AboutPage() {
           <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[780px]">
             <motion.div variants={item}><Eyebrow muted>ABOUT ANALOGIQ</Eyebrow></motion.div>
             <motion.h1 variants={item} className="mt-5"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 72, fontWeight: 800, lineHeight: 1.0, color: "#ffffff" }}>
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "#ffffff" }}>
               Built to{" "}
               <span style={{ color: "#D4500F" }}>close the gap</span>{" "}
               between marketing ambition and platform reality.
@@ -115,7 +115,7 @@ export default function AboutPage() {
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>OUR STORY</Eyebrow></motion.div>
               <motion.h2 variants={item} className="mt-4"
-                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
                 Why Analogiq exists.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
@@ -169,7 +169,7 @@ export default function AboutPage() {
           <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }} className="mb-12">
             <motion.div variants={item}><Eyebrow>WHAT WE BELIEVE</Eyebrow></motion.div>
             <motion.h2 variants={item} className="mt-4"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
               The principles that shape how we work.
             </motion.h2>
           </motion.div>
@@ -177,7 +177,7 @@ export default function AboutPage() {
             className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
             {beliefCards.map(({ title, body }) => (
               <motion.div key={title} variants={item}
-                className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px]"
+                className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{title}</h3>
                 <p className="text-[15px] leading-[1.65] mt-4" style={{ color: "#6B7280" }}>{body}</p>
@@ -223,7 +223,7 @@ export default function AboutPage() {
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>WHAT WE DO</Eyebrow></motion.div>
               <motion.h2 variants={item} className="mt-4"
-                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
                 The work we deliver.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
@@ -283,7 +283,7 @@ export default function AboutPage() {
           <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }} className="mb-12">
             <motion.div variants={item}><Eyebrow>HOW WE WORK</Eyebrow></motion.div>
             <motion.h2 variants={item} className="mt-4"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
               An approach built around how organisations actually change.
             </motion.h2>
           </motion.div>
@@ -291,7 +291,7 @@ export default function AboutPage() {
             className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
             {howWeWorkCards.map(({ title, body }) => (
               <motion.div key={title} variants={item}
-                className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px]"
+                className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{title}</h3>
                 <p className="text-[15px] leading-[1.65] mt-4" style={{ color: "#6B7280" }}>{body}</p>
@@ -307,7 +307,7 @@ export default function AboutPage() {
           <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }} className="mb-12">
             <motion.div variants={item}><Eyebrow>PLATFORMS WE WORK WITH</Eyebrow></motion.div>
             <motion.h2 variants={item} className="mt-4"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
               Deep expertise across leading platforms.
             </motion.h2>
             <motion.p variants={item} className="mt-4 text-[16px] leading-[1.65] max-w-[620px]" style={{ color: "#6B7280" }}>
@@ -319,7 +319,7 @@ export default function AboutPage() {
             className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
             {platformCards.map(({ name, body, href, cta }) => (
               <motion.div key={name} variants={item}
-                className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px]"
+                className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{name}</h3>
                 <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{body}</p>

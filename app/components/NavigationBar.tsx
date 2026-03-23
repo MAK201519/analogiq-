@@ -243,15 +243,15 @@ export default function NavigationBar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-[15px] py-2 transition-colors"
-                  style={{ color: "#6B7280" }}
+                  className="text-[15px] flex items-center transition-colors"
+                  style={{ color: "#6B7280", minHeight: 48 }}
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
                 </Link>
               ) : (
                 <div key={item.href}>
-                  <div className="flex items-center justify-between" style={{ padding: "8px 0" }}>
+                  <div className="flex items-center justify-between" style={{ padding: "0", minHeight: 48 }}>
                     <Link
                       href={item.href}
                       className="text-[15px]"

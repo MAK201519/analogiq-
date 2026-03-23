@@ -107,12 +107,12 @@ export default function ServicePage({ hero, whatWeDo, capabilities, approach, ct
           <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[760px]">
             <motion.div variants={item}><Eyebrow muted>{hero.eyebrow}</Eyebrow></motion.div>
             <motion.h1 variants={item} className="mt-5"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 72, fontWeight: 800, lineHeight: 1.0, color: "#ffffff" }}>
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "#ffffff" }}>
               {hero.h1Before}{" "}
               <span style={{ color: "#D4500F" }}>{hero.h1Highlight}</span>
               {hero.h1After ? <>{" "}{hero.h1After}</> : null}
             </motion.h1>
-            <motion.p variants={item} className="mt-6 text-[18px] leading-[1.65] max-w-[620px]" style={{ color: "#9CA3AF" }}>
+            <motion.p variants={item} className="mt-6 text-[18px] max-sm:text-[16px] leading-[1.65] max-w-[620px]" style={{ color: "#9CA3AF" }}>
               {hero.sub}
             </motion.p>
             <motion.div variants={item} className="mt-10 flex gap-4 flex-wrap">
@@ -169,7 +169,7 @@ export default function ServicePage({ hero, whatWeDo, capabilities, approach, ct
             className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
             {capabilities.cards.map(({ title, body }) => (
               <motion.div key={title} variants={item}
-                className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px]"
+                className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{title}</h3>
                 <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{body}</p>
@@ -200,7 +200,7 @@ export default function ServicePage({ hero, whatWeDo, capabilities, approach, ct
                   <img src={`https://picsum.photos/seed/${seed}/800/600`} alt={title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="flex flex-col flex-1 p-[50px]">
+                <div className="flex flex-col flex-1 p-[50px] max-sm:p-6">
                   <div className="flex items-center gap-3 mb-3">
                     <p className="eyebrow">{client}</p>
                     <span className="inline-block px-[10px] py-1 rounded-[6px] text-[11px] font-semibold uppercase tracking-[0.05em]"

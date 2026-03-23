@@ -220,7 +220,7 @@ export default function AIMarketingPage() {
               className="mt-5"
               style={{
                 fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
-                fontSize: 72,
+                fontSize: "clamp(36px, 6vw, 72px)",
                 fontWeight: 800,
                 lineHeight: 1.0,
                 color: "#ffffff",
@@ -324,7 +324,7 @@ export default function AIMarketingPage() {
                 className="mt-4"
                 style={{
                   fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
-                  fontSize: 52,
+                  fontSize: "clamp(28px, 4vw, 52px)",
                   fontWeight: 700,
                   lineHeight: 1.1,
                   color: "#111111",
@@ -505,7 +505,7 @@ export default function AIMarketingPage() {
               <motion.div
                 key={title}
                 variants={item}
-                className="flex flex-col group cursor-default transition-transform duration-300 hover:-translate-y-[4px]"
+                className="flex flex-col group cursor-default transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{
                   backgroundColor: "#ffffff",
                   borderRadius: 45,
@@ -702,7 +702,7 @@ export default function AIMarketingPage() {
                 className="mt-4"
                 style={{
                   fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
-                  fontSize: 52,
+                  fontSize: "clamp(28px, 4vw, 52px)",
                   fontWeight: 700,
                   lineHeight: 1.1,
                   color: "#111111",
@@ -940,7 +940,7 @@ export default function AIMarketingPage() {
               <motion.div
                 key={title}
                 variants={item}
-                className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px]"
+                className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{
                   backgroundColor: "#ffffff",
                   borderRadius: 45,

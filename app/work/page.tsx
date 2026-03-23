@@ -131,7 +131,7 @@ export default function WorkPage() {
           <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[760px]">
             <motion.div variants={item}><Eyebrow muted>OUR WORK</Eyebrow></motion.div>
             <motion.h1 variants={item} className="mt-5"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 72, fontWeight: 800, lineHeight: 1.0, color: "#ffffff" }}>
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.0, color: "#ffffff" }}>
               Proof that the{" "}
               <span style={{ color: "#D4500F" }}>gap can be closed.</span>
             </motion.h1>
@@ -168,7 +168,7 @@ export default function WorkPage() {
           >
             <motion.div variants={item}><Eyebrow>SELECTED WORK</Eyebrow></motion.div>
             <motion.h2 variants={item} className="mt-4"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
               Different starting points. The same outcome.
             </motion.h2>
             <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
@@ -277,7 +277,7 @@ export default function WorkPage() {
           >
             <motion.div variants={item}><Eyebrow>SECTORS</Eyebrow></motion.div>
             <motion.h2 variants={item} className="mt-4 max-w-[620px]"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
               Organisations we have worked with span multiple sectors.
             </motion.h2>
             <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65] max-w-[560px]" style={{ color: "#6B7280" }}>
@@ -306,7 +306,7 @@ export default function WorkPage() {
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>CASE STUDIES</Eyebrow></motion.div>
               <motion.h2 variants={item} className="mt-4"
-                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
                 Real work, real outcomes.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>

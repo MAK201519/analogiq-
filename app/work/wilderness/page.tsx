@@ -37,7 +37,7 @@ export default function WildernessPage() {
           style={{ background: "linear-gradient(to right, rgba(13,13,13,0.82) 0%, rgba(13,13,13,0.25) 100%)" }}
         />
         {/* Content */}
-        <div className="relative z-10 max-w-[1440px] mx-auto px-[100px] max-sm:px-5 pt-[140px] pb-[80px]">
+        <div className="relative z-10 max-w-[1440px] mx-auto px-[100px] max-sm:px-5 pt-[140px] pb-[80px] max-sm:pt-[110px] max-sm:pb-[40px]">
           <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[680px]">
             <motion.div variants={item}>
               <Link
@@ -70,7 +70,7 @@ export default function WildernessPage() {
             <motion.h1
               variants={item}
               className="mt-4"
-              style={{ fontFamily: PJB, fontSize: 56, fontWeight: 800, lineHeight: 1.05, color: "#ffffff" }}
+              style={{ fontFamily: PJB, fontSize: "clamp(36px, 5vw, 56px)", fontWeight: 800, lineHeight: 1.05, color: "#ffffff" }}
             >
               Doubling conversion rate and cutting acquisition costs{" "}
               <span style={{ color: "#D4500F" }}>in half.</span>
@@ -112,7 +112,7 @@ export default function WildernessPage() {
       {/* ── 3. CLIENT OVERVIEW ───────────────────────────────────────── */}
       <section className="bg-white py-[80px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="grid gap-[80px] items-start max-md:grid-cols-1" style={{ gridTemplateColumns: "1fr 1.4fr" }}>
+          <div className="grid grid-cols-[1fr_1.4fr] gap-[80px] items-start max-md:grid-cols-1 max-md:gap-10">
             {/* Left */}
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>CLIENT</Eyebrow></motion.div>
@@ -205,7 +205,7 @@ export default function WildernessPage() {
       {/* ── 5. THE CHALLENGE ─────────────────────────────────────────── */}
       <section style={{ backgroundColor: "#F3F3F3" }} className="py-[80px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="grid gap-[80px] items-start max-md:grid-cols-1" style={{ gridTemplateColumns: "1fr 1.4fr" }}>
+          <div className="grid grid-cols-[1fr_1.4fr] gap-[80px] items-start max-md:grid-cols-1 max-md:gap-10">
             {/* Left */}
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>THE CHALLENGE</Eyebrow></motion.div>
@@ -245,7 +245,7 @@ export default function WildernessPage() {
       {/* ── 6. THE APPROACH ──────────────────────────────────────────── */}
       <section className="bg-white py-[80px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="grid gap-[80px] items-start max-md:grid-cols-1" style={{ gridTemplateColumns: "1fr 1.4fr" }}>
+          <div className="grid grid-cols-[1fr_1.4fr] gap-[80px] items-start max-md:grid-cols-1 max-md:gap-10">
             {/* Left */}
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>THE APPROACH</Eyebrow></motion.div>

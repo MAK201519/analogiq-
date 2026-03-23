@@ -26,7 +26,7 @@ export default function Jet2Page() {
       <NavigationBar />
 
       {/* ── 1. HERO ──────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#0D0D0D", minHeight: 560, paddingTop: 180, paddingBottom: 80, ...gridOverlay }}>
+      <section className="max-sm:pt-[120px] max-sm:pb-[40px]" style={{ backgroundColor: "#0D0D0D", minHeight: 560, paddingTop: 180, paddingBottom: 80, ...gridOverlay }}>
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
           <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[720px]">
             <motion.div variants={item}>
@@ -102,7 +102,7 @@ export default function Jet2Page() {
       {/* ── 3. CLIENT OVERVIEW ───────────────────────────────────────── */}
       <section className="bg-white py-[80px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="grid gap-[80px] items-start max-md:grid-cols-1" style={{ gridTemplateColumns: "1fr 1.4fr" }}>
+          <div className="grid grid-cols-[1fr_1.4fr] gap-[80px] items-start max-md:grid-cols-1 max-md:gap-10">
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>CLIENT</Eyebrow></motion.div>
               <motion.h2 variants={item} className="mt-4"
@@ -165,7 +165,7 @@ export default function Jet2Page() {
       {/* ── 5. THE CHALLENGE ─────────────────────────────────────────── */}
       <section style={{ backgroundColor: "#F3F3F3" }} className="py-[80px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="grid gap-[80px] items-start max-md:grid-cols-1" style={{ gridTemplateColumns: "1fr 1.4fr" }}>
+          <div className="grid grid-cols-[1fr_1.4fr] gap-[80px] items-start max-md:grid-cols-1 max-md:gap-10">
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>THE CHALLENGE</Eyebrow></motion.div>
               <motion.h2 variants={item} className="mt-4"
@@ -202,7 +202,7 @@ export default function Jet2Page() {
       {/* ── 6. THE APPROACH ──────────────────────────────────────────── */}
       <section className="bg-white py-[80px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="grid gap-[80px] items-start max-md:grid-cols-1" style={{ gridTemplateColumns: "1fr 1.4fr" }}>
+          <div className="grid grid-cols-[1fr_1.4fr] gap-[80px] items-start max-md:grid-cols-1 max-md:gap-10">
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
               <motion.div variants={item}><Eyebrow>THE APPROACH</Eyebrow></motion.div>
               <motion.h2 variants={item} className="mt-4"

@@ -36,7 +36,7 @@ export default function ActivationGap() {
           <motion.h2
             variants={item}
             className="mt-4"
-            style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: '#111111' }}
+            style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#111111' }}
           >
             The Digital Activation Gap.
           </motion.h2>
@@ -57,6 +57,7 @@ export default function ActivationGap() {
           viewport={{ once: true, margin: "-80px" }}
         >
           <div
+            className="max-sm:p-6 max-sm:[border-radius:24px]"
             style={{
               backgroundColor: '#ffffff',
               borderRadius: 45,
@@ -65,8 +66,8 @@ export default function ActivationGap() {
               padding: 50,
             }}
           >
-            {/* Column headers */}
-            <div className="grid mb-6" style={{ gridTemplateColumns: "1fr 100px 1fr" }}>
+            {/* Column headers — hidden on mobile, shown on sm+ */}
+            <div className="hidden sm:grid mb-6" style={{ gridTemplateColumns: "1fr 100px 1fr" }}>
               <p className="text-[11px] uppercase tracking-[0.1em] text-center font-semibold" style={{ color: '#6B7280' }}>
                 WHERE INVESTMENT GOES
               </p>
@@ -76,8 +77,14 @@ export default function ActivationGap() {
               </p>
             </div>
 
-            {/* 3-column grid */}
-            <div className="grid relative" style={{ gridTemplateColumns: "1fr 100px 1fr" }}>
+            {/* Mobile column headers */}
+            <div className="sm:hidden flex justify-between mb-4">
+              <p className="text-[10px] uppercase tracking-[0.1em] font-semibold" style={{ color: '#6B7280' }}>WHERE INVESTMENT GOES</p>
+              <p className="text-[10px] uppercase tracking-[0.1em] font-semibold text-right" style={{ color: '#6B7280' }}>WHERE VALUE IS LOST</p>
+            </div>
+
+            {/* 3-column grid — desktop */}
+            <div className="hidden sm:grid relative" style={{ gridTemplateColumns: "1fr 100px 1fr" }}>
               {/* Left items */}
               <div className="flex flex-col gap-3">
                 {leftItems.map((text) => (
@@ -128,6 +135,54 @@ export default function ActivationGap() {
                     {text}
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Mobile 2-col layout */}
+            <div className="sm:hidden grid grid-cols-2 gap-3">
+              <div className="flex flex-col gap-2">
+                {leftItems.map((text) => (
+                  <div
+                    key={text}
+                    className="px-3 py-2 text-[13px]"
+                    style={{
+                      backgroundColor: '#F3F3F3',
+                      border: '1px solid #E5E7EB',
+                      borderRadius: 10,
+                      color: '#191A23',
+                    }}
+                  >
+                    {text}
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col gap-2">
+                {rightItems.map((text) => (
+                  <div
+                    key={text}
+                    className="px-3 py-2 rounded-[10px] text-[13px]"
+                    style={{
+                      background: "#FDF0E8",
+                      border: "1px solid #FDB58A",
+                      color: "#7C3A1A",
+                    }}
+                  >
+                    {text}
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Mobile "The Gap" label */}
+            <div className="sm:hidden flex justify-center mt-4">
+              <div
+                className="text-white text-[13px] font-bold uppercase tracking-[0.05em]"
+                style={{
+                  backgroundColor: '#D4500F',
+                  borderRadius: 999,
+                  padding: '10px 18px',
+                }}
+              >
+                The Gap
               </div>
             </div>
           </div>

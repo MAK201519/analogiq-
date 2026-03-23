@@ -27,7 +27,7 @@ export default function FinalCTA({
           viewport={{ once: true, margin: "-80px" }}
         >
           <div
-            className="flex flex-col items-center text-center relative overflow-hidden"
+            className="flex flex-col items-center text-center relative overflow-hidden max-sm:px-6 max-sm:py-12 max-sm:[border-radius:24px]"
             style={{
               backgroundColor: '#0D0D0D',
               borderRadius: 45,
@@ -50,7 +50,7 @@ export default function FinalCTA({
               <motion.h2
                 variants={item}
                 className="mt-4 max-w-[620px]"
-                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: '#ffffff' }}
+                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#ffffff' }}
               >
                 {heading}
               </motion.h2>

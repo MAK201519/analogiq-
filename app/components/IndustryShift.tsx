@@ -50,7 +50,7 @@ export default function IndustryShift() {
           {/* Left: text + before/after */}
           <motion.div variants={item} className="flex flex-col">
             <Eyebrow>THE SHIFT</Eyebrow>
-            <h2 className="mt-4" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 52, fontWeight: 700, lineHeight: 1.1, color: '#111111' }}>
+            <h2 className="mt-4" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#111111' }}>
               Marketing has entered the AI era.
             </h2>
             <p className="text-[16px] leading-[1.65] mt-5" style={{ color: '#6B7280' }}>
@@ -61,7 +61,7 @@ export default function IndustryShift() {
             </p>
 
             {/* Before / After table */}
-            <div className="mt-10 grid grid-cols-2 gap-6">
+            <div className="mt-10 grid grid-cols-2 gap-6 max-sm:grid-cols-1">
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-4" style={{ color: '#6B7280' }}>
                   Without Analogiq
@@ -98,8 +98,8 @@ export default function IndustryShift() {
               <img
                 src="https://picsum.photos/seed/shift/800/900"
                 alt="Digital platform transformation"
-                className="w-full object-cover"
-                style={{ minHeight: 500, display: "block" }}
+                className="w-full max-w-full object-cover"
+                style={{ minHeight: 300, display: "block" }}
               />
             </div>
           </motion.div>

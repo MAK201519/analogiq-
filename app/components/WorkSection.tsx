@@ -2,33 +2,37 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import Eyebrow from "./Eyebrow";
 import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/animations";
 
 const cases = [
   {
-    client: "BBC",
-    category: "PLATFORM",
-    title: "Composable platform transformation across 14 global markets",
-    outcome: "40% faster time-to-market",
-    description: "The BBC needed a digital platform capable of supporting content delivery across 14 international markets at pace. We designed and delivered a composable architecture that reduced campaign launch time from weeks to days and gave editorial teams genuine control over their digital experience.",
-    seed: "platform",
+    client: "Wilderness Destinations",
+    category: "CRO",
+    title: "Doubling conversion rate and cutting acquisition costs in half for a luxury safari brand",
+    outcome: "2× conversion rate · 63% reduction in CPA",
+    description: "Wilderness's landing pages for paid traffic were underperforming. Analogiq mapped the customer journey, designed two purpose-built landing page variants and ran a structured A/B test — doubling conversion rate and reducing cost per acquisition by 63%.",
+    image: "/clients/wilderness/banner.png",
+    href: "/work/wilderness",
   },
   {
-    client: "Capco",
-    category: "AI",
-    title: "AI-powered personalisation programme delivering measurable conversion uplift",
-    outcome: "2.5× conversion uplift",
-    description: "Capco wanted to move personalisation from a pilot into production. We designed the data and platform infrastructure required to support real-time personalisation at scale — connecting behavioural data to digital experience delivery and producing a 2.5× uplift in conversion within the first programme cycle.",
-    seed: "personalisation",
-  },
-  {
-    client: "White Moss",
+    client: "HSBC",
     category: "EXPERIMENTATION",
-    title: "Experimentation infrastructure enabling continuous optimisation",
-    outcome: "60% reduction in content publishing cycle",
-    description: "White Moss needed the capability to test, learn and improve continuously rather than relying on periodic campaign reviews. We built the experimentation infrastructure and workflow that reduced their content publishing cycle by 60% and gave the marketing team the tools to optimise performance without engineering dependency.",
-    seed: "experimentation",
+    title: "Business Banking Optimisation programme across six Asian markets",
+    outcome: "12:1 ROI · 15.5% increase in new banking enquiries",
+    description: "HSBC's Commercial Banking set an ambitious goal to double their SME customer base. Analogiq ran 24 experiments across 6 markets, generating $2.6M of client lifetime value from a spend of $210k — a 12:1 ROI over 12 months.",
+    image: "/clients/hsbc/hero.png",
+    href: "/work/hsbc",
+  },
+  {
+    client: "Keith Prowse",
+    category: "PLATFORM",
+    title: "Modernising the digital sales channel for the UK's leading sports hospitality brand",
+    outcome: "Long-term technical partnership since 2021",
+    description: "Keith Prowse needed a partner who understood both Sitecore's technical complexity and the commercial imperative of optimising every digital touchpoint. Analogiq has been their technical partner since 2021 — delivering platform upgrades, UX improvements and complex integrations.",
+    image: "/clients/keith-prowse/homepage.webp",
+    href: "/work/keith-prowse",
   },
 ];
 
@@ -71,7 +75,7 @@ export default function WorkSection() {
           viewport={{ once: true, margin: "-80px" }}
           className="grid grid-cols-3 gap-8 max-md:grid-cols-1"
         >
-          {cases.map(({ client, category, title, outcome, description, seed }) => (
+          {cases.map(({ client, category, title, outcome, description, image, href }) => (
             <motion.div
               key={title}
               variants={item}
@@ -84,12 +88,13 @@ export default function WorkSection() {
               }}
             >
               {/* Full-bleed image — 400px, no padding */}
-              <div className="overflow-hidden flex-shrink-0" style={{ height: 400, borderRadius: '45px 45px 0 0' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`https://picsum.photos/seed/${seed}/800/900`}
+              <div className="overflow-hidden flex-shrink-0" style={{ height: 400, borderRadius: '45px 45px 0 0', position: 'relative' }}>
+                <Image
+                  src={image}
                   alt={title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
@@ -108,9 +113,9 @@ export default function WorkSection() {
                 <p className="text-[15px] font-medium mt-3" style={{ color: '#D4500F' }}>{outcome}</p>
                 <p className="text-[14px] leading-[1.65] mt-3 flex-1" style={{ color: '#6B7280' }}>{description}</p>
                 <Link
-                  href="/work"
+                  href={href}
                   className="inline-block mt-5 text-[14px] font-medium transition-colors"
-                  style={{ color: '#6B7280' }}
+                  style={{ color: '#D4500F' }}
                 >
                   View case study →
                 </Link>

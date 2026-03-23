@@ -32,7 +32,6 @@ const navLinks: NavItem[] = [
     ],
   },
   { href: "/work", label: "Work" },
-  { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" },
 ];
 

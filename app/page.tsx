@@ -6,7 +6,6 @@ import StatsBar from "./components/StatsBar";
 import IndustryShift from "./components/IndustryShift";
 import ActivationGap from "./components/ActivationGap";
 import ProcessSteps from "./components/ProcessSteps";
-import InsightsSection from "./components/InsightsSection";
 import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
 
@@ -73,7 +72,6 @@ export default function Home() {
         subheading="We modernise your digital platform and embed new capabilities across the organisation."
         steps={approachSteps}
       />
-      <InsightsSection />
       <FinalCTA />
       <Footer />
     </div>

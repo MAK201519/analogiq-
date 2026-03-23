@@ -21,7 +21,6 @@ const footerColumns: { heading: string; links: { label: string; href: string }[]
     links: [
       { label: "About", href: "/about" },
       { label: "Work", href: "/work" },
-      { label: "Insights", href: "/insights" },
       { label: "Contact", href: "/contact" },
       { label: "Platforms", href: "/platforms" },
     ],

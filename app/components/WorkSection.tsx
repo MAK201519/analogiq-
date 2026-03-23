@@ -17,12 +17,12 @@ const cases = [
     href: "/work/wilderness",
   },
   {
-    client: "HSBC",
-    category: "EXPERIMENTATION",
-    title: "Business Banking Optimisation programme across six Asian markets",
-    outcome: "12:1 ROI · 15.5% increase in new banking enquiries",
-    description: "HSBC's Commercial Banking set an ambitious goal to double their SME customer base. Analogiq ran 24 experiments across 6 markets, generating $2.6M of client lifetime value from a spend of $210k — a 12:1 ROI over 12 months.",
-    image: "/clients/hsbc/hero.png",
+    client: "Capco",
+    category: "AI",
+    title: "AI-powered personalisation programme delivering measurable conversion uplift",
+    outcome: "2.5× conversion uplift",
+    description: "Capco wanted to move personalisation from a pilot into production. We designed the data and platform infrastructure required to support real-time personalisation at scale — connecting behavioural data to digital experience delivery and producing a 2.5× uplift in conversion within the first programme cycle.",
+    image: "/clients/capco/homepage.webp",
     href: "/work/hsbc",
   },
   {
@@ -31,7 +31,7 @@ const cases = [
     title: "Modernising the digital sales channel for the UK's leading sports hospitality brand",
     outcome: "Long-term technical partnership since 2021",
     description: "Keith Prowse needed a partner who understood both Sitecore's technical complexity and the commercial imperative of optimising every digital touchpoint. Analogiq has been their technical partner since 2021 — delivering platform upgrades, UX improvements and complex integrations.",
-    image: "/clients/keith-prowse/homepage.webp",
+    image: "/clients/keith-prowse/homepage-new.webp",
     href: "/work/keith-prowse",
   },
 ];

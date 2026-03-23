@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/animations";
 
 const portfolioImages = [
-  { src: "/clients/wilderness/banner.png", alt: "Wilderness Destinations — luxury safari landing page" },
-  { src: "/clients/keith-prowse/homepage.webp", alt: "Keith Prowse — sports and events hospitality" },
-  { src: "/clients/wilderness/instagram-botswana.png", alt: "Wilderness Destinations — Botswana safari experience" },
+  { src: "/clients/keith-prowse/homepage-new.webp", alt: "Keith Prowse", label: "Keith Prowse" },
+  { src: "/clients/capco/homepage.webp", alt: "Capco", label: "Capco" },
+  { src: "/clients/experience-golf/homepage-new.webp", alt: "The Experience Golf", label: "The Experience Golf" },
 ];
 
 export default function HeroSection() {
@@ -101,7 +101,7 @@ export default function HeroSection() {
         className="mt-16 grid grid-cols-3 gap-3 max-sm:grid-cols-1"
         style={{ padding: '0 12px' }}
       >
-        {portfolioImages.map(({ src, alt }) => (
+        {portfolioImages.map(({ src, alt, label }) => (
           <div
             key={src}
             className="overflow-hidden"
@@ -113,6 +113,20 @@ export default function HeroSection() {
               fill
               style={{ objectFit: "cover" }}
             />
+            <span style={{
+              position: "absolute",
+              bottom: 12,
+              left: 12,
+              backgroundColor: "rgba(13,13,13,0.75)",
+              color: "#ffffff",
+              fontSize: 12,
+              fontWeight: 600,
+              fontFamily: "'Inter', system-ui, sans-serif",
+              padding: "4px 10px",
+              borderRadius: 6,
+            }}>
+              {label}
+            </span>
           </div>
         ))}
       </motion.div>

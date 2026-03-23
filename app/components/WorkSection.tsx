@@ -15,6 +15,7 @@ const cases = [
     description: "Wilderness's landing pages for paid traffic were underperforming. Analogiq mapped the customer journey, designed two purpose-built landing page variants and ran a structured A/B test — doubling conversion rate and reducing cost per acquisition by 63%.",
     image: "/clients/wilderness/banner.png",
     href: "/work/wilderness",
+    url: "wildernessdestinations.com",
   },
   {
     client: "Capco",
@@ -24,6 +25,7 @@ const cases = [
     description: "Capco wanted to move personalisation from a pilot into production. We designed the data and platform infrastructure required to support real-time personalisation at scale — connecting behavioural data to digital experience delivery and producing a 2.5× uplift in conversion within the first programme cycle.",
     image: "/clients/capco/homepage.webp",
     href: "/work/hsbc",
+    url: "capco.com",
   },
   {
     client: "Keith Prowse",
@@ -33,6 +35,7 @@ const cases = [
     description: "Keith Prowse needed a partner who understood both Sitecore's technical complexity and the commercial imperative of optimising every digital touchpoint. Analogiq has been their technical partner since 2021 — delivering platform upgrades, UX improvements and complex integrations.",
     image: "/clients/keith-prowse/homepage-new.webp",
     href: "/work/keith-prowse",
+    url: "keithprowse.co.uk",
   },
 ];
 
@@ -75,7 +78,7 @@ export default function WorkSection() {
           viewport={{ once: true, margin: "-80px" }}
           className="grid grid-cols-3 gap-8 max-md:grid-cols-1"
         >
-          {cases.map(({ client, category, title, outcome, description, image, href }) => (
+          {cases.map(({ client, category, title, outcome, description, image, href, url }) => (
             <motion.div
               key={title}
               variants={item}
@@ -87,15 +90,29 @@ export default function WorkSection() {
                 backgroundColor: '#ffffff',
               }}
             >
-              {/* Full-bleed image — 400px, no padding */}
-              <div className="overflow-hidden flex-shrink-0" style={{ height: 400, borderRadius: '45px 45px 0 0', position: 'relative' }}>
-                <Image
-                  src={image}
-                  alt={title}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  className="group-hover:scale-105 transition-transform duration-500"
-                />
+              {/* Browser chrome mockup */}
+              <div className="flex-shrink-0" style={{ height: 400, borderRadius: '45px 45px 0 0', overflow: 'hidden', backgroundColor: '#1a1a1a' }}>
+                {/* Top bar */}
+                <div style={{ height: 36, backgroundColor: '#2a2a2a', display: 'flex', alignItems: 'center', padding: '0 12px', gap: 6, flexShrink: 0 }}>
+                  <div style={{ width: 10, height: 10, borderRadius: 999, backgroundColor: '#FF5F57' }} />
+                  <div style={{ width: 10, height: 10, borderRadius: 999, backgroundColor: '#FEBC2E' }} />
+                  <div style={{ width: 10, height: 10, borderRadius: 999, backgroundColor: '#28C840' }} />
+                  <div style={{ flex: 1, marginLeft: 8, height: 20, backgroundColor: 'rgba(255,255,255,0.08)', borderRadius: 4, display: 'flex', alignItems: 'center', paddingLeft: 8 }}>
+                    <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', fontFamily: "'Inter', system-ui, sans-serif", overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+                      {url}
+                    </span>
+                  </div>
+                </div>
+                {/* Image area */}
+                <div style={{ height: 364, position: 'relative', overflow: 'hidden' }}>
+                  <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    style={{ objectFit: 'cover', objectPosition: 'top' }}
+                    className="group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
               </div>
 
               {/* Content */}

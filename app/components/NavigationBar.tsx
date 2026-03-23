@@ -191,7 +191,7 @@ export default function NavigationBar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((item) => (
             <DesktopNavItem key={item.href} item={item} scrolled={scrolled} />
           ))}
@@ -200,7 +200,7 @@ export default function NavigationBar() {
         {/* CTA */}
         <Button
           asChild
-          className="hidden lg:inline-flex text-[14px] border-0 hover:opacity-90 transition-opacity"
+          className="hidden md:inline-flex text-[14px] border-0 hover:opacity-90 transition-opacity"
           style={{
             fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
             fontWeight: 500,
@@ -217,8 +217,8 @@ export default function NavigationBar() {
 
         {/* Mobile menu button */}
         <button
-          className="lg:hidden p-2 transition-colors"
-          style={{ color: scrolled ? "#191A23" : "#ffffff" }}
+          className="md:hidden p-2 transition-colors"
+          style={{ color: "#D4500F" }}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -236,7 +236,7 @@ export default function NavigationBar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden absolute top-[68px] left-0 right-0 bg-white border-b border-[#E5E7EB] shadow-lg">
+        <div className="md:hidden absolute top-[68px] left-0 right-0 bg-white border-b border-[#E5E7EB] shadow-lg z-[200]">
           <div className="max-w-[1440px] mx-auto px-8 py-6 flex flex-col gap-1">
             {navLinks.map((item) =>
               !item.children ? (

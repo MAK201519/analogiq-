@@ -91,6 +91,17 @@ const cases = [
     seed: null,
   },
   {
+    category: "PERSONALISATION / SITECORE / STRATEGY",
+    client: "Jet2",
+    title: "Building a personalisation measurement strategy for the UK's largest tour operator",
+    outcome: "Strategy playback delivering a clear framework for measurable personalisation",
+    body: "Jet2 had been running personalisation scenarios across their Sitecore platform for three years with no clear picture of what was working. Analogiq conducted stakeholder workshops, a full customer journey review and a personalisation audit — producing a detailed strategy playback giving Jet2 an actionable framework for A/B testing, segment-level measurement and connecting personalisation activity to revenue outcomes.",
+    tags: ["Personalisation", "Sitecore", "Strategy", "Travel & Leisure"],
+    href: "/work/jet2",
+    image: "/clients/jet2/homepage.webp",
+    seed: null,
+  },
+  {
     category: "PLATFORM / COMPOSABLE ARCHITECTURE",
     client: "BBC",
     title: "Composable platform transformation across 14 global markets",

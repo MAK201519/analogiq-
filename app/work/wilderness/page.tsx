@@ -150,46 +150,54 @@ export default function WildernessPage() {
         </div>
       </section>
 
-      {/* ── 4. SCREENSHOT MOSAIC ─────────────────────────────────────── */}
+      {/* ── 4. THE WORK ──────────────────────────────────────────────── */}
       <section className="bg-white pb-[80px] max-sm:pb-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
+          <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }} className="mb-10">
+            <motion.div variants={item}><Eyebrow>THE WORK</Eyebrow></motion.div>
+            <motion.h2 variants={item} className="mt-4"
+              style={{ fontFamily: PJB, fontSize: 40, fontWeight: 700, lineHeight: 1.15, color: "#111111" }}>
+              Landing pages built for paid traffic.
+            </motion.h2>
+            <motion.p variants={item} className="mt-5 text-[16px] leading-[1.75] max-w-[640px]" style={{ color: "#6B7280" }}>
+              The two landing page variants were designed from scratch — purpose-built for paid traffic rather than adapted from the main site. Every element was built around a single goal: getting high-intent visitors to complete an enquiry.
+            </motion.p>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-60px" }}
+            className="grid grid-cols-2 gap-4 max-md:grid-cols-1"
           >
-            {/* Top image — full width */}
-            <div style={{ position: "relative", height: 400, borderRadius: "16px 16px 0 0", overflow: "hidden" }}>
+            {/* Left — full height */}
+            <div style={{ position: "relative", minHeight: 500, borderRadius: 16, overflow: "hidden" }}>
               <Image
-                src="/clients/wilderness/destinations.png"
-                alt="Wilderness Destinations — destination browser"
+                src="/clients/wilderness/landing-desktop.webp"
+                alt="Wilderness landing page — desktop and mobile mockup"
                 fill
-                style={{ objectFit: "cover", objectPosition: "top" }}
+                style={{ objectFit: "cover" }}
               />
             </div>
-            {/* Bottom two — side by side */}
-            <div className="grid grid-cols-2">
-              <div style={{ position: "relative", height: 300, borderRadius: "0 0 0 16px", overflow: "hidden" }}>
+            {/* Right — two stacked */}
+            <div className="flex flex-col gap-4">
+              <div style={{ position: "relative", height: 240, borderRadius: 16, overflow: "hidden" }}>
                 <Image
-                  src="/clients/wilderness/benefits.png"
-                  alt="Wilderness Destinations — brand credentials"
+                  src="/clients/wilderness/landing-mobile.webp"
+                  alt="Wilderness landing page — mobile view"
                   fill
                   style={{ objectFit: "cover", objectPosition: "top" }}
                 />
               </div>
-              <div style={{ position: "relative", height: 300, borderRadius: "0 0 16px 0", overflow: "hidden" }}>
+              <div style={{ position: "relative", height: 240, borderRadius: 16, overflow: "hidden" }}>
                 <Image
-                  src="/clients/wilderness/experience.png"
-                  alt="Wilderness Destinations — campaign CTA"
+                  src="/clients/wilderness/landing-itinerary.webp"
+                  alt="Wilderness landing page — camp itinerary and detail view"
                   fill
                   style={{ objectFit: "cover", objectPosition: "top" }}
                 />
               </div>
             </div>
-            <p className="text-center mt-4 text-[12px]" style={{ color: "#9CA3AF" }}>
-              Wilderness Destinations website — destination browser, brand credentials and campaign CTA
-            </p>
           </motion.div>
         </div>
       </section>
@@ -394,7 +402,31 @@ export default function WildernessPage() {
         </div>
       </section>
 
-      {/* ── 9. DISCIPLINES ───────────────────────────────────────────── */}
+      {/* ── 9. LANDING DETAIL SCREENSHOT ─────────────────────────────── */}
+      <section className="bg-white py-[80px] max-sm:py-[40px]">
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-60px" }}
+          >
+            <div style={{ position: "relative", height: 480, borderRadius: 16, overflow: "hidden" }}>
+              <Image
+                src="/clients/wilderness/landing-detail.webp"
+                alt="Wilderness landing page — lodge detail and experience design"
+                fill
+                style={{ objectFit: "cover", objectPosition: "center" }}
+              />
+            </div>
+            <p className="text-center mt-4 text-[12px]" style={{ color: "#9CA3AF" }}>
+              Wilderness landing page — lodge detail and experience design
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 10. DISCIPLINES ───────────────────────────────────────────── */}
       <section className="bg-white py-[80px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
           <div className="grid grid-cols-2 gap-[80px] items-start max-md:grid-cols-1">

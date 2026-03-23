@@ -15,7 +15,7 @@ export default function ClientLogos() {
           viewport={{ once: true }}
           className="eyebrow text-center"
         >
-          TRUSTED BY TEAMS AT
+          ORGANISATIONS WE&apos;VE SUPPORTED
         </motion.p>
 
         <motion.div

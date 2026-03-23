@@ -111,27 +111,36 @@ function DesktopNavItem({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button
-        className="flex items-center gap-1 text-[15px] font-normal transition-colors duration-300"
-        style={{ color: textColor, background: "none", border: "none", cursor: "pointer", padding: 0 }}
-        aria-expanded={open}
-        aria-haspopup="true"
-      >
-        {item.label}
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 12 12"
-          fill="none"
-          style={{
-            transition: "transform 0.15s ease",
-            transform: open ? "rotate(180deg)" : "rotate(0deg)",
-            opacity: 0.6,
-          }}
+      <div className="flex items-center gap-1">
+        <Link
+          href={item.href}
+          className="text-[15px] font-normal transition-colors duration-300"
+          style={{ color: textColor }}
         >
-          <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
+          {item.label}
+        </Link>
+        <button
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-haspopup="true"
+          aria-label={`Toggle ${item.label} submenu`}
+          style={{ color: textColor, background: "none", border: "none", cursor: "pointer", padding: "2px 2px 2px 0", lineHeight: 0 }}
+        >
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            style={{
+              transition: "transform 0.15s ease",
+              transform: open ? "rotate(180deg)" : "rotate(0deg)",
+              opacity: 0.6,
+            }}
+          >
+            <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </div>
 
       {/* Dropdown panel */}
       <div
@@ -243,28 +252,37 @@ export default function NavigationBar() {
                 </Link>
               ) : (
                 <div key={item.href}>
-                  <button
-                    className="w-full flex items-center justify-between py-2 text-[15px]"
-                    style={{ color: "#6B7280", background: "none", border: "none", cursor: "pointer", padding: "8px 0" }}
-                    onClick={() =>
-                      setMobileExpanded(mobileExpanded === item.href ? null : item.href)
-                    }
-                  >
-                    <span>{item.label}</span>
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      style={{
-                        transition: "transform 0.15s ease",
-                        transform: mobileExpanded === item.href ? "rotate(180deg)" : "rotate(0deg)",
-                        opacity: 0.6,
-                      }}
+                  <div className="flex items-center justify-between" style={{ padding: "8px 0" }}>
+                    <Link
+                      href={item.href}
+                      className="text-[15px]"
+                      style={{ color: "#6B7280" }}
+                      onClick={() => setMobileOpen(false)}
                     >
-                      <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
+                      {item.label}
+                    </Link>
+                    <button
+                      style={{ color: "#6B7280", background: "none", border: "none", cursor: "pointer", padding: "2px 4px", lineHeight: 0 }}
+                      onClick={() =>
+                        setMobileExpanded(mobileExpanded === item.href ? null : item.href)
+                      }
+                      aria-label={`Toggle ${item.label} submenu`}
+                    >
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        style={{
+                          transition: "transform 0.15s ease",
+                          transform: mobileExpanded === item.href ? "rotate(180deg)" : "rotate(0deg)",
+                          opacity: 0.6,
+                        }}
+                      >
+                        <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
                   {mobileExpanded === item.href && (
                     <div className="flex flex-col pl-4 pb-2">
                       {item.children.map((child) => (

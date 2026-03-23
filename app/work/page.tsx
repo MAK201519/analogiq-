@@ -101,45 +101,12 @@ const cases = [
     image: "/clients/jet2/homepage.webp",
     seed: null,
   },
-  {
-    category: "PLATFORM / COMPOSABLE ARCHITECTURE",
-    client: "BBC",
-    title: "Composable platform transformation across 14 global markets",
-    outcome: "40% faster time-to-market",
-    body: "The BBC needed a digital platform capable of supporting content delivery across 14 international markets at pace. Legacy architecture was creating development bottlenecks that slowed campaign launches and limited the editorial team's ability to respond to breaking news and time-sensitive content requirements. We designed and delivered a composable architecture that reduced campaign launch time from weeks to days and gave editorial teams genuine control over their digital experience without engineering dependency.",
-    tags: ["Composable architecture", "Sitecore", "Platform engineering"],
-    href: "/work/bbc",
-    image: null,
-    seed: "bbc",
-  },
-  {
-    category: "AI / PERSONALISATION",
-    client: "Capco",
-    title: "AI-powered personalisation programme delivering measurable conversion uplift",
-    outcome: "2.5× conversion uplift",
-    body: "Capco wanted to move personalisation from a pilot into production. Previous attempts had produced encouraging results in controlled environments but had not translated into consistent performance improvement at scale. We designed the data and platform infrastructure required to support real-time personalisation — connecting behavioural data to digital experience delivery and producing a 2.5× uplift in conversion within the first programme cycle.",
-    tags: ["AI activation", "Personalisation", "Data infrastructure"],
-    href: "/work/capco",
-    image: null,
-    seed: "capco",
-  },
-  {
-    category: "EXPERIMENTATION / PLATFORM",
-    client: "White Moss",
-    title: "Experimentation infrastructure enabling continuous optimisation",
-    outcome: "60% reduction in content publishing cycle",
-    body: "White Moss needed the capability to test, learn and improve continuously rather than relying on periodic campaign reviews. The existing platform made experimentation slow and resource-intensive — each test required significant engineering involvement and the time between insight and implementation was measured in weeks. We built the experimentation infrastructure and workflow that reduced their content publishing cycle by 60% and gave the marketing team the tools to optimise performance without engineering dependency.",
-    tags: ["Experimentation", "Platform engineering", "Workflow design"],
-    href: "/work/white-moss",
-    image: null,
-    seed: "whitemoss",
-  },
 ];
 
 const metrics = [
   { number: "40+", label: "organisations helped across platform modernisation and AI activation" },
   { number: "10+", label: "years of digital platform and AI delivery experience" },
-  { number: "3", label: "case studies showing measurable commercial outcomes" },
+  { number: "8", label: "case studies showing measurable commercial outcomes" },
 ];
 
 const sectors = [
@@ -211,64 +178,62 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* ── 3. FEATURED CASE STUDIES — stacked full-width cards ──────── */}
+      {/* ── 3. CASE STUDY GRID — 3-column cards ──────────────────────── */}
       <section className="bg-white pb-[70px] max-sm:pb-[40px]">
-        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5 flex flex-col gap-8">
-          {cases.map(({ category, client, title, outcome, body, tags, href, seed, image }, i) => (
-            <motion.div
-              key={client}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.07 }}
-              viewport={{ once: true, margin: "-60px" }}
-              className="grid grid-cols-2 gap-0 max-md:grid-cols-1 group"
-              style={{ backgroundColor: "#ffffff", borderRadius: 20, border: "1px solid #E5E7EB", boxShadow: "0 5px 0 0 #191A23", overflow: "hidden" }}
-            >
-              {/* Left — text */}
-              <div className="flex flex-col justify-between p-12 max-sm:p-8">
-                <div>
-                  <span
-                    className="inline-block px-[10px] py-1 rounded-[6px] text-[11px] font-semibold uppercase tracking-[0.05em] mb-4"
-                    style={{ background: "#FDF0E8", color: "#D4500F" }}
-                  >
-                    {category}
-                  </span>
-                  <p className="eyebrow mb-3">{client}</p>
-                  <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 26, fontWeight: 700, lineHeight: 1.2, color: "#111111" }}>
-                    {title}
-                  </h3>
-                  <p className="text-[15px] font-semibold mt-3" style={{ color: "#D4500F" }}>{outcome}</p>
-                  <p className="text-[15px] leading-[1.7] mt-4" style={{ color: "#6B7280" }}>{body}</p>
-                </div>
-                <div className="mt-8 flex flex-col gap-4">
-                  <div className="flex flex-wrap gap-2">
-                    {tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="inline-block px-4 py-1 text-[12px] font-medium rounded-full"
-                        style={{ backgroundColor: "#F3F3F3", color: "#6B7280", border: "1px solid #E5E7EB" }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
+          <div className="grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-6">
+            {cases.map(({ category, client, title, outcome, tags, href, seed, image }, i) => (
+              <motion.div
+                key={client}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: (i % 3) * 0.07 }}
+                viewport={{ once: true, margin: "-60px" }}
+                className="group"
+                style={{ borderRadius: 20, border: "1px solid #E5E7EB", boxShadow: "0 5px 0 0 #191A23", backgroundColor: "#ffffff", overflow: "hidden" }}
+              >
+                <Link href={href} className="flex flex-col h-full">
+                  {/* Image */}
+                  <div className="overflow-hidden relative" style={{ height: 220, flexShrink: 0 }}>
+                    <Image
+                      src={image ?? `https://picsum.photos/seed/${seed}/800/600`}
+                      alt={title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
-                  <Link href={href} className="text-[14px] font-medium hover:underline" style={{ color: "#D4500F" }}>
-                    Read case study →
-                  </Link>
-                </div>
-              </div>
-
-              {/* Right — image */}
-              <div className="overflow-hidden max-md:h-[280px] relative" style={{ minHeight: 400 }}>
-                <Image
-                  src={image ?? `https://picsum.photos/seed/${seed}/800/600`}
-                  alt={title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            </motion.div>
-          ))}
+                  {/* Content */}
+                  <div className="flex flex-col gap-3 p-7" style={{ flexGrow: 1 }}>
+                    <span
+                      className="inline-block self-start px-[10px] py-1 rounded-[6px] text-[11px] font-semibold uppercase tracking-[0.05em]"
+                      style={{ background: "#FDF0E8", color: "#D4500F" }}
+                    >
+                      {category}
+                    </span>
+                    <p className="eyebrow">{client}</p>
+                    <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 18, fontWeight: 700, lineHeight: 1.3, color: "#111111" }}>
+                      {title}
+                    </h3>
+                    <p className="text-[13px] font-semibold" style={{ color: "#D4500F" }}>{outcome}</p>
+                    <div className="flex flex-wrap gap-2 mt-auto pt-3">
+                      {tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-block px-3 py-1 text-[11px] font-medium rounded-full"
+                          style={{ backgroundColor: "#F3F3F3", color: "#6B7280", border: "1px solid #E5E7EB" }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-[13px] font-medium mt-2" style={{ color: "#D4500F" }}>
+                      Read case study →
+                    </p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

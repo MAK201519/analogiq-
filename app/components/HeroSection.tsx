@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/animations";
 
 const portfolioImages = [
-  { seed: "portfolio1" },
-  { seed: "portfolio2" },
-  { seed: "portfolio3" },
+  { src: "/clients/wilderness/banner.png", alt: "Wilderness Destinations — luxury safari landing page" },
+  { src: "/clients/keith-prowse/homepage.webp", alt: "Keith Prowse — sports and events hospitality" },
+  { src: "/clients/wilderness/instagram-botswana.png", alt: "Wilderness Destinations — Botswana safari experience" },
 ];
 
 export default function HeroSection() {
@@ -100,17 +101,17 @@ export default function HeroSection() {
         className="mt-16 grid grid-cols-3 gap-3 max-sm:grid-cols-1"
         style={{ padding: '0 12px' }}
       >
-        {portfolioImages.map(({ seed }, i) => (
+        {portfolioImages.map(({ src, alt }) => (
           <div
-            key={seed}
+            key={src}
             className="overflow-hidden"
-            style={{ borderRadius: 16, height: 280 }}
+            style={{ borderRadius: 16, height: 280, position: "relative" }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`https://picsum.photos/seed/${seed}/800/600`}
-              alt={`Client work ${i + 1}`}
-              className="w-full h-full object-cover"
+            <Image
+              src={src}
+              alt={alt}
+              fill
+              style={{ objectFit: "cover" }}
             />
           </div>
         ))}

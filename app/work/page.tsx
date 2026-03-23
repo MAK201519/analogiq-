@@ -58,6 +58,17 @@ const cases = [
     seed: null,
   },
   {
+    category: "DATA STRATEGY / MARTECH / CUSTOMER EXPERIENCE",
+    client: "SunLife",
+    title: "Building the data foundations for a single customer view at a leading UK financial services brand",
+    outcome: "Digital Experience Assessment — gap analysis, architecture blueprint and prioritised roadmap",
+    body: "SunLife held significant customer data but lacked a joined-up picture of customer behaviour across the full funnel. Analogiq conducted a structured Digital Experience Assessment — reviewing six MarTech platforms, mapping the end-to-end customer journey and producing a prioritised roadmap to close the gaps between data silos and a single, connected customer view.",
+    tags: ["Data Strategy", "MarTech Assessment", "Customer Experience", "Financial Services"],
+    href: "/work/sunlife",
+    image: "/clients/sunlife/homepage.webp",
+    seed: null,
+  },
+  {
     category: "PLATFORM / COMPOSABLE ARCHITECTURE",
     client: "BBC",
     title: "Composable platform transformation across 14 global markets",

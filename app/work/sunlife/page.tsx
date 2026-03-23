@@ -18,21 +18,15 @@ export default function SunLifePage() {
       <NavigationBar />
 
       {/* ── 1. HERO ──────────────────────────────────────────────────── */}
-      <section style={{ position: "relative", minHeight: 580, paddingTop: 180, paddingBottom: 80 }}>
-        <Image
-          src="/clients/sunlife/homepage.webp"
-          alt="SunLife homepage"
-          fill
-          style={{ objectFit: "cover", objectPosition: "top" }}
-          priority
-        />
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          background: "linear-gradient(to right, rgba(13,13,13,0.80) 0%, rgba(13,13,13,0.45) 100%)",
-          zIndex: 1,
-        }} />
-        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5" style={{ position: "relative", zIndex: 2 }}>
+      <section style={{
+        backgroundColor: "#0D0D0D",
+        minHeight: 560,
+        paddingTop: 180,
+        paddingBottom: 80,
+        backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
+        backgroundSize: "60px 60px",
+      }}>
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
           <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[720px]">
             <motion.div variants={item}>
               <Link

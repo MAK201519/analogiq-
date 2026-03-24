@@ -23,15 +23,6 @@ const footerColumns: { heading: string; links: { label: string; href: string }[]
       { label: "Platforms", href: "/platforms" },
     ],
   },
-  {
-    heading: "Follow us",
-    links: [
-      { label: "LinkedIn", href: "/" },
-      { label: "Twitter", href: "/" },
-      { label: "Instagram", href: "/" },
-      { label: "YouTube", href: "/" },
-    ],
-  },
 ];
 
 export default function Footer() {
@@ -40,12 +31,12 @@ export default function Footer() {
   return (
     <footer className="bg-[var(--surface)] py-[70px] max-sm:py-[40px]" style={{ borderTop: '1px solid #E5E7EB' }}>
       <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-        {/* Main grid: logo col + 3 link cols */}
+        {/* Main grid: logo col + 2 link cols */}
         <div
           className="grid gap-12 max-md:grid-cols-2 max-sm:grid-cols-1"
-          style={{ gridTemplateColumns: "2fr 1fr 1fr 1fr" }}
+          style={{ gridTemplateColumns: "2fr 1fr 1fr" }}
         >
-          {/* Column 1: Logo, tagline, social */}
+          {/* Column 1: Logo + tagline */}
           <div className="flex flex-col gap-6">
             <Link href="/">
               <span className="font-serif-italic text-[22px]" style={{ color: '#191A23' }}>
@@ -55,23 +46,9 @@ export default function Footer() {
             <p className="text-[14px] leading-[1.65] max-w-[260px]" style={{ color: '#6B7280' }}>
               Helping enterprise organisations close the Digital Activation Gap.
             </p>
-
-            {/* Social links */}
-            <div className="flex gap-4 flex-wrap">
-              {["LinkedIn", "Twitter", "Instagram", "YouTube"].map((platform) => (
-                <Link
-                  key={platform}
-                  href="/"
-                  className="text-[13px] hover:underline transition-colors"
-                  style={{ color: '#6B7280', minHeight: 44, display: 'inline-flex', alignItems: 'center' }}
-                >
-                  {platform}
-                </Link>
-              ))}
-            </div>
           </div>
 
-          {/* Columns 2–4: link groups */}
+          {/* Columns 2–3: link groups */}
           {footerColumns.map(({ heading, links }) => (
             <div key={heading} className="flex flex-col gap-4">
               <h4 className="text-[12px] font-semibold uppercase tracking-[0.1em]" style={{ color: '#191A23' }}>
@@ -99,7 +76,7 @@ export default function Footer() {
           <p className="text-[13px]" style={{ color: '#9CA3AF' }}>
             © {year} Analogiq. All rights reserved.
           </p>
-          <div className="flex gap-6 flex-wrap">
+          <div className="flex items-center gap-6 flex-wrap">
             {["Privacy Policy", "Terms of Service", "Cookie Settings"].map((item) => (
               <Link
                 key={item}
@@ -110,6 +87,15 @@ export default function Footer() {
                 {item}
               </Link>
             ))}
+            <Link
+              href="https://www.linkedin.com/company/analogiq1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[13px] hover:underline transition-colors"
+              style={{ color: '#9CA3AF' }}
+            >
+              LinkedIn
+            </Link>
           </div>
         </div>
       </div>

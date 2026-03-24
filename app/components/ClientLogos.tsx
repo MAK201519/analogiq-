@@ -3,23 +3,20 @@
 import { motion } from "framer-motion";
 
 const logos = [
-  { src: "/logos/hsbc.svg",                alt: "HSBC",                    height: 22,  invert: false },
-  { src: "/logos/jet2.svg",                alt: "Jet2",                    height: 32,  invert: false },
-  { src: "/logos/bhf.svg",                 alt: "British Heart Foundation", height: 38,  invert: false },
-  { src: "/logos/keith-prowse.png",        alt: "Keith Prowse",            height: 32,  invert: false },
-  { src: "/logos/sunlife.webp",            alt: "SunLife",                 height: 30,  invert: false },
-  { src: "/logos/capco.png",              alt: "Capco",                   height: 26,  invert: true  },
-  { src: "/logos/cystic-fibrosis-trust.png", alt: "Cystic Fibrosis Trust", height: 36,  invert: false },
-  { src: "/logos/shoosmiths.png",          alt: "Shoosmiths",              height: 24,  invert: false },
-  { src: "/logos/hogan-lovells.svg",       alt: "Hogan Lovells",           height: 28,  invert: false },
-  { src: "/logos/adtran.svg",              alt: "Adtran",                  height: 26,  invert: false },
+  { src: "/logos/hsbc.svg",                alt: "HSBC" },
+  { src: "/logos/jet2.svg",                alt: "Jet2" },
+  { src: "/logos/bhf.svg",                 alt: "British Heart Foundation" },
+  { src: "/logos/keith-prowse.png",        alt: "Keith Prowse" },
+  { src: "/logos/sunlife.webp",            alt: "SunLife" },
+  { src: "/logos/capco.png",               alt: "Capco" },
+  { src: "/logos/cystic-fibrosis-trust.png", alt: "Cystic Fibrosis Trust" },
+  { src: "/logos/shoosmiths.png",          alt: "Shoosmiths" },
+  { src: "/logos/hogan-lovells.svg",       alt: "Hogan Lovells" },
+  { src: "/logos/adtran.svg",              alt: "Adtran" },
 ];
 
-const defaultFilter = (invert: boolean) =>
-  invert ? "grayscale(100%) opacity(0.55) invert(1)" : "grayscale(100%) opacity(0.55)";
-
-const hoverFilter = (invert: boolean) =>
-  invert ? "grayscale(0%) invert(0) opacity(1)" : "grayscale(0%) opacity(1)";
+const defaultFilter = "grayscale(100%) opacity(60%)";
+const hoverFilter = "grayscale(0%) opacity(100%)";
 
 export default function ClientLogos() {
   return (
@@ -40,23 +37,24 @@ export default function ClientLogos() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
-          className="mt-10 flex flex-wrap justify-center items-center gap-x-10 gap-y-6 max-sm:gap-x-8 max-sm:gap-y-5 max-w-[1100px] mx-auto"
+          style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 40, marginTop: 40, maxWidth: 1100 }}
         >
-          {logos.map(({ src, alt, height, invert }) => (
+          {logos.map(({ src, alt }) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               key={alt}
               src={src}
               alt={alt}
               style={{
-                height,
-                width: "auto",
-                display: "block",
-                filter: defaultFilter(invert),
-                transition: "filter 0.3s ease",
+                maxHeight: 32,
+                width: 'auto',
+                display: 'block',
+                objectFit: 'contain',
+                filter: defaultFilter,
+                transition: 'filter 0.3s ease',
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.filter = hoverFilter(invert); }}
-              onMouseLeave={(e) => { e.currentTarget.style.filter = defaultFilter(invert); }}
+              onMouseEnter={(e) => { e.currentTarget.style.filter = hoverFilter; }}
+              onMouseLeave={(e) => { e.currentTarget.style.filter = defaultFilter; }}
             />
           ))}
         </motion.div>

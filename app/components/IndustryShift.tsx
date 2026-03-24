@@ -48,7 +48,7 @@ export default function IndustryShift() {
           className="grid grid-cols-2 gap-16 items-center max-lg:grid-cols-1"
         >
           {/* Left: text + before/after */}
-          <motion.div variants={item} className="flex flex-col">
+          <motion.div variants={item} className="flex flex-col max-lg:order-1">
             <Eyebrow>THE SHIFT</Eyebrow>
             <h2 className="mt-4" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#111111' }}>
               Marketing has entered the AI era.
@@ -91,17 +91,14 @@ export default function IndustryShift() {
             </div>
           </motion.div>
 
-          {/* Right: placeholder photography */}
-          <motion.div variants={item}>
-            <div className="overflow-hidden" style={{ borderRadius: 20 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://picsum.photos/seed/shift/800/900"
-                alt="Digital platform transformation"
-                className="w-full max-w-full object-cover"
-                style={{ minHeight: 300, display: "block" }}
-              />
-            </div>
+          {/* Right: photography */}
+          <motion.div variants={item} className="max-lg:order-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+              alt="Modern data-driven marketing environment"
+              style={{ borderRadius: 16, maxWidth: '100%', height: 'auto', display: 'block' }}
+            />
           </motion.div>
         </motion.div>
       </div>

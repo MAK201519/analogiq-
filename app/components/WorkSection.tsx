@@ -131,8 +131,10 @@ export default function WorkSection() {
                 <p className="text-[14px] leading-[1.65] mt-3 flex-1" style={{ color: '#6B7280' }}>{description}</p>
                 <Link
                   href={href}
-                  className="inline-block mt-5 text-[14px] font-medium transition-colors"
-                  style={{ color: '#D4500F' }}
+                  className="inline-block mt-5 text-[14px] font-semibold transition-all duration-200"
+                  style={{ color: '#D4500F', border: '2px solid #D4500F', borderRadius: 999, padding: '10px 24px', backgroundColor: 'transparent' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#D4500F'; e.currentTarget.style.color = '#ffffff'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#D4500F'; }}
                 >
                   View case study →
                 </Link>
@@ -146,12 +148,14 @@ export default function WorkSection() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className="mt-10 text-center"
+          className="mt-[48px] flex justify-center"
         >
           <Link
             href="/work"
-            className="text-[15px] font-medium hover:underline"
-            style={{ color: '#D4500F' }}
+            className="inline-block text-[14px] font-semibold transition-all duration-200"
+            style={{ color: '#D4500F', border: '2px solid #D4500F', borderRadius: 999, padding: '10px 24px', backgroundColor: 'transparent' }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#D4500F'; e.currentTarget.style.color = '#ffffff'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#D4500F'; }}
           >
             View all work →
           </Link>

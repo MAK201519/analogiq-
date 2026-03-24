@@ -19,12 +19,12 @@ const cases = [
   },
   {
     client: "Capco",
-    category: "AI",
-    title: "AI-powered personalisation programme delivering measurable conversion uplift",
-    outcome: "2.5× conversion uplift",
-    description: "Capco wanted to move personalisation from a pilot into production. We designed the data and platform infrastructure required to support real-time personalisation at scale — connecting behavioural data to digital experience delivery and producing a 2.5× uplift in conversion within the first programme cycle.",
-    image: "/clients/capco/homepage.webp",
-    href: "/work/hsbc",
+    category: "AI · Personalisation",
+    title: "Transforming engagement with AI personalisation and intelligent lead scoring",
+    outcome: "£1M+ confirmed sales",
+    description: "Capco needed to move beyond generic digital engagement. Analogiq designed a cross-channel personalisation and lead scoring system — turning anonymous visitors into qualified pipeline and delivering over £1 million in confirmed sales.",
+    image: "/clients/capco/homepage-hero.webp",
+    href: "/work/capco",
     url: "capco.com",
   },
   {

@@ -25,6 +25,28 @@ const cases = [
     seed: null,
   },
   {
+    category: "AI · PERSONALISATION",
+    client: "Capco",
+    title: "Transforming engagement with AI personalisation and intelligent lead scoring",
+    outcome: "£1M+ confirmed sales",
+    body: "Capco needed to move beyond generic digital engagement. Analogiq designed a cross-channel personalisation and lead scoring system built on their HubSpot and Sitecore investment — capturing over 100 data points per visitor to deliver dynamically personalised experiences and route high-value leads to the right sales consultant in real time. The result: over £1 million in confirmed sales.",
+    tags: ["AI", "Personalisation", "Lead Scoring", "HubSpot", "Sitecore"],
+    href: "/work/capco",
+    image: "/clients/capco/homepage-hero.webp",
+    seed: null,
+  },
+  {
+    category: "PLATFORM ENGINEERING · SITECORE",
+    client: "Capco",
+    title: "Rebuilding a global digital platform from scratch in 120 days",
+    outcome: "120-day delivery · 14 days → 24hr SLA",
+    body: "Following a demerger from FIS Global, Capco faced a 120-day hard deadline to migrate their entire website off FIS infrastructure — or face significant financial penalties. Analogiq delivered the full Sitecore rebuild on time, then extended the engagement to redesign the careers experience, build a data measurement framework and implement personalisation at scale.",
+    tags: ["Platform Engineering", "Sitecore", "CMS", "Data Dashboards", "Careers UX"],
+    href: "/work/capco-platform",
+    image: "/clients/capco/services.webp",
+    seed: null,
+  },
+  {
     category: "CRO / EXPERIMENTATION / PERSONALISATION",
     client: "HSBC Commercial Banking",
     title: "A data-driven optimisation programme across six Asian markets delivering a 12:1 ROI",
@@ -106,7 +128,7 @@ const cases = [
 const metrics = [
   { number: "40+", label: "organisations helped across platform modernisation and AI activation" },
   { number: "10+", label: "years of digital platform and AI delivery experience" },
-  { number: "8", label: "case studies showing measurable commercial outcomes" },
+  { number: "10", label: "case studies showing measurable commercial outcomes" },
 ];
 
 const sectors = [

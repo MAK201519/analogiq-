@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import NavigationBar from "../components/NavigationBar";
 import FinalCTA from "../components/FinalCTA";
 import Footer from "../components/Footer";
@@ -11,38 +11,6 @@ import { Button } from "@/components/ui/button";
 import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/animations";
 
 /* ─── SHARED HELPERS ─────────────────────────────────────────────────────── */
-
-const wordmarkStyle: React.CSSProperties = {
-  fontFamily: "'Inter', 'Plus Jakarta Sans', system-ui, sans-serif",
-  fontSize: 20,
-  fontWeight: 700,
-  color: "#111111",
-  letterSpacing: "-0.02em",
-  display: "inline-block",
-};
-
-function PartnerWordmark({ name }: { name: string }) {
-  const [hovered, setHovered] = useState(false);
-  return (
-    <span
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        fontFamily: "'Inter', 'Plus Jakarta Sans', system-ui, sans-serif",
-        fontSize: 18,
-        fontWeight: 700,
-        color: "#111111",
-        letterSpacing: "-0.02em",
-        opacity: hovered ? 1 : 0.5,
-        transition: "opacity 0.2s ease",
-        cursor: "default",
-        whiteSpace: "nowrap",
-      }}
-    >
-      {name}
-    </span>
-  );
-}
 
 function FeatureList({ items }: { items: { title: string; desc: string }[] }) {
   return (
@@ -72,42 +40,41 @@ const platformCards = [
     body: "One of the leading enterprise digital experience platforms. Analogiq has over a decade of Sitecore experience across more than 40 client engagements.",
     href: "/platforms/sitecore",
     cta: "Learn more",
+    logo: "/logos/platforms/sitecore.png",
   },
   {
     name: "Uniform",
     body: "A modern composable platform designed for organisations that want greater flexibility in how they build and operate digital experiences.",
     href: "/platforms/uniform",
     cta: "Learn more",
-  },
-  {
-    name: "And more",
-    body: "We also work with Optimizely, Umbraco, Contentful and the broader ecosystem of composable and headless technologies.",
-    href: "/contact",
-    cta: "Talk to us",
+    logo: "/logos/platforms/uniform.svg",
   },
 ];
 
 const workCards = [
   {
-    client: "BBC",
-    category: "Platform",
-    title: "Composable website platform transformation",
-    outcome: "40% faster time-to-market across 14 global markets",
-    seed: "platform",
-  },
-  {
     client: "Capco",
-    category: "AI",
-    title: "AI-powered personalisation programme",
-    outcome: "2.5× conversion uplift on digital transformation programme",
-    seed: "personalisation",
+    category: "Platform Engineering · Sitecore",
+    title: "Rebuilding a global digital platform from scratch in 120 days",
+    outcome: "14 days → 24hr SLA · 120-day delivery",
+    image: "/clients/capco/services.webp",
+    href: "/work/capco-platform",
   },
   {
-    client: "White Moss",
-    category: "Experimentation",
-    title: "Experimentation infrastructure implementation",
-    outcome: "60% reduction in content publishing cycle",
-    seed: "experimentation",
+    client: "The Experience Golf",
+    category: "Sitecore · Ecommerce",
+    title: "Ecommerce platform delivery on Sitecore in 6 months",
+    outcome: "6-month delivery",
+    image: "/clients/experience-golf/course-finder.webp",
+    href: "/work/experience-golf",
+  },
+  {
+    client: "Keith Prowse",
+    category: "Sitecore · Platform Engineering",
+    title: "Long-term Sitecore technical partnership since 2021",
+    outcome: "Technical partner since 2021",
+    image: "/clients/keith-prowse/experience-finder.webp",
+    href: "/work/keith-prowse",
   },
 ];
 
@@ -115,7 +82,7 @@ const approachSteps = [
   {
     number: "01",
     title: "Audit",
-    description: "Assess the current platform environment — technologies, integrations, architectural constraints and how effectively marketing teams can operate within it.",
+    description: "Assess the current platform environment: technologies, integrations, architectural constraints and how effectively marketing teams can operate within it.",
     outcomes: [
       "Platform maturity mapped against modern architecture benchmarks",
       "Prioritised list of constraints and opportunities",
@@ -125,7 +92,7 @@ const approachSteps = [
   {
     number: "02",
     title: "Roadmap",
-    description: "Design an architecture that supports greater flexibility, scalability and integration — sequenced around real operational constraints.",
+    description: "Design an architecture that supports greater flexibility, scalability and integration, sequenced around real operational constraints.",
     outcomes: [
       "Target state architecture with phased delivery plan",
       "Platform vendor shortlist with evaluation criteria",
@@ -154,6 +121,14 @@ const approachSteps = [
   },
 ];
 
+const platformLogos = [
+  { src: "/logos/platforms/sitecore.png", alt: "Sitecore" },
+  { src: "/logos/platforms/uniform.svg", alt: "Uniform" },
+  { src: "/logos/platforms/optimizely.svg", alt: "Optimizely" },
+  { src: "/logos/platforms/contentful.svg", alt: "Contentful" },
+  { src: "/logos/platforms/umbraco.png", alt: "Umbraco" },
+];
+
 /* ─── PAGE ───────────────────────────────────────────────────────────────── */
 
 export default function PlatformsPage() {
@@ -175,13 +150,13 @@ export default function PlatformsPage() {
               <span style={{ color: "#D4500F" }}>modern platforms.</span>
             </motion.h1>
             <motion.p variants={item} className="mt-6 text-[18px] leading-[1.65] max-w-[600px]" style={{ color: "#9CA3AF" }}>
-              Digital experience platforms form the foundation of how organisations manage and deliver digital experiences. Over the past decade the landscape has evolved significantly — from traditional monolithic CMS platforms to composable and headless architectures that allow organisations to build flexible digital ecosystems.
+              Digital experience platforms form the foundation of how organisations manage and deliver digital experiences. Over the past decade the landscape has evolved significantly, moving from traditional monolithic CMS platforms to composable and headless architectures that allow organisations to build flexible digital ecosystems.
             </motion.p>
             <motion.div variants={item} className="mt-10 flex gap-4 flex-wrap">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button asChild className="font-medium text-[16px] border-0 hover:opacity-90 transition-opacity"
                   style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontWeight: 500, borderRadius: 14, padding: "20px 35px", height: "auto", backgroundColor: "#D4500F", color: "#ffffff", boxShadow: "0 5px 0 0 #3a1a05" }}>
-                  <Link href="/contact">Talk to us about platforms</Link>
+                  <Link href="/contact">Start the conversation</Link>
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -250,7 +225,7 @@ export default function PlatformsPage() {
               {[
                 { label: "Content change request", value: "2–3 week cycle" },
                 { label: "New integration", value: "3–6 months" },
-                { label: "Personalisation capability", value: "Pilot — not live" },
+                { label: "Personalisation capability", value: "Pilot, not live" },
                 { label: "AI readiness", value: "Not supported" },
                 { label: "Experimentation", value: "Manual / none" },
               ].map(({ label, value }, i) => (
@@ -319,7 +294,7 @@ export default function PlatformsPage() {
                 { label: "Content change request", value: "Same day" },
                 { label: "New integration", value: "Days to weeks" },
                 { label: "Personalisation capability", value: "Live in production" },
-                { label: "AI readiness", desc: "Native support" },
+                { label: "AI readiness", value: "Built in from day one" },
                 { label: "Experimentation", value: "Continuous" },
               ].map(({ label, value }, i) => (
                 <div key={label} className="flex items-center justify-between px-8 py-4"
@@ -340,14 +315,27 @@ export default function PlatformsPage() {
             <motion.div variants={item} className="mb-10">
               <Eyebrow>PLATFORMS WE WORK WITH</Eyebrow>
             </motion.div>
-            <motion.div variants={item} className="flex items-center flex-wrap gap-0 max-sm:gap-6">
-              {["Sitecore", "Uniform", "Optimizely", "Umbraco", "Contentful"].map((name, i, arr) => (
-                <div key={name} className="flex items-center">
-                  <PartnerWordmark name={name} />
-                  {i < arr.length - 1 && (
-                    <span style={{ display: "inline-block", width: 1, height: 20, backgroundColor: "#E5E7EB", margin: "0 32px", flexShrink: 0 }} />
-                  )}
-                </div>
+            <motion.div
+              variants={item}
+              style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 48 }}
+            >
+              {platformLogos.map(({ src, alt }) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={alt}
+                  src={src}
+                  alt={alt}
+                  style={{
+                    height: 28,
+                    width: "auto",
+                    display: "block",
+                    objectFit: "contain",
+                    filter: "grayscale(100%) opacity(60%)",
+                    transition: "filter 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.filter = "grayscale(0%) opacity(100%)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.filter = "grayscale(100%) opacity(60%)"; }}
+                />
               ))}
             </motion.div>
           </motion.div>
@@ -372,54 +360,42 @@ export default function PlatformsPage() {
             className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
 
             {/* Sitecore */}
-            <motion.div variants={item}
-              className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
-              style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
-              <div style={{ height: 32, display: "flex", alignItems: "center", marginBottom: 24 }}>
-                <span style={wordmarkStyle}>Sitecore</span>
-              </div>
-              <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{platformCards[0].name}</h3>
-              <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{platformCards[0].body}</p>
-              <div className="mt-6">
-                <Link href={platformCards[0].href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>{platformCards[0].cta} →</Link>
-              </div>
-            </motion.div>
-
-            {/* Uniform */}
-            <motion.div variants={item}
-              className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
-              style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
-              <div style={{ height: 32, display: "flex", alignItems: "center", marginBottom: 24 }}>
-                <span style={wordmarkStyle}>Uniform</span>
-              </div>
-              <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{platformCards[1].name}</h3>
-              <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{platformCards[1].body}</p>
-              <div className="mt-6">
-                <Link href={platformCards[1].href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>{platformCards[1].cta} →</Link>
-              </div>
-            </motion.div>
+            {platformCards.map(({ name, body, href, cta, logo }) => (
+              <motion.div key={name} variants={item}
+                className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
+                style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
+                <div style={{ height: 32, display: "flex", alignItems: "center", marginBottom: 24 }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={logo} alt={name} style={{ maxHeight: 24, width: "auto", display: "block", objectFit: "contain" }} />
+                </div>
+                <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{name}</h3>
+                <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{body}</p>
+                <div className="mt-6">
+                  <Link href={href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>{cta} →</Link>
+                </div>
+              </motion.div>
+            ))}
 
             {/* And more */}
             <motion.div variants={item}
               className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
               style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
-              <div style={{ height: 32, display: "flex", alignItems: "center", gap: 12, marginBottom: 24, flexWrap: "wrap" }}>
-                {["Optimizely", "Umbraco", "Contentful"].map((n) => (
-                  <span key={n} style={{
-                    fontFamily: "'Inter', 'Plus Jakarta Sans', system-ui, sans-serif",
-                    fontSize: 14,
-                    fontWeight: 700,
-                    color: "#111111",
-                    letterSpacing: "-0.02em",
-                    opacity: 0.6,
-                    filter: "grayscale(1)",
-                  }}>{n}</span>
+              <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 24 }}>
+                {[
+                  { src: "/logos/platforms/contentful.svg", alt: "Contentful" },
+                  { src: "/logos/platforms/umbraco.png", alt: "Umbraco" },
+                  { src: "/logos/platforms/optimizely.svg", alt: "Optimizely" },
+                ].map(({ src, alt }) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img key={alt} src={src} alt={alt} style={{ maxHeight: 20, width: "auto", display: "block", objectFit: "contain" }} />
                 ))}
               </div>
-              <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{platformCards[2].name}</h3>
-              <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{platformCards[2].body}</p>
+              <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>And more</h3>
+              <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>
+                Optimizely, Umbraco, Contentful and others. We also work with the broader ecosystem of composable and headless technologies.
+              </p>
               <div className="mt-6">
-                <Link href={platformCards[2].href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>{platformCards[2].cta} →</Link>
+                <Link href="/contact" className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>Talk to us →</Link>
               </div>
             </motion.div>
 
@@ -440,20 +416,30 @@ export default function PlatformsPage() {
 
           <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}
             className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
-            {workCards.map(({ client, category, title, outcome, seed }) => (
+            {workCards.map(({ client, category, title, outcome, image, href }) => (
               <motion.div key={title} variants={item}
                 className="group cursor-pointer flex flex-col hover:-translate-y-1 transition-transform duration-200"
                 style={{ borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", backgroundColor: "#ffffff" }}>
-                <div className="overflow-hidden flex-shrink-0" style={{ height: 280, borderRadius: "45px 45px 0 0" }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`https://picsum.photos/seed/${seed}/800/600`} alt={title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="overflow-hidden flex-shrink-0" style={{ height: 280, borderRadius: "45px 45px 0 0", position: "relative" }}>
+                  <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    style={{ objectFit: "cover" }}
+                  />
                 </div>
                 <div className="flex flex-col flex-1 p-[50px]">
                   <p className="eyebrow mb-3">{client}</p>
-                  <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{title}</h3>
-                  <p className="text-[15px] font-medium mt-3" style={{ color: "#D4500F" }}>{outcome}</p>
-                  <Link href="/work" className="inline-block mt-5 text-[14px] font-medium" style={{ color: "#6B7280" }}>View case study →</Link>
+                  <span
+                    className="inline-block self-start px-[10px] py-1 rounded-[6px] text-[11px] font-semibold uppercase tracking-[0.05em] mb-3"
+                    style={{ background: "#FDF0E8", color: "#D4500F" }}
+                  >
+                    {category}
+                  </span>
+                  <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 20, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{title}</h3>
+                  <p className="text-[14px] font-medium mt-3" style={{ color: "#D4500F" }}>{outcome}</p>
+                  <Link href={href} className="inline-block mt-5 text-[14px] font-medium hover:underline" style={{ color: "#6B7280" }}>View case study →</Link>
                 </div>
               </motion.div>
             ))}
@@ -464,7 +450,7 @@ export default function PlatformsPage() {
       {/* ── 8. FINAL CTA ─────────────────────────────────────────────── */}
       <FinalCTA
         heading="Ready to modernise your digital platform?"
-        subheading="If your current platform is limiting your marketing ambitions, this is a good moment to have an honest conversation about it."
+        subheading="We work with a focused number of organisations at any given time. If your platform is holding your marketing team back, we would be glad to assess the situation and map a clear path forward."
       />
 
       <Footer />

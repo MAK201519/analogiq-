@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import NavigationBar from "../components/NavigationBar";
 import FinalCTA from "../components/FinalCTA";
 import Footer from "../components/Footer";
@@ -42,7 +43,7 @@ const valueRows = [
   {
     area: "Campaign optimisation",
     description:
-      "Automated budget allocation, bid management and creative rotation driven by performance signals — without manual intervention at every touchpoint.",
+      "Automated budget allocation, bid management and creative rotation driven by performance signals, without manual intervention at every touchpoint.",
     outcome: "30–50% improvement in cost-per-acquisition across paid channels",
   },
   {
@@ -67,7 +68,7 @@ const stackTiles = [
   {
     tag: "Personalisation",
     title: "Decisioning engines",
-    body: "Real-time personalisation infrastructure — from A/B experimentation to multi-armed bandits to full model-driven experience selection.",
+    body: "Real-time personalisation infrastructure from A/B experimentation to multi-armed bandits to full model-driven experience selection.",
   },
   {
     tag: "Analytics",
@@ -77,45 +78,33 @@ const stackTiles = [
   {
     tag: "Execution",
     title: "Automated campaign ops",
-    body: "AI-native campaign management integrations across paid, email, push and web — coordinated, optimised and self-improving.",
+    body: "AI-native campaign management integrations across paid, email, push and web, coordinated, optimised and self-improving.",
   },
 ];
 
 const metrics = [
-  { value: "73%", label: "of AI pilots never reach production" },
-  { value: "4.2×", label: "ROI on operationalised AI vs experimentation" },
-  { value: "8 wks", label: "average time to first live AI capability" },
-  { value: "60%", label: "faster content cycles after AI integration" },
+  { value: "Most", label: "AI pilots never reach production" },
+  { value: "Significant", label: "ROI uplift when AI moves from pilot to production" },
+  { value: "8 wks", label: "First live AI capability typically within 8 weeks" },
+  { value: "Up to 60%", label: "faster content cycles after AI integration" },
 ];
 
 const practiceCards = [
   {
-    client: "BBC",
-    category: "Content AI",
-    title: "AI content workflows across 14 global markets",
-    outcome: "60% reduction in editorial cycle time",
-    seed: "bbc-ai",
+    client: "HSBC Business Banking",
+    category: "Experimentation",
+    title: "12:1 ROI across 24 experiments in 6 markets",
+    outcome: "12:1 ROI",
+    image: "/clients/hsbc/hero.png",
+    href: "/work/hsbc",
   },
   {
     client: "Capco",
-    category: "Personalisation",
-    title: "Real-time personalisation engine for digital banking",
-    outcome: "2.5× uplift in product cross-sell conversion",
-    seed: "capco-ai",
-  },
-  {
-    client: "White Moss",
-    category: "Campaign AI",
-    title: "Automated campaign optimisation across paid channels",
-    outcome: "44% reduction in cost-per-acquisition",
-    seed: "whitemoss-ai",
-  },
-  {
-    client: "Global Retail Brand",
-    category: "Lifecycle AI",
-    title: "Churn prediction and retention programme",
-    outcome: "35% reduction in churn within 12 months",
-    seed: "retail-ai",
+    category: "AI · Personalisation",
+    title: "Transforming engagement with AI personalisation and intelligent lead scoring",
+    outcome: "£1M+ confirmed sales",
+    image: "/clients/capco/homepage-hero.webp",
+    href: "/work/capco",
   },
 ];
 
@@ -126,7 +115,7 @@ const services = [
   },
   {
     title: "AI Strategy & Roadmap",
-    body: "A 12-month delivery plan aligned to your business objectives — sequenced, costed and with a clear ROI model for each initiative.",
+    body: "A 12-month delivery plan aligned to your business objectives, sequenced, costed and with a clear ROI model for each initiative.",
   },
   {
     title: "Personalisation Programme",
@@ -134,7 +123,7 @@ const services = [
   },
   {
     title: "Content AI Integration",
-    body: "AI authoring, briefing and workflow automation embedded into your existing CMS — reducing production time without replacing editorial teams.",
+    body: "AI authoring, briefing and workflow automation embedded into your existing CMS, reducing production time without replacing editorial teams.",
   },
   {
     title: "Campaign Intelligence",
@@ -142,7 +131,7 @@ const services = [
   },
   {
     title: "AI Enablement & Training",
-    body: "Structured capability building for marketing and technology teams — from AI literacy through to hands-on model configuration and governance.",
+    body: "Structured capability building for marketing and technology teams, from AI literacy through to hands-on model configuration and governance.",
   },
 ];
 
@@ -162,7 +151,7 @@ const aiSteps = [
     number: "02",
     title: "Architect",
     description:
-      "Design the target state architecture — data pipelines, model infrastructure, personalisation logic and content workflows — and create a phased delivery plan to get there.",
+      "Design the target state architecture for data pipelines, model infrastructure, personalisation logic and content workflows, and create a phased delivery plan to get there.",
     outcomes: [
       "Reference architecture for AI-native marketing stack",
       "12-month delivery roadmap with milestones and dependencies",
@@ -235,7 +224,7 @@ export default function AIMarketingPage() {
               style={{ color: "#9CA3AF" }}
             >
               We help enterprise marketing teams move from AI experimentation to
-              AI capability — embedding models, automation and intelligence into
+              AI capability, embedding models, automation and intelligence into
               the platforms that drive measurable growth.
             </motion.p>
             <motion.div variants={item} className="mt-10 flex gap-4 flex-wrap">
@@ -257,24 +246,6 @@ export default function AIMarketingPage() {
                   <Link href="/contact">Start a conversation</Link>
                 </Button>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Button
-                  asChild
-                  className="font-medium text-[16px] border-0 hover:opacity-90 transition-opacity"
-                  style={{
-                    fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
-                    fontWeight: 500,
-                    borderRadius: 14,
-                    padding: "20px 35px",
-                    height: "auto",
-                    backgroundColor: "transparent",
-                    color: "#ffffff",
-                    border: "1px solid rgba(255,255,255,0.2)",
-                  }}
-                >
-                  <Link href="#approach">See our approach</Link>
-                </Button>
-              </motion.div>
             </motion.div>
           </motion.div>
         </div>
@@ -287,16 +258,20 @@ export default function AIMarketingPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="grid grid-cols-3 gap-3 max-md:grid-cols-1"
           >
-            {["ai-dash", "ai-content", "ai-analytics"].map((seed, i) => (
+            {[
+              { src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80", alt: "Marketing analytics dashboard" },
+              { src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80", alt: "Digital marketing performance data" },
+              { src: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80", alt: "AI-powered campaign optimisation" },
+            ].map(({ src, alt }) => (
               <div
-                key={seed}
+                key={alt}
                 className="overflow-hidden"
-                style={{ borderRadius: 16, height: 280 }}
+                style={{ borderRadius: 12, height: 280 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`https://picsum.photos/seed/${seed}/800/500`}
-                  alt={`AI Marketing example ${i + 1}`}
+                  src={src}
+                  alt={alt}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -338,7 +313,7 @@ export default function AIMarketingPage() {
                 style={{ color: "#6B7280" }}
               >
                 The models are ready. The tools exist. The missing piece is
-                operationalisation — connecting AI to the systems, data and
+                operationalisation: connecting AI to the systems, data and
                 workflows where it can actually create value at scale.
               </motion.p>
 
@@ -715,9 +690,9 @@ export default function AIMarketingPage() {
                 className="mt-5 text-[16px] leading-[1.65]"
                 style={{ color: "#6B7280" }}
               >
-                73% of AI pilots never reach production. The bottleneck isn't
-                the technology — it's the architecture, data quality and
-                organisational readiness to operationalise it. We've seen every
+                Most AI pilots never reach production. The bottleneck isn&apos;t
+                the technology. It&apos;s the architecture, data quality and
+                organisational readiness to operationalise it. We&apos;ve seen every
                 failure mode. We know how to avoid them.
               </motion.p>
               <motion.p
@@ -725,19 +700,10 @@ export default function AIMarketingPage() {
                 className="mt-4 text-[16px] leading-[1.65]"
                 style={{ color: "#6B7280" }}
               >
-                Our clients don't just get a proof-of-concept. They get a
+                Our clients don&apos;t just get a proof-of-concept. They get a
                 production-grade capability, embedded in their stack, with the
                 team skills and governance to sustain it.
               </motion.p>
-              <motion.div variants={item} className="mt-6">
-                <Link
-                  href="/contact"
-                  className="text-[15px] font-medium hover:underline"
-                  style={{ color: "#D4500F" }}
-                >
-                  Talk to us about your AI roadmap →
-                </Link>
-              </motion.div>
             </motion.div>
 
             {/* Right — 2×2 metrics */}
@@ -762,7 +728,7 @@ export default function AIMarketingPage() {
                   <span
                     style={{
                       fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
-                      fontSize: 48,
+                      fontSize: 40,
                       fontWeight: 700,
                       lineHeight: 1,
                       color: "#D4500F",
@@ -780,6 +746,55 @@ export default function AIMarketingPage() {
               ))}
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ── 7. AI ROADMAP CTA ─────────────────────────────────────────── */}
+      <section style={{ backgroundColor: "#191A23" }} className="py-[80px] max-sm:py-[48px]">
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5 text-center">
+          <motion.div
+            variants={stagger}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-80px" }}
+            className="max-w-[680px] mx-auto"
+          >
+            <motion.h2
+              variants={item}
+              style={{
+                fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+                fontSize: "clamp(28px, 4vw, 48px)",
+                fontWeight: 700,
+                lineHeight: 1.1,
+                color: "#ffffff",
+              }}
+            >
+              Ready to move from AI pilot to AI capability?
+            </motion.h2>
+            <motion.p
+              variants={item}
+              className="mt-5 text-[16px] leading-[1.65]"
+              style={{ color: "#9CA3AF" }}
+            >
+              We work with a focused number of organisations at any given time. If your AI experiments haven&apos;t translated into production-grade capability, we would be glad to understand why and map a clear path forward.
+            </motion.p>
+            <motion.div variants={item} className="mt-8 flex justify-center">
+              <Link
+                href="/contact"
+                className="inline-block text-[15px] font-semibold transition-all duration-200"
+                style={{
+                  backgroundColor: "#D4500F",
+                  color: "#ffffff",
+                  borderRadius: 999,
+                  padding: "14px 32px",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#B84309"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "#D4500F"; }}
+              >
+                Start the conversation →
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -818,7 +833,7 @@ export default function AIMarketingPage() {
             viewport={{ once: true, margin: "-80px" }}
             className="grid grid-cols-2 gap-8 max-md:grid-cols-1"
           >
-            {practiceCards.map(({ client, category, title, outcome, seed }) => (
+            {practiceCards.map(({ client, category, title, outcome, image, href }) => (
               <motion.div
                 key={title}
                 variants={item}
@@ -832,13 +847,14 @@ export default function AIMarketingPage() {
               >
                 <div
                   className="overflow-hidden flex-shrink-0"
-                  style={{ height: 280, borderRadius: "45px 45px 0 0" }}
+                  style={{ height: 280, borderRadius: "45px 45px 0 0", position: "relative" }}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`https://picsum.photos/seed/${seed}/800/600`}
+                  <Image
+                    src={image}
                     alt={title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    style={{ objectFit: "cover" }}
                   />
                 </div>
                 <div className="flex flex-col flex-1 p-[50px]">
@@ -868,7 +884,7 @@ export default function AIMarketingPage() {
                       {category}
                     </span>
                     <Link
-                      href="/work"
+                      href={href}
                       className="text-[13px] font-medium group-hover:underline"
                       style={{ color: "#6B7280" }}
                     >
@@ -885,14 +901,16 @@ export default function AIMarketingPage() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="mt-10 text-center"
+            className="mt-[48px] flex justify-center"
           >
             <Link
               href="/work"
-              className="text-[15px] font-medium hover:underline"
-              style={{ color: "#D4500F" }}
+              className="inline-block text-[14px] font-semibold transition-all duration-200"
+              style={{ color: "#D4500F", border: "2px solid #D4500F", borderRadius: 999, padding: "10px 24px", backgroundColor: "transparent" }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#D4500F"; e.currentTarget.style.color = "#ffffff"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#D4500F"; }}
             >
-              View all case studies →
+              See all case studies →
             </Link>
           </motion.div>
         </div>
@@ -961,20 +979,11 @@ export default function AIMarketingPage() {
                   {title}
                 </h3>
                 <p
-                  className="text-[15px] leading-[1.65] mt-4 flex-1"
+                  className="text-[15px] leading-[1.65] mt-4"
                   style={{ color: "#6B7280" }}
                 >
                   {body}
                 </p>
-                <div className="mt-6">
-                  <Link
-                    href="/contact"
-                    className="text-[13px] font-medium hover:underline"
-                    style={{ color: "#D4500F" }}
-                  >
-                    Learn more →
-                  </Link>
-                </div>
               </motion.div>
             ))}
           </motion.div>

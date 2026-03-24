@@ -7,11 +7,12 @@ const footerColumns: { heading: string; links: { label: string; href: string }[]
     heading: "Services",
     links: [
       { label: "AI Marketing", href: "/ai-marketing" },
-      { label: "Platform Engineering", href: "/services/platform-engineering" },
-      { label: "UX & Product Design", href: "/services/ux-product-design" },
-      { label: "Data & Insights", href: "/services/data-insights" },
+      { label: "Website & Platform Modernisation", href: "/services/platform-engineering" },
+      { label: "AI Activation", href: "/services/ai-enablement" },
       { label: "Personalisation & Experimentation", href: "/services/personalisation-experimentation" },
-      { label: "AI Enablement", href: "/services/ai-enablement" },
+      { label: "Data & Insights", href: "/services/data-insights" },
+      { label: "Delivery & Engineering", href: "/services/platform-engineering" },
+      { label: "UX & Product Design", href: "/services/ux-product-design" },
     ],
   },
   {

@@ -153,7 +153,7 @@ export default function AboutPage() {
                 "Data & Insights",
               ].map((area, i) => (
                 <div key={area} className="flex items-center gap-4 px-8 py-5"
-                  style={{ borderBottom: i < 4 ? "1px solid #E5E7EB" : "none" }}>
+                  style={{ borderBottom: i < 5 ? "1px solid #E5E7EB" : "none" }}>
                   <span style={{ width: 8, height: 8, borderRadius: 2, backgroundColor: "#D4500F", display: "inline-block", flexShrink: 0 }} aria-hidden="true" />
                   <span className="text-[15px] font-medium" style={{ color: "#111111" }}>{area}</span>
                 </div>
@@ -260,11 +260,12 @@ export default function AboutPage() {
                 <span className="text-[11px] font-semibold uppercase tracking-[0.1em]" style={{ color: "#6B7280" }}>Our services</span>
               </div>
               {[
-                { label: "Platform Engineering", href: "/services/platform-engineering" },
-                { label: "UX & Product Design", href: "/services/ux-product-design" },
-                { label: "Data & Insights", href: "/services/data-insights" },
+                { label: "Website & Platform Modernisation", href: "/services/platform-engineering" },
+                { label: "AI Activation", href: "/services/ai-enablement" },
                 { label: "Personalisation & Experimentation", href: "/services/personalisation-experimentation" },
-                { label: "AI Enablement", href: "/services/ai-enablement" },
+                { label: "Data & Insights", href: "/services/data-insights" },
+                { label: "Delivery & Engineering", href: "/services/platform-engineering" },
+                { label: "UX & Product Design", href: "/services/ux-product-design" },
               ].map(({ label, href }, i) => (
                 <Link key={label} href={href} className="flex items-center justify-between px-8 py-5 group"
                   style={{ borderBottom: i < 4 ? "1px solid #E5E7EB" : "none", textDecoration: "none" }}>

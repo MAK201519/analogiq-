@@ -309,15 +309,15 @@ export default function PlatformsPage() {
       </section>
 
       {/* ── 5. PARTNER LOGO STRIP — white ────────────────────────────── */}
-      <section className="bg-white" style={{ padding: "64px 0" }}>
+      <section className="bg-white" style={{ padding: "48px 0" }}>
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
           <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
-            <motion.div variants={item} className="mb-10">
+            <motion.div variants={item} className="mb-10 flex justify-center">
               <Eyebrow>PLATFORMS WE WORK WITH</Eyebrow>
             </motion.div>
             <motion.div
               variants={item}
-              style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 48 }}
+              className="flex flex-wrap justify-center items-center gap-[64px] max-sm:gap-[32px]"
             >
               {platformLogos.map(({ src, alt }) => (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -326,15 +326,15 @@ export default function PlatformsPage() {
                   src={src}
                   alt={alt}
                   style={{
-                    height: 28,
+                    height: 40,
                     width: "auto",
                     display: "block",
                     objectFit: "contain",
-                    filter: "grayscale(100%) opacity(60%)",
+                    filter: "grayscale(100%) opacity(55%)",
                     transition: "filter 0.3s ease",
                   }}
                   onMouseEnter={(e) => { e.currentTarget.style.filter = "grayscale(0%) opacity(100%)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.filter = "grayscale(100%) opacity(60%)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.filter = "grayscale(100%) opacity(55%)"; }}
                 />
               ))}
             </motion.div>
@@ -364,9 +364,9 @@ export default function PlatformsPage() {
               <motion.div key={name} variants={item}
                 className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
-                <div style={{ height: 32, display: "flex", alignItems: "center", marginBottom: 24 }}>
+                <div style={{ height: 40, display: "flex", alignItems: "center", marginBottom: 16 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={logo} alt={name} style={{ maxHeight: 24, width: "auto", display: "block", objectFit: "contain" }} />
+                  <img src={logo} alt={name} style={{ maxHeight: 32, width: "auto", display: "block", objectFit: "contain" }} />
                 </div>
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{name}</h3>
                 <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{body}</p>
@@ -380,15 +380,17 @@ export default function PlatformsPage() {
             <motion.div variants={item}
               className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
               style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 24 }}>
-                {[
-                  { src: "/logos/platforms/contentful.svg", alt: "Contentful" },
-                  { src: "/logos/platforms/umbraco.png", alt: "Umbraco" },
-                  { src: "/logos/platforms/optimizely.svg", alt: "Optimizely" },
-                ].map(({ src, alt }) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img key={alt} src={src} alt={alt} style={{ maxHeight: 20, width: "auto", display: "block", objectFit: "contain" }} />
-                ))}
+              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 16 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/logos/platforms/contentful.svg" alt="Contentful" style={{ maxHeight: 32, width: "auto", display: "block", objectFit: "contain" }} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/logos/platforms/umbraco.png" alt="Umbraco" style={{ maxHeight: 32, width: "auto", display: "block", objectFit: "contain" }} />
+                </div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/logos/platforms/optimizely.svg" alt="Optimizely" style={{ maxHeight: 32, width: "auto", display: "block", objectFit: "contain" }} />
+                </div>
               </div>
               <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>And more</h3>
               <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>

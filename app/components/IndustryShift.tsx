@@ -50,10 +50,10 @@ export default function IndustryShift() {
           {/* Left: text + before/after */}
           <motion.div variants={item} className="flex flex-col max-lg:order-1">
             <Eyebrow>THE SHIFT</Eyebrow>
-            <h2 className="mt-4" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#111111' }}>
+            <h2 className="mt-4" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#191A23' }}>
               Marketing has entered the AI era.
             </h2>
-            <p className="text-[16px] leading-[1.65] mt-5" style={{ color: '#6B7280' }}>
+            <p className="text-[16px] leading-[1.65] mt-5" style={{ color: '#4B5563' }}>
               AI is transforming how organisations create campaigns, personalise
               customer experiences and optimise marketing performance. The
               platforms underneath most marketing teams were not designed for
@@ -93,12 +93,14 @@ export default function IndustryShift() {
 
           {/* Right: photography */}
           <motion.div variants={item} className="max-lg:order-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
-              alt="Modern data-driven marketing environment"
-              style={{ borderRadius: 16, maxWidth: '100%', height: 'auto', display: 'block' }}
-            />
+            <div className="h-[480px] max-sm:h-[260px]" style={{ borderRadius: 16, overflow: 'hidden' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+                alt="Digital marketing analytics dashboard"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
           </motion.div>
         </motion.div>
       </div>

@@ -15,7 +15,7 @@ const logos = [
   { src: "/logos/adtran.svg",              alt: "Adtran" },
 ];
 
-const defaultFilter = "grayscale(100%) opacity(60%)";
+const defaultFilter = "grayscale(100%) opacity(55%)";
 const hoverFilter = "grayscale(0%) opacity(100%)";
 
 export default function ClientLogos() {
@@ -37,7 +37,7 @@ export default function ClientLogos() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
-          style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 40, marginTop: 40, maxWidth: 1100 }}
+          style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', rowGap: 32, columnGap: 48, marginTop: 40, maxWidth: 1100 }}
         >
           {logos.map(({ src, alt }) => (
             // eslint-disable-next-line @next/next/no-img-element
@@ -46,7 +46,7 @@ export default function ClientLogos() {
               src={src}
               alt={alt}
               style={{
-                maxHeight: 32,
+                height: 28,
                 width: 'auto',
                 display: 'block',
                 objectFit: 'contain',

@@ -25,7 +25,7 @@ export default function ProcessSteps({
   steps,
 }: ProcessStepsProps) {
   return (
-    <section id="approach">
+    <section id="approach" style={{ backgroundColor: '#ffffff' }}>
       <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5 py-[70px] max-sm:py-[40px]">
         {/* Section opener */}
         <motion.div
@@ -41,7 +41,7 @@ export default function ProcessSteps({
           <motion.h2
             variants={item}
             className="mt-4"
-            style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#111111' }}
+            style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#191A23' }}
           >
             {heading}
           </motion.h2>

@@ -36,7 +36,7 @@ export default function Footer() {
           className="grid gap-12 max-md:grid-cols-2 max-sm:grid-cols-1"
           style={{ gridTemplateColumns: "2fr 1fr 1fr" }}
         >
-          {/* Column 1: Logo + tagline */}
+          {/* Column 1: Logo + tagline + LinkedIn */}
           <div className="flex flex-col gap-6">
             <Link href="/">
               <span className="font-serif-italic text-[22px]" style={{ color: '#191A23' }}>
@@ -46,6 +46,17 @@ export default function Footer() {
             <p className="text-[14px] leading-[1.65] max-w-[260px]" style={{ color: '#6B7280' }}>
               Helping enterprise organisations close the Digital Activation Gap.
             </p>
+            <Link
+              href="https://www.linkedin.com/company/analogiq1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block self-start text-[14px] font-semibold transition-all duration-200"
+              style={{ backgroundColor: '#0A66C2', color: '#ffffff', borderRadius: 999, padding: '10px 20px' }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#0958a8'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#0A66C2'; }}
+            >
+              Follow us on LinkedIn →
+            </Link>
           </div>
 
           {/* Columns 2–3: link groups */}
@@ -87,15 +98,6 @@ export default function Footer() {
                 {item}
               </Link>
             ))}
-            <Link
-              href="https://www.linkedin.com/company/analogiq1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[13px] hover:underline transition-colors"
-              style={{ color: '#9CA3AF' }}
-            >
-              LinkedIn
-            </Link>
           </div>
         </div>
       </div>

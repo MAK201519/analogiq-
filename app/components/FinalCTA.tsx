@@ -18,7 +18,7 @@ export default function FinalCTA({
   eyebrow = "NEXT STEP",
 }: FinalCTAProps) {
   return (
-    <section className="bg-[var(--surface)] py-[70px] max-sm:py-[40px]">
+    <section className="py-[70px] max-sm:py-[40px]" style={{ backgroundColor: '#F3F3F3', position: 'relative', zIndex: 1 }}>
       <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -27,7 +27,7 @@ export default function FinalCTA({
           viewport={{ once: true, margin: "-80px" }}
         >
           <div
-            className="flex flex-col items-center text-center relative overflow-hidden max-sm:px-6 max-sm:py-12 max-sm:[border-radius:24px]"
+            className="flex flex-col items-center text-center relative max-sm:px-6 max-sm:py-12 max-sm:[border-radius:24px]"
             style={{
               backgroundColor: '#0D0D0D',
               borderRadius: 45,

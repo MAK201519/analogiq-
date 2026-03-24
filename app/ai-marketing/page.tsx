@@ -614,7 +614,7 @@ export default function AIMarketingPage() {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, margin: "-80px" }}
-            className="grid grid-cols-5 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1"
+            className="grid grid-cols-3 gap-6 max-md:grid-cols-2 max-sm:grid-cols-1"
           >
             {stackTiles.map(({ tag, title, body }) => (
               <motion.div
@@ -625,7 +625,8 @@ export default function AIMarketingPage() {
                   backgroundColor: "#111111",
                   borderRadius: 24,
                   border: "1px solid rgba(255,255,255,0.08)",
-                  padding: 28,
+                  padding: 24,
+                  minHeight: 140,
                 }}
               >
                 <span

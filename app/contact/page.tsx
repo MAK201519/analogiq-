@@ -41,7 +41,7 @@ const enquiryTypes = [
 function ContactForm() {
   return (
     <form
-      action="/contact-success"
+      action="/.netlify/functions/contact"
       method="POST"
       name="contact"
       data-netlify="true"

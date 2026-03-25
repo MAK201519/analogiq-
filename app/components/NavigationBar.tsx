@@ -28,7 +28,6 @@ const navLinks: NavItem[] = [
       { href: "/services/ai-enablement", label: "AI Activation" },
       { href: "/services/personalisation-experimentation", label: "Personalisation & Experimentation" },
       { href: "/services/data-insights", label: "Data & Insights" },
-      { href: "/services/platform-engineering", label: "Delivery & Engineering" },
       { href: "/services/ux-product-design", label: "UX & Product Design" },
     ],
   },

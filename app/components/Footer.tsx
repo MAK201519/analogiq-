@@ -11,7 +11,6 @@ const footerColumns: { heading: string; links: { label: string; href: string }[]
       { label: "AI Activation", href: "/services/ai-enablement" },
       { label: "Personalisation & Experimentation", href: "/services/personalisation-experimentation" },
       { label: "Data & Insights", href: "/services/data-insights" },
-      { label: "Delivery & Engineering", href: "/services/platform-engineering" },
       { label: "UX & Product Design", href: "/services/ux-product-design" },
     ],
   },

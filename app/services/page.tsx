@@ -64,18 +64,6 @@ const serviceCards = [
     outcome: "Decisions backed by data, not assumptions.",
     href: "/services/data-insights",
   },
-  {
-    title: "Delivery and Engineering",
-    problem: "Execution is slow, fragmented or overly dependent on agencies.",
-    bullets: [
-      "Provide embedded specialists across engineering, UX and data",
-      "Deliver front-end builds, integrations and platform enhancements",
-      "Support continuous delivery and iteration",
-      "Work alongside your internal teams",
-    ],
-    outcome: "Faster execution without scaling internal headcount.",
-    href: "/services/platform-engineering",
-  },
 ];
 
 const platformCards = [

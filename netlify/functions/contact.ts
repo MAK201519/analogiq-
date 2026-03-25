@@ -16,7 +16,7 @@ const handler: Handler = async (event) => {
   const enquiryType = params.get('enquiry-type') || 'Not provided'
   const message = params.get('message') || 'Not provided'
 
-  await resend.emails.send({
+  const { data, error } = await resend.emails.send({
     from: 'hello@analogiq.io',
     to: 'mario@analogiq.io',
     subject: `New enquiry from ${name} at ${organisation}`,
@@ -30,6 +30,12 @@ const handler: Handler = async (event) => {
       <p><strong>Message:</strong> ${message}</p>
     `,
   })
+
+  console.log('Resend response:', JSON.stringify({ data, error }))
+
+  if (error) {
+    console.error('Resend error:', JSON.stringify(error))
+  }
 
   return {
     statusCode: 302,

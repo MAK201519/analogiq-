@@ -34,8 +34,8 @@ export default function HeroSection() {
               color: '#ffffff',
             }}
           >
-            Turn your digital platform into an{" "}
-            <span style={{ color: '#D4500F' }}>AI-powered growth engine.</span>
+            Turn your existing platform into a{" "}
+            <span style={{ color: '#D4500F' }}>high-performing marketing engine.</span>
           </motion.h1>
 
           <motion.p
@@ -43,9 +43,21 @@ export default function HeroSection() {
             className="text-[18px] max-sm:text-[16px] leading-[1.7] mt-8 max-w-[580px]"
             style={{ color: 'rgba(255,255,255,0.70)' }}
           >
-            We activate AI on Uniform, Sitecore and Optimizely, so marketing
-            teams can move faster, experiment continuously and drive growth
-            without waiting on rebuilds.
+            We help marketing teams activate platforms like Sitecore, Optimizely
+            and composable stacks, connecting data, AI and workflows to deliver
+            faster execution and measurable growth.
+          </motion.p>
+
+          <motion.p
+            variants={item}
+            className="text-[15px] max-sm:text-[14px] leading-[1.7] mt-5 max-w-[580px]"
+            style={{ color: 'rgba(255,255,255,0.50)' }}
+          >
+            Most organisations don&apos;t have a technology problem. They have an
+            activation problem. The platforms are in place. The data exists. The
+            brand is defined. But campaigns take too long to launch, AI
+            isn&apos;t delivering real impact, personalisation doesn&apos;t scale and
+            websites don&apos;t perform as they should. We fix that.
           </motion.p>
 
           <motion.div
@@ -86,7 +98,7 @@ export default function HeroSection() {
                 boxShadow: '0 5px 0 0 rgba(255,255,255,0.15)',
               }}
             >
-              <Link href="#approach">Explore our approach</Link>
+              <Link href="#approach">Explore how we work</Link>
             </Button>
           </motion.div>
         </motion.div>

@@ -5,17 +5,17 @@ import Eyebrow from "./Eyebrow";
 import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/animations";
 
 const leftItems = [
-  "Content management systems",
-  "Marketing automation platforms",
-  "Customer data platforms",
-  "Analytics and reporting tools",
+  "Slow campaign delivery",
+  "Fragmented systems",
+  "Limited personalisation",
+  "Underused AI",
 ];
 
 const rightItems = [
-  "Slow campaign velocity",
-  "Generic customer experiences",
-  "Siloed experimentation",
-  "Unmeasurable marketing impact",
+  "Faster execution",
+  "Connected platforms and data",
+  "Scalable personalisation",
+  "AI delivering real impact",
 ];
 
 export default function ActivationGap() {
@@ -69,18 +69,18 @@ export default function ActivationGap() {
             {/* Column headers — hidden on mobile, shown on sm+ */}
             <div className="hidden sm:grid mb-6" style={{ gridTemplateColumns: "1fr 100px 1fr" }}>
               <p className="text-[11px] uppercase tracking-[0.1em] text-center font-semibold" style={{ color: '#6B7280' }}>
-                WHERE INVESTMENT GOES
+                CURRENT REALITY
               </p>
               <div />
               <p className="text-[11px] uppercase tracking-[0.1em] text-center font-semibold" style={{ color: '#6B7280' }}>
-                WHERE VALUE IS LOST
+                WITH ANALOGIQ
               </p>
             </div>
 
             {/* Mobile column headers */}
             <div className="sm:hidden flex justify-between mb-4">
-              <p className="text-[10px] uppercase tracking-[0.1em] font-semibold" style={{ color: '#6B7280' }}>WHERE INVESTMENT GOES</p>
-              <p className="text-[10px] uppercase tracking-[0.1em] font-semibold text-right" style={{ color: '#6B7280' }}>WHERE VALUE IS LOST</p>
+              <p className="text-[10px] uppercase tracking-[0.1em] font-semibold" style={{ color: '#6B7280' }}>CURRENT REALITY</p>
+              <p className="text-[10px] uppercase tracking-[0.1em] font-semibold text-right" style={{ color: '#6B7280' }}>WITH ANALOGIQ</p>
             </div>
 
             {/* 3-column grid — desktop */}
@@ -116,7 +116,7 @@ export default function ActivationGap() {
                     padding: '12px 20px',
                   }}
                 >
-                  The Gap
+                  Activation Gap
                 </div>
               </div>
 

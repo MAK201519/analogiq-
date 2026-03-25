@@ -33,7 +33,7 @@ const enquiryTypes = [
   "Sitecore",
   "Uniform",
   "Data and insights",
-  "Personalisation",
+  "Personalisation and experimentation",
   "General enquiry",
 ];
 
@@ -42,30 +42,47 @@ const enquiryTypes = [
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
+    await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
+    });
     setSubmitted(true);
   }
 
   if (submitted) {
     return (
       <div
-        className="flex flex-col items-start justify-center py-16 px-12"
+        className="flex flex-col items-start justify-center py-16 px-12 max-sm:px-6 max-sm:py-10"
         style={{ borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", backgroundColor: "#ffffff", minHeight: 480 }}
       >
         <span style={{ fontSize: 40 }}>✓</span>
-        <h3 className="mt-6" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, color: "#111111" }}>
-          Message sent.
+        <h3 className="mt-6" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 28, fontWeight: 700, color: "#111111", lineHeight: 1.2 }}>
+          Thanks for getting in touch.
         </h3>
-        <p className="mt-3 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
-          Thank you for getting in touch. We will respond within one business day.
+        <p className="mt-4 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
+          We&apos;ll review your message and be in touch shortly. In the meantime, feel free to explore our work.
         </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <form
+      onSubmit={handleSubmit}
+      name="contact"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      className="flex flex-col gap-5"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <p style={{ display: "none" }}>
+        <label>Do not fill this out: <input name="bot-field" /></label>
+      </p>
+
       {/* Full name */}
       <div>
         <label className="block text-[13px] font-medium mb-2" style={{ color: "#111111" }}>
@@ -73,6 +90,7 @@ function ContactForm() {
         </label>
         <Input
           type="text"
+          name="full-name"
           required
           placeholder="Your full name"
           className="w-full"
@@ -87,6 +105,7 @@ function ContactForm() {
         </label>
         <Input
           type="email"
+          name="email"
           required
           placeholder="your@email.com"
           className="w-full"
@@ -101,6 +120,7 @@ function ContactForm() {
         </label>
         <Input
           type="text"
+          name="organisation"
           required
           placeholder="Your organisation"
           className="w-full"
@@ -115,6 +135,7 @@ function ContactForm() {
         </label>
         <Input
           type="text"
+          name="role"
           placeholder="e.g. CMO, Head of Digital"
           className="w-full"
           style={{ borderRadius: 12, border: "1px solid #E5E7EB", padding: "12px 16px", fontSize: 15, height: "auto", color: "#111111" }}
@@ -127,6 +148,7 @@ function ContactForm() {
           Enquiry type
         </label>
         <select
+          name="enquiry-type"
           className="w-full text-[15px] outline-none focus:ring-2 focus:ring-[#D4500F] focus:ring-offset-0"
           style={{ borderRadius: 12, border: "1px solid #E5E7EB", padding: "12px 16px", fontSize: 15, color: "#111111", backgroundColor: "#ffffff", appearance: "none", backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E\")", backgroundRepeat: "no-repeat", backgroundPosition: "right 16px center" }}
         >
@@ -143,6 +165,7 @@ function ContactForm() {
           Message <span style={{ color: "#D4500F" }}>*</span>
         </label>
         <textarea
+          name="message"
           required
           rows={5}
           placeholder="Tell us about your current platform situation and what you are trying to achieve."

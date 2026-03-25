@@ -42,16 +42,27 @@ const enquiryTypes = [
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
-    await fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
-    });
-    setSubmitted(true);
-  }
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+    }
+  };
 
   if (submitted) {
     return (

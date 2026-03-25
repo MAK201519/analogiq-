@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import NavigationBar from "../components/NavigationBar";
@@ -40,50 +39,10 @@ const enquiryTypes = [
 /* ─── CONTACT FORM ───────────────────────────────────────────────────────── */
 
 function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        console.error("Form submission failed");
-      }
-    } catch (error) {
-      console.error("Form submission error:", error);
-    }
-  };
-
-  if (submitted) {
-    return (
-      <div
-        className="flex flex-col items-start justify-center py-16 px-12 max-sm:px-6 max-sm:py-10"
-        style={{ borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", backgroundColor: "#ffffff", minHeight: 480 }}
-      >
-        <span style={{ fontSize: 40 }}>✓</span>
-        <h3 className="mt-6" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 28, fontWeight: 700, color: "#111111", lineHeight: 1.2 }}>
-          Thanks for getting in touch.
-        </h3>
-        <p className="mt-4 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
-          We&apos;ll review your message and be in touch shortly. In the meantime, feel free to explore our work.
-        </p>
-      </div>
-    );
-  }
-
   return (
     <form
-      onSubmit={handleSubmit}
+      action="/contact-success"
+      method="POST"
       name="contact"
       data-netlify="true"
       data-netlify-honeypot="bot-field"

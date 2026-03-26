@@ -43,8 +43,8 @@ export default function HeroSection() {
             className="text-[18px] max-sm:text-[16px] leading-[1.7] mt-8 max-w-[580px]"
             style={{ color: 'rgba(255,255,255,0.70)' }}
           >
-            We help marketing teams activate platforms like Sitecore, Optimizely
-            and composable stacks, connecting data, AI and workflows to deliver
+            We help marketing teams activate platforms like Uniform, Sitecore
+            and Optimizely, connecting data, AI and workflows to deliver
             faster execution and measurable growth.
           </motion.p>
 

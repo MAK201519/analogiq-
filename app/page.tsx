@@ -19,7 +19,7 @@ const approachSteps = [
     number: "01",
     title: "Audit",
     description:
-      "Assess current platform maturity, data readiness and activation gaps across your organisation. We interview stakeholders, analyse your martech stack and map the distance between ambition and capability.",
+      "Understand what's holding performance back. We assess current platform maturity, data readiness and activation gaps across your organisation — interviewing stakeholders, analysing your martech stack and mapping the distance between ambition and capability.",
     outcomes: [
       "Clear picture of platform maturity across all capabilities",
       "Prioritised list of activation gaps and quick wins",
@@ -30,7 +30,7 @@ const approachSteps = [
     number: "02",
     title: "Roadmap",
     description:
-      "Build a pragmatic delivery plan aligned with specific business objectives and realistic timelines. We define the sequence of initiatives, estimated effort and success metrics for each workstream.",
+      "Define what will drive measurable impact. We build a pragmatic delivery plan aligned with specific business objectives and realistic timelines — defining the sequence of initiatives, estimated effort and success metrics for each workstream.",
     outcomes: [
       "12-month delivery roadmap with phased milestones",
       "Business case and ROI model for each initiative",
@@ -41,7 +41,7 @@ const approachSteps = [
     number: "03",
     title: "Pilot",
     description:
-      "Deliver focused solutions with measurable outcomes within defined timeframes, proving value fast. We embed with your team to build, test and iterate on the highest-impact capability first.",
+      "Prove value quickly. We deliver focused solutions with measurable outcomes within defined timeframes, embedding with your team to build, test and iterate on the highest-impact capability first.",
     outcomes: [
       "Live capability delivered within 6–8 weeks",
       "Measurable performance baseline established",
@@ -52,7 +52,7 @@ const approachSteps = [
     number: "04",
     title: "Scale",
     description:
-      "Extend proven capabilities across teams, markets and the organisation with governance in place. We help you build the operating model, tooling and skills to sustain momentum after we step back.",
+      "Roll out across teams and markets. We extend proven capabilities with governance in place, helping you build the operating model, tooling and skills to sustain momentum after we step back.",
     outcomes: [
       "Capability rolled out across all relevant markets and channels",
       "Internal Centre of Excellence established",
@@ -66,31 +66,26 @@ const serviceCards = [
     title: "Website and Platform Modernisation",
     problem: "Your platform is too slow to change and too expensive to evolve.",
     outcome: "Launch campaigns in days, not weeks.",
-    href: "/services/platform-engineering",
   },
   {
     title: "AI Activation",
     problem: "AI is being explored but not driving real performance.",
     outcome: "Move AI from experimentation to production.",
-    href: "/services/ai-enablement",
   },
   {
     title: "Personalisation and Experimentation",
     problem: "You have the tools but they're underused or disconnected.",
     outcome: "Continuous improvement, not one-off optimisation.",
-    href: "/services/personalisation-experimentation",
   },
   {
     title: "Data and Insights",
     problem: "Data exists but it's not driving decisions.",
     outcome: "Decisions backed by data, not assumptions.",
-    href: "/services/data-insights",
   },
   {
     title: "UX and Product Design",
     problem: "Experiences that don't convert at the rate they should.",
     outcome: "Design measured in outcomes, not aesthetics.",
-    href: "/services/ux-product-design",
   },
 ];
 
@@ -119,15 +114,22 @@ export default function Home() {
   return (
     <div>
       <NavigationBar />
+
+      {/* 1. Hero */}
       <HeroSection />
-      <WorkSection />
+
+      {/* 2. Client logos + stats */}
       <ClientLogos />
       <StatsBar />
+
+      {/* 3. The Shift */}
       <IndustryShift />
+
+      {/* 4. Activation Gap */}
       <ActivationGap />
 
-      {/* HOW WE THINK — Differentiator */}
-      <section className="bg-white py-[70px] max-sm:py-[40px]">
+      {/* 5. HOW WE THINK — Differentiator (extra top padding) */}
+      <section className="bg-white max-sm:py-[40px]" style={{ paddingTop: 118, paddingBottom: 70 }}>
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
           <div className="mb-12 max-w-[640px]">
             <Eyebrow>HOW WE THINK</Eyebrow>
@@ -149,7 +151,7 @@ export default function Home() {
             className="grid grid-cols-2 gap-6 max-sm:grid-cols-1"
             style={{ maxWidth: 720 }}
           >
-            {/* Left */}
+            {/* Left — visually weaker */}
             <div
               style={{
                 backgroundColor: '#F3F3F3',
@@ -158,20 +160,20 @@ export default function Home() {
                 padding: '32px 36px',
               }}
             >
-              <p className="text-[12px] font-semibold uppercase tracking-[0.1em] mb-5" style={{ color: '#9CA3AF' }}>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.1em] mb-5" style={{ color: '#C0C4CB' }}>
                 Most approaches rely on
               </p>
               <ul className="flex flex-col gap-3">
                 {["Stakeholder preference", "Internal assumptions", "Disconnected decisions"].map((t) => (
-                  <li key={t} className="flex items-center gap-3 text-[15px]" style={{ color: '#6B7280' }}>
-                    <span style={{ width: 6, height: 6, borderRadius: 999, backgroundColor: '#9CA3AF', flexShrink: 0, display: 'inline-block' }} />
+                  <li key={t} className="flex items-center gap-3 text-[15px]" style={{ color: '#9CA3AF' }}>
+                    <span style={{ width: 6, height: 6, borderRadius: 999, backgroundColor: '#C0C4CB', flexShrink: 0, display: 'inline-block' }} />
                     {t}
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Right */}
+            {/* Right — full contrast */}
             <div
               style={{
                 backgroundColor: '#191A23',
@@ -185,7 +187,7 @@ export default function Home() {
               </p>
               <ul className="flex flex-col gap-3">
                 {["Real user behaviour", "Data and insight", "Experimentation and validation"].map((t) => (
-                  <li key={t} className="flex items-center gap-3 text-[15px]" style={{ color: 'rgba(255,255,255,0.85)' }}>
+                  <li key={t} className="flex items-center gap-3 text-[16px]" style={{ color: '#ffffff' }}>
                     <span style={{ width: 6, height: 6, borderRadius: 999, backgroundColor: '#D4500F', flexShrink: 0, display: 'inline-block' }} />
                     {t}
                   </li>
@@ -194,16 +196,16 @@ export default function Home() {
             </div>
           </div>
 
-          <p className="mt-10 text-[18px] font-semibold" style={{ color: '#D4500F' }}>
+          <p className="mt-10" style={{ fontFamily: PJB, fontSize: 22, fontWeight: 700, color: '#191A23' }}>
             We don&apos;t design for approval. We design for performance.
           </p>
         </div>
       </section>
 
-      {/* WHAT WE DO — Services */}
-      <section className="bg-[#F3F3F3] py-[70px] max-sm:py-[40px]">
+      {/* 6. WHAT WE DO — Services (extra top padding) */}
+      <section className="bg-[#F3F3F3] max-sm:py-[40px]" style={{ paddingTop: 118, paddingBottom: 70 }}>
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="mb-12">
+          <div className="mb-8">
             <Eyebrow>WHAT WE DO</Eyebrow>
             <h2
               className="mt-4"
@@ -211,19 +213,24 @@ export default function Home() {
             >
               From platform investment to measurable growth.
             </h2>
-            <p className="text-[16px] leading-[1.65] mt-5 max-w-[520px]" style={{ color: '#6B7280' }}>
-              We don&apos;t deliver isolated services. We solve the problems that
-              stop marketing teams moving faster.
+          </div>
+
+          <div className="mb-10">
+            <p className="text-[17px] font-semibold" style={{ color: '#191A23' }}>
+              Each capability solves a specific problem.
+            </p>
+            <p className="text-[17px] font-semibold" style={{ color: '#191A23' }}>
+              Together, they transform how marketing operates.
             </p>
           </div>
 
           <div className="flex flex-col gap-4">
-            {serviceCards.map(({ title, problem, outcome, href }) => (
+            {serviceCards.map(({ title, problem, outcome }) => (
               <div
                 key={title}
                 className="grid max-md:grid-cols-1"
                 style={{
-                  gridTemplateColumns: '1fr 1.4fr auto',
+                  gridTemplateColumns: '1fr 1.4fr',
                   backgroundColor: '#ffffff',
                   borderRadius: 24,
                   border: '1px solid #191A23',
@@ -237,30 +244,19 @@ export default function Home() {
                   {title}
                 </h3>
                 <div>
-                  <p className="text-[15px] leading-[1.6]" style={{ color: '#6B7280' }}>{problem}</p>
-                  <p className="text-[15px] font-semibold mt-2" style={{ color: '#D4500F' }}>{outcome}</p>
+                  <p className="text-[16px] leading-[1.6]" style={{ color: '#6B7280' }}>{problem}</p>
+                  <p className="text-[16px] font-bold mt-2" style={{ color: '#D4500F' }}>{outcome}</p>
                 </div>
-                <Link
-                  href={href}
-                  className="text-[14px] font-semibold whitespace-nowrap transition-all duration-200 max-md:self-start text-[#D4500F] bg-transparent hover:bg-[#D4500F] hover:text-white"
-                  style={{ border: '2px solid #D4500F', borderRadius: 999, padding: '10px 24px' }}
-                >
-                  Learn more →
-                </Link>
               </div>
             ))}
           </div>
-
-          <p className="mt-10 text-[14px] text-center" style={{ color: '#9CA3AF' }}>
-            Each capability works on its own. Together, they transform how marketing operates.
-          </p>
         </div>
       </section>
 
-      {/* OUR PLATFORMS */}
+      {/* 7. OUR PLATFORMS */}
       <section className="bg-white py-[70px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="mb-12">
+          <div className="mb-6">
             <Eyebrow>OUR PLATFORMS</Eyebrow>
             <h2
               className="mt-4"
@@ -268,9 +264,14 @@ export default function Home() {
             >
               Built for the platforms you already use.
             </h2>
-            <p className="text-[16px] leading-[1.65] mt-5 max-w-[500px]" style={{ color: '#6B7280' }}>
-              We work within your existing ecosystem, helping you get more value
-              from your current investment.
+          </div>
+
+          <div className="mb-10">
+            <p className="text-[17px]" style={{ color: '#4B5563' }}>
+              We don&apos;t replace your platform.
+            </p>
+            <p className="text-[17px]" style={{ color: '#4B5563' }}>
+              We make it work properly.
             </p>
           </div>
 
@@ -297,9 +298,9 @@ export default function Home() {
                     style={{ objectFit: 'contain', objectPosition: 'left' }}
                   />
                 </div>
-                <p className="text-[15px] leading-[1.65] flex-1" style={{ color: '#6B7280' }}>{body}</p>
+                <p className="text-[16px] leading-[1.65] flex-1" style={{ color: '#6B7280' }}>{body}</p>
                 <span
-                  className="mt-6 text-[14px] font-semibold inline-block transition-colors duration-200"
+                  className="mt-6 text-[15px] font-semibold inline-block transition-colors duration-200"
                   style={{ color: '#D4500F' }}
                 >
                   Learn more →
@@ -308,12 +309,13 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="mt-10 text-[14px] text-center" style={{ color: '#9CA3AF' }}>
+          <p className="mt-10 text-[15px] text-center" style={{ color: '#9CA3AF' }}>
             We&apos;re platform-aware, but vendor-neutral. The focus is always outcomes.
           </p>
         </div>
       </section>
 
+      {/* 8. Approach */}
       <ProcessSteps
         eyebrow="OUR APPROACH"
         heading="From audit to scale."
@@ -330,9 +332,13 @@ export default function Home() {
         </div>
       </div>
 
+      {/* 9. Work */}
+      <WorkSection />
+
+      {/* 10. Final CTA */}
       <FinalCTA
         heading="If your platform is limiting your marketing, let's fix it."
-        subheading="If your digital platform isn't delivering the performance it should, the issue is rarely the technology itself. It's how it has been designed, connected and activated. We'll show you where the gaps are and how to close them. No pitch. Just a conversation."
+        subheading="If your platform isn't delivering the performance it should, it's rarely the technology. It's how it has been designed, connected and activated. We'll show you where the gaps are and how to close them. No pitch. Just a conversation."
       />
       <Footer />
     </div>

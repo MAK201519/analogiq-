@@ -49,6 +49,18 @@ export default function ActivationGap() {
           </motion.p>
         </motion.div>
 
+        {/* Coordination line */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="text-center text-[18px] font-semibold mb-10"
+          style={{ color: '#6B7280' }}
+        >
+          The problem isn&apos;t capability. It&apos;s coordination.
+        </motion.p>
+
         {/* Positivus card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

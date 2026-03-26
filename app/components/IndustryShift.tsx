@@ -30,6 +30,13 @@ export default function IndustryShift() {
             className="text-[17px] leading-[1.7] mt-6"
             style={{ color: '#4B5563' }}
           >
+            Most organisations already have the tools. They&apos;re just not working together.
+          </motion.p>
+          <motion.p
+            variants={item}
+            className="text-[17px] leading-[1.7] mt-4"
+            style={{ color: '#4B5563' }}
+          >
             Marketing teams are under pressure to move faster and deliver more.
             AI is accelerating expectations. Personalisation requires real-time
             data. Experimentation needs speed and flexibility. But most digital
@@ -42,7 +49,7 @@ export default function IndustryShift() {
             className="text-[20px] font-semibold mt-8"
             style={{ color: '#D4500F' }}
           >
-            That gap is where value is lost.
+            That gap is where performance is lost.
           </motion.p>
         </motion.div>
       </div>

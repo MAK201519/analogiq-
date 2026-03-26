@@ -6,16 +6,15 @@ const logos = [
   { src: "/logos/hsbc.svg",                alt: "HSBC" },
   { src: "/logos/jet2.svg",                alt: "Jet2" },
   { src: "/logos/bhf.svg",                 alt: "British Heart Foundation" },
-  { src: "/logos/keith-prowse.png",        alt: "Keith Prowse" },
+  { src: "/logos/keith-prowse-new.png",    alt: "Keith Prowse" },
   { src: "/logos/sunlife.webp",            alt: "SunLife" },
-  { src: "/logos/capco.png",               alt: "Capco" },
+  { src: "/logos/capco-logo.png",          alt: "Capco" },
   { src: "/logos/cystic-fibrosis-trust.png", alt: "Cystic Fibrosis Trust" },
   { src: "/logos/shoosmiths.png",          alt: "Shoosmiths" },
-  { src: "/logos/hogan-lovells.svg",       alt: "Hogan Lovells" },
   { src: "/logos/adtran.svg",              alt: "Adtran" },
 ];
 
-const defaultFilter = "grayscale(100%) opacity(55%)";
+const defaultFilter = "grayscale(100%) opacity(60%)";
 const hoverFilter = "grayscale(0%) opacity(100%)";
 
 export default function ClientLogos() {
@@ -37,7 +36,7 @@ export default function ClientLogos() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
-          style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', rowGap: 32, columnGap: 48, marginTop: 40, maxWidth: 1100 }}
+          style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', rowGap: 32, columnGap: 40, marginTop: 40, maxWidth: 1100 }}
         >
           {logos.map(({ src, alt }) => (
             // eslint-disable-next-line @next/next/no-img-element
@@ -46,7 +45,7 @@ export default function ClientLogos() {
               src={src}
               alt={alt}
               style={{
-                height: 28,
+                height: 32,
                 width: 'auto',
                 display: 'block',
                 objectFit: 'contain',

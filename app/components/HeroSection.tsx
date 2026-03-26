@@ -50,14 +50,13 @@ export default function HeroSection() {
 
           <motion.p
             variants={item}
-            className="text-[15px] max-sm:text-[14px] leading-[1.7] mt-5 max-w-[580px]"
-            style={{ color: 'rgba(255,255,255,0.50)' }}
+            className="text-[16px] max-sm:text-[15px] leading-[1.8] mt-5 max-w-[520px]"
+            style={{ color: 'rgba(255,255,255,0.55)' }}
           >
-            Most organisations don&apos;t have a technology problem. They have an
-            activation problem. The platforms are in place. The data exists. The
-            brand is defined. But campaigns take too long to launch, AI
-            isn&apos;t delivering real impact, personalisation doesn&apos;t scale and
-            websites don&apos;t perform as they should. We fix that.
+            Most organisations don&apos;t have a technology problem. They have an activation problem.<br />
+            The platforms are in place. The data exists. The ambition is there.<br />
+            But execution is slow. AI isn&apos;t delivering. Personalisation doesn&apos;t scale.<br />
+            We fix that.
           </motion.p>
 
           <motion.div

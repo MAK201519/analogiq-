@@ -14,55 +14,55 @@ import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/anima
 const beliefCards = [
   {
     title: "Honesty over comfort",
-    body: "We tell clients what we think — including when the answer is not what they were hoping to hear. The most valuable thing a consultancy can offer is an honest perspective, not a comfortable one.",
+    body: "We tell clients what they need to hear, not what is easiest to say. The most valuable thing a consultancy can provide is an honest view of reality.",
   },
   {
     title: "Delivery over advice",
-    body: "Strategy without delivery is a document. We focus on the intersection between strategic thinking and practical execution — ensuring that recommendations translate into real change in real organisations.",
+    body: "Strategy without execution creates no value. We focus on making change happen inside real organisations.",
   },
   {
     title: "Depth over scale",
-    body: "We work with a focused number of clients at any given time. This means clients get senior attention and genuine expertise — not a team assembled from whoever is available.",
+    body: "We work with a limited number of clients to ensure senior attention, deep expertise and meaningful impact.",
   },
 ];
 
 const metrics = [
   { number: "40+", label: "organisations helped to close the Digital Activation Gap" },
-  { number: "10+", label: "years delivering digital platform and AI projects" },
-  { number: "100%", label: "vendor neutral — no commercial relationships with platform providers" },
+  { number: "10+", label: "years delivering digital platform and AI programmes" },
+  { number: "Senior-led", label: "delivery across every engagement" },
 ];
 
 const howWeWorkCards = [
   {
-    title: "We start with honesty",
-    body: "Every engagement begins with an honest assessment of where the organisation is today. We do not proceed to recommendations without this foundation — and we do not recommend what we cannot deliver.",
+    title: "We start with reality",
+    body: "Every engagement begins with a clear view of where you are today, covering platform maturity, data readiness and execution capability.",
   },
   {
-    title: "We work through pilots",
-    body: "Before committing to full-scale implementation, we design and deliver focused pilots that test the approach, prove the value and build internal confidence. A well-designed pilot is the most reliable path to successful scaling.",
+    title: "We prove value early",
+    body: "We design focused pilots that demonstrate impact quickly and build internal confidence before scaling.",
   },
   {
-    title: "We build internal capability",
-    body: "Our goal is not to create dependency on Analogiq. It is to help organisations build the internal capability to sustain and evolve what we deliver — so that the value of the engagement outlasts the engagement itself.",
+    title: "We build capability, not dependency",
+    body: "Our goal is to leave organisations with the capability to sustain and evolve what we deliver.",
   },
 ];
 
 const platformCards = [
   {
     name: "Sitecore",
-    body: "Over a decade of Sitecore delivery across 40+ organisations — from traditional XP implementations to XM Cloud migrations and composable modernisation.",
+    body: "Over a decade of delivery across XP, XM Cloud and modern composable architectures.",
     href: "/platforms/sitecore",
     cta: "Learn more",
   },
   {
     name: "Uniform",
-    body: "Composable platform implementation and architecture — helping organisations introduce Uniform as the orchestration layer for modern digital experiences.",
+    body: "Implementing composable experience layers that unlock speed without full rebuilds.",
     href: "/platforms/uniform",
     cta: "Learn more",
   },
   {
     name: "And more",
-    body: "We also work with Optimizely, Umbraco, Contentful and the broader ecosystem of composable and headless technologies.",
+    body: "Experience across Optimizely, Umbraco, Contentful and broader martech ecosystems.",
     href: "/contact",
     cta: "Talk to us",
   },
@@ -87,7 +87,7 @@ export default function AboutPage() {
               between marketing ambition and platform reality.
             </motion.h1>
             <motion.p variants={item} className="mt-6 text-[18px] leading-[1.65] max-w-[620px]" style={{ color: "#9CA3AF" }}>
-              Analogiq was founded to help organisations modernise the digital platforms that power their marketing operations. Over the past decade digital channels have become the primary interface between organisations and their customers — and the expectations placed on those channels have increased dramatically.
+              Modern marketing teams are expected to move faster, personalise at scale and integrate AI into how they operate. Most platforms were not designed for that. We help organisations modernise the platforms behind their marketing so they can move faster, execute better and deliver measurable results.
             </motion.p>
             <motion.div variants={item} className="mt-10 flex gap-4 flex-wrap">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -119,20 +119,20 @@ export default function AboutPage() {
                 Why Analogiq exists.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
-                Marketing teams today are expected to move quickly, adapt campaigns continuously, personalise customer experiences and integrate artificial intelligence into their workflows. But the digital platforms supporting many organisations were not designed for this environment. They were designed for a different era — one where publishing content was the primary requirement, not activating it. Analogiq was built to fix this. We work at the intersection of marketing strategy, digital platforms and artificial intelligence — helping organisations close the gap between what marketing teams want to achieve and what their current infrastructure allows.
+                Marketing has changed. Teams are expected to launch campaigns continuously, personalise experiences in real time and embed AI into everyday workflows. But most digital platforms were built for a different era, one focused on publishing content, not activating it. That gap between what marketing teams want to do and what their platforms allow has become one of the biggest barriers to growth. Analogiq was founded to close that gap. We work at the intersection of marketing, technology and AI, helping organisations modernise their platforms, connect their data and build the capabilities required to operate at speed.
               </motion.p>
               <motion.ul variants={item} className="mt-8 flex flex-col gap-5">
                 {[
-                  { title: "Founded on delivery", desc: "Every founder and senior team member has delivered complex platform projects, not just advised on them" },
-                  { title: "Vendor neutral", desc: "We have no commercial relationship with any platform provider or technology vendor" },
-                  { title: "Outcome focused", desc: "We measure success by what changes in your marketing operation — not by deliverables produced" },
-                  { title: "Senior led", desc: "The people who win the work are the people who deliver it" },
+                  { title: "Founded on delivery", desc: "Every founder and senior team member has delivered complex platform and transformation programmes, not just advised on them." },
+                  { title: "Platform-aware, not vendor-led", desc: "We have deep experience across platforms including Sitecore, Uniform, Optimizely and composable architectures. Our recommendations are based on what will deliver the best outcome, not on pushing a specific platform." },
+                  { title: "Outcome focused", desc: "We measure success by what changes in your marketing operation, not by documents produced or features delivered." },
+                  { title: "Senior led", desc: "The people you meet at the start are the people who deliver the work. No handovers. No dilution." },
                 ].map(({ title, desc }) => (
                   <li key={title} className="flex items-start gap-3">
                     <span className="shrink-0 mt-[7px]" style={{ width: 6, height: 6, borderRadius: 1, backgroundColor: "#D4500F", display: "inline-block" }} aria-hidden="true" />
                     <span>
-                      <span className="text-[15px] font-medium block" style={{ color: "#111111" }}>{title}</span>
-                      <span className="text-[14px] leading-[1.6] mt-[2px] block" style={{ color: "#6B7280" }}>{desc}</span>
+                      <span className="text-[16px] font-medium block" style={{ color: "#111111" }}>{title}</span>
+                      <span className="text-[15px] leading-[1.6] mt-[2px] block" style={{ color: "#6B7280" }}>{desc}</span>
                     </span>
                   </li>
                 ))}
@@ -148,12 +148,11 @@ export default function AboutPage() {
               {[
                 "Digital Experience Platforms",
                 "AI Activation",
-                "Experimentation",
-                "Personalisation",
-                "Data & Insights",
+                "Personalisation and Experimentation",
+                "Data and Insights",
               ].map((area, i) => (
                 <div key={area} className="flex items-center gap-4 px-8 py-5"
-                  style={{ borderBottom: i < 4 ? "1px solid #E5E7EB" : "none" }}>
+                  style={{ borderBottom: i < 3 ? "1px solid #E5E7EB" : "none" }}>
                   <span style={{ width: 8, height: 8, borderRadius: 2, backgroundColor: "#D4500F", display: "inline-block", flexShrink: 0 }} aria-hidden="true" />
                   <span className="text-[15px] font-medium" style={{ color: "#111111" }}>{area}</span>
                 </div>
@@ -180,7 +179,7 @@ export default function AboutPage() {
                 className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{title}</h3>
-                <p className="text-[15px] leading-[1.65] mt-4" style={{ color: "#6B7280" }}>{body}</p>
+                <p className="text-[16px] leading-[1.65] mt-4" style={{ color: "#6B7280" }}>{body}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -227,22 +226,18 @@ export default function AboutPage() {
                 The work we deliver.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
-                Our work combines strategic thinking, design expertise and deep engineering capability. We work closely with CMOs, Heads of Digital, marketing technology leaders and engineering teams to design and implement digital environments that support modern marketing operations. This often involves modernising legacy platforms, implementing new digital experience platforms, integrating marketing technologies and designing the data infrastructure required to support personalisation and AI-driven marketing capabilities.
+                Our work combines strategic thinking, platform expertise, design and engineering capability. We work with CMOs, Heads of Digital and marketing technology leaders to design and implement digital environments that support modern marketing operations.
               </motion.p>
               <motion.ul variants={item} className="mt-8 flex flex-col gap-5">
                 {[
-                  { title: "Platform engineering", desc: "Designing and modernising digital architectures that support marketing operations" },
-                  { title: "UX and product design", desc: "Creating digital experiences that are clear, effective and commercially impactful" },
-                  { title: "Data and insights", desc: "Building the data foundations that allow AI and personalisation to function effectively" },
-                  { title: "Personalisation", desc: "Moving personalisation from pilot to production at enterprise scale" },
-                  { title: "AI enablement", desc: "Embedding AI into marketing workflows in ways that produce measurable outcomes" },
-                ].map(({ title, desc }) => (
-                  <li key={title} className="flex items-start gap-3">
+                  "Modernising existing platforms to improve speed and flexibility",
+                  "Implementing composable and enterprise DXP architectures",
+                  "Connecting data and marketing technologies",
+                  "Designing the infrastructure required for personalisation and AI",
+                ].map((desc) => (
+                  <li key={desc} className="flex items-start gap-3">
                     <span className="shrink-0 mt-[7px]" style={{ width: 6, height: 6, borderRadius: 1, backgroundColor: "#D4500F", display: "inline-block" }} aria-hidden="true" />
-                    <span>
-                      <span className="text-[15px] font-medium block" style={{ color: "#111111" }}>{title}</span>
-                      <span className="text-[14px] leading-[1.6] mt-[2px] block" style={{ color: "#6B7280" }}>{desc}</span>
-                    </span>
+                    <span className="text-[15px] leading-[1.6]" style={{ color: "#6B7280" }}>{desc}</span>
                   </li>
                 ))}
               </motion.ul>
@@ -294,7 +289,7 @@ export default function AboutPage() {
                 className="flex flex-col cursor-default transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{title}</h3>
-                <p className="text-[15px] leading-[1.65] mt-4" style={{ color: "#6B7280" }}>{body}</p>
+                <p className="text-[16px] leading-[1.65] mt-4" style={{ color: "#6B7280" }}>{body}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -311,7 +306,7 @@ export default function AboutPage() {
               Deep expertise across leading platforms.
             </motion.h2>
             <motion.p variants={item} className="mt-4 text-[16px] leading-[1.65] max-w-[620px]" style={{ color: "#6B7280" }}>
-              Our experience spans enterprise and composable digital experience platforms — including Sitecore, Uniform, Optimizely, Umbraco and Contentful — as well as the broader martech and data ecosystems that integrate with them.
+              We work across enterprise and composable platforms including Sitecore, Uniform, Optimizely, Umbraco and Contentful. We don&apos;t start with platform decisions. We start with the outcome and design the right approach from there.
             </motion.p>
           </motion.div>
 
@@ -322,7 +317,7 @@ export default function AboutPage() {
                 className="flex flex-col transition-transform duration-300 hover:-translate-y-[4px] max-sm:p-6 max-sm:[border-radius:24px]"
                 style={{ backgroundColor: "#ffffff", borderRadius: 45, border: "1px solid #191A23", boxShadow: "0 5px 0 0 #191A23", padding: 50 }}>
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{name}</h3>
-                <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{body}</p>
+                <p className="text-[16px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{body}</p>
                 <div className="mt-6">
                   <Link href={href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>{cta} →</Link>
                 </div>
@@ -336,7 +331,7 @@ export default function AboutPage() {
       <FinalCTA
         eyebrow="GET IN TOUCH"
         heading="If this sounds like the kind of partner you are looking for."
-        subheading="We work with a focused number of organisations at any given time. If you are a CMO, Head of Digital or marketing technology leader dealing with the gap between what you want to achieve and what your current infrastructure allows — we would be glad to start a conversation."
+        subheading="We work with a focused number of organisations at any given time. If you are dealing with the gap between what your marketing team wants to achieve and what your platform allows, we should talk."
       />
 
       <Footer />

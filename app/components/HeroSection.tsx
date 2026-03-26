@@ -101,7 +101,7 @@ export default function HeroSection() {
         className="mt-16 grid grid-cols-3 gap-3 max-sm:grid-cols-1"
         style={{ padding: '0 12px' }}
       >
-        {portfolioImages.map(({ src, alt, label }) => (
+        {portfolioImages.map(({ src, alt, label }, index) => (
           <div
             key={src}
             className="overflow-hidden"
@@ -111,8 +111,10 @@ export default function HeroSection() {
               src={src}
               alt={alt}
               fill
+              priority
               sizes="(max-width: 768px) 100vw, 50vw"
-              quality={60}
+              quality={75}
+              {...(index === 0 ? { fetchPriority: "high" } : {})}
               style={{ objectFit: "cover" }}
             />
             <span style={{

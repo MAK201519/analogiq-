@@ -28,6 +28,7 @@ export default function WildernessPage() {
             alt="Wilderness Destinations"
             fill
             priority
+            sizes="100vw"
             style={{ objectFit: "cover", objectPosition: "center" }}
           />
         </div>
@@ -176,6 +177,8 @@ export default function WildernessPage() {
                 src="/clients/wilderness/landing-desktop.webp"
                 alt="Wilderness landing page — desktop and mobile mockup"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={60}
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -186,6 +189,8 @@ export default function WildernessPage() {
                   src="/clients/wilderness/landing-mobile.webp"
                   alt="Wilderness landing page — mobile view"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={60}
                   style={{ objectFit: "cover", objectPosition: "top" }}
                 />
               </div>
@@ -194,6 +199,8 @@ export default function WildernessPage() {
                   src="/clients/wilderness/landing-itinerary.webp"
                   alt="Wilderness landing page — camp itinerary and detail view"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={60}
                   style={{ objectFit: "cover", objectPosition: "top" }}
                 />
               </div>
@@ -393,6 +400,8 @@ export default function WildernessPage() {
                 src="/clients/wilderness/landing-detail.webp"
                 alt="Wilderness landing page — lodge detail and experience design"
                 fill
+                sizes="100vw"
+                quality={60}
                 style={{ objectFit: "cover", objectPosition: "center" }}
               />
             </div>

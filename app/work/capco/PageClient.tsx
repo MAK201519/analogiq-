@@ -155,6 +155,8 @@ export default function CapcoPage() {
                 src="/clients/capco/homepage-hero.webp"
                 alt="Capco website homepage"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={60}
                 style={{ objectFit: "cover", objectPosition: "top" }}
               />
             </div>
@@ -165,6 +167,8 @@ export default function CapcoPage() {
                   src="/clients/capco/intelligence.webp"
                   alt="Capco intelligence and insights content hub"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={60}
                   style={{ objectFit: "cover", objectPosition: "top" }}
                 />
               </div>
@@ -173,6 +177,8 @@ export default function CapcoPage() {
                   src="/clients/capco/services.webp"
                   alt="Capco services and capabilities"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={60}
                   style={{ objectFit: "cover", objectPosition: "top" }}
                 />
               </div>

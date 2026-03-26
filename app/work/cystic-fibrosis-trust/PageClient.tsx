@@ -153,6 +153,8 @@ export default function CysticFibrosisTrustPage() {
                 src="/clients/cystic-fibrosis-trust/homepage.webp"
                 alt="cysticfibrosis.org.uk homepage"
                 fill
+                sizes="100vw"
+                quality={60}
                 style={{ objectFit: "cover", objectPosition: "top" }}
               />
             </div>

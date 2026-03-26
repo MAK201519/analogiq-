@@ -144,6 +144,8 @@ export default function ExperienceGolfPage() {
                 src="/clients/experience-golf/homepage.png"
                 alt="theexperiencegolf.com homepage"
                 fill
+                sizes="100vw"
+                quality={60}
                 style={{ objectFit: "cover", objectPosition: "top" }}
               />
             </div>
@@ -246,6 +248,8 @@ export default function ExperienceGolfPage() {
                 src="/clients/experience-golf/experience-builder.png"
                 alt="The Experience Golf experience builder"
                 fill
+                sizes="100vw"
+                quality={60}
                 style={{ objectFit: "cover", objectPosition: "top" }}
               />
             </div>

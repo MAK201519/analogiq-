@@ -152,6 +152,8 @@ export default function SunLifePage() {
                 src="/clients/sunlife/homepage.webp"
                 alt="sunlife.co.uk homepage"
                 fill
+                sizes="100vw"
+                quality={60}
                 style={{ objectFit: "cover", objectPosition: "top" }}
               />
             </div>

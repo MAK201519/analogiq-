@@ -111,6 +111,8 @@ export default function HeroSection() {
               src={src}
               alt={alt}
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={60}
               style={{ objectFit: "cover" }}
             />
             <span style={{

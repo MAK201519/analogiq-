@@ -210,6 +210,8 @@ export default function WorkPage() {
                       src={image ?? `https://picsum.photos/seed/${seed}/800/600`}
                       alt={title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      quality={60}
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>

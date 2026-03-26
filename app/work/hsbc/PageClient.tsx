@@ -305,6 +305,8 @@ export default function HSBCPage() {
                 src="/clients/hsbc/hero.png"
                 alt="HSBC Commercial Banking — Hong Kong market website"
                 fill
+                sizes="100vw"
+                quality={60}
                 style={{ objectFit: "cover", objectPosition: "top" }}
               />
             </div>

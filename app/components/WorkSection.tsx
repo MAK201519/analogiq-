@@ -109,6 +109,8 @@ export default function WorkSection() {
                     src={image}
                     alt={title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={60}
                     style={{ objectFit: 'cover', objectPosition: 'top' }}
                     className="group-hover:scale-105 transition-transform duration-500"
                   />

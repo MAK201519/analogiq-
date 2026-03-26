@@ -152,6 +152,8 @@ export default function Jet2Page() {
                 src="/clients/jet2/homepage.webp"
                 alt="jet2.com homepage"
                 fill
+                sizes="100vw"
+                quality={60}
                 style={{ objectFit: "cover", objectPosition: "top" }}
               />
             </div>

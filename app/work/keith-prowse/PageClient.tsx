@@ -152,6 +152,8 @@ export default function KeithProwsePage() {
                 src="/clients/keith-prowse/homepage.webp"
                 alt="keithprowse.co.uk homepage"
                 fill
+                sizes="100vw"
+                quality={60}
                 style={{ objectFit: "cover", objectPosition: "top" }}
               />
             </div>
@@ -254,6 +256,8 @@ export default function KeithProwsePage() {
                 src="/clients/keith-prowse/experience-finder.webp"
                 alt="Keith Prowse experience finder"
                 fill
+                sizes="100vw"
+                quality={60}
                 style={{ objectFit: "cover", objectPosition: "top" }}
               />
             </div>

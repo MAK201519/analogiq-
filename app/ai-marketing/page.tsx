@@ -14,15 +14,15 @@ import { staggerContainer as stagger, fadeUpItem as item } from "@/app/lib/anima
 
 const struggleCards = [
   {
-    title: "Platform debt",
+    title: "Your platform wasn't built for AI",
     body: "Legacy CMS, CDP and martech stacks weren't designed for AI integration. Bolting on models to inflexible architecture creates fragility, not capability.",
   },
   {
-    title: "Data fragmentation",
+    title: "Your data isn't usable in real time",
     body: "AI requires clean, connected, real-time data. Most organisations have years of siloed, inconsistently structured data that prevents models from working as intended.",
   },
   {
-    title: "Operationalisation gap",
+    title: "Your pilots aren't built for production",
     body: "Teams know what AI can do. They've run pilots. But moving from proof-of-concept to production-grade capability at scale requires a different kind of expertise.",
   },
 ];
@@ -226,6 +226,13 @@ export default function AIMarketingPage() {
               We help enterprise marketing teams move from AI experimentation to
               AI capability, embedding models, automation and intelligence into
               the platforms that drive measurable growth.
+            </motion.p>
+            <motion.p
+              variants={item}
+              className="mt-5 text-[16px] leading-[1.75] max-w-[560px]"
+              style={{ color: "rgba(255,255,255,0.45)" }}
+            >
+              Most organisations aren&apos;t struggling to understand AI. They&apos;re struggling to make it work. The models exist. The tools are in place. The pilots have been run. But AI isn&apos;t embedded in the systems, data and workflows that drive marketing performance. We fix that.
             </motion.p>
             <motion.div variants={item} className="mt-10 flex gap-4 flex-wrap">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -512,6 +519,46 @@ export default function AIMarketingPage() {
         </div>
       </section>
 
+      {/* ── 3b. THE REAL PROBLEM ─────────────────────────────────────── */}
+      <section className="bg-white py-[70px] max-sm:py-[40px]">
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
+          <motion.div
+            variants={stagger}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-80px" }}
+            className="max-w-[720px]"
+          >
+            <motion.div variants={item}>
+              <Eyebrow>THE REAL PROBLEM</Eyebrow>
+            </motion.div>
+            <motion.h2
+              variants={item}
+              className="mt-4"
+              style={{
+                fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+                fontSize: "clamp(28px, 4vw, 52px)",
+                fontWeight: 700,
+                lineHeight: 1.1,
+                color: "#111111",
+              }}
+            >
+              Most AI programmes fail for the same reason.
+            </motion.h2>
+            <motion.p
+              variants={item}
+              className="mt-5 text-[16px] leading-[1.7]"
+              style={{ color: "#6B7280" }}
+            >
+              They focus on models instead of systems. AI doesn&apos;t fail because
+              the model is wrong. It fails because it&apos;s not connected to the
+              workflows that drive execution. Until AI is embedded in how
+              marketing actually operates, it won&apos;t deliver meaningful return.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── 4. WHERE AI CREATES VALUE ─────────────────────────────────── */}
       <section className="bg-white py-[70px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
@@ -572,6 +619,12 @@ export default function AIMarketingPage() {
                 >
                   {outcome}
                 </p>
+                <p
+                  className="text-[12px] mt-1"
+                  style={{ color: "#9CA3AF" }}
+                >
+                  across client engagements
+                </p>
               </motion.div>
             ))}
           </div>
@@ -607,6 +660,20 @@ export default function AIMarketingPage() {
             >
               AI across every layer.
             </motion.h2>
+            <motion.p
+              variants={item}
+              className="mt-5 text-[17px] leading-[1.65] max-w-[600px]"
+              style={{ color: "#4B5563" }}
+            >
+              AI doesn&apos;t sit in one tool. It runs across your entire marketing stack.
+            </motion.p>
+            <motion.p
+              variants={item}
+              className="mt-3 text-[16px] leading-[1.65] max-w-[600px]"
+              style={{ color: "#6B7280" }}
+            >
+              We don&apos;t implement isolated AI use cases. We embed intelligence across the systems that drive execution.
+            </motion.p>
           </motion.div>
 
           <motion.div
@@ -946,6 +1013,13 @@ export default function AIMarketingPage() {
             >
               What we deliver.
             </motion.h2>
+            <motion.p
+              variants={item}
+              className="mt-5 text-[16px] leading-[1.65] max-w-[620px]"
+              style={{ color: "#6B7280" }}
+            >
+              We don&apos;t deliver AI as a standalone initiative. We build the capabilities required to make it work in production.
+            </motion.p>
           </motion.div>
 
           <motion.div
@@ -992,7 +1066,7 @@ export default function AIMarketingPage() {
       </section>
 
       {/* ── 10. FINAL CTA ─────────────────────────────────────────────── */}
-      <FinalCTA />
+      <FinalCTA subheading="If your AI experiments haven't translated into production-grade capability, the issue is rarely the technology. It's the architecture, data quality and operating model around it. We'll show you where the gaps are and how to close them. No pitch. Just a conversation." />
 
       {/* ── 11. FOOTER ────────────────────────────────────────────────── */}
       <Footer />

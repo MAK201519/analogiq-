@@ -18,22 +18,8 @@ export default function ExperienceGolfPage() {
       <NavigationBar />
 
       {/* ── 1. HERO ──────────────────────────────────────────────────── */}
-      <section className="max-sm:pt-[120px] max-sm:pb-[40px]" style={{ position: "relative", minHeight: 620, paddingTop: 180, paddingBottom: 80 }}>
-        <Image
-          src="/clients/experience-golf/homepage.png"
-          alt="The Experience Golf homepage"
-          fill
-          style={{ objectFit: "cover", objectPosition: "top" }}
-          priority
-        />
-        {/* Gradient overlay — left-heavy */}
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          background: "rgba(0,0,0,0.65)",
-          zIndex: 1,
-        }} />
-        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5" style={{ position: "relative", zIndex: 2 }}>
+      <section className="max-sm:pt-[120px] max-sm:pb-[40px]" style={{ backgroundColor: "#191A23", minHeight: 620, paddingTop: 180, paddingBottom: 80 }}>
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
           <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[720px]">
             <motion.div variants={item}>
               <Link

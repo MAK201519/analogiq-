@@ -72,14 +72,6 @@ const workCards = [
     href: "/work/wilderness",
   },
   {
-    client: "British Heart Foundation",
-    category: "UX Design · Personalisation",
-    title: "Sudden Devastation campaign driving personalised supporter engagement",
-    outcome: "Content personalisation programme",
-    image: "/clients/bhf/homepage.webp",
-    href: "/work/british-heart-foundation",
-  },
-  {
     client: "Keith Prowse",
     category: "UX Design · Platform",
     title: "Modernising the digital sales channel for the UK's leading sports hospitality brand",

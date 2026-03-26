@@ -379,30 +379,6 @@ export default function WildernessPage() {
         </div>
       </section>
 
-      {/* ── 8. ATMOSPHERIC IMAGE BREAK ───────────────────────────────── */}
-      <section style={{ position: "relative", height: 500, overflow: "hidden" }}>
-        <Image
-          src="/clients/wilderness/instagram-botswana.png"
-          alt="Wilderness Destinations — Botswana safari landscape"
-          fill
-          sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center" }}
-        />
-        {/* Gradient overlay — top to bottom */}
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, rgba(13,13,13,0.1) 0%, rgba(13,13,13,0.6) 100%)" }}
-        />
-        {/* Caption */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5 pb-8">
-            <p style={{ fontSize: 13, textTransform: "uppercase", letterSpacing: "0.08em", color: "rgba(255,255,255,0.5)" }}>
-              Wilderness Destinations — Botswana
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* ── 9. LANDING DETAIL SCREENSHOT ─────────────────────────────── */}
       <section className="bg-white py-[80px] max-sm:py-[40px]">
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">

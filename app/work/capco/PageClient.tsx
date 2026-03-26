@@ -18,21 +18,8 @@ export default function CapcoPage() {
       <NavigationBar />
 
       {/* ── 1. HERO ──────────────────────────────────────────────────── */}
-      <section className="relative" style={{ minHeight: 620 }}>
-        <div className="absolute inset-0">
-          <Image
-            src="/clients/capco/homepage-hero.webp"
-            alt="Capco website homepage"
-            fill
-            priority
-            style={{ objectFit: "cover", objectPosition: "center" }}
-          />
-        </div>
-        <div
-          className="absolute inset-0"
-          style={{ background: "rgba(0,0,0,0.65)" }}
-        />
-        <div className="relative z-10 max-w-[1440px] mx-auto px-[100px] max-sm:px-5 pt-[140px] pb-[80px] max-sm:pt-[110px] max-sm:pb-[40px]">
+      <section style={{ backgroundColor: "#191A23", minHeight: 620 }}>
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5 pt-[140px] pb-[80px] max-sm:pt-[110px] max-sm:pb-[40px]">
           <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[680px]">
             <motion.div variants={item}>
               <Link
@@ -87,7 +74,7 @@ export default function CapcoPage() {
             {[
               { stat: "£1M+", label: "Confirmed sales generated" },
               { stat: "100+", label: "Data points captured per visitor" },
-              { stat: "Significant", label: "Uplift in MQL and SQL volume" },
+              { stat: "32%", label: "Uplift in MQL and SQL volume" },
             ].map(({ stat, label }, i) => (
               <motion.div
                 key={stat}

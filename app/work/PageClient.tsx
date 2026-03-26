@@ -91,17 +91,6 @@ const cases = [
     seed: null,
   },
   {
-    category: "PERSONALISATION / CAMPAIGN / CHARITY",
-    client: "British Heart Foundation",
-    title: "How content personalisation drove deeper engagement for the British Heart Foundation's Sudden Devastation campaign",
-    outcome: "Three personalised journey streams — Midlands pilot built for national scale",
-    body: "The British Heart Foundation's 'Sudden Devastation' campaign was driving awareness but the on-site experience wasn't converting that traffic into support. Analogiq designed a measurement framework and built three distinct personalised journey streams — Prevention and Diagnosis, Get Involved, and Community — tailored to different audience segments and built to scale nationally.",
-    tags: ["Personalisation", "Campaign Optimisation", "Measurement Framework", "Charity"],
-    href: "/work/british-heart-foundation",
-    image: "/clients/bhf/homepage.webp",
-    seed: null,
-  },
-  {
     category: "CRO / A/B TESTING / SITECORE",
     client: "Cystic Fibrosis Trust",
     title: "Optimising the donation journey for one of the UK's most recognised health charities",

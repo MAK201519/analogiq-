@@ -356,47 +356,6 @@ export default function CysticFibrosisTrustPage() {
         </div>
       </section>
 
-      {/* ── 9. NEXT CASE STUDY ───────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#F3F3F3" }} className="py-[64px] max-sm:py-[40px]">
-        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true, margin: "-60px" }}
-            className="flex items-center justify-between gap-6 flex-wrap"
-          >
-            <div>
-              <p className="text-[12px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: "#9CA3AF" }}>
-                Next case study
-              </p>
-              <h3 style={{ fontFamily: PJB, fontSize: 28, fontWeight: 700, lineHeight: 1.2, color: "#111111", maxWidth: 480 }}>
-                How content personalisation drove deeper engagement for the British Heart Foundation&apos;s Sudden Devastation campaign
-              </h3>
-              <p className="mt-2 text-[14px] font-medium" style={{ color: "#D4500F" }}>
-                British Heart Foundation — personalisation at national scale
-              </p>
-            </div>
-            <Button
-              asChild
-              className="font-medium text-[15px] border-0 hover:opacity-90 transition-opacity shrink-0"
-              style={{
-                fontFamily: PJB,
-                fontWeight: 500,
-                borderRadius: 14,
-                padding: "18px 32px",
-                height: "auto",
-                backgroundColor: "#D4500F",
-                color: "#ffffff",
-                boxShadow: "0 5px 0 0 #3a1a05",
-              }}
-            >
-              <Link href="/work/british-heart-foundation">Read next →</Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ── 10. FINAL CTA ────────────────────────────────────────────── */}
       <FinalCTA
         eyebrow="WORK WITH US"

@@ -227,13 +227,6 @@ export default function AIMarketingPage() {
               AI capability, embedding models, automation and intelligence into
               the platforms that drive measurable growth.
             </motion.p>
-            <motion.p
-              variants={item}
-              className="mt-5 text-[16px] leading-[1.75] max-w-[560px]"
-              style={{ color: "rgba(255,255,255,0.45)" }}
-            >
-              Most organisations aren&apos;t struggling to understand AI. They&apos;re struggling to make it work. The models exist. The tools are in place. The pilots have been run. But AI isn&apos;t embedded in the systems, data and workflows that drive marketing performance. We fix that.
-            </motion.p>
             <motion.div variants={item} className="mt-10 flex gap-4 flex-wrap">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button
@@ -393,7 +386,7 @@ export default function AIMarketingPage() {
                 style={{ borderBottom: "1px solid #191A23", backgroundColor: "#F3F3F3" }}
               >
                 <span
-                  className="text-[11px] font-semibold uppercase tracking-[0.1em]"
+                  className="text-[13px] font-semibold uppercase tracking-[0.1em]"
                   style={{ color: "#9CA3AF" }}
                 >
                   Without operationalised AI
@@ -407,7 +400,7 @@ export default function AIMarketingPage() {
                     style={{ borderBottom: "1px solid #E5E7EB" }}
                   >
                     <span style={{ color: "#9CA3AF", fontSize: 16 }}>✕</span>
-                    <span className="text-[14px]" style={{ color: "#6B7280" }}>
+                    <span className="text-[16px]" style={{ color: "#6B7280" }}>
                       {text}
                     </span>
                   </div>
@@ -420,7 +413,7 @@ export default function AIMarketingPage() {
                 style={{ borderBottom: "1px solid #191A23", backgroundColor: "#F3F3F3" }}
               >
                 <span
-                  className="text-[11px] font-semibold uppercase tracking-[0.1em]"
+                  className="text-[13px] font-semibold uppercase tracking-[0.1em]"
                   style={{ color: "#D4500F" }}
                 >
                   With operationalised AI
@@ -434,7 +427,7 @@ export default function AIMarketingPage() {
                     style={{ borderBottom: "1px solid #E5E7EB" }}
                   >
                     <span style={{ color: "#16A34A", fontSize: 16 }}>✓</span>
-                    <span className="text-[14px]" style={{ color: "#111111" }}>
+                    <span className="text-[16px]" style={{ color: "#111111" }}>
                       {text}
                     </span>
                   </div>
@@ -610,21 +603,23 @@ export default function AIMarketingPage() {
                     {area}
                   </h3>
                 </div>
-                <p className="text-[15px] leading-[1.65]" style={{ color: "#6B7280" }}>
+                <p className="text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
                   {description}
                 </p>
-                <p
-                  className="text-[14px] font-medium"
-                  style={{ color: "#D4500F" }}
-                >
-                  {outcome}
-                </p>
-                <p
-                  className="text-[12px] mt-1"
-                  style={{ color: "#9CA3AF" }}
-                >
-                  across client engagements
-                </p>
+                <div>
+                  <p
+                    className="text-[18px] font-semibold"
+                    style={{ color: "#D4500F" }}
+                  >
+                    {outcome}
+                  </p>
+                  <p
+                    className="text-[14px] mt-1"
+                    style={{ color: "#9CA3AF" }}
+                  >
+                    across client engagements
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -715,7 +710,7 @@ export default function AIMarketingPage() {
                   {title}
                 </h3>
                 <p
-                  className="text-[13px] leading-[1.6]"
+                  className="text-[15px] leading-[1.6]"
                   style={{ color: "#9CA3AF" }}
                 >
                   {body}
@@ -1066,7 +1061,10 @@ export default function AIMarketingPage() {
       </section>
 
       {/* ── 10. FINAL CTA ─────────────────────────────────────────────── */}
-      <FinalCTA subheading="If your AI experiments haven't translated into production-grade capability, the issue is rarely the technology. It's the architecture, data quality and operating model around it. We'll show you where the gaps are and how to close them. No pitch. Just a conversation." />
+      <FinalCTA
+        heading="Still running AI as a pilot?"
+        subheading="If your AI experiments haven't translated into production-grade capability, the issue is rarely the technology. It's the architecture, data quality and operating model around it. We'll show you where the gaps are and how to close them. No pitch. Just a conversation."
+      />
 
       {/* ── 11. FOOTER ────────────────────────────────────────────────── */}
       <Footer />

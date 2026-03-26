@@ -1,6 +1,18 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import NavigationBar from "./components/NavigationBar";
+
+export const metadata: Metadata = {
+  title: "Digital Platform & AI Marketing Consultancy | Analogiq",
+  description: "We help enterprise marketing teams modernise platforms, activate AI and improve performance. Sitecore, composable DXP and marketing technology experts.",
+  alternates: { canonical: "https://analogiq.io/" },
+  openGraph: {
+    title: "Digital Platform & AI Marketing Consultancy | Analogiq",
+    description: "We help enterprise marketing teams modernise platforms, activate AI and improve performance. Sitecore, composable DXP and marketing technology experts.",
+    url: "https://analogiq.io/",
+  },
+};
 import HeroSection from "./components/HeroSection";
 import WorkSection from "./components/WorkSection";
 import ClientLogos from "./components/ClientLogos";

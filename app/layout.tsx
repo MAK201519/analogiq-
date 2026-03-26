@@ -6,15 +6,22 @@ import { cn } from "@/lib/utils";
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
-  title: "Analogiq — Digital Consultancy",
+  metadataBase: new URL("https://analogiq.io"),
+  title: {
+    default: "Digital Platform & AI Marketing Consultancy | Analogiq",
+    template: "%s | Analogiq",
+  },
   description:
-    "Analogiq helps enterprise organisations close the Digital Activation Gap — the distance between marketing ambition and platform capability.",
+    "We help enterprise marketing teams modernise platforms, activate AI and improve performance. Sitecore, composable DXP and marketing technology experts.",
   keywords: [
     "digital consultancy",
     "digital transformation",
     "AI marketing",
     "martech",
     "composable architecture",
+    "Sitecore",
+    "DXP",
+    "platform modernisation",
   ],
   authors: [{ name: "Analogiq" }],
   icons: {
@@ -27,18 +34,40 @@ export const metadata: Metadata = {
     ],
     shortcut: '/favicon.png',
   },
+  alternates: {
+    canonical: "https://analogiq.io",
+  },
   openGraph: {
-    title: "Analogiq — Digital Consultancy",
-    description:
-      "Closing the Digital Activation Gap for enterprise organisations.",
     type: "website",
+    siteName: "Analogiq",
+    locale: "en_GB",
+    title: "Digital Platform & AI Marketing Consultancy | Analogiq",
+    description:
+      "We help enterprise marketing teams modernise platforms, activate AI and improve performance.",
+    url: "https://analogiq.io",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Analogiq — Digital Consultancy",
+    title: "Digital Platform & AI Marketing Consultancy | Analogiq",
     description:
-      "Closing the Digital Activation Gap for enterprise organisations.",
+      "We help enterprise marketing teams modernise platforms, activate AI and improve performance.",
   },
+};
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Analogiq",
+  "url": "https://analogiq.io",
+  "email": "hello@analogiq.io",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3 East Grinstead Road",
+    "addressLocality": "Lingfield",
+    "addressCountry": "GB",
+  },
+  "description": "Digital platform and AI marketing consultancy helping enterprise organisations modernise platforms and activate AI.",
+  "serviceType": ["Sitecore Consultancy", "Composable DXP", "AI Marketing", "Platform Modernisation", "Personalisation"],
 };
 
 export default function RootLayout({
@@ -48,6 +77,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("font-sans", inter.variable)}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

@@ -4,11 +4,11 @@ import PageClient from "./PageClient";
 export const metadata: Metadata = {
   title: "Personalisation Programme for British Heart Foundation | Analogiq",
   description: "How Analogiq delivered content personalisation for the British Heart Foundation's Sudden Devastation campaign.",
-  alternates: { canonical: "https://analogiq.io/work/bhf" },
+  alternates: { canonical: "https://analogiq.io/work/british-heart-foundation" },
   openGraph: {
     title: "Personalisation Programme for British Heart Foundation | Analogiq",
     description: "How Analogiq delivered content personalisation for the British Heart Foundation's Sudden Devastation campaign.",
-    url: "https://analogiq.io/work/bhf",
+    url: "https://analogiq.io/work/british-heart-foundation",
   },
 };
 

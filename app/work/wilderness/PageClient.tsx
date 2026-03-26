@@ -380,11 +380,12 @@ export default function WildernessPage() {
       </section>
 
       {/* ── 8. ATMOSPHERIC IMAGE BREAK ───────────────────────────────── */}
-      <section className="relative" style={{ height: 500, overflow: "hidden" }}>
+      <section style={{ position: "relative", height: 500, overflow: "hidden" }}>
         <Image
           src="/clients/wilderness/instagram-botswana.png"
-          alt="Wilderness Destinations — Botswana"
+          alt="Wilderness Destinations — Botswana safari landscape"
           fill
+          sizes="100vw"
           style={{ objectFit: "cover", objectPosition: "center" }}
         />
         {/* Gradient overlay — top to bottom */}

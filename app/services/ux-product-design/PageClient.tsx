@@ -77,7 +77,7 @@ const workCards = [
     title: "Sudden Devastation campaign driving personalised supporter engagement",
     outcome: "Content personalisation programme",
     image: "/clients/bhf/homepage.webp",
-    href: "/work/bhf",
+    href: "/work/british-heart-foundation",
   },
   {
     client: "Keith Prowse",

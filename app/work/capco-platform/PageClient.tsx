@@ -30,7 +30,7 @@ export default function CapcoPlatformPage() {
         </div>
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.35) 100%)" }}
+          style={{ background: "rgba(0,0,0,0.65)" }}
         />
         <div className="relative z-10 max-w-[1440px] mx-auto px-[100px] max-sm:px-5 pt-[140px] pb-[80px] max-sm:pt-[110px] max-sm:pb-[40px]">
           <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[680px]">
@@ -67,8 +67,8 @@ export default function CapcoPlatformPage() {
               className="mt-4"
               style={{ fontFamily: PJB, fontSize: "clamp(36px, 5vw, 56px)", fontWeight: 800, lineHeight: 1.05, color: "#ffffff" }}
             >
-              Rebuilding a global digital platform from scratch —{" "}
-              <span style={{ color: "#D4500F" }}>and delivering in 120 days.</span>
+              Rebuilding a global digital platform from scratch.{" "}
+              <span style={{ color: "#D4500F" }}>Delivered in 120 days.</span>
             </motion.h1>
           </motion.div>
         </div>
@@ -397,7 +397,7 @@ export default function CapcoPlatformPage() {
               }}
             >
               <p className="text-[18px] leading-[1.75] italic" style={{ color: "#191A23", fontFamily: PJB }}>
-                &ldquo;Ratio&apos;s expertise has enabled us to create a website and digital strategy that delivers value across the firm, while also unlocking the power of data to drive optimisation projects and empower our decision making. Working hand in hand with a trusted supplier like Ratio has allowed us to embed them within Capco&apos;s day-to-day activities, providing project transparency while building an incredibly strong relationship.&rdquo;
+                &ldquo;Analogiq&apos;s expertise has enabled us to create a website and digital strategy that delivers value across the firm, while also unlocking the power of data to drive optimisation projects and empower our decision making. Working hand in hand with a trusted partner like Analogiq has allowed us to embed them within Capco&apos;s day-to-day activities, providing project transparency while building an incredibly strong relationship.&rdquo;
               </p>
               <footer className="mt-6">
                 <p className="text-[14px] font-semibold" style={{ color: "#111111" }}>Andrew Davies</p>

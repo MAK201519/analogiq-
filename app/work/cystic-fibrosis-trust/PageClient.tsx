@@ -391,7 +391,7 @@ export default function CysticFibrosisTrustPage() {
                 boxShadow: "0 5px 0 0 #3a1a05",
               }}
             >
-              <Link href="/work/bhf">Read next →</Link>
+              <Link href="/work/british-heart-foundation">Read next →</Link>
             </Button>
           </motion.div>
         </div>

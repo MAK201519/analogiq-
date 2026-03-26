@@ -30,7 +30,7 @@ export default function CapcoPage() {
         </div>
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.3) 100%)" }}
+          style={{ background: "rgba(0,0,0,0.65)" }}
         />
         <div className="relative z-10 max-w-[1440px] mx-auto px-[100px] max-sm:px-5 pt-[140px] pb-[80px] max-sm:pt-[110px] max-sm:pb-[40px]">
           <motion.div variants={stagger} initial="initial" animate="animate" className="max-w-[680px]">

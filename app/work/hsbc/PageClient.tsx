@@ -300,18 +300,10 @@ export default function HSBCPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-60px" }}
           >
-            <div style={{ position: "relative", height: 420, borderRadius: "16px 16px 0 0", overflow: "hidden" }}>
+            <div style={{ position: "relative", height: 420, borderRadius: 16, overflow: "hidden" }}>
               <Image
                 src="/clients/hsbc/hero.png"
                 alt="HSBC Commercial Banking — Hong Kong market website"
-                fill
-                style={{ objectFit: "cover", objectPosition: "top" }}
-              />
-            </div>
-            <div style={{ position: "relative", height: 320, borderRadius: "0 0 16px 16px", overflow: "hidden", marginTop: 4 }}>
-              <Image
-                src="/clients/hsbc/mid.png"
-                alt="HSBC Commercial Banking — site detail"
                 fill
                 style={{ objectFit: "cover", objectPosition: "top" }}
               />

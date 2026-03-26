@@ -30,7 +30,7 @@ export default function ExperienceGolfPage() {
         <div style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(to right, rgba(13,13,13,0.75) 0%, rgba(13,13,13,0.3) 100%)",
+          background: "rgba(0,0,0,0.65)",
           zIndex: 1,
         }} />
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5" style={{ position: "relative", zIndex: 2 }}>
@@ -265,30 +265,6 @@ export default function ExperienceGolfPage() {
             </div>
             <p className="text-center mt-4 text-[12px]" style={{ color: "#9CA3AF" }}>
               Build your bespoke experience — selecting golfers, dates, courses and hotels in a single journey
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── 8. COURSE FINDER SCREENSHOT ──────────────────────────────── */}
-      <section className="bg-white py-[80px] max-sm:py-[40px]">
-        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-60px" }}
-          >
-            <div style={{ position: "relative", height: 500, borderRadius: 16, overflow: "hidden" }}>
-              <Image
-                src="/clients/experience-golf/course-finder.webp"
-                alt="The Experience Golf course finder"
-                fill
-                style={{ objectFit: "cover", objectPosition: "top" }}
-              />
-            </div>
-            <p className="text-center mt-4 text-[12px]" style={{ color: "#9CA3AF" }}>
-              Choose your courses — filtering by country, region and course type across 30+ iconic venues
             </p>
           </motion.div>
         </div>

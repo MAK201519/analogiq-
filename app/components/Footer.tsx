@@ -88,14 +88,18 @@ export default function Footer() {
             © {year} Analogiq. All rights reserved.
           </p>
           <div className="flex items-center gap-6 flex-wrap">
-            {["Privacy Policy", "Terms of Service", "Cookie Settings"].map((item) => (
+            {[
+              { label: "Privacy Policy", href: "/privacy-policy" },
+              { label: "Modern Slavery Statement", href: "/modern-slavery" },
+              { label: "Cookie Policy", href: "/cookie-policy" },
+            ].map(({ label, href }) => (
               <Link
-                key={item}
-                href="/"
+                key={label}
+                href={href}
                 className="text-[13px] hover:underline transition-colors"
                 style={{ color: '#9CA3AF' }}
               >
-                {item}
+                {label}
               </Link>
             ))}
           </div>

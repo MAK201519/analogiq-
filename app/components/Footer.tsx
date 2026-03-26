@@ -7,7 +7,7 @@ const footerColumns: { heading: string; links: { label: string; href: string }[]
     heading: "Services",
     links: [
       { label: "AI Marketing", href: "/ai-marketing" },
-      { label: "Website & Platform Modernisation", href: "/services/platform-engineering" },
+      { label: "Website & Platform Modernisation", href: "/services/website-platform-modernisation" },
       { label: "AI Activation", href: "/services/ai-enablement" },
       { label: "Personalisation & Experimentation", href: "/services/personalisation-experimentation" },
       { label: "Data & Insights", href: "/services/data-insights" },

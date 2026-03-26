@@ -24,7 +24,7 @@ const navLinks: NavItem[] = [
     href: "/services",
     label: "What We Do",
     children: [
-      { href: "/services/platform-engineering", label: "Website & Platform Modernisation" },
+      { href: "/services/website-platform-modernisation", label: "Website & Platform Modernisation" },
       { href: "/services/ai-enablement", label: "AI Activation" },
       { href: "/services/personalisation-experimentation", label: "Personalisation & Experimentation" },
       { href: "/services/data-insights", label: "Data & Insights" },

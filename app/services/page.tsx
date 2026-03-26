@@ -26,7 +26,7 @@ const serviceCards = [
       "Improve editor experience and reduce developer dependency",
     ],
     outcome: "Launch campaigns in days, not weeks.",
-    href: "/services/platform-engineering",
+    href: "/services/website-platform-modernisation",
   },
   {
     title: "AI Activation",

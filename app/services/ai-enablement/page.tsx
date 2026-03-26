@@ -102,7 +102,7 @@ const aiLayers = [
 ];
 
 const foundationLinks = [
-  { title: "Platform Engineering", href: "/services/platform-engineering", active: false },
+  { title: "Platform Engineering", href: "/services/website-platform-modernisation", active: false },
   { title: "Data and Insights", href: "/services/data-insights", active: false },
   { title: "AI Enablement", href: null, active: true },
 ];

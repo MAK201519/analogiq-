@@ -255,7 +255,7 @@ export default function AboutPage() {
                 <span className="text-[11px] font-semibold uppercase tracking-[0.1em]" style={{ color: "#6B7280" }}>Our services</span>
               </div>
               {[
-                { label: "Website & Platform Modernisation", href: "/services/platform-engineering" },
+                { label: "Website & Platform Modernisation", href: "/services/website-platform-modernisation" },
                 { label: "AI Activation", href: "/services/ai-enablement" },
                 { label: "Personalisation & Experimentation", href: "/services/personalisation-experimentation" },
                 { label: "Data & Insights", href: "/services/data-insights" },

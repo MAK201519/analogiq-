@@ -64,25 +64,37 @@ const serviceCards = [
     outcome: "Decisions backed by data, not assumptions.",
     href: "/services/data-insights",
   },
+  {
+    title: "UX and Product Design",
+    problem: "Experiences that don't convert at the rate they should.",
+    bullets: [
+      "Design digital experiences grounded in real user behaviour and data",
+      "Create interfaces that guide users clearly and support conversion",
+      "Build and maintain design systems for consistent digital delivery",
+      "Translate brand into high-performing digital experiences",
+    ],
+    outcome: "Design measured in outcomes, not aesthetics.",
+    href: "/services/ux-product-design",
+  },
 ];
 
 const platformCards = [
   {
     name: "Uniform",
     logo: "/logos/platforms/uniform.svg",
-    body: "Composable DXP that sits on top of your stack, enabling faster builds, AI-driven experiences and modern front-end architecture.",
+    body: "Add a composable experience layer without rebuilding your platform. Uniform enables faster campaign launches, AI-driven experiences and modern front-end architecture, sitting on top of your existing stack. It's often the fastest path to improving speed, flexibility and performance.",
     href: "/platforms/uniform",
   },
   {
     name: "Sitecore",
     logo: "/logos/platforms/sitecore.png",
-    body: "Unlock more value from your existing investment, or define the right path forward across XP, XM Cloud and SitecoreAI.",
+    body: "Unlock more value from your existing investment. From optimising Sitecore XP to transitioning to XM Cloud or introducing composable architecture, we help you modernise without disrupting what already works.",
     href: "/platforms/sitecore",
   },
   {
-    name: "Optimizely",
+    name: "Optimizely and more",
     logo: "/logos/platforms/optimizely.svg",
-    body: "Turn experimentation and personalisation into a core growth engine, not a side capability.",
+    body: "Extend and optimise your existing ecosystem. We work across Optimizely, Umbraco, Contentful and broader martech stacks, helping you connect platforms, improve workflows and deliver better performance.",
     href: "/contact",
   },
 ];
@@ -367,7 +379,7 @@ export default function ServicesPage() {
             className="mt-10 text-center text-[15px]"
             style={{ color: "#9CA3AF" }}
           >
-            We&apos;re platform-aware, but vendor-neutral. The focus is always outcomes.
+            We&apos;re platform-aware and outcome-led. The focus is always what delivers results, not which platform you choose.
           </motion.p>
         </div>
       </section>

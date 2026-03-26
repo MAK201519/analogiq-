@@ -13,7 +13,7 @@ export default function IndustryShift() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: "-80px" }}
-          className="max-w-[760px]"
+          className="max-w-[760px] mx-auto text-center"
         >
           <motion.div variants={item}>
             <Eyebrow>THE SHIFT</Eyebrow>

@@ -48,17 +48,6 @@ export default function HeroSection() {
             faster execution and measurable growth.
           </motion.p>
 
-          <motion.p
-            variants={item}
-            className="text-[16px] max-sm:text-[15px] leading-[1.8] mt-5 max-w-[520px]"
-            style={{ color: 'rgba(255,255,255,0.55)' }}
-          >
-            Most organisations don&apos;t have a technology problem. They have an activation problem.<br />
-            The platforms are in place. The data exists. The ambition is there.<br />
-            But execution is slow. AI isn&apos;t delivering. Personalisation doesn&apos;t scale.<br />
-            We fix that.
-          </motion.p>
-
           <motion.div
             variants={item}
             className="flex gap-4 flex-col max-sm:w-full items-center justify-center mt-10 sm:flex-row"

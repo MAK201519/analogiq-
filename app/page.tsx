@@ -131,7 +131,7 @@ export default function Home() {
       {/* 5. HOW WE THINK — Differentiator (extra top padding) */}
       <section className="bg-white max-sm:py-[40px]" style={{ paddingTop: 118, paddingBottom: 70 }}>
         <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="mb-12 max-w-[640px]">
+          <div className="mb-12 text-center">
             <Eyebrow>HOW WE THINK</Eyebrow>
             <h2
               className="mt-4"
@@ -139,7 +139,7 @@ export default function Home() {
             >
               We don&apos;t design or build based on opinion.
             </h2>
-            <p className="text-[17px] leading-[1.7] mt-6" style={{ color: '#4B5563' }}>
+            <p className="text-[17px] leading-[1.7] mt-6 max-w-[600px] mx-auto" style={{ color: '#4B5563' }}>
               Most digital experiences are shaped by stakeholder preference,
               internal assumptions and disconnected decisions. We take a
               different approach. Everything we do is grounded in real user
@@ -148,8 +148,8 @@ export default function Home() {
           </div>
 
           <div
-            className="grid grid-cols-2 gap-6 max-sm:grid-cols-1"
-            style={{ maxWidth: 720 }}
+            className="grid grid-cols-2 gap-6 max-sm:grid-cols-1 mx-auto"
+            style={{ maxWidth: 800 }}
           >
             {/* Left — visually weaker */}
             <div
@@ -196,7 +196,7 @@ export default function Home() {
             </div>
           </div>
 
-          <p className="mt-10" style={{ fontFamily: PJB, fontSize: 22, fontWeight: 700, color: '#191A23' }}>
+          <p className="mt-10 text-center" style={{ fontFamily: PJB, fontSize: 20, fontWeight: 700, color: '#191A23' }}>
             We don&apos;t design for approval. We design for performance.
           </p>
         </div>

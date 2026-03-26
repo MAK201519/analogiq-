@@ -23,8 +23,8 @@ function FeatureList({ items }: { items: { title: string; desc: string }[] }) {
             aria-hidden="true"
           />
           <span>
-            <span className="text-[15px] font-medium block" style={{ color: "#111111" }}>{title}</span>
-            <span className="text-[14px] leading-[1.6] mt-[2px] block" style={{ color: "#6B7280" }}>{desc}</span>
+            <span className="text-[16px] font-medium block" style={{ color: "#111111" }}>{title}</span>
+            <span className="text-[15px] leading-[1.6] mt-[2px] block" style={{ color: "#6B7280" }}>{desc}</span>
           </span>
         </li>
       ))}
@@ -144,13 +144,13 @@ export default function PlatformsPage() {
             <motion.h1
               variants={item}
               className="mt-5"
-              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.0, color: "#ffffff" }}
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "#ffffff" }}
             >
-              Modern marketing needs{" "}
-              <span style={{ color: "#D4500F" }}>modern platforms.</span>
+              Your platform isn&apos;t broken. It&apos;s just not built for{" "}
+              <span style={{ color: "#D4500F" }}>how marketing works today.</span>
             </motion.h1>
             <motion.p variants={item} className="mt-6 text-[18px] leading-[1.65] max-w-[600px]" style={{ color: "#9CA3AF" }}>
-              Digital experience platforms form the foundation of how organisations manage and deliver digital experiences. Over the past decade the landscape has evolved significantly, moving from traditional monolithic CMS platforms to composable and headless architectures that allow organisations to build flexible digital ecosystems.
+              Most organisations already have the technology they need. The problem is how it&apos;s structured, connected and operated. We help you modernise your platform without unnecessary rebuilds, unlocking speed, flexibility and AI-ready capability.
             </motion.p>
             <motion.div variants={item} className="mt-10 flex gap-4 flex-wrap">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -176,20 +176,20 @@ export default function PlatformsPage() {
           <div className="grid grid-cols-2 gap-16 items-start max-md:grid-cols-1">
             {/* Left */}
             <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}>
-              <motion.div variants={item}><Eyebrow>THE OPPORTUNITY</Eyebrow></motion.div>
+              <motion.div variants={item}><Eyebrow>WHAT MODERN PLATFORMS NEED</Eyebrow></motion.div>
               <motion.h2 variants={item} className="mt-4"
                 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
-                The evolving role of digital experience platforms.
+                What modern platforms actually need to enable.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
-                Digital experience platforms support the creation, management and delivery of content across websites, mobile applications and other digital channels. They also play a critical role in integrating marketing technologies, supporting personalisation and enabling experimentation. Analogiq works with organisations to evaluate, implement and optimise digital experience platforms that support modern marketing operations.
+                Most digital platforms weren&apos;t designed for how marketing operates today. They were built for publishing content. Not for experimentation. Not for personalisation. Not for AI. That&apos;s why everything takes longer than it should.
               </motion.p>
               <motion.div variants={item}>
                 <FeatureList items={[
-                  { title: "Platform selection and architecture", desc: "Aligning technology choices with marketing strategy and operational requirements" },
-                  { title: "Martech and AI integration", desc: "Connecting platforms to the broader technology ecosystem" },
-                  { title: "Migration and enablement", desc: "Moving from legacy systems to modern architectures without disruption" },
-                  { title: "Ongoing optimisation", desc: "Ensuring platforms continue to support evolving marketing needs" },
+                  { title: "Faster campaign execution", desc: "Aligning technology choices with marketing strategy and operational requirements" },
+                  { title: "Real-time personalisation", desc: "Connecting platforms to the broader technology ecosystem" },
+                  { title: "Continuous experimentation", desc: "Moving from legacy systems to modern architectures without disruption" },
+                  { title: "AI integration from the ground up", desc: "Ensuring platforms continue to support evolving marketing needs" },
                 ]} />
               </motion.div>
             </motion.div>
@@ -231,8 +231,8 @@ export default function PlatformsPage() {
               ].map(({ label, value }, i) => (
                 <div key={label} className="flex items-center justify-between px-8 py-4"
                   style={{ borderBottom: i < 4 ? "1px solid #E5E7EB" : "none" }}>
-                  <span className="text-[14px]" style={{ color: "#6B7280" }}>{label}</span>
-                  <span className="text-[13px] font-medium" style={{ color: "#D4500F" }}>{value}</span>
+                  <span className="text-[15px]" style={{ color: "#6B7280" }}>{label}</span>
+                  <span className="text-[15px] font-medium" style={{ color: "#D4500F" }}>{value}</span>
                 </div>
               ))}
             </motion.div>
@@ -249,14 +249,31 @@ export default function PlatformsPage() {
               </motion.p>
               <motion.div variants={item}>
                 <FeatureList items={[
-                  { title: "Slow development cycles", desc: "Every change requires engineering resource and lengthy deployment processes" },
-                  { title: "Rigid architectures", desc: "Platforms that resist integration with modern marketing technologies" },
-                  { title: "Fragmented data", desc: "Customer data that cannot be connected or activated across the stack" },
-                  { title: "Limited experimentation", desc: "No capability to test and learn continuously across digital channels" },
+                  { title: "Your platform is too slow to change", desc: "Every change requires engineering resource and lengthy deployment processes" },
+                  { title: "Your architecture resists integration", desc: "Platforms that resist integration with modern marketing technologies" },
+                  { title: "Your data isn't connected", desc: "Customer data that cannot be connected or activated across the stack" },
+                  { title: "Your team can't experiment", desc: "No capability to test and learn continuously across digital channels" },
                 ]} />
               </motion.div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ── 3b. THE INSIGHT ──────────────────────────────────────────── */}
+      <section className="bg-white py-[70px] max-sm:py-[40px]">
+        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
+          <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-80px" }}
+            className="max-w-[720px]">
+            <motion.div variants={item}><Eyebrow>THE INSIGHT</Eyebrow></motion.div>
+            <motion.h2 variants={item} className="mt-4"
+              style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
+              Most organisations assume they need to replatform. In reality, they don&apos;t.
+            </motion.h2>
+            <motion.p variants={item} className="mt-5 text-[16px] leading-[1.7]" style={{ color: "#6B7280" }}>
+              They need to rethink how their platform is structured and how it supports execution. In many cases, the fastest path forward is not replacing your platform, but extending it with a composable architecture. This approach reduces risk, preserves existing investment and delivers speed to market far faster than a full rebuild.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
@@ -272,7 +289,7 @@ export default function PlatformsPage() {
                 How composable, AI-ready architecture changes everything.
               </motion.h2>
               <motion.p variants={item} className="mt-5 text-[16px] leading-[1.65]" style={{ color: "#6B7280" }}>
-                A composable or headless digital experience platform connects content, data and AI across customer journeys. Marketing teams can launch campaigns in days not weeks. Personalisation becomes operational rather than experimental. Experimentation runs continuously. And when AI capabilities mature, the platform is already designed to receive and act on them.
+                A composable platform doesn&apos;t mean replacing everything. It means structuring your digital environment so marketing teams can move at the pace the business requires. Campaigns launch in days. Personalisation runs in production. Experimentation is continuous. And when AI capabilities are ready to deploy, the platform is already designed to receive them.
               </motion.p>
               <motion.div variants={item}>
                 <FeatureList items={[
@@ -299,8 +316,8 @@ export default function PlatformsPage() {
               ].map(({ label, value }, i) => (
                 <div key={label} className="flex items-center justify-between px-8 py-4"
                   style={{ borderBottom: i < 4 ? "1px solid #E5E7EB" : "none" }}>
-                  <span className="text-[14px]" style={{ color: "#6B7280" }}>{label}</span>
-                  <span className="text-[13px] font-medium" style={{ color: "#16A34A" }}>{value}</span>
+                  <span className="text-[15px]" style={{ color: "#6B7280" }}>{label}</span>
+                  <span className="text-[15px] font-medium" style={{ color: "#16A34A" }}>{value}</span>
                 </div>
               ))}
             </motion.div>
@@ -317,7 +334,7 @@ export default function PlatformsPage() {
             </motion.div>
             <motion.div
               variants={item}
-              className="flex flex-wrap justify-center items-center gap-[64px] max-sm:gap-[32px]"
+              className="flex flex-wrap justify-center items-center gap-[56px] max-sm:gap-[32px]"
             >
               {platformLogos.map(({ src, alt }) => (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -326,7 +343,7 @@ export default function PlatformsPage() {
                   src={src}
                   alt={alt}
                   style={{
-                    height: 40,
+                    height: 36,
                     width: "auto",
                     display: "block",
                     objectFit: "contain",
@@ -351,8 +368,8 @@ export default function PlatformsPage() {
               style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: "#111111" }}>
               Platforms we work with.
             </motion.h2>
-            <motion.p variants={item} className="mt-4 text-[16px] leading-[1.65] max-w-[560px]" style={{ color: "#6B7280" }}>
-              Our experience spans a range of enterprise and composable platforms, as well as the wider ecosystem of technologies that integrate with them.
+            <motion.p variants={item} className="mt-4 text-[16px] leading-[1.65] max-w-[660px]" style={{ color: "#6B7280" }}>
+              We work across both enterprise and composable platforms. Sitecore for evolving existing environments. Uniform for unlocking speed without rebuilds. The right answer depends on where you are, and how they work together.
             </motion.p>
           </motion.div>
 
@@ -369,9 +386,9 @@ export default function PlatformsPage() {
                   <img src={logo} alt={name} style={{ maxHeight: 32, width: "auto", display: "block", objectFit: "contain" }} />
                 </div>
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>{name}</h3>
-                <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{body}</p>
+                <p className="text-[16px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>{body}</p>
                 <div className="mt-6">
-                  <Link href={href} className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>{cta} →</Link>
+                  <Link href={href} className="text-[14px] font-medium hover:underline" style={{ color: "#D4500F" }}>{cta} →</Link>
                 </div>
               </motion.div>
             ))}
@@ -393,11 +410,11 @@ export default function PlatformsPage() {
                 </div>
               </div>
               <h3 style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: 22, fontWeight: 600, lineHeight: 1.3, color: "#111111" }}>And more</h3>
-              <p className="text-[15px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>
+              <p className="text-[16px] leading-[1.65] mt-4 flex-1" style={{ color: "#6B7280" }}>
                 Optimizely, Umbraco, Contentful and others. We also work with the broader ecosystem of composable and headless technologies.
               </p>
               <div className="mt-6">
-                <Link href="/contact" className="text-[13px] font-medium hover:underline" style={{ color: "#D4500F" }}>Talk to us →</Link>
+                <Link href="/contact" className="text-[14px] font-medium hover:underline" style={{ color: "#D4500F" }}>Talk to us →</Link>
               </div>
             </motion.div>
 

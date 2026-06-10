@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/app/components/Footer";
 
@@ -1150,24 +1151,20 @@ export default function PageClient() {
               <div className="max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-5 py-10 max-sm:py-8">
                 <Eyebrow>Hosted by</Eyebrow>
                 <div className="flex items-center gap-6 max-sm:flex-col max-sm:items-start">
-                  {/* TODO: Replace with real headshot of Mario Kyriacou */}
                   <div
-                    className="shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-center"
+                    className="shrink-0 w-16 h-16 rounded-full overflow-hidden"
                     style={{
-                      background: "#E5E7EB",
                       outline: "3px solid #D4500F",
                       outlineOffset: 3,
                     }}
-                    aria-label="Placeholder headshot — replace with Mario Kyriacou photo"
                   >
-                    <span
-                      className="text-[9px] font-semibold leading-[1.3]"
-                      style={{ color: "#9CA3AF" }}
-                    >
-                      Photo
-                      <br />
-                      TODO
-                    </span>
+                    <Image
+                      src="/team/mario-kyriacou.jpg"
+                      alt="Mario Kyriacou, Co-founder of Analogiq"
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p

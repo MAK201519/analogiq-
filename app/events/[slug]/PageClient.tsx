@@ -664,10 +664,12 @@ export default function PageClient() {
                     className="font-display font-[500] text-[56px] max-lg:text-[42px] max-sm:text-[30px] leading-[1.12] mb-5"
                     style={{ color: "#191A23" }}
                   >
-                    A Practical Map of AI Across the{" "}
+                    Practical AI for Marketing
+                    <br />
                     <span style={{ color: "#D4500F" }}>
-                      Marketing Function
+                      Real Use Cases
                     </span>
+                    {", From Acquisition to Retention"}
                   </h1>
                   <p
                     className="text-[17px] max-sm:text-[16px] leading-[1.7] max-w-[520px] mb-8"

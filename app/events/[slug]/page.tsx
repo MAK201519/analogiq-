@@ -15,18 +15,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title:
-      "A Practical Map of AI Across the Marketing Function | Analogiq",
+      "Practical AI for Marketing: Real Use Cases, From Acquisition to Retention | Analogiq",
     description:
-      "Acquisition, retention, conversion, search, forecasting, pricing and commercial intelligence. What works, what's overhyped, and what to do with the data you already have. Thursday 2 July, 2pm UK.",
+      "Acquisition, retention, conversion, search, forecasting and pricing. Real examples from real brands, every one with the outcome attached. Thursday 2 July, 2pm UK.",
     alternates: {
       canonical:
         "https://analogiq.io/events/practical-ai-for-marketing",
     },
     openGraph: {
       title:
-        "A Practical Map of AI Across the Marketing Function",
+        "Practical AI for Marketing: Real Use Cases, From Acquisition to Retention",
       description:
-        "Acquisition, retention, conversion, search, forecasting, pricing and commercial intelligence. What works, what's overhyped, and what to do with the data you already have.",
+        "Acquisition, retention, conversion, search, forecasting and pricing. Real examples from real brands, every one with the outcome attached.",
       url: "https://analogiq.io/events/practical-ai-for-marketing",
       siteName: "Analogiq",
       type: "website",
@@ -34,9 +34,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title:
-        "A Practical Map of AI Across the Marketing Function",
+        "Practical AI for Marketing: Real Use Cases, From Acquisition to Retention",
       description:
-        "Acquisition, retention, conversion, search, forecasting, pricing and commercial intelligence. Thursday 2 July, 2pm UK.",
+        "Acquisition, retention, conversion, search, forecasting and pricing. Real examples from real brands. Thursday 2 July, 2pm UK.",
     },
   };
 }
@@ -44,9 +44,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const eventSchema = {
   "@context": "https://schema.org",
   "@type": "Event",
-  name: "A Practical Map of AI Across the Marketing Function",
+  name: "Practical AI for Marketing: Real Use Cases, From Acquisition to Retention",
   description:
-    "Acquisition, retention, conversion, search, forecasting, pricing and commercial intelligence. What works, what's overhyped, and what to do with the data you already have.",
+    "Acquisition, retention, conversion, search, forecasting and pricing. Real examples from real brands, every one with the outcome attached.",
   startDate: "2026-07-02T14:00:00+01:00",
   endDate: "2026-07-02T15:00:00+01:00",
   eventStatus: "https://schema.org/EventScheduled",

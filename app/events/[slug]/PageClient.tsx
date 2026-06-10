@@ -320,8 +320,8 @@ function SuccessContent() {
             className="text-[17px] leading-[1.7] mb-4"
             style={{ color: "#374151" }}
           >
-            A calendar invite and joining link are on their way to
-            your inbox.
+            Your joining link is on its way to your inbox from Zoom.
+            Check spam if it hasn&apos;t arrived in a few minutes.
           </p>
           <p
             className="text-[15px] font-semibold"
@@ -569,6 +569,8 @@ const sectorCards = [
 
 export default function PageClient() {
   const [registered, setRegistered] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [fields, setFields] = useState<FormFields>({
     firstName: "",
     lastName: "",
@@ -609,11 +611,41 @@ export default function PageClient() {
     }
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (validate()) {
+    if (!validate()) return;
+
+    setSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const webhookUrl =
+        process.env.NEXT_PUBLIC_ZAPIER_WEBINAR_WEBHOOK;
+      if (!webhookUrl) throw new Error("Webhook URL not configured.");
+
+      const res = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: fields.firstName,
+          lastName: fields.lastName,
+          email: fields.email,
+          company: fields.company,
+          jobTitle: fields.jobTitle,
+          event: "practical-ai-for-marketing",
+        }),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
       setRegistered(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch {
+      setSubmitError(
+        "Something went wrong saving your seat. Please try again, or email events@hello.analogiq.io and we\u2019ll register you directly."
+      );
+    } finally {
+      setSubmitting(false);
     }
   }
 
@@ -808,18 +840,33 @@ export default function PageClient() {
                       autoComplete="organization-title"
                     />
 
+                    {submitError && (
+                      <p
+                        className="text-[13px] leading-[1.55] px-1"
+                        style={{ color: "#DC2626" }}
+                        role="alert"
+                      >
+                        {submitError}
+                      </p>
+                    )}
+
                     <button
                       type="submit"
-                      className="w-full py-4 px-8 rounded-[14px] text-white text-[17px] font-semibold transition-colors mt-1"
-                      style={{ background: "#D4500F" }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.background = "#B84309")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.background = "#D4500F")
-                      }
+                      disabled={submitting}
+                      className="w-full py-4 px-8 rounded-[14px] text-white text-[17px] font-semibold transition-colors mt-1 disabled:opacity-60 disabled:cursor-not-allowed"
+                      style={{
+                        background: submitting ? "#B84309" : "#D4500F",
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!submitting)
+                          e.currentTarget.style.background = "#B84309";
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!submitting)
+                          e.currentTarget.style.background = "#D4500F";
+                      }}
                     >
-                      Save my seat
+                      {submitting ? "Saving your seat..." : "Save my seat"}
                     </button>
 
                     <p
@@ -827,7 +874,7 @@ export default function PageClient() {
                       style={{ color: "#9CA3AF" }}
                     >
                       We&apos;ll only email you about this event.
-                      Notifications from events@hello.analogiq.io.
+                      Your joining link comes from Zoom.
                     </p>
                   </form>
                 </div>

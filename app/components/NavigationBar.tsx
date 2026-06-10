@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 
+const BANNER_DISMISSED_KEY = "webinar-banner-dismissed-july-2026";
+
 type NavChild = { href: string; label: string };
 type NavItem =
   | { href: string; label: string; children?: undefined }
@@ -163,6 +165,7 @@ export default function NavigationBar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [bannerDismissed, setBannerDismissed] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -171,72 +174,169 @@ export default function NavigationBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (sessionStorage.getItem(BANNER_DISMISSED_KEY) === "1") {
+      setBannerDismissed(true);
+    }
+  }, []);
+
+  function dismissBanner() {
+    sessionStorage.setItem(BANNER_DISMISSED_KEY, "1");
+    setBannerDismissed(true);
+  }
+
+  // Banner height in px — used to offset the mobile menu
+  const bannerH = bannerDismissed ? 0 : 48;
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-[100] h-[68px] transition-all duration-300 ease-in-out ${
-        scrolled
-          ? "bg-white border-b border-[#E5E7EB]"
-          : "bg-transparent border-b border-transparent"
-      }`}
-    >
-      <div className="max-w-[1440px] mx-auto px-[100px] max-lg:px-8 h-full flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="shrink-0">
-          <span
-            className="font-serif-italic text-[22px] transition-colors duration-300"
-            style={{ color: scrolled ? "#191A23" : "#ffffff" }}
+    <header className="fixed top-0 left-0 right-0 z-[100]">
+
+      {/* ── Announcement banner ───────────────────────── */}
+      {!bannerDismissed && (
+        <div
+          className="h-12 flex items-center px-4 md:px-8"
+          style={{ background: "#191A23" }}
+        >
+          <div className="flex items-center gap-3 flex-1 min-w-0">
+            {/* Live dot + label */}
+            <div className="hidden sm:flex items-center gap-1.5 shrink-0">
+              <span
+                className="w-1.5 h-1.5 rounded-full shrink-0"
+                style={{ background: "#D4500F" }}
+                aria-hidden="true"
+              />
+              <span
+                className="text-[11px] font-bold tracking-widest uppercase"
+                style={{ color: "#D4500F" }}
+              >
+                Live webinar
+              </span>
+            </div>
+
+            {/* Separator */}
+            <span
+              className="hidden sm:block text-[#4B5563] text-[12px]"
+              aria-hidden="true"
+            >
+              |
+            </span>
+
+            {/* Title + date */}
+            <span
+              className="text-[13px] font-normal truncate"
+              style={{ color: "rgba(255,255,255,0.90)" }}
+            >
+              <span className="font-medium text-white">
+                Practical AI for Marketing
+              </span>
+              {" "}
+              <span className="hidden xs:inline" style={{ color: "rgba(255,255,255,0.55)" }}>
+                &middot;
+              </span>
+              {" "}
+              <span style={{ color: "rgba(255,255,255,0.70)" }}>
+                Thursday 2 July, 2pm UK
+              </span>
+            </span>
+          </div>
+
+          {/* Register button */}
+          <Link
+            href="/events/practical-ai-for-marketing"
+            className="shrink-0 ml-3 px-3 py-1.5 rounded-[10px] text-[12px] font-semibold text-white transition-colors"
+            style={{ background: "#D4500F" }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#B84309")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "#D4500F")}
           >
-            Analogiq
-          </span>
-        </Link>
+            Register
+          </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((item) => (
-            <DesktopNavItem key={item.href} item={item} scrolled={scrolled} />
-          ))}
-        </nav>
-
-        {/* CTA */}
-        <Button
-          asChild
-          className="hidden md:inline-flex text-[14px] border-0 hover:opacity-90 transition-opacity"
-          style={{
-            fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
-            fontWeight: 500,
-            borderRadius: 14,
-            padding: "10px 20px",
-            height: "auto",
-            backgroundColor: "#D4500F",
-            color: "#ffffff",
-            boxShadow: "0 4px 0 0 #191A23",
-          }}
-        >
-          <Link href="/contact">Start a conversation</Link>
-        </Button>
-
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden p-2 transition-colors"
-          style={{ color: "#D4500F" }}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? (
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M18 6 6 18M6 6l12 12" />
+          {/* Dismiss */}
+          <button
+            onClick={dismissBanner}
+            aria-label="Dismiss announcement"
+            className="shrink-0 ml-2 p-1.5 rounded-md transition-colors"
+            style={{ color: "rgba(255,255,255,0.50)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.50)")}
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M12 2 2 12M2 2l10 10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
-          ) : (
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M3 12h18M3 6h18M3 18h18" />
-            </svg>
-          )}
-        </button>
+          </button>
+        </div>
+      )}
+
+      {/* ── Nav row ───────────────────────────────────── */}
+      <div
+        className={`h-[68px] transition-all duration-300 ease-in-out ${
+          scrolled
+            ? "bg-white border-b border-[#E5E7EB]"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
+        <div className="max-w-[1440px] mx-auto px-[100px] max-lg:px-8 h-full flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="shrink-0">
+            <span
+              className="font-serif-italic text-[22px] transition-colors duration-300"
+              style={{ color: scrolled ? "#191A23" : "#ffffff" }}
+            >
+              Analogiq
+            </span>
+          </Link>
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((item) => (
+              <DesktopNavItem key={item.href} item={item} scrolled={scrolled} />
+            ))}
+          </nav>
+
+          {/* CTA */}
+          <Button
+            asChild
+            className="hidden md:inline-flex text-[14px] border-0 hover:opacity-90 transition-opacity"
+            style={{
+              fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+              fontWeight: 500,
+              borderRadius: 14,
+              padding: "10px 20px",
+              height: "auto",
+              backgroundColor: "#D4500F",
+              color: "#ffffff",
+              boxShadow: "0 4px 0 0 #191A23",
+            }}
+          >
+            <Link href="/contact">Start a conversation</Link>
+          </Button>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden p-2 transition-colors"
+            style={{ color: "#D4500F" }}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? (
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 12h18M3 6h18M3 18h18" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — top offset accounts for visible banner */}
       {mobileOpen && (
-        <div className="md:hidden absolute top-[68px] left-0 right-0 bg-white border-b border-[#E5E7EB] shadow-lg z-[200]">
+        <div
+          className="md:hidden absolute left-0 right-0 bg-white border-b border-[#E5E7EB] shadow-lg z-[200]"
+          style={{ top: 68 + bannerH }}
+        >
           <div className="max-w-[1440px] mx-auto px-8 py-6 flex flex-col gap-1">
             {navLinks.map((item) =>
               !item.children ? (

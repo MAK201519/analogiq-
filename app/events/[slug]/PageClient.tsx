@@ -625,7 +625,6 @@ export default function PageClient() {
 
       const res = await fetch(webhookUrl, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           firstName: fields.firstName,
           lastName: fields.lastName,

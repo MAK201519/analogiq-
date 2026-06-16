@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Footer from "@/app/components/Footer";
 
@@ -17,180 +16,118 @@ type FormFields = {
 
 type FieldErrors = Partial<Record<keyof FormFields, string>>;
 
-// ── Cover card data ────────────────────────────────────────────────────────
+// ── Travel type cards ───────────────────────────────────────────────────────
 
-type CoverCard = {
-  number: string;
-  heading: string;
-  promise: React.ReactNode;
-  bullets: React.ReactNode[];
-  signature?: boolean;
-};
-
-const coverCards: CoverCard[] = [
+const travelTypes = [
   {
-    number: "01",
-    heading: "Finding and keeping the right customers",
-    promise:
-      "Predict who\u2019s worth it, who\u2019s leaving, and what brings them back.",
-    bullets: [
-      <>
-        Predictive <strong>customer value</strong> and{" "}
-        <strong>churn</strong>
-      </>,
-      <>
-        AI-led <strong>audience selection</strong> for paid media
-      </>,
-      <>
-        The same engine whether it&apos;s a retailer&apos;s reorder,
-        an <strong>insurer&apos;s renewal</strong>, or a travel
-        brand&apos;s lapsing booker
-      </>,
-    ],
+    name: "Airlines",
+    description: "Disruption comms and ancillary timing",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4500F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M22 2L11 13" />
+        <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+      </svg>
+    ),
   },
   {
-    number: "02",
-    heading: "Getting more from the traffic you already have",
-    promise:
-      "Turn visitors into customers without buying more of them.",
-    bullets: [
-      <>
-        On-site decisioning tuned to <strong>margin</strong>, not
-        clicks
-      </>,
-      <>
-        Works on a product range, a <strong>quote journey</strong>,
-        or a package
-      </>,
-      <>
-        What still converts, and what&apos;s now{" "}
-        <strong>table stakes</strong>
-      </>,
-    ],
+    name: "Hotels",
+    description: "Direct-booking recovery and reputation",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4500F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 21V9.5L12 3l9 6.5V21" />
+        <line x1="3" y1="21" x2="21" y2="21" />
+        <line x1="7" y1="21" x2="7" y2="12" />
+        <line x1="12" y1="21" x2="12" y2="12" />
+        <line x1="17" y1="21" x2="17" y2="12" />
+      </svg>
+    ),
   },
   {
-    number: "03",
-    heading: "Helping people find what they came for",
-    promise:
-      "The most under-tuned revenue lever most brands own.",
-    bullets: [
-      <>
-        Fixing <strong>failed searches</strong> that quietly leak
-        revenue
-      </>,
-      <>
-        Reranking results against{" "}
-        <strong>commercial priority</strong>
-      </>,
-      <>
-        Real <strong>before-and-after</strong> numbers
-      </>,
-    ],
+    name: "Hospitality",
+    description: "Feedback as a yield instrument",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4500F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+      </svg>
+    ),
   },
   {
-    number: "04",
-    heading: "Forecasting, pricing and capacity",
-    promise: "Predict demand, then act on it.",
-    bullets: [
-      <>
-        <strong>Sell-through</strong> and markdown in retail
-      </>,
-      <>
-        <strong>Yield</strong> and ancillary pricing in travel
-      </>,
-      <>
-        The <strong>regulatory lines</strong> you don&apos;t want to
-        cross
-      </>,
-    ],
+    name: "Travel agents",
+    description: "Predictive conversion and recovery",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4500F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20" />
+        <path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
+      </svg>
+    ),
   },
   {
-    number: "05",
-    heading: "Turning your data into decisions",
-    promise:
-      "The data\u2019s already there. Nobody has time to read it.",
-    bullets: [
-      <>
-        A <strong>weekly radar</strong> of commercial opportunities
-      </>,
-      <>
-        Which products or policies are <strong>hidden</strong>, which
-        customers are about to <strong>lapse</strong>
-      </>,
-      <>
-        Where spend is <strong>leaking</strong>, and what to do{" "}
-        <strong>first</strong>
-      </>,
-    ],
-    signature: true,
+    name: "Cruise companies",
+    description: "The pre-trip window nobody else owns",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4500F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M18 8H2l4 8h12l4-8z" />
+        <path d="M2 16c0 2.2 4.5 4 10 4s10-1.8 10-4" />
+        <path d="M12 4v4" />
+      </svg>
+    ),
+  },
+  {
+    name: "Attractions & ticketing",
+    description: "The booking moment and the return visit",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4500F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M15 5H3a1 1 0 00-1 1v4a2 2 0 010 4v4a1 1 0 001 1h12" />
+        <path d="M9 5h12a1 1 0 011 1v4a2 2 0 000 4v4a1 1 0 01-1 1H9" />
+        <line x1="9" y1="5" x2="9" y2="19" strokeDasharray="3 2" />
+      </svg>
+    ),
   },
 ];
 
-// ── Takeaway items ─────────────────────────────────────────────────────────
+// ── What to expect items ──────────────────────────────────────────────────
 
-const takeawayItems = [
-  "A clear map of which AI applications move revenue, conversion and retention, and which are already commoditised.",
-  "The ability to tell decision AI from content AI, so your budget follows the value.",
-  "A practical opportunity radar your team can start building the same week.",
-  "An honest view of what to avoid: the overhyped use cases, and the pricing and agent traps that carry real reputational and regulatory risk.",
+const whatToExpect: React.ReactNode[] = [
+  "Discover which AI applications are truly valuable for your business, and which ones you can skip for now.",
+  "Explore real-world examples from airlines, hotels, and OTAs, including the results they've achieved with AI.",
+  "Pinpoint the two stages in the customer journey that drive the most revenue for your specific travel sector.",
+  "Gain actionable AI strategies you can immediately implement in your marketing efforts.",
+  <>
+    Receive a complimentary copy of our 36-page report, &ldquo;<span style={{ fontWeight: 600, color: "#191A23" }}>The AI Layer</span>,&rdquo; for ongoing reference.
+  </>,
 ];
 
 // ── Small helpers ──────────────────────────────────────────────────────────
 
-function OrangeTick() {
+function OutlineCheckIcon() {
   return (
-    <div
-      className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-[3px]"
-      style={{ background: "#D4500F" }}
+    <svg
+      className="shrink-0 mt-[3px]"
+      width="22"
+      height="22"
+      viewBox="0 0 22 22"
+      fill="none"
       aria-hidden="true"
     >
-      <svg
-        width="12"
-        height="9"
-        viewBox="0 0 12 9"
-        fill="none"
-        aria-hidden="true"
+      <circle cx="11" cy="11" r="10" stroke="#D4500F" strokeWidth="1.5" />
+      <path d="M7 11.5l2.5 2.5 5.5-5.5" stroke="#D4500F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+  if (light) {
+    return (
+      <p
+        className="mb-3 text-[11px] font-bold tracking-[0.12em] uppercase"
+        style={{ color: "rgba(255,255,255,0.55)" }}
       >
-        <path
-          d="M1 4.5L4.5 8L11 1"
-          stroke="white"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </div>
-  );
-}
-
-function Eyebrow({ children }: { children: React.ReactNode }) {
+        {children}
+      </p>
+    );
+  }
   return <p className="eyebrow mb-3">{children}</p>;
-}
-
-function OrangeCtaButton({
-  href,
-  children,
-  className = "",
-}: {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <a
-      href={href}
-      className={`inline-flex items-center px-8 py-4 rounded-[14px] text-white text-[17px] font-semibold transition-colors ${className}`}
-      style={{ background: "#D4500F" }}
-      onMouseEnter={(e) =>
-        (e.currentTarget.style.background = "#B84309")
-      }
-      onMouseLeave={(e) =>
-        (e.currentTarget.style.background = "#D4500F")
-      }
-    >
-      {children}
-    </a>
-  );
 }
 
 // ── Campaign header ────────────────────────────────────────────────────────
@@ -281,6 +218,48 @@ function FormField({
   );
 }
 
+// ── Host avatar ────────────────────────────────────────────────────────────
+
+function HostAvatar() {
+  const [imgError, setImgError] = React.useState(false);
+
+  if (imgError) {
+    return (
+      <div
+        className="shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-white font-semibold text-[18px]"
+        style={{
+          background: "#D4500F",
+          outline: "3px solid #D4500F",
+          outlineOffset: 3,
+        }}
+        aria-hidden="true"
+      >
+        MK
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className="shrink-0 w-16 h-16 rounded-full overflow-hidden"
+      style={{
+        outline: "3px solid #D4500F",
+        outlineOffset: 3,
+      }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/team/mario-kyriacou.jpg"
+        alt="Mario Kyriacou, Co-founder of Analogiq"
+        width={64}
+        height={64}
+        className="w-full h-full object-cover"
+        onError={() => setImgError(true)}
+      />
+    </div>
+  );
+}
+
 // ── Success state ──────────────────────────────────────────────────────────
 
 function SuccessContent() {
@@ -327,7 +306,7 @@ function SuccessContent() {
             className="text-[15px] font-semibold"
             style={{ color: "#D4500F" }}
           >
-            Thursday 2 July · 2pm UK · 60 minutes
+            Thursday 2 July · 2pm UK · 45 minutes
           </p>
         </div>
 
@@ -428,146 +407,10 @@ function SuccessContent() {
   );
 }
 
-// ── Sector cards ───────────────────────────────────────────────────────────
-
-const sectorCards = [
-  {
-    name: "Retail",
-    description:
-      "Predicting the reorder, sell-through and markdown, and which products are hidden from the customers who\u2019d buy them.",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#D4500F"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M2 8h20M2 8l3-5h14l3 5M2 8v13h20V8" />
-        <rect x="9" y="13" width="6" height="8" rx="0.5" />
-      </svg>
-    ),
-  },
-  {
-    name: "Ecommerce",
-    description:
-      "On-site decisioning tuned to margin, and fixing the failed searches that quietly leak revenue.",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#D4500F"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-        <line x1="3" y1="6" x2="21" y2="6" />
-        <path d="M16 10a4 4 0 01-8 0" />
-      </svg>
-    ),
-  },
-  {
-    name: "Financial services",
-    description:
-      "Spotting the renewal at risk, optimising the quote journey, and the regulatory lines you don\u2019t want to cross.",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#D4500F"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M3 21V9.5L12 3l9 6.5V21" />
-        <line x1="3" y1="21" x2="21" y2="21" />
-        <line x1="7" y1="21" x2="7" y2="12" />
-        <line x1="12" y1="21" x2="12" y2="12" />
-        <line x1="17" y1="21" x2="17" y2="12" />
-      </svg>
-    ),
-  },
-  {
-    name: "Travel",
-    description:
-      "Yield and ancillary pricing, and catching the lapsing booker before they\u2019re gone.",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#D4500F"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M22 2L11 13" />
-        <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Ticketing",
-    description:
-      "Demand forecasting and risk-based pricing when capacity is fixed and the clock is running.",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#D4500F"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M15 5H3a1 1 0 00-1 1v4a2 2 0 010 4v4a1 1 0 001 1h12" />
-        <path d="M9 5h12a1 1 0 011 1v4a2 2 0 000 4v4a1 1 0 01-1 1H9" />
-        <line x1="9" y1="5" x2="9" y2="19" strokeDasharray="3 2" />
-      </svg>
-    ),
-  },
-  {
-    name: "B2B",
-    description:
-      "AI-led audience selection, predictive account value, and a weekly radar of where the pipeline is leaking.",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#D4500F"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <rect x="2" y="7" width="20" height="14" rx="2" />
-        <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
-        <line x1="2" y1="13" x2="22" y2="13" />
-      </svg>
-    ),
-  },
-];
-
 // ── Main page ──────────────────────────────────────────────────────────────
 
 export default function PageClient() {
+  const formRef = useRef<HTMLDivElement>(null);
   const [registered, setRegistered] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -648,6 +491,14 @@ export default function PageClient() {
     }
   }
 
+  function scrollToForm() {
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    setTimeout(() => {
+      const input = formRef.current?.querySelector("input");
+      input?.focus();
+    }, 400);
+  }
+
   return (
     <div style={{ background: "#F9FAFB", minHeight: "100vh" }}>
       <CampaignHeader />
@@ -658,484 +509,276 @@ export default function PageClient() {
         <>
           <main className="pb-24 md:pb-0">
 
-            {/* ── Hero: two-column on desktop ───────────────── */}
-            <section className="max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-5 pt-14 pb-12 max-sm:pt-10 max-sm:pb-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            {/* ── Hero: dark full-width band ─────────────────── */}
+            <section style={{ background: "#191A23" }}>
+              <div className="max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-5 pt-16 pb-16 max-sm:pt-12 max-sm:pb-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
-                {/* Left: headline + live-webinar indicator */}
-                <div>
-                  <Eyebrow>AI for marketing, with the numbers attached</Eyebrow>
-
-                  {/* Live-webinar badge */}
-                  <div
-                    className="inline-flex flex-wrap items-center gap-x-2.5 gap-y-1 mb-6 px-4 py-2.5 rounded-full text-[14px] font-semibold"
-                    style={{
-                      background: "#D4500F",
-                      color: "#FFFFFF",
-                    }}
-                  >
-                    <span
-                      className="w-2 h-2 rounded-full shrink-0 animate-pulse"
-                      style={{ background: "#FFFFFF", opacity: 0.9 }}
-                      aria-hidden="true"
-                    />
-                    <span>Live webinar + recording</span>
-                    <span
-                      className="font-normal opacity-60"
-                      aria-hidden="true"
-                    >
-                      ·
-                    </span>
-                    <span className="font-bold">
-                      Thursday 2 July, 2pm UK · 60 minutes
-                    </span>
-                  </div>
-
-                  <h1
-                    className="font-display font-[500] text-[56px] max-lg:text-[42px] max-sm:text-[30px] leading-[1.12] mb-5"
-                    style={{ color: "#191A23" }}
-                  >
-                    Practical AI for Marketing
-                    <br />
-                    <span style={{ color: "#D4500F" }}>
-                      Real Use Cases
-                    </span>
-                    {", From Acquisition to Retention"}
-                  </h1>
-                  <p
-                    className="text-[17px] max-sm:text-[16px] leading-[1.7] max-w-[520px] mb-8"
-                    style={{ color: "#374151" }}
-                  >
-                    Acquisition, retention, conversion, search,
-                    forecasting and pricing. Real examples from real
-                    brands, every one with the outcome attached, and
-                    an honest line on what to skip.
-                  </p>
-
-                  {/* Mini walk-away list — balances left column height */}
-                  <div
-                    className="rounded-xl px-5 py-4"
-                    style={{
-                      background: "#F9FAFB",
-                      border: "1px solid #E5E7EB",
-                    }}
-                  >
-                    <p
-                      className="text-[11px] font-bold tracking-[0.1em] uppercase mb-3"
-                      style={{ color: "#9CA3AF" }}
-                    >
-                      What you&apos;ll walk away with
-                    </p>
-                    <ul className="space-y-2.5">
-                      {[
-                        "A clear map of which AI applications move revenue, and which are already commoditised",
-                        "The difference between decision AI and content AI, so budget follows value",
-                        "A practical opportunity radar your team can build the same week",
-                        "An honest list of what to avoid: the overhyped use cases and the pricing traps that carry real risk",
-                      ].map((point, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-2.5 text-[14px] leading-[1.55]"
-                          style={{ color: "#374151" }}
-                        >
-                          <span
-                            className="shrink-0 w-4 h-4 rounded-full flex items-center justify-center mt-[2px]"
-                            style={{ background: "#D4500F" }}
-                            aria-hidden="true"
-                          >
-                            <svg
-                              width="8"
-                              height="6"
-                              viewBox="0 0 8 6"
-                              fill="none"
-                            >
-                              <path
-                                d="M1 3L3 5L7 1"
-                                stroke="white"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          </span>
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Right: registration form card */}
-                <div
-                  id="register"
-                  className="bg-white rounded-2xl p-8 max-sm:p-6"
-                  style={{
-                    border: "1px solid #E5E7EB",
-                    boxShadow: "0 1px 6px rgba(0,0,0,0.06)",
-                  }}
-                >
-                  <h2
-                    className="font-display font-semibold text-[22px] leading-[1.25] mb-2"
-                    style={{ color: "#191A23" }}
-                  >
-                    Save your seat
-                  </h2>
-                  <p
-                    className="text-[14px] leading-[1.65] mb-5"
-                    style={{ color: "#4B5563" }}
-                  >
-                    60 minutes, practical throughout. Real examples,
-                    outcomes attached, and an honest list of what to
-                    skip. Can&apos;t make it live? Register anyway
-                    and we&apos;ll send the recording.
-                  </p>
-
-                  <form
-                    onSubmit={handleSubmit}
-                    noValidate
-                    className="space-y-4"
-                  >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <FormField
-                        label="First name"
-                        name="firstName"
-                        value={fields.firstName}
-                        onChange={handleChange}
-                        error={errors.firstName}
-                        autoComplete="given-name"
-                      />
-                      <FormField
-                        label="Last name"
-                        name="lastName"
-                        value={fields.lastName}
-                        onChange={handleChange}
-                        error={errors.lastName}
-                        autoComplete="family-name"
-                      />
-                    </div>
-                    <FormField
-                      label="Work email"
-                      name="email"
-                      type="email"
-                      value={fields.email}
-                      onChange={handleChange}
-                      error={errors.email}
-                      autoComplete="email"
-                    />
-                    <FormField
-                      label="Company"
-                      name="company"
-                      value={fields.company}
-                      onChange={handleChange}
-                      error={errors.company}
-                      autoComplete="organization"
-                    />
-                    <FormField
-                      label="Job title"
-                      name="jobTitle"
-                      value={fields.jobTitle}
-                      onChange={handleChange}
-                      error={errors.jobTitle}
-                      autoComplete="organization-title"
-                    />
-
-                    {submitError && (
+                  {/* Left: headline */}
+                  <div>
+                    {/* Eyebrow + live tag row */}
+                    <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
                       <p
-                        className="text-[13px] leading-[1.55] px-1"
-                        style={{ color: "#DC2626" }}
-                        role="alert"
-                      >
-                        {submitError}
-                      </p>
-                    )}
-
-                    <button
-                      type="submit"
-                      disabled={submitting}
-                      className="w-full py-4 px-8 rounded-[14px] text-white text-[17px] font-semibold transition-colors mt-1 disabled:opacity-60 disabled:cursor-not-allowed"
-                      style={{
-                        background: submitting ? "#B84309" : "#D4500F",
-                      }}
-                      onMouseEnter={(e) => {
-                        if (!submitting)
-                          e.currentTarget.style.background = "#B84309";
-                      }}
-                      onMouseLeave={(e) => {
-                        if (!submitting)
-                          e.currentTarget.style.background = "#D4500F";
-                      }}
-                    >
-                      {submitting ? "Saving your seat..." : "Save my seat"}
-                    </button>
-
-                    <p
-                      className="text-[13px] leading-[1.55] pt-1"
-                      style={{ color: "#9CA3AF" }}
-                    >
-                      We&apos;ll only email you about this event.
-                      Your joining link comes from Zoom.
-                    </p>
-                  </form>
-                </div>
-              </div>
-            </section>
-
-            {/* ── Hook ─────────────────────────────────────── */}
-            <section
-              className="bg-white"
-              style={{
-                borderTop: "1px solid #E5E7EB",
-                borderBottom: "1px solid #E5E7EB",
-              }}
-            >
-              <div className="max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-5 py-10 max-sm:py-8">
-                <div className="max-w-[640px]">
-                  <p
-                    className="text-[17px] leading-[1.75] mb-5"
-                    style={{ color: "#374151" }}
-                  >
-                    AI is top of every marketing agenda, and most of
-                    the conversation is still about content and
-                    prompts. The brands seeing real commercial results
-                    are doing something different. They are using AI
-                    to make decisions:{" "}
-                    <strong style={{ color: "#191A23" }}>
-                      what to promote, who to target, what to stock,
-                      what to price, and what to do next
-                    </strong>
-                    .
-                  </p>
-                  <p
-                    className="text-[17px] leading-[1.75]"
-                    style={{ color: "#374151" }}
-                  >
-                    This masterclass maps where that is actually
-                    happening across the marketing function. Real
-                    examples from retail, ecommerce, financial
-                    services, travel, ticketing and B2B, with the
-                    outcomes attached and an honest line on what is
-                    genuinely valuable versus{" "}
-                    <strong style={{ color: "#191A23" }}>
-                      what your platform already does for free
-                    </strong>
-                    .
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* ── What we'll cover ─────────────────────────── */}
-            <section className="max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-5 py-14 max-sm:py-10">
-              <Eyebrow>What we&apos;ll cover</Eyebrow>
-              <h2
-                className="font-display font-semibold text-[36px] max-lg:text-[30px] max-sm:text-[24px] leading-[1.2] mb-2"
-                style={{ color: "#191A23" }}
-              >
-                Function by function, with the examples attached
-              </h2>
-              <p
-                className="text-[15px] leading-[1.65] mb-5 max-w-[580px]"
-                style={{ color: "#4B5563" }}
-              >
-                We follow the customer from first touch to repeat
-                revenue with real cases from retail, ecommerce,
-                financial services, travel and ticketing.
-              </p>
-
-              {/* Narrative spine */}
-              <div
-                className="flex items-center flex-wrap gap-x-3 gap-y-2 mb-8 px-5 py-3 rounded-xl text-[13px] font-semibold"
-                style={{
-                  background: "#F3F4F6",
-                  border: "1px solid #E5E7EB",
-                }}
-              >
-                <span style={{ color: "#6B7280" }}>01 Acquire</span>
-                <span
-                  style={{ color: "#D1D5DB" }}
-                  aria-hidden="true"
-                >
-                  →
-                </span>
-                <span style={{ color: "#6B7280" }}>02 Convert</span>
-                <span
-                  style={{ color: "#D1D5DB" }}
-                  aria-hidden="true"
-                >
-                  →
-                </span>
-                <span style={{ color: "#6B7280" }}>03 Find</span>
-                <span
-                  style={{ color: "#D1D5DB" }}
-                  aria-hidden="true"
-                >
-                  →
-                </span>
-                <span style={{ color: "#6B7280" }}>04 Forecast</span>
-                <span
-                  style={{ color: "#D1D5DB" }}
-                  aria-hidden="true"
-                >
-                  →
-                </span>
-                <span style={{ color: "#D4500F" }}>05 Decide</span>
-              </div>
-
-              {/* 2×2 grid — cards 01–04 */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                {coverCards.slice(0, 4).map((card) => (
-                  <div
-                    key={card.number}
-                    className="bg-white rounded-2xl p-6 max-sm:p-5"
-                    style={{ border: "1px solid #E5E7EB" }}
-                  >
-                    <p
-                      className="text-[12px] font-bold tracking-[0.1em] uppercase mb-2"
-                      style={{ color: "#D4500F" }}
-                    >
-                      {card.number}
-                    </p>
-                    <h3
-                      className="font-display font-semibold text-[18px] leading-[1.35] mb-2"
-                      style={{ color: "#191A23" }}
-                    >
-                      {card.heading}
-                    </h3>
-                    <p
-                      className="text-[14px] font-semibold leading-[1.55] mb-3"
-                      style={{ color: "#191A23" }}
-                    >
-                      {card.promise}
-                    </p>
-                    <ul className="space-y-1.5">
-                      {card.bullets.map((bullet, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-2 text-[14px] leading-[1.6]"
-                          style={{ color: "#4B5563" }}
-                        >
-                          <span
-                            className="shrink-0 mt-[4px] text-[12px] font-bold"
-                            style={{ color: "#D4500F" }}
-                            aria-hidden="true"
-                          >
-                            —
-                          </span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-
-              {/* Card 05: full-width signature — the climax */}
-              {(() => {
-                const card = coverCards[4];
-                return (
-                  <div
-                    className="rounded-2xl p-8 max-sm:p-6"
-                    style={{
-                      border: "1px solid #E8D5C8",
-                      borderLeft: "4px solid #D4500F",
-                      background: "#FDFAF8",
-                    }}
-                  >
-                    {/* Number + signature tag */}
-                    <div className="flex items-center gap-3 mb-3">
-                      <p
-                        className="text-[12px] font-bold tracking-[0.1em] uppercase"
+                        className="text-[11px] font-bold tracking-[0.12em] uppercase"
                         style={{ color: "#D4500F" }}
                       >
-                        {card.number}
+                        THE AI TRAVEL EDITION · THURSDAY 2 JULY, 2PM UK · 45 MIN
                       </p>
                       <span
-                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wide uppercase"
+                        className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold tracking-[0.08em] uppercase"
                         style={{
-                          background: "#D4500F",
-                          color: "#FFFFFF",
+                          border: "1.5px solid #D4500F",
+                          color: "#D4500F",
+                          whiteSpace: "nowrap",
                         }}
                       >
-                        The payoff
+                        LIVE WEBINAR + RECORDING
                       </span>
                     </div>
-                    <h3
-                      className="font-display font-semibold text-[30px] max-lg:text-[26px] max-sm:text-[22px] leading-[1.3] mb-2"
-                      style={{ color: "#191A23" }}
+
+                    <h1
+                      className="font-display font-[500] text-[52px] max-lg:text-[40px] max-sm:text-[30px] leading-[1.12] mb-5"
+                      style={{ color: "#FFFFFF" }}
                     >
-                      {card.heading}
-                    </h3>
+                      Beyond the bookings: the AI travel edition
+                    </h1>
                     <p
-                      className="text-[16px] font-semibold leading-[1.55] mb-6"
+                      className="text-[17px] max-sm:text-[16px] leading-[1.7] max-w-[520px]"
+                      style={{ color: "rgba(255,255,255,0.72)" }}
+                    >
+                      Join our online session for travel and hospitality marketers to see how brands like{" "}
+                      <span style={{ fontWeight: 600, color: "#FFFFFF" }}>Expedia</span>,{" "}
+                      <span style={{ fontWeight: 600, color: "#FFFFFF" }}>KLM</span> and{" "}
+                      <span style={{ fontWeight: 600, color: "#FFFFFF" }}>TUI</span>{" "}
+                      have started applying AI across the customer journey.
+                    </p>
+
+                    {/* Featured brands row */}
+                    <div className="mt-8">
+                      <p
+                        className="text-[11px] font-semibold tracking-[0.1em] uppercase mb-3"
+                        style={{ color: "rgba(255,255,255,0.45)" }}
+                      >
+                        Featured in the session
+                      </p>
+                      <div className="flex flex-wrap items-center gap-y-3">
+                        {[
+                          "Expedia",
+                          "KLM",
+                          "TUI",
+                          "Booking.com",
+                          "Virgin Atlantic",
+                          "Hopper",
+                          "Royal Caribbean",
+                          "Merlin Entertainments",
+                        ].map((brand, i) => (
+                          <React.Fragment key={brand}>
+                            {i > 0 && (
+                              <span
+                                className="mx-4 shrink-0"
+                                style={{
+                                  display: "inline-block",
+                                  width: 1,
+                                  height: 16,
+                                  background: "rgba(255,255,255,0.18)",
+                                }}
+                                aria-hidden="true"
+                              />
+                            )}
+                            <span
+                              className="text-[19px] font-medium"
+                              style={{ color: "rgba(255,255,255,0.78)" }}
+                            >
+                              {brand}
+                            </span>
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right: registration form card — white on dark */}
+                  <div
+                    id="register"
+                    ref={formRef}
+                    className="bg-white rounded-2xl p-8 max-sm:p-6"
+                    style={{
+                      boxShadow: "0 12px 40px rgba(0,0,0,0.30)",
+                    }}
+                  >
+                    <h2
+                      className="font-display font-semibold text-[22px] leading-[1.25] mb-2"
                       style={{ color: "#191A23" }}
                     >
-                      {card.promise}
+                      Save your seat
+                    </h2>
+                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-2">
+                      <span
+                        className="text-[11px] font-bold tracking-[0.1em] uppercase"
+                        style={{ color: "#D4500F" }}
+                      >
+                        Live webinar
+                      </span>
+                      <span
+                        className="text-[14px]"
+                        style={{ color: "#4B5563" }}
+                      >
+                        Thursday 2 July, 2pm UK · 45 minutes
+                      </span>
+                    </div>
+                    <p
+                      className="text-[14px] leading-[1.65] mb-5"
+                      style={{ color: "#4B5563" }}
+                    >
+                      Can&apos;t make it live? Register anyway and we&apos;ll send the recording.
                     </p>
-                    <ul className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-3">
-                      {card.bullets.map((bullet, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-2 text-[15px] leading-[1.6]"
-                          style={{ color: "#4B5563" }}
+
+                    <form
+                      onSubmit={handleSubmit}
+                      noValidate
+                      className="space-y-4"
+                    >
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <FormField
+                          label="First name"
+                          name="firstName"
+                          value={fields.firstName}
+                          onChange={handleChange}
+                          error={errors.firstName}
+                          autoComplete="given-name"
+                        />
+                        <FormField
+                          label="Last name"
+                          name="lastName"
+                          value={fields.lastName}
+                          onChange={handleChange}
+                          error={errors.lastName}
+                          autoComplete="family-name"
+                        />
+                      </div>
+                      <FormField
+                        label="Work email"
+                        name="email"
+                        type="email"
+                        value={fields.email}
+                        onChange={handleChange}
+                        error={errors.email}
+                        autoComplete="email"
+                      />
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <FormField
+                          label="Company"
+                          name="company"
+                          value={fields.company}
+                          onChange={handleChange}
+                          error={errors.company}
+                          autoComplete="organization"
+                        />
+                        <FormField
+                          label="Job title"
+                          name="jobTitle"
+                          value={fields.jobTitle}
+                          onChange={handleChange}
+                          error={errors.jobTitle}
+                          autoComplete="organization-title"
+                        />
+                      </div>
+
+                      {submitError && (
+                        <p
+                          className="text-[13px] leading-[1.55] px-1"
+                          style={{ color: "#DC2626" }}
+                          role="alert"
                         >
-                          <span
-                            className="shrink-0 mt-[4px] text-[12px] font-bold"
-                            style={{ color: "#D4500F" }}
-                            aria-hidden="true"
-                          >
-                            —
-                          </span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                          {submitError}
+                        </p>
+                      )}
+
+                      <button
+                        type="submit"
+                        disabled={submitting}
+                        className="w-full py-4 px-8 rounded-[14px] text-white text-[17px] font-semibold transition-colors mt-1 disabled:opacity-60 disabled:cursor-not-allowed"
+                        style={{
+                          background: submitting ? "#B84309" : "#D4500F",
+                        }}
+                        onMouseEnter={(e) => {
+                          if (!submitting)
+                            e.currentTarget.style.background = "#B84309";
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!submitting)
+                            e.currentTarget.style.background = "#D4500F";
+                        }}
+                      >
+                        {submitting ? "Saving your seat..." : "Save my seat"}
+                      </button>
+
+                      <p
+                        className="text-[13px] leading-[1.55] pt-1"
+                        style={{ color: "#9CA3AF" }}
+                      >
+                        We&apos;ll only email you about this event. Your joining link comes straight from Zoom once you register.
+                      </p>
+                    </form>
                   </div>
-                );
-              })()}
+                </div>
+              </div>
             </section>
 
-            {/* ── In your sector ───────────────────────────── */}
+            {/* ── What to expect: white ─────────────────────── */}
             <section
-              className="bg-white"
               style={{
-                borderTop: "1px solid #E5E7EB",
+                background: "#FFFFFF",
                 borderBottom: "1px solid #E5E7EB",
               }}
             >
               <div className="max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-5 py-14 max-sm:py-10">
-                <Eyebrow>In your sector</Eyebrow>
-                <h2
-                  className="font-display font-semibold text-[36px] max-lg:text-[30px] max-sm:text-[24px] leading-[1.2] mb-2"
-                  style={{ color: "#191A23" }}
-                >
-                  The same session, in your world
-                </h2>
+                <Eyebrow>WHAT TO EXPECT</Eyebrow>
+                <ul className="space-y-5 max-w-[640px]">
+                  {whatToExpect.map((item, i) => (
+                    <li key={i} className="flex items-start gap-4">
+                      <OutlineCheckIcon />
+                      <span
+                        className="text-[16px] leading-[1.7]"
+                        style={{ color: "#374151" }}
+                      >
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            {/* ── Find your travel type: light grey ────────── */}
+            <section style={{ background: "#F9FAFB" }}>
+              <div className="max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-5 py-14 max-sm:py-10">
+                <Eyebrow>FIND YOUR TRAVEL TYPE</Eyebrow>
                 <p
-                  className="text-[15px] leading-[1.65] mb-10 max-w-[520px]"
-                  style={{ color: "#4B5563" }}
+                  className="text-[16px] leading-[1.7] mb-10 max-w-[560px]"
+                  style={{ color: "#374151" }}
                 >
-                  Every example in the session comes from a real brand
-                  in one of these sectors. Find yours.
+                  Every example comes from a real brand in one of these.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {sectorCards.map((sector) => (
+                  {travelTypes.map((type) => (
                     <div
-                      key={sector.name}
+                      key={type.name}
                       className="bg-white rounded-2xl p-6"
                       style={{ border: "1px solid #E5E7EB" }}
                     >
-                      <div className="mb-3">{sector.icon}</div>
+                      <div className="mb-3" aria-hidden="true">{type.icon}</div>
                       <h3
-                        className="font-display font-semibold text-[17px] leading-[1.3] mb-2"
+                        className="font-display font-semibold text-[17px] leading-[1.3] mb-1.5"
                         style={{ color: "#191A23" }}
                       >
-                        {sector.name}
+                        {type.name}
                       </h3>
                       <p
                         className="text-[14px] leading-[1.6]"
                         style={{ color: "#4B5563" }}
                       >
-                        {sector.description}
+                        {type.description}
                       </p>
                     </div>
                   ))}
@@ -1143,117 +786,79 @@ export default function PageClient() {
               </div>
             </section>
 
-            {/* ── Who it's for + Why Analogiq side by side ──── */}
-            <section className="max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-5 py-12 max-sm:py-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-                <div>
-                  <Eyebrow>Who it&apos;s for</Eyebrow>
-                  <h2
-                    className="font-display font-semibold text-[28px] max-lg:text-[24px] max-sm:text-[22px] leading-[1.25] mb-4"
-                    style={{ color: "#191A23" }}
-                  >
-                    Built for people who run marketing on a real stack
-                  </h2>
-                  <p
-                    className="text-[16px] leading-[1.75]"
-                    style={{ color: "#374151" }}
-                  >
-                    Senior marketing and digital leaders, and the
-                    teams who do the work, across retail, ecommerce,
-                    financial services, B2B and beyond. If you run
-                    marketing on a real stack and you are tired of AI
-                    sessions that never reach a number, this is built
-                    for you.
-                  </p>
-                </div>
-                <div>
-                  <Eyebrow>Why Analogiq</Eyebrow>
-                  <h2
-                    className="font-display font-semibold text-[28px] max-lg:text-[24px] max-sm:text-[22px] leading-[1.25] mb-4"
-                    style={{ color: "#191A23" }}
-                  >
-                    Platform-agnostic. Vendor-neutral.
-                  </h2>
-                  <p
-                    className="text-[16px] leading-[1.75]"
-                    style={{ color: "#374151" }}
-                  >
-                    We are platform-agnostic and vendor-neutral. We
-                    went looking for where AI is genuinely creating
-                    commercial outcomes, not where the demo looks
-                    best. The honest version of that picture is what
-                    you will get in this hour.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* ── Hosted by: horizontal strip ───────────────── */}
+            {/* ── Host + closing CTA: white ─────────────────── */}
             <section
-              className="bg-white"
               style={{
+                background: "#FFFFFF",
                 borderTop: "1px solid #E5E7EB",
                 borderBottom: "1px solid #E5E7EB",
               }}
             >
-              <div className="max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-5 py-10 max-sm:py-8">
-                <Eyebrow>Hosted by</Eyebrow>
-                <div className="flex items-center gap-6 max-sm:flex-col max-sm:items-start">
+              <div className="max-w-[1440px] mx-auto px-[100px] max-xl:px-[60px] max-sm:px-5 py-14 max-sm:py-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch">
+
+                  {/* Host card */}
+                  <div>
+                    <Eyebrow>HOSTED BY</Eyebrow>
+                    <div className="flex items-start gap-5">
+                      <HostAvatar />
+                      <div>
+                        <p
+                          className="font-display font-semibold text-[18px] leading-[1.3]"
+                          style={{ color: "#191A23" }}
+                        >
+                          Mario Kyriacou
+                        </p>
+                        <p
+                          className="text-[13px] mt-0.5 mb-3"
+                          style={{ color: "#6B7280" }}
+                        >
+                          Co-founder, Analogiq
+                        </p>
+                        <p
+                          className="text-[15px] leading-[1.7]"
+                          style={{ color: "#374151" }}
+                        >
+                          Platform-agnostic, vendor-neutral. We went looking for where AI genuinely creates commercial outcomes in travel, not where the demo looks best.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Dark closing panel */}
                   <div
-                    className="shrink-0 w-16 h-16 rounded-full overflow-hidden"
-                    style={{
-                      outline: "3px solid #D4500F",
-                      outlineOffset: 3,
-                    }}
+                    className="rounded-2xl p-8 max-sm:p-6 flex flex-col justify-center"
+                    style={{ background: "#191A23" }}
                   >
-                    <Image
-                      src="/team/mario-kyriacou.jpg"
-                      alt="Mario Kyriacou, Co-founder of Analogiq"
-                      width={64}
-                      height={64}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
+                    <h2
+                      className="font-display font-semibold text-[26px] max-sm:text-[22px] leading-[1.25] mb-2"
+                      style={{ color: "#FFFFFF" }}
+                    >
+                      45 minutes. Real examples. Outcomes attached.
+                    </h2>
                     <p
-                      className="font-display font-semibold text-[18px] leading-[1.3]"
-                      style={{ color: "#191A23" }}
+                      className="text-[15px] leading-[1.65] mb-6"
+                      style={{ color: "rgba(255,255,255,0.65)" }}
                     >
-                      Mario Kyriacou
+                      Plus the report to take away.
                     </p>
-                    <p
-                      className="text-[13px] mt-0.5 mb-2"
-                      style={{ color: "#6B7280" }}
-                    >
-                      Co-founder, Analogiq
-                    </p>
-                    <p
-                      className="text-[15px] leading-[1.7]"
-                      style={{ color: "#374151" }}
-                    >
-                      Mario co-founded Analogiq to help marketing
-                      teams turn the technology they already own into
-                      commercial results. This session is the
-                      practical version of that work: what AI
-                      actually does for marketing, with the numbers
-                      attached.
-                    </p>
+                    <div>
+                      <button
+                        onClick={scrollToForm}
+                        className="inline-flex items-center px-7 py-3.5 rounded-[14px] text-white text-[16px] font-semibold transition-colors"
+                        style={{ background: "#D4500F" }}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.background = "#B84309")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.background = "#D4500F")
+                        }
+                      >
+                        Save my seat
+                      </button>
+                    </div>
                   </div>
-                  <div className="shrink-0 max-sm:w-full">
-                    <a
-                      href="#register"
-                      className="inline-flex items-center justify-center max-sm:w-full px-7 py-3.5 rounded-[14px] text-white text-[16px] font-semibold transition-colors whitespace-nowrap"
-                      style={{ background: "#D4500F" }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.background = "#B84309")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.background = "#D4500F")
-                      }
-                    >
-                      Save my seat
-                    </a>
-                  </div>
+
                 </div>
               </div>
             </section>

@@ -15,18 +15,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title:
-      "Practical AI for Marketing: Real Use Cases, From Acquisition to Retention | Analogiq",
+      "Beyond the Bookings: The AI Travel Edition | Analogiq",
     description:
-      "Acquisition, retention, conversion, search, forecasting and pricing. Real examples from real brands, every one with the outcome attached. Thursday 2 July, 2pm UK.",
+      "Join our online session for travel and hospitality marketers. Real examples from Expedia, KLM and TUI, every one with the outcome attached. Thursday 2 July, 2pm UK. 45 minutes.",
     alternates: {
       canonical:
         "https://analogiq.io/events/practical-ai-for-marketing",
     },
     openGraph: {
       title:
-        "Practical AI for Marketing: Real Use Cases, From Acquisition to Retention",
+        "Beyond the Bookings: The AI Travel Edition",
       description:
-        "Acquisition, retention, conversion, search, forecasting and pricing. Real examples from real brands, every one with the outcome attached.",
+        "Real examples from Expedia, KLM and TUI. See how travel brands are applying AI across the customer journey, with the outcomes attached.",
       url: "https://analogiq.io/events/practical-ai-for-marketing",
       siteName: "Analogiq",
       type: "website",
@@ -34,9 +34,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title:
-        "Practical AI for Marketing: Real Use Cases, From Acquisition to Retention",
+        "Beyond the Bookings: The AI Travel Edition",
       description:
-        "Acquisition, retention, conversion, search, forecasting and pricing. Real examples from real brands. Thursday 2 July, 2pm UK.",
+        "Real examples from Expedia, KLM and TUI, with the outcomes attached. Thursday 2 July, 2pm UK. 45 minutes.",
     },
   };
 }
@@ -44,11 +44,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const eventSchema = {
   "@context": "https://schema.org",
   "@type": "Event",
-  name: "Practical AI for Marketing: Real Use Cases, From Acquisition to Retention",
+  name: "Beyond the Bookings: The AI Travel Edition",
   description:
-    "Acquisition, retention, conversion, search, forecasting and pricing. Real examples from real brands, every one with the outcome attached.",
+    "Real examples from Expedia, KLM and TUI. See how travel and hospitality brands are applying AI across the customer journey, with the outcomes attached.",
   startDate: "2026-07-02T14:00:00+01:00",
-  endDate: "2026-07-02T15:00:00+01:00",
+  endDate: "2026-07-02T14:45:00+01:00",
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode:
     "https://schema.org/OnlineEventAttendanceMode",

@@ -153,14 +153,26 @@ export default async function CasePage({
             </div>
           )}
 
-          {/* 5 · SCREENSHOTS */}
-          <div className="shots">
-            {c.imgs.map((img, i) => (
-              <figure className="shot" key={i}>
-                <img src={`/img/${img}`} alt="" loading="lazy" />
-              </figure>
-            ))}
-          </div>
+          {/* 5 · VIDEO or SCREENSHOTS */}
+          {c.video ? (
+            <div className="cvid">
+              <iframe
+                src={`https://www.youtube.com/embed/${c.video}`}
+                title={c.title}
+                loading="lazy"
+                allowFullScreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              />
+            </div>
+          ) : (
+            <div className="shots">
+              {c.imgs.map((img, i) => (
+                <figure className="shot" key={i}>
+                  <img src={`/img/${img}`} alt="" loading="lazy" />
+                </figure>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

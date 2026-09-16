@@ -2,19 +2,28 @@ import { chromium } from 'playwright';
 
 const PROPS = ['display','gridTemplateColumns','gap','marginTop','padding','borderColor','borderRadius'];
 const SELECTORS = [
-  '.phero.plain',
-  '.phero.plain h1',
-  '.imgband',
-  '.contactGrid',
-  '.contactPeople',
-  '.cperson',
-  '.cperson img',
-  '.cwhere',
-  '.row2',
-  'label',
-  'input[type=text]',
-  'input[type=email]',
-  'textarea',
+  '.hero',
+  '.heroGrid',
+  '.mosaic',
+  '.clients',
+  '.vendorlogos',
+  '.forPanel',
+  '.tabs',
+  '.tab',
+  '.panel',
+  '.panel .ans',
+  '.wgrid',
+  '.wgrid a',
+  '.ptr',
+  '.cards3',
+  '.card',
+  '.eng',
+  '.engRow',
+  '.ins',
+  '.ins a',
+  '.cta2',
+  '.ctabox',
+  '.hmos',
 ];
 const WIDTHS = [390, 1280];
 
@@ -35,19 +44,18 @@ async function getStyles(page, selectors, props) {
 
 const browser = await chromium.launch();
 
-// Style diff
 for (const width of WIDTHS) {
   console.log(`\n=== Width: ${width}px ===`);
 
   const pageNext = await browser.newPage();
   await pageNext.setViewportSize({ width, height: 900 });
-  await pageNext.goto('http://localhost:3000/contact', { waitUntil: 'networkidle' });
+  await pageNext.goto('http://localhost:3000/', { waitUntil: 'networkidle' });
   const nextStyles = await getStyles(pageNext, SELECTORS, PROPS);
   await pageNext.close();
 
   const pageProto = await browser.newPage();
   await pageProto.setViewportSize({ width, height: 900 });
-  await pageProto.goto(`file:///Users/mariokyriacou/analogiq/handover/analogiq-site/contact/index.html`, { waitUntil: 'networkidle' });
+  await pageProto.goto(`file:///Users/mariokyriacou/analogiq/handover/analogiq-site/index.html`, { waitUntil: 'networkidle' });
   const protoStyles = await getStyles(pageProto, SELECTORS, PROPS);
   await pageProto.close();
 
@@ -74,9 +82,9 @@ for (const width of WIDTHS) {
 console.log('\n=== Image load check ===');
 const page = await browser.newPage();
 await page.setViewportSize({ width: 1280, height: 900 });
-await page.goto('http://localhost:3000/contact', { waitUntil: 'networkidle' });
+await page.goto('http://localhost:3000/', { waitUntil: 'networkidle' });
 const imgCheck = await page.evaluate(() => {
-  const imgs = document.querySelectorAll('.imgband img, .cperson img');
+  const imgs = document.querySelectorAll('.mosaic img, .forPanel img, .wgrid img, .hmos img');
   return [...imgs].map(img => ({
     src: img.src,
     naturalWidth: img.naturalWidth,

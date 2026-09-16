@@ -1,358 +1,202 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import NavigationBar from "./components/NavigationBar";
+import "@/app/home.css";
+import ChallengeTabs from "@/app/components/home/ChallengeTabs";
 
 export const metadata: Metadata = {
-  title: "Digital Platform & AI Marketing Consultancy | Analogiq",
-  description: "We help enterprise marketing teams modernise platforms, activate AI and improve performance. Sitecore, composable DXP and marketing technology experts.",
+  title: "Analogiq | What should AI actually do in your business?",
+  description: "An AI consultancy for businesses with real data and no AI team of their own. Strategy, engineering and measurement from one team.",
   alternates: { canonical: "https://analogiq.io/" },
   openGraph: {
-    title: "Digital Platform & AI Marketing Consultancy | Analogiq",
-    description: "We help enterprise marketing teams modernise platforms, activate AI and improve performance. Sitecore, composable DXP and marketing technology experts.",
-    url: "https://analogiq.io/",
+    title: "Analogiq | What should AI actually do in your business?",
+    description: "An AI consultancy for businesses with real data and no AI team of their own.",
+    url: "https://analogiq.io",
   },
 };
-import HeroSection from "./components/HeroSection";
-import WorkSection from "./components/WorkSection";
-import ClientLogos from "./components/ClientLogos";
-import StatsBar from "./components/StatsBar";
-import IndustryShift from "./components/IndustryShift";
-import ActivationGap from "./components/ActivationGap";
-import ProcessSteps from "./components/ProcessSteps";
-import FinalCTA from "./components/FinalCTA";
-import Footer from "./components/Footer";
-import Eyebrow from "./components/Eyebrow";
 
-const PJB = "'Plus Jakarta Sans', system-ui, sans-serif";
-
-const approachSteps = [
-  {
-    number: "01",
-    title: "Audit",
-    description:
-      "Understand what's holding performance back. We assess current platform maturity, data readiness and activation gaps across your organisation — interviewing stakeholders, analysing your martech stack and mapping the distance between ambition and capability.",
-    outcomes: [
-      "Clear picture of platform maturity across all capabilities",
-      "Prioritised list of activation gaps and quick wins",
-      "Executive-ready findings with supporting evidence",
-    ],
-  },
-  {
-    number: "02",
-    title: "Roadmap",
-    description:
-      "Define what will drive measurable impact. We build a pragmatic delivery plan aligned with specific business objectives and realistic timelines — defining the sequence of initiatives, estimated effort and success metrics for each workstream.",
-    outcomes: [
-      "12-month delivery roadmap with phased milestones",
-      "Business case and ROI model for each initiative",
-      "Defined ownership and governance structure",
-    ],
-  },
-  {
-    number: "03",
-    title: "Pilot",
-    description:
-      "Prove value quickly. We deliver focused solutions with measurable outcomes within defined timeframes, embedding with your team to build, test and iterate on the highest-impact capability first.",
-    outcomes: [
-      "Live capability delivered within 6–8 weeks",
-      "Measurable performance baseline established",
-      "Team upskilled and ready to iterate independently",
-    ],
-  },
-  {
-    number: "04",
-    title: "Scale",
-    description:
-      "Roll out across teams and markets. We extend proven capabilities with governance in place, helping you build the operating model, tooling and skills to sustain momentum after we step back.",
-    outcomes: [
-      "Capability rolled out across all relevant markets and channels",
-      "Internal Centre of Excellence established",
-      "Ongoing optimisation cadence embedded in BAU",
-    ],
-  },
-];
-
-const serviceCards = [
-  {
-    title: "Website and Platform Modernisation",
-    problem: "Your platform is too slow to change and too expensive to evolve.",
-    outcome: "Launch campaigns in days, not weeks.",
-  },
-  {
-    title: "AI Activation",
-    problem: "AI is being explored but not driving real performance.",
-    outcome: "Move AI from experimentation to production.",
-  },
-  {
-    title: "Personalisation and Experimentation",
-    problem: "You have the tools but they're underused or disconnected.",
-    outcome: "Continuous improvement, not one-off optimisation.",
-  },
-  {
-    title: "Data and Insights",
-    problem: "Data exists but it's not driving decisions.",
-    outcome: "Decisions backed by data, not assumptions.",
-  },
-  {
-    title: "UX and Product Design",
-    problem: "Experiences that don't convert at the rate they should.",
-    outcome: "Design measured in outcomes, not aesthetics.",
-  },
-];
-
-const platformCards = [
-  {
-    logo: "/logos/platforms/sitecore.png",
-    name: "Sitecore",
-    body: "Unlock more value from your existing investment, or define the right path forward across XP, XM Cloud and SitecoreAI.",
-    href: "/platforms/sitecore",
-  },
-  {
-    logo: "/logos/platforms/uniform.svg",
-    name: "Uniform",
-    body: "Add a composable experience layer without rebuilding your stack, enabling faster builds and AI-driven experiences.",
-    href: "/platforms/uniform",
-  },
-  {
-    logo: "/logos/platforms/optimizely.svg",
-    name: "Optimizely",
-    body: "Turn experimentation and personalisation into a true growth engine, not a side capability.",
-    href: "/contact",
-  },
-];
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div>
-      <NavigationBar />
+    <main>
 
-      {/* 1. Hero */}
-      <HeroSection />
+      {/* SVG defs for dot patterns */}
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <defs>
+          <pattern id="tetp" width="72" height="64" patternUnits="userSpaceOnUse">
+            <circle cx="36" cy="12" r="2.6" fill="#fff" opacity=".13" />
+            <circle cx="26" cy="28" r="2.6" fill="#fff" opacity=".13" /><circle cx="46" cy="28" r="2.6" fill="#fff" opacity=".13" />
+            <circle cx="16" cy="44" r="2.6" fill="#fff" opacity=".13" /><circle cx="36" cy="44" r="2.6" fill="#fff" opacity=".13" /><circle cx="56" cy="44" r="2.6" fill="#fff" opacity=".13" />
+          </pattern>
+          <pattern id="tetl" width="72" height="64" patternUnits="userSpaceOnUse">
+            <circle cx="36" cy="12" r="2.6" fill="#5B2BD9" opacity=".3" />
+            <circle cx="26" cy="28" r="2.6" fill="#5B2BD9" opacity=".3" /><circle cx="46" cy="28" r="2.6" fill="#5B2BD9" opacity=".3" />
+            <circle cx="16" cy="44" r="2.6" fill="#5B2BD9" opacity=".3" /><circle cx="36" cy="44" r="2.6" fill="#5B2BD9" opacity=".3" /><circle cx="56" cy="44" r="2.6" fill="#5B2BD9" opacity=".3" />
+          </pattern>
+        </defs>
+      </svg>
 
-      {/* 2. Client logos + stats */}
-      <ClientLogos />
-      <StatsBar />
-
-      {/* 3. The Shift */}
-      <IndustryShift />
-
-      {/* 4. Activation Gap */}
-      <ActivationGap />
-
-      {/* 5. HOW WE THINK — Differentiator (extra top padding) */}
-      <section className="bg-white max-sm:py-[40px]" style={{ paddingTop: 118, paddingBottom: 70 }}>
-        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="mb-12 text-center">
-            <Eyebrow>HOW WE THINK</Eyebrow>
-            <h2
-              className="mt-4"
-              style={{ fontFamily: PJB, fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#191A23' }}
-            >
-              We don&apos;t design or build based on opinion.
-            </h2>
-            <p className="text-[17px] leading-[1.7] mt-6 max-w-[600px] mx-auto" style={{ color: '#4B5563' }}>
-              Most digital experiences are shaped by stakeholder preference,
-              internal assumptions and disconnected decisions. We take a
-              different approach. Everything we do is grounded in real user
-              behaviour, data and insight, and experimentation and validation.
-            </p>
-          </div>
-
-          <div
-            className="grid grid-cols-2 gap-6 max-sm:grid-cols-1 mx-auto"
-            style={{ maxWidth: 800 }}
-          >
-            {/* Left — visually weaker */}
-            <div
-              style={{
-                backgroundColor: '#F3F3F3',
-                borderRadius: 24,
-                border: '1px solid #E5E7EB',
-                padding: '32px 36px',
-              }}
-            >
-              <p className="text-[12px] font-semibold uppercase tracking-[0.1em] mb-5" style={{ color: '#C0C4CB' }}>
-                Most approaches rely on
-              </p>
-              <ul className="flex flex-col gap-3">
-                {["Stakeholder preference", "Internal assumptions", "Disconnected decisions"].map((t) => (
-                  <li key={t} className="flex items-center gap-3 text-[15px]" style={{ color: '#9CA3AF' }}>
-                    <span style={{ width: 6, height: 6, borderRadius: 999, backgroundColor: '#C0C4CB', flexShrink: 0, display: 'inline-block' }} />
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Right — full contrast */}
-            <div
-              style={{
-                backgroundColor: '#191A23',
-                borderRadius: 24,
-                border: '1px solid #191A23',
-                padding: '32px 36px',
-              }}
-            >
-              <p className="text-[12px] font-semibold uppercase tracking-[0.1em] mb-5" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                We ground everything in
-              </p>
-              <ul className="flex flex-col gap-3">
-                {["Real user behaviour", "Data and insight", "Experimentation and validation"].map((t) => (
-                  <li key={t} className="flex items-center gap-3 text-[16px]" style={{ color: '#ffffff' }}>
-                    <span style={{ width: 6, height: 6, borderRadius: 999, backgroundColor: '#D4500F', flexShrink: 0, display: 'inline-block' }} />
-                    {t}
-                  </li>
-                ))}
-              </ul>
+      {/* 1 · HERO */}
+      <section className="hero"><div className="wrap">
+        <div className="heroGrid">
+          <div>
+            <p className="q">Data and AI consultancy</p>
+            <h1>AI that fits your business, <em>not the other way around.</em></h1>
+            <p className="lede">Your business is unlike any other. We build AI solutions tailored to your proprietary data and ways of working, giving you an advantage your competitors cannot replicate.</p>
+            <div className="acts">
+              <a className="btn btn-a" href="/contact">Contact us <span className="arw"><svg viewBox="0 0 12 12"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="#fff" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg></span></a>
+              <a className="btn-o btn" href="/work">See our work</a>
             </div>
           </div>
-
-          <p className="mt-10 text-center" style={{ fontFamily: PJB, fontSize: 20, fontWeight: 700, color: '#191A23' }}>
-            We don&apos;t design for approval. We design for performance.
-          </p>
-        </div>
-      </section>
-
-      {/* 6. WHAT WE DO — Services (extra top padding) */}
-      <section className="bg-[#F3F3F3] max-sm:py-[40px]" style={{ paddingTop: 118, paddingBottom: 70 }}>
-        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="mb-8">
-            <Eyebrow>WHAT WE DO</Eyebrow>
-            <h2
-              className="mt-4"
-              style={{ fontFamily: PJB, fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#191A23' }}
-            >
-              From platform investment to measurable growth.
-            </h2>
-          </div>
-
-          <div className="mb-10">
-            <p className="text-[17px] font-semibold" style={{ color: '#191A23' }}>
-              Each capability solves a specific problem.
-            </p>
-            <p className="text-[17px] font-semibold" style={{ color: '#191A23' }}>
-              Together, they transform how marketing operates.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            {serviceCards.map(({ title, problem, outcome }) => (
-              <div
-                key={title}
-                className="grid max-md:grid-cols-1"
-                style={{
-                  gridTemplateColumns: '1fr 1.4fr',
-                  backgroundColor: '#ffffff',
-                  borderRadius: 24,
-                  border: '1px solid #191A23',
-                  boxShadow: '0 5px 0 0 #191A23',
-                  padding: '32px 40px',
-                  alignItems: 'center',
-                  gap: '40px',
-                }}
-              >
-                <h3 style={{ fontFamily: PJB, fontSize: 18, fontWeight: 600, color: '#191A23', lineHeight: 1.3 }}>
-                  {title}
-                </h3>
-                <div>
-                  <p className="text-[16px] leading-[1.6]" style={{ color: '#6B7280' }}>{problem}</p>
-                  <p className="text-[16px] font-bold mt-2" style={{ color: '#D4500F' }}>{outcome}</p>
-                </div>
-              </div>
-            ))}
+          <div className="mosaic" aria-hidden="true">
+            <div className="m1"><img src="/img/office-huddle.jpg" alt="" /></div>
+            <div className="m2"></div>
+            <div className="m3"></div>
+            <div className="m4 pat"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#tetl)" /></svg></div>
+            <div className="m5"><img src="/img/office-desks.jpg" alt="" /></div>
           </div>
         </div>
-      </section>
+      </div></section>
 
-      {/* 7. OUR PLATFORMS */}
-      <section className="bg-white py-[70px] max-sm:py-[40px]">
-        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5">
-          <div className="mb-6">
-            <Eyebrow>OUR PLATFORMS</Eyebrow>
-            <h2
-              className="mt-4"
-              style={{ fontFamily: PJB, fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, color: '#191A23' }}
-            >
-              Built for the platforms you already use.
-            </h2>
+      {/* 2 · CLIENTS */}
+      <div className="clients" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="wrap vwrap" style={{ position: 'relative', zIndex: 2 }}>
+          <p className="lbl">The platforms we work on</p>
+          <div className="vrows">
+            <ul className="vendorlogos">
+              <li><img src="/img/logo-microsoft.svg" alt="Microsoft" /></li>
+              <li><img src="/img/logo-azure.svg" alt="Azure" /></li>
+              <li><img src="/img/logo-aws.svg" alt="AWS" /></li>
+              <li><img src="/img/logo-google.svg" alt="Google" /></li>
+              <li><img src="/img/logo-openai.svg" alt="OpenAI" /></li>
+              <li><img src="/img/logo-meta.svg" alt="Meta" /></li>
+            </ul>
+            <ul className="vendorlogos">
+              <li><img src="/img/logo-sitecore.svg" alt="Sitecore" /></li>
+              <li><img src="/img/logo-optimizely.svg" alt="Optimizely" /></li>
+              <li><img src="/img/logo-uniform.svg" alt="Uniform" /></li>
+              <li><img src="/img/logo-contentful.svg" alt="Contentful" /></li>
+            </ul>
           </div>
-
-          <div className="mb-10">
-            <p className="text-[17px]" style={{ color: '#4B5563' }}>
-              We don&apos;t replace your platform.
-            </p>
-            <p className="text-[17px]" style={{ color: '#4B5563' }}>
-              We make it work properly.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
-            {platformCards.map(({ logo, name, body, href }) => (
-              <Link
-                key={name}
-                href={href}
-                className="flex flex-col group hover:-translate-y-1 transition-transform duration-200"
-                style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: 32,
-                  border: '1px solid #191A23',
-                  boxShadow: '0 5px 0 0 #191A23',
-                  padding: '40px 40px',
-                  textDecoration: 'none',
-                }}
-              >
-                <div style={{ height: 40, position: 'relative', marginBottom: 24 }}>
-                  <Image
-                    src={logo}
-                    alt={name}
-                    fill
-                    style={{ objectFit: 'contain', objectPosition: 'left' }}
-                  />
-                </div>
-                <p className="text-[16px] leading-[1.65] flex-1" style={{ color: '#6B7280' }}>{body}</p>
-                <span
-                  className="mt-6 text-[15px] font-semibold inline-block transition-colors duration-200"
-                  style={{ color: '#D4500F' }}
-                >
-                  Learn more →
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          <p className="mt-10 text-[15px] text-center" style={{ color: '#9CA3AF' }}>
-            We&apos;re platform-aware, but vendor-neutral. The focus is always outcomes.
-          </p>
-        </div>
-      </section>
-
-      {/* 8. Approach */}
-      <ProcessSteps
-        eyebrow="OUR APPROACH"
-        heading="From audit to scale."
-        subheading="We modernise your digital platform and embed new capabilities across the organisation."
-        steps={approachSteps}
-      />
-
-      {/* Approach closing line */}
-      <div className="bg-white" style={{ borderBottom: '1px solid #E5E7EB' }}>
-        <div className="max-w-[1440px] mx-auto px-[100px] max-sm:px-5 py-12 text-center">
-          <p className="text-[18px] font-semibold" style={{ fontFamily: PJB, color: '#6B7280' }}>
-            No long transformation programmes. Just progress that compounds.
-          </p>
         </div>
       </div>
 
-      {/* 9. Work */}
-      <WorkSection />
+      {/* 3 · WHO IS THIS FOR */}
+      <section className="sec"><div className="wrap">
+        <p className="q">Who is this built for?</p>
+        <h2 className="big">Businesses with real data, and no AI team of their own.</h2>
+        <div className="forPanel">
+          <ul className="forList">
+            <li>You know AI could change something in your business, and you cannot say what, or where to start.</li>
+            <li>You have years of data across systems that were never designed to talk to each other.</li>
+            <li>You have seen demos. You have not seen anything reach production.</li>
+          </ul>
+          <img src="/img/office-laugh.jpg" alt="" />
+        </div>
+      </div></section>
 
-      {/* 10. Final CTA */}
-      <FinalCTA
-        heading="If your platform is limiting your marketing, let's fix it."
-        subheading="If your platform isn't delivering the performance it should, it's rarely the technology. It's how it has been designed, connected and activated. We'll show you where the gaps are and how to close them. No pitch. Just a conversation."
-      />
-      <Footer />
-    </div>
+      {/* 4 · CHALLENGES */}
+      <section className="sec" id="solve"><div className="wrap">
+        <p className="q">What are we built to solve?</p>
+        <h2 className="big">The impact we deliver.</h2>
+        <p className="lede" style={{ marginTop: '18px' }}>Artificial intelligence offers endless possibilities. The real challenge is moving from believing AI could add value, to understanding exactly where it will, what form it should take, and how to get there.</p>
+        <p className="fam">Problems we can solve</p>
+        <ChallengeTabs />
+      </div></section>
+
+      {/* 5 · WORK */}
+      <section className="sec work" id="work"><div className="wrap">
+        <p className="q">What have we built?</p>
+        <h2 className="big">Systems in production, not pilots.</h2>
+        <p className="lede" style={{ marginTop: '18px' }}>Each started as a thin line inside the client&apos;s real constraints and grew. Each carries two figures: what changed, and where a person stayed in the loop.</p>
+        <div className="wgrid">
+          <a href="/work/capco-platform">
+            <img src="/img/case-capco-platform.jpg" alt="" />
+            <p className="m"><span className="pill est">Digital</span> Capco &middot; Professional services</p>
+            <h3>A global platform rebuilt from scratch in 120 days</h3>
+            <div className="ws"><div><b>120 days</b><span>to full delivery</span></div><div><b>14d to 24hr</b><span>update SLA</span></div></div>
+          </a>
+          <a href="/work/hsbc">
+            <img src="/img/case-hsbc.jpg" alt="" />
+            <p className="m"><span className="pill">AI</span> HSBC &middot; Financial services</p>
+            <h3>Experimentation across six markets at 12:1 ROI</h3>
+            <div className="ws"><div><b>12:1</b><span>return on investment</span></div><div><b>$2.6M</b><span>client lifetime value</span></div></div>
+          </a>
+          <a href="/work/wilderness">
+            <img src="/img/case-wilderness.jpg" alt="" />
+            <p className="m"><span className="pill est">Digital</span> Wilderness &middot; Travel</p>
+            <h3>Conversion doubled, acquisition cost halved</h3>
+            <div className="ws"><div><b>2x</b><span>conversion rate</span></div><div><b>63%</b><span>lower cost per acquisition</span></div></div>
+          </a>
+        </div>
+        <p style={{ marginTop: '30px' }}><a href="/work" style={{ fontWeight: 600 }}>All our work</a></p>
+      </div></section>
+
+      {/* 6 · APPROACH POINTER */}
+      <section className="sec fail" style={{ paddingTop: 'clamp(48px,5vw,72px)', paddingBottom: 'clamp(48px,5vw,72px)' }}><div className="wrap">
+        <div className="ptr">
+          <div>
+            <p className="q">Why does most of this not work?</p>
+            <h2 className="big" style={{ maxWidth: '24ch' }}>Most AI work never reaches production. The model is almost never the reason.</h2>
+          </div>
+          <div>
+            <p className="lede">There are six ways these projects die, and we have watched all of them. The way we work is built to avoid each one.</p>
+            <div className="acts" style={{ marginTop: '26px' }}><a className="btn" href="/approach">Our approach</a></div>
+          </div>
+        </div>
+      </div></section>
+
+      {/* 7 · WHAT WE SELL */}
+      <section className="sec" id="sell" style={{ background: 'var(--lilac2)' }}><div className="wrap">
+        <p className="q">What do we actually sell?</p>
+        <h2 className="big">Three outcomes. Five ways in.</h2>
+        <p className="lede" style={{ marginTop: '18px' }}>Every engagement starts with a commercial outcome, agreed and measured before anything is built.</p>
+
+        <div className="cards3">
+          <div className="card"><span className="n">Outcome 01</span><h3>Revenue and growth</h3><p>Who is likely to buy, what they want next, and when to reach out. And when they arrive, making sure they can find it. Your team makes the final call.</p><span className="lk">Revenue and growth</span></div>
+          <div className="card"><span className="n">Outcome 02</span><h3>Efficiency and cost to serve</h3><p>Reading the same documents, answering the same questions, rebuilding the same report. Automated without removing the judgement, so your team gets the cases that need them.</p><span className="lk">Efficiency and scale</span></div>
+          <div className="card"><span className="n">Outcome 03</span><h3>Capability and control</h3><p>The hard part is not the first project, it is the second and third. Data sorted, governance your team will use, people trained to spot the next thing. You should need us less over time, not more.</p><span className="lk">Capability and governance</span></div>
+        </div>
+
+        <p className="q" style={{ marginTop: '64px' }}>And how do we start?</p>
+        <div className="eng">
+          <div className="engRow"><h3 className="engH">Opportunity assessment</h3><p>Time with your people and your data. A clear picture of where AI will make a difference, what it is worth, and where to start.</p><span className="meta">Weeks</span></div>
+          <div className="engRow"><h3 className="engH">The first thin line</h3><p>The simplest path from A to B that works inside today&apos;s constraints. One use case, end to end, in production. Value in weeks rather than months.</p><span className="meta">Weeks</span></div>
+          <div className="engRow"><h3 className="engH">Build capability</h3><p>More sources, more features, more capability, each added on top of something already running.</p><span className="meta">Ongoing</span></div>
+          <div className="engRow"><h3 className="engH">Enablement programme</h3><p>The tools and training to run it in-house, with us alongside deciding what to improve next.</p><span className="meta">Programme</span></div>
+          <div className="engRow"><h3 className="engH">Retained partnership</h3><p>Analysis, strategy and delivery against a shared roadmap.</p><span className="meta">Ongoing</span></div>
+        </div>
+      </div></section>
+
+      {/* 8 · INSIGHTS */}
+      <section className="sec" id="insights" style={{ background: 'var(--lilac2)' }}><div className="wrap">
+        <p className="q">What are we thinking about?</p>
+        <h2 className="big">Practical, not theoretical.</h2>
+        <p className="lede" style={{ marginTop: '18px' }}>Everything we publish has to be usable on Monday. Not another conversation about the art of the possible.</p>
+        <div className="ins">
+          <a href="/ai-in-the-wild"><img src="https://picsum.photos/seed/anlg-ins1/620/400" alt="" /><p className="m">Field note</p><h3>Start with a thin line, not a strategy</h3><p>Why the narrowest working path beats an eighteen-month data programme, and how to scope one.</p></a>
+          <a href="/ai-in-the-wild"><img src="https://picsum.photos/seed/anlg-ins2/620/400" alt="" /><p className="m">Report</p><h3>The AI Layer</h3><p>How AI is actually being used across travel and hospitality, and which claims stand up to scrutiny.</p></a>
+          <a href="/ai-in-the-wild"><img src="https://picsum.photos/seed/anlg-ins3/620/400" alt="" /><p className="m">Podcast</p><h3>Why 95% of pilots fail</h3><p>F&#123;AIL&#125;s, with Mario and Steve. Most AI failures turn out to be human failures.</p></a>
+        </div>
+        <p style={{ marginTop: '30px' }}><a href="/ai-in-the-wild" style={{ fontWeight: 600 }}>All insights and events</a></p>
+      </div></section>
+
+      {/* 9 · CTA */}
+      <section className="sec cta2" id="start"><div className="wrap"><div className="ctabox">
+        <div className="ctatext">
+          <p className="q">Where do I start?</p>
+          <h2>Tell us what is slow, expensive or manual.</h2>
+          <p>We will tell you honestly whether AI is the answer, what form it would take, and what a first build looks like. If the honest answer is not yet, we will say that too.</p>
+          <div className="acts">
+            <a className="btn btn-a" href="/contact">Contact us <span className="arw"><svg viewBox="0 0 12 12"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="#17111F" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg></span></a>
+            <a className="btn btn-o" href="/work">See our work</a>
+          </div>
+        </div>
+        <div className="hmos" aria-hidden="true">
+          <div className="m-ph tall"><img src="/img/office-corridor.jpg" alt="" /></div>
+          <div className="m-ph wide"><img src="/img/office-tablet.jpg" alt="" /></div>
+          <div className="m-amber"></div>
+          <div className="m-purple"><svg viewBox="0 0 36 34" aria-hidden="true"><rect x="4" y="12" width="28" height="5" rx="2.5" /><rect x="4" y="21" width="16" height="5" rx="2.5" /></svg></div>
+        </div>
+      </div></div></section>
+
+    </main>
   );
 }

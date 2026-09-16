@@ -180,6 +180,22 @@ export default function HowWeBuildPage() {
           <p className="rule">Where a system sits depends on how well it has measured and on what a mistake would cost: the damage, how fast you would notice, and whether it can be undone. Earned by evidence, bounded by consequence.</p>
         </div>
       </section>
+
+      <section className="sec" id="stack" style={{ background: 'var(--lilac2)' }}>
+        <div className="wrap">
+          <p className="q">What do you build with?</p>
+          <h2 className="big">We pick per task, and we will tell you why.</h2>
+          <p className="lede" style={{ marginTop: '16px' }}>One model for long-document reasoning, another for cheap high-volume classification, an open model where data cannot leave your environment and you have the compute to run it. The choice is part of the work, not a house preference.</p>
+          <div className="grid3x">
+            <div><p className="k">Foundation models</p><p>Claude, GPT, Gemini, and open-weight models including Llama, Mistral and Qwen.</p></div>
+            <div><p className="k">Access and hosting</p><p>Direct APIs, plus Azure AI, AWS Bedrock and Google Vertex where the model must sit inside your existing cloud contract. Self-hosting via Ollama or vLLM.</p></div>
+            <div><p className="k">Retrieval and knowledge</p><p>Embeddings from OpenAI, Cohere and Voyage. Vector stores including pgvector, Pinecone, Weaviate and Qdrant. LangChain, LlamaIndex, or plain code.</p></div>
+            <div><p className="k">Agents and orchestration</p><p>Anthropic and OpenAI agent SDKs, LangGraph, CrewAI, and platform-native agents such as Agentforce and Copilot Studio.</p></div>
+            <div><p className="k">Evaluation and observability</p><p>Langfuse, LangSmith, Braintrust, Promptfoo, Arize. This is how the measurement claim is kept.</p></div>
+            <div><p className="k">Classical ML</p><p>scikit-learn, XGBoost, Prophet, Python and SQL. Propensity, churn and forecasting are mostly this, not language models.</p></div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

@@ -2,9 +2,8 @@ import { chromium } from 'playwright';
 
 const PROPS = ['display','gridTemplateColumns','gap','marginTop','padding','borderColor','borderRadius'];
 const SELECTORS = [
-  '#oversight .levels',
-  '#oversight .levels > *',
-  '#oversight .rule',
+  '#stack .grid3x',
+  '#stack .grid3x > *',
 ];
 const WIDTHS = [390, 1280];
 

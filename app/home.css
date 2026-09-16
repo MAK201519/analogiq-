@@ -74,7 +74,7 @@ h1 em{font-style:normal;color:var(--purple)}
 .chal-img img{width:100%;height:clamp(150px,17vw,220px);object-fit:cover}
 
 /* tabs */
-.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px;border:none!important;border-radius:0}
 .tab{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:11px 18px;font:inherit;font-size:15px;font-weight:600;color:var(--muted);cursor:pointer;white-space:nowrap}
 .tabs{overflow-x:auto;flex-wrap:wrap}
 .tab[aria-selected="true"]{background:var(--purple);border-color:var(--purple);color:#fff}

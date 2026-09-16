@@ -1,3 +1,4 @@
+import "@/app/how-we-build.css";
 import EngagementTabs from "@/app/components/how-we-build/EngagementTabs";
 
 export default function HowWeBuildPage() {

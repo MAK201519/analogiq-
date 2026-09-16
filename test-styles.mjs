@@ -2,11 +2,9 @@ import { chromium } from 'playwright';
 
 const PROPS = ['display','gridTemplateColumns','gap','marginTop','padding','borderColor','borderRadius'];
 const SELECTORS = [
-  '#estate .twocol',
-  '#estate .twocol > *',
-  '#estate .accs',
-  '#estate .acc',
-  '#estate .acc summary',
+  '#oversight .levels',
+  '#oversight .levels > *',
+  '#oversight .rule',
 ];
 const WIDTHS = [390, 1280];
 

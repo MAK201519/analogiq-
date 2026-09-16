@@ -166,6 +166,20 @@ export default function HowWeBuildPage() {
           </div>
         </div>
       </section>
+
+      <section className="sec" id="oversight">
+        <div className="wrap">
+          <p className="q">How much does it do on its own?</p>
+          <h2 className="big">You decide. The evidence moves the dial.</h2>
+          <ol className="levels">
+            <li><span className="n">1</span><div><b>The system informs.</b> A person decides and acts.</div></li>
+            <li><span className="n">2</span><div><b>The system proposes.</b> A person approves each one.</div></li>
+            <li><span className="n">3</span><div><b>The system acts on low-risk work.</b> A person reviews the exceptions.</div></li>
+            <li><span className="n">4</span><div><b>The system acts within policy.</b> It stops and hands over at the edge.</div></li>
+          </ol>
+          <p className="rule">Where a system sits depends on how well it has measured and on what a mistake would cost: the damage, how fast you would notice, and whether it can be undone. Earned by evidence, bounded by consequence.</p>
+        </div>
+      </section>
     </main>
   );
 }

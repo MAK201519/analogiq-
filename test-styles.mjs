@@ -5,10 +5,12 @@ const SELECTORS = [
   '.phero',
   '.hbox',
   '.hmos.brand',
-  '.wgrid',
-  '.wgrid a',
-  '.wgrid .pill',
-  '.wgrid .ws',
+  '.chain',
+  '.fails',
+  '.grid3x',
+  '.split',
+  '.ciViz',
+  '.thin',
   '.cta2',
   '.ctabox',
 ];
@@ -36,13 +38,13 @@ for (const width of WIDTHS) {
 
   const pageNext = await browser.newPage();
   await pageNext.setViewportSize({ width, height: 900 });
-  await pageNext.goto('http://localhost:3000/work', { waitUntil: 'networkidle' });
+  await pageNext.goto('http://localhost:3000/approach', { waitUntil: 'networkidle' });
   const nextStyles = await getStyles(pageNext, SELECTORS, PROPS);
   await pageNext.close();
 
   const pageProto = await browser.newPage();
   await pageProto.setViewportSize({ width, height: 900 });
-  await pageProto.goto(`file:///Users/mariokyriacou/analogiq/handover/analogiq-site/work/index.html`, { waitUntil: 'networkidle' });
+  await pageProto.goto(`file:///Users/mariokyriacou/analogiq/handover/analogiq-site/approach/index.html`, { waitUntil: 'networkidle' });
   const protoStyles = await getStyles(pageProto, SELECTORS, PROPS);
   await pageProto.close();
 
@@ -65,38 +67,4 @@ for (const width of WIDTHS) {
   if (!anyDiff) console.log('  All properties match.');
 }
 
-// Image load check — all nine thumbnails
-console.log('\n=== Thumbnail load check ===');
-const page = await browser.newPage();
-await page.setViewportSize({ width: 1280, height: 900 });
-await page.goto('http://localhost:3000/work', { waitUntil: 'networkidle' });
-const imgCheck = await page.evaluate(() => {
-  const imgs = document.querySelectorAll('.wgrid img');
-  return [...imgs].map(img => ({
-    src: img.src,
-    loaded: img.complete && img.naturalWidth > 0,
-    size: `${img.naturalWidth}x${img.naturalHeight}`,
-  }));
-});
-console.log(`  ${imgCheck.length} thumbnails found`);
-for (const img of imgCheck) {
-  console.log(`  ${img.src.replace('http://localhost:3000','')}: ${img.loaded ? 'OK' : 'BROKEN'} (${img.size})`);
-}
-
-// Card count
-const cardCount = await page.evaluate(() => document.querySelectorAll('.wgrid > a').length);
-console.log(`  ${cardCount} cards rendered`);
-
-// Pill check
-const pills = await page.evaluate(() => {
-  return [...document.querySelectorAll('.wgrid .pill')].map(el => ({
-    text: el.textContent,
-    hasEst: el.classList.contains('est'),
-  }));
-});
-for (const p of pills) {
-  console.log(`  Pill: "${p.text}" est=${p.hasEst}`);
-}
-
-await page.close();
 await browser.close();

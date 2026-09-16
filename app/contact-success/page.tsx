@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "@/app/contact.css";
 
 export const metadata: Metadata = {
   title: "Thank you | Analogiq",

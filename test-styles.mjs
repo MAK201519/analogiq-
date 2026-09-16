@@ -4,13 +4,6 @@ const PROPS = ['display','gridTemplateColumns','gap','marginTop','padding','bord
 const SELECTORS = [
   '.phero',
   '.hbox',
-  '.hmos.brand',
-  '.chain',
-  '.fails',
-  '.grid3x',
-  '.split',
-  '.ciViz',
-  '.thin',
   '.cta2',
   '.ctabox',
 ];
@@ -38,13 +31,13 @@ for (const width of WIDTHS) {
 
   const pageNext = await browser.newPage();
   await pageNext.setViewportSize({ width, height: 900 });
-  await pageNext.goto('http://localhost:3000/approach', { waitUntil: 'networkidle' });
+  await pageNext.goto('http://localhost:3000/contact', { waitUntil: 'networkidle' });
   const nextStyles = await getStyles(pageNext, SELECTORS, PROPS);
   await pageNext.close();
 
   const pageProto = await browser.newPage();
   await pageProto.setViewportSize({ width, height: 900 });
-  await pageProto.goto(`file:///Users/mariokyriacou/analogiq/handover/analogiq-site/approach/index.html`, { waitUntil: 'networkidle' });
+  await pageProto.goto(`file:///Users/mariokyriacou/analogiq/handover/analogiq-site/contact/index.html`, { waitUntil: 'networkidle' });
   const protoStyles = await getStyles(pageProto, SELECTORS, PROPS);
   await pageProto.close();
 

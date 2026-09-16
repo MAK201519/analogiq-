@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { cases } from "@/content/cases";
-import "@/app/work-case.css";
 
 export const metadata: Metadata = {
   title: "Our work | Analogiq",

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "@/app/services.css";
 
 export const metadata: Metadata = {
   title: "Services | Analogiq",

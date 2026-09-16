@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cases } from "@/content/cases";
-import "@/app/work-case.css";
 
 /* ── logo map ──────────────────────────────────────────────────────────── */
 const LOGO: Record<string, string | null> = {

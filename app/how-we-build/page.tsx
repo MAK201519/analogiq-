@@ -1,6 +1,17 @@
+import EngagementTabs from "@/app/components/how-we-build/EngagementTabs";
+
 export default function HowWeBuildPage() {
   return (
     <main>
+      <section className="sec" id="engagement">
+        <div className="wrap">
+          <p className="q">What does an engagement actually look like?</p>
+          <h2 className="big">Weeks, not phases.</h2>
+          <p className="lede" style={{ marginTop: '16px' }}>This is the typical path, not a template we force you into.</p>
+          <EngagementTabs />
+        </div>
+      </section>
+
       <section className="sec marked" id="techniques" style={{ background: 'var(--lilac2)' }}>
         <div className="wrap">
           <p className="q">Which pattern, and when?</p>

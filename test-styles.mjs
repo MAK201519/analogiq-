@@ -2,10 +2,10 @@ import { chromium } from 'playwright';
 
 const PROPS = ['display','gridTemplateColumns','gap','marginTop','padding','borderColor','borderRadius'];
 const SELECTORS = [
-  '.phero',
-  '.hbox',
-  '.hmos',
-  '.hmos > *',
+  '.cta2',
+  '.ctabox',
+  '.cta2 .hmos',
+  '.cta2 .hmos > *',
 ];
 const WIDTHS = [390, 1280];
 
@@ -61,8 +61,23 @@ for (const width of WIDTHS) {
   if (!anyDiff) console.log('  All properties match.');
 }
 
-// No images to check — mosaic is all SVGs and CSS backgrounds
-console.log('\n=== Image check ===');
-console.log('  No <img> elements in .hmos.brand — all tiles are SVG/CSS. Nothing to verify.');
+// Image load check
+console.log('\n=== Image load check ===');
+const page = await browser.newPage();
+await page.setViewportSize({ width: 1280, height: 900 });
+await page.goto('http://localhost:3000/how-we-build', { waitUntil: 'networkidle' });
+const imgCheck = await page.evaluate(() => {
+  const imgs = document.querySelectorAll('.cta2 .hmos img');
+  return [...imgs].map(img => ({
+    src: img.src,
+    naturalWidth: img.naturalWidth,
+    naturalHeight: img.naturalHeight,
+    loaded: img.complete && img.naturalWidth > 0,
+  }));
+});
+for (const img of imgCheck) {
+  console.log(`  ${img.src}: ${img.loaded ? 'OK' : 'BROKEN'} (${img.naturalWidth}x${img.naturalHeight})`);
+}
+await page.close();
 
 await browser.close();

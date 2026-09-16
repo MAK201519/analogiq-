@@ -237,6 +237,28 @@ export default function HowWeBuildPage() {
           </div>
         </div>
       </section>
+
+      <section className="sec cta2">
+        <div className="wrap">
+          <div className="ctabox">
+            <div className="ctatext">
+              <p className="q">Where do I start?</p>
+              <h2>Any of that need checking?</h2>
+              <p>Send us the questions your team would ask. We will answer them properly rather than send a capability deck.</p>
+              <div className="acts">
+                <a className="btn btn-a" href="/contact">Contact us <span className="arw"><svg viewBox="0 0 12 12"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="#fff" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg></span></a>
+                <a className="btn btn-o" href="/work">See our work</a>
+              </div>
+            </div>
+            <div className="hmos" aria-hidden="true">
+              <div className="m-ph tall"><img src="/img/office-tablet.jpg" alt="" /></div>
+              <div className="m-ph wide"><img src="/img/office-smile.jpg" alt="" /></div>
+              <div className="m-amber"></div>
+              <div className="m-purple"><svg viewBox="0 0 36 34" aria-hidden="true"><rect x="4" y="12" width="28" height="5" rx="2.5" /><rect x="4" y="21" width="16" height="5" rx="2.5" /></svg></div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

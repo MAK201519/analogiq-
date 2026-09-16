@@ -3,6 +3,36 @@ import EngagementTabs from "@/app/components/how-we-build/EngagementTabs";
 export default function HowWeBuildPage() {
   return (
     <main>
+      <section className="phero">
+        <div className="wrap">
+          <nav className="crumbs" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span>How we build</span>
+          </nav>
+          <div className="hbox">
+            <div className="htext">
+              <p className="q">What does it actually take to build this?</p>
+              <h1>Engineering.</h1>
+              <p className="lede">Every project follows the same idea: the thin line, the simplest path that gets you a working result fast, then grows from there. Here is what that means in practice, from how a project is shaped to the tools we choose and why.</p>
+            </div>
+            <div className="hmos brand" aria-hidden="true">
+              <div className="m-amber tall">
+                <svg viewBox="0 0 36 34" aria-hidden="true"><rect x="4" y="12" width="28" height="5" rx="2.5" /><rect x="4" y="21" width="16" height="5" rx="2.5" /></svg>
+              </div>
+              <div className="m-lilac wide">
+                <div className="m-dots"></div>
+              </div>
+              <div className="m-ink">
+                <svg viewBox="0 0 36 34" aria-hidden="true"><rect x="4" y="12" width="28" height="5" rx="2.5" /><rect x="4" y="21" width="16" height="5" rx="2.5" /></svg>
+              </div>
+              <div className="m-purple">
+                <svg viewBox="0 0 36 34" aria-hidden="true"><rect x="4" y="12" width="28" height="5" rx="2.5" /><rect x="4" y="21" width="16" height="5" rx="2.5" /></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="sec" id="engagement">
         <div className="wrap">
           <p className="q">What does an engagement actually look like?</p>

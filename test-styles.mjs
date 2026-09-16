@@ -2,12 +2,10 @@ import { chromium } from 'playwright';
 
 const PROPS = ['display','gridTemplateColumns','gap','marginTop','padding','borderColor','borderRadius'];
 const SELECTORS = [
-  '#engagement .tabs',
-  '#engagement .tablist',
-  '#engagement .tablist button',
-  '#engagement .tablist button.on',
-  '#engagement .tabpanel.on',
-  '#engagement .tabtile',
+  '.phero',
+  '.hbox',
+  '.hmos',
+  '.hmos > *',
 ];
 const WIDTHS = [390, 1280];
 
@@ -63,61 +61,8 @@ for (const width of WIDTHS) {
   if (!anyDiff) console.log('  All properties match.');
 }
 
-// Interaction test
-console.log('\n=== Tab interaction test ===');
-const page = await browser.newPage();
-await page.setViewportSize({ width: 1280, height: 900 });
-await page.goto('http://localhost:3000/how-we-build', { waitUntil: 'networkidle' });
+// No images to check — mosaic is all SVGs and CSS backgrounds
+console.log('\n=== Image check ===');
+console.log('  No <img> elements in .hmos.brand — all tiles are SVG/CSS. Nothing to verify.');
 
-// Check initial state: tab 0 active
-const initial = await page.evaluate(() => {
-  const btns = document.querySelectorAll('#engagement .tablist button');
-  const panels = document.querySelectorAll('#engagement .tabpanel');
-  return {
-    activeBtn: [...btns].findIndex(b => b.classList.contains('on')),
-    visiblePanel: [...panels].findIndex(p => p.classList.contains('on')),
-  };
-});
-console.log(`  Initial: button ${initial.activeBtn} active, panel ${initial.visiblePanel} visible`);
-
-// Click tab 1 (Build)
-await page.click('#engagement .tablist button[data-t="1"]');
-const after1 = await page.evaluate(() => {
-  const btns = document.querySelectorAll('#engagement .tablist button');
-  const panels = document.querySelectorAll('#engagement .tabpanel');
-  return {
-    activeBtn: [...btns].findIndex(b => b.classList.contains('on')),
-    visiblePanel: [...panels].findIndex(p => p.classList.contains('on')),
-    panelH3: document.querySelector('#engagement .tabpanel.on h3')?.textContent,
-  };
-});
-console.log(`  After click Build: button ${after1.activeBtn}, panel ${after1.visiblePanel}, h3="${after1.panelH3}"`);
-
-// Click tab 2 (Scale)
-await page.click('#engagement .tablist button[data-t="2"]');
-const after2 = await page.evaluate(() => {
-  const btns = document.querySelectorAll('#engagement .tablist button');
-  const panels = document.querySelectorAll('#engagement .tabpanel');
-  return {
-    activeBtn: [...btns].findIndex(b => b.classList.contains('on')),
-    visiblePanel: [...panels].findIndex(p => p.classList.contains('on')),
-    panelH3: document.querySelector('#engagement .tabpanel.on h3')?.textContent,
-  };
-});
-console.log(`  After click Scale: button ${after2.activeBtn}, panel ${after2.visiblePanel}, h3="${after2.panelH3}"`);
-
-// Click tab 0 (Assess) - back to start
-await page.click('#engagement .tablist button[data-t="0"]');
-const after0 = await page.evaluate(() => {
-  const btns = document.querySelectorAll('#engagement .tablist button');
-  const panels = document.querySelectorAll('#engagement .tabpanel');
-  return {
-    activeBtn: [...btns].findIndex(b => b.classList.contains('on')),
-    visiblePanel: [...panels].findIndex(p => p.classList.contains('on')),
-    panelH3: document.querySelector('#engagement .tabpanel.on h3')?.textContent,
-  };
-});
-console.log(`  After click Assess: button ${after0.activeBtn}, panel ${after0.visiblePanel}, h3="${after0.panelH3}"`);
-
-await page.close();
 await browser.close();

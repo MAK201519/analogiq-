@@ -2,25 +2,15 @@ import { chromium } from 'playwright';
 
 const PROPS = ['display','gridTemplateColumns','gap','marginTop','padding','borderColor','borderRadius'];
 const SELECTORS = [
-  '.hero',
-  '.heroGrid',
-  '.mosaic',
-  '.clients',
-  '.vendorlogos',
-  '.forPanel',
-  '.tabs',
-  '.tab',
-  '.panel',
-  '.panel .ans',
-  '.wgrid',
-  '.wgrid a',
-  '.ptr',
-  '.cards3',
-  '.card',
-  '.eng',
-  '.engRow',
-  '.ins',
-  '.ins a',
+  '.phero',
+  '.hbox',
+  '.hmos.brand',
+  '.forbox',
+  '.cards',
+  '.cards > div',
+  '.stat3',
+  '.stat3 > div',
+  '.cards.ways',
   '.cta2',
   '.ctabox',
   '.hmos',
@@ -49,13 +39,13 @@ for (const width of WIDTHS) {
 
   const pageNext = await browser.newPage();
   await pageNext.setViewportSize({ width, height: 900 });
-  await pageNext.goto('http://localhost:3000/', { waitUntil: 'networkidle' });
+  await pageNext.goto('http://localhost:3000/services', { waitUntil: 'networkidle' });
   const nextStyles = await getStyles(pageNext, SELECTORS, PROPS);
   await pageNext.close();
 
   const pageProto = await browser.newPage();
   await pageProto.setViewportSize({ width, height: 900 });
-  await pageProto.goto(`file:///Users/mariokyriacou/analogiq/handover/analogiq-site/index.html`, { waitUntil: 'networkidle' });
+  await pageProto.goto(`file:///Users/mariokyriacou/analogiq/handover/analogiq-site/services/index.html`, { waitUntil: 'networkidle' });
   const protoStyles = await getStyles(pageProto, SELECTORS, PROPS);
   await pageProto.close();
 
@@ -82,9 +72,9 @@ for (const width of WIDTHS) {
 console.log('\n=== Image load check ===');
 const page = await browser.newPage();
 await page.setViewportSize({ width: 1280, height: 900 });
-await page.goto('http://localhost:3000/', { waitUntil: 'networkidle' });
+await page.goto('http://localhost:3000/services', { waitUntil: 'networkidle' });
 const imgCheck = await page.evaluate(() => {
-  const imgs = document.querySelectorAll('.mosaic img, .forPanel img, .wgrid img, .hmos img');
+  const imgs = document.querySelectorAll('.forbox img, .hmos img');
   return [...imgs].map(img => ({
     src: img.src,
     naturalWidth: img.naturalWidth,

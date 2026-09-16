@@ -1,4 +1,10 @@
 
+@font-face{font-family:'Switzer';src:url('/fonts/switzer-1.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Switzer';src:url('/fonts/switzer-2.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Switzer';src:url('/fonts/switzer-3.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Switzer';src:url('/fonts/switzer-4.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Switzer';src:url('/fonts/switzer-5.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
+
 :root{
   --purple:#5B2BD9; --purple-lt:#7C52E8; --deep:#241041; --deep2:#180A2E;
   --lilac:#EFEAFF; --lilac2:#F7F4FF; --amber:#FFB627; --amber-dk:#E09A0F;

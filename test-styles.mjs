@@ -2,10 +2,19 @@ import { chromium } from 'playwright';
 
 const PROPS = ['display','gridTemplateColumns','gap','marginTop','padding','borderColor','borderRadius'];
 const SELECTORS = [
-  '.cta2',
-  '.ctabox',
-  '.cta2 .hmos',
-  '.cta2 .hmos > *',
+  '.phero.plain',
+  '.phero.plain h1',
+  '.imgband',
+  '.contactGrid',
+  '.contactPeople',
+  '.cperson',
+  '.cperson img',
+  '.cwhere',
+  '.row2',
+  'label',
+  'input[type=text]',
+  'input[type=email]',
+  'textarea',
 ];
 const WIDTHS = [390, 1280];
 
@@ -32,13 +41,13 @@ for (const width of WIDTHS) {
 
   const pageNext = await browser.newPage();
   await pageNext.setViewportSize({ width, height: 900 });
-  await pageNext.goto('http://localhost:3000/how-we-build', { waitUntil: 'networkidle' });
+  await pageNext.goto('http://localhost:3000/contact', { waitUntil: 'networkidle' });
   const nextStyles = await getStyles(pageNext, SELECTORS, PROPS);
   await pageNext.close();
 
   const pageProto = await browser.newPage();
   await pageProto.setViewportSize({ width, height: 900 });
-  await pageProto.goto(`file:///Users/mariokyriacou/analogiq/handover/analogiq-site/how-we-build/index.html`, { waitUntil: 'networkidle' });
+  await pageProto.goto(`file:///Users/mariokyriacou/analogiq/handover/analogiq-site/contact/index.html`, { waitUntil: 'networkidle' });
   const protoStyles = await getStyles(pageProto, SELECTORS, PROPS);
   await pageProto.close();
 
@@ -65,9 +74,9 @@ for (const width of WIDTHS) {
 console.log('\n=== Image load check ===');
 const page = await browser.newPage();
 await page.setViewportSize({ width: 1280, height: 900 });
-await page.goto('http://localhost:3000/how-we-build', { waitUntil: 'networkidle' });
+await page.goto('http://localhost:3000/contact', { waitUntil: 'networkidle' });
 const imgCheck = await page.evaluate(() => {
-  const imgs = document.querySelectorAll('.cta2 .hmos img');
+  const imgs = document.querySelectorAll('.imgband img, .cperson img');
   return [...imgs].map(img => ({
     src: img.src,
     naturalWidth: img.naturalWidth,

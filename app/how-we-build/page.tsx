@@ -84,6 +84,54 @@ export default function HowWeBuildPage() {
           </div>
         </div>
       </section>
+
+      <section className="sec" id="evaluation">
+        <div className="wrap">
+          <p className="q">How do you know it works?</p>
+          <h2 className="big">Nothing goes live untested. Nothing widens without evidence.</h2>
+          <div className="grid3x">
+            <div>
+              <p className="k">Before launch</p>
+              <ul className="bul">
+                <li>A test set drawn from your real cases, held back from development</li>
+                <li>Normal cases, edge cases, ambiguous ones, known failures, and cases where the right answer is to hand over</li>
+                <li>Thresholds agreed with the people who own the outcome</li>
+              </ul>
+            </div>
+            <div>
+              <p className="k">Into production</p>
+              <ul className="bul">
+                <li>Tested offline, at real volume</li>
+                <li>Shadow-run beside the current process for a full cycle</li>
+                <li>Live on a defined slice, then widened as the evidence earns it, not as the calendar says</li>
+              </ul>
+            </div>
+            <div>
+              <p className="k">In production</p>
+              <ul className="bul">
+                <li>Every run produces auditable telemetry, matched to how sensitive the system is</li>
+                <li>Corrections from your team are reviewed before they change how the system behaves</li>
+                <li>The performance report becomes part of your normal review</li>
+              </ul>
+            </div>
+          </div>
+          <details className="acc">
+            <summary>What does tested mean for each kind of system?</summary>
+            <ul className="metrics">
+              <li><b>Search</b><span>Retrieval quality: does the right thing come back, near the top, with its source.</span></li>
+              <li><b>Extraction</b><span>Precision and recall, by field, so you can see what it misses as well as what it gets wrong.</span></li>
+              <li><b>Prediction</b><span>Forecast error against what actually happened, over a full cycle.</span></li>
+              <li><b>Assistants</b><span>Groundedness and citation quality: is the answer supported by the source it cites.</span></li>
+              <li><b>Agents</b><span>Task completion, and the rate of interventions and errors along the way.</span></li>
+            </ul>
+            <p className="acc-note">The technical metric is not the point. Retrieval quality matters because it moves bookings; forecast error matters because it moves stock. We tie each system to the business number it is meant to move and track both.</p>
+          </details>
+          <details className="acc">
+            <summary>What we will not do</summary>
+            <p className="acc-note">Present a demo on a curated dataset as evidence. Publish a number that was not measured. Widen autonomy because the calendar says so. Or scope a programme across eight systems and call it a pilot. One narrow path can be tested against real cases; eight cannot.</p>
+          </details>
+        </div>
+      </section>
     </main>
   );
 }

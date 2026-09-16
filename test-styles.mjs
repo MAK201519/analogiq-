@@ -1,7 +1,15 @@
 import { chromium } from 'playwright';
 
 const PROPS = ['display','gridTemplateColumns','gap','marginTop','padding','borderColor','borderRadius'];
-const SELECTORS = ['.grid3x', '.grid3x > *', '.pair', '.pair > *'];
+const SELECTORS = [
+  '#evaluation .grid3x',
+  '#evaluation .grid3x > *',
+  '.acc',
+  '.acc summary',
+  '.acc .metrics',
+  '.acc .metrics li',
+  '.acc .acc-note',
+];
 const WIDTHS = [390, 1280];
 
 async function getStyles(page, selectors, props) {
@@ -10,7 +18,6 @@ async function getStyles(page, selectors, props) {
     for (const sel of selectors) {
       const els = document.querySelectorAll(sel);
       if (els.length === 0) { result[sel] = 'NOT FOUND'; continue; }
-      // Use first matching element
       const cs = getComputedStyle(els[0]);
       const styles = {};
       for (const p of props) styles[p] = cs[p];
@@ -25,21 +32,18 @@ const browser = await chromium.launch();
 for (const width of WIDTHS) {
   console.log(`\n=== Width: ${width}px ===`);
 
-  // Next.js page
   const pageNext = await browser.newPage();
   await pageNext.setViewportSize({ width, height: 900 });
   await pageNext.goto('http://localhost:3000/how-we-build', { waitUntil: 'networkidle' });
   const nextStyles = await getStyles(pageNext, SELECTORS, PROPS);
   await pageNext.close();
 
-  // Prototype file
   const pageProto = await browser.newPage();
   await pageProto.setViewportSize({ width, height: 900 });
   await pageProto.goto(`file:///Users/mariokyriacou/analogiq/handover/analogiq-site/how-we-build/index.html`, { waitUntil: 'networkidle' });
   const protoStyles = await getStyles(pageProto, SELECTORS, PROPS);
   await pageProto.close();
 
-  // Diff
   let anyDiff = false;
   for (const sel of SELECTORS) {
     if (nextStyles[sel] === 'NOT FOUND' || protoStyles[sel] === 'NOT FOUND') {

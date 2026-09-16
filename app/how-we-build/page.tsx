@@ -132,6 +132,40 @@ export default function HowWeBuildPage() {
           </details>
         </div>
       </section>
+
+      <section className="sec marked" id="estate" style={{ background: 'var(--lilac2)' }}>
+        <div className="wrap">
+          <p className="q">What will your CTO ask?</p>
+          <h2 className="big">Your estate, your controls, your call.</h2>
+          <div className="twocol">
+            <div>
+              <p className="lede">Five questions every technology lead asks before this goes anywhere near production. Short answers, then the detail.</p>
+            </div>
+            <div className="accs">
+              <details className="acc" open>
+                <summary>Does it run in our estate, under our identity and access controls?</summary>
+                <p className="acc-note">Yes, always. Your cloud tenancy, your identity provider, your access policies, with observability and cost controls from the first build.</p>
+              </details>
+              <details className="acc">
+                <summary>Does our data leave?</summary>
+                <p className="acc-note">Only if you choose a pattern where it does. Where data must not leave, we use a private model deployment or self-hosted open-weight models, where you have the compute to run them.</p>
+              </details>
+              <details className="acc">
+                <summary>Can the model see things it should not?</summary>
+                <p className="acc-note">No. Hosting stops data leaving; it does nothing to stop the wrong data arriving, so that is handled separately: permissions enforced at retrieval, sensitive fields redacted or excluded, and tools with their own permissions. Only approved sources are indexed.</p>
+              </details>
+              <details className="acc">
+                <summary>Are we locked in to a model or a vendor?</summary>
+                <p className="acc-note">No. Models are chosen per task and can be swapped. The evaluation harness that proves a swap is safe is yours to keep.</p>
+              </details>
+              <details className="acc">
+                <summary>Can we see what it did, and what it cost?</summary>
+                <p className="acc-note">Yes. Auditable telemetry appropriate to the sensitivity of the system, and cost controls per model, from day one. Handover assumes you will own it: run-books, monitoring, the evaluation harness. Dependency on us is not the aim.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

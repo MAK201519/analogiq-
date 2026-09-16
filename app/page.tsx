@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/app/home.css";
 import ChallengeTabs from "@/app/components/home/ChallengeTabs";
+import { cases } from "@/content/cases";
 
 export const metadata: Metadata = {
   title: "Analogiq | What should AI actually do in your business?",
@@ -107,24 +108,16 @@ export default function HomePage() {
         <h2 className="big">Systems in production, not pilots.</h2>
         <p className="lede" style={{ marginTop: '18px' }}>Each started as a thin line inside the client&apos;s real constraints and grew. Each carries two figures: what changed, and where a person stayed in the loop.</p>
         <div className="wgrid">
-          <a href="/work/capco-platform">
-            <img src="/img/case-capco-platform.jpg" alt="" />
-            <p className="m"><span className="pill est">Digital</span> Capco &middot; Professional services</p>
-            <h3>A global platform rebuilt from scratch in 120 days</h3>
-            <div className="ws"><div><b>120 days</b><span>to full delivery</span></div><div><b>14d to 24hr</b><span>update SLA</span></div></div>
-          </a>
-          <a href="/work/hsbc">
-            <img src="/img/case-hsbc.jpg" alt="" />
-            <p className="m"><span className="pill">AI</span> HSBC &middot; Financial services</p>
-            <h3>Experimentation across six markets at 12:1 ROI</h3>
-            <div className="ws"><div><b>12:1</b><span>return on investment</span></div><div><b>$2.6M</b><span>client lifetime value</span></div></div>
-          </a>
-          <a href="/work/wilderness">
-            <img src="/img/case-wilderness.jpg" alt="" />
-            <p className="m"><span className="pill est">Digital</span> Wilderness &middot; Travel</p>
-            <h3>Conversion doubled, acquisition cost halved</h3>
-            <div className="ws"><div><b>2x</b><span>conversion rate</span></div><div><b>63%</b><span>lower cost per acquisition</span></div></div>
-          </a>
+          {cases.filter(c => ['capco-platform','hsbc','wilderness'].includes(c.slug)).map(c => (
+            <a key={c.slug} href={`/work/${c.slug}`}>
+              <img src={`/img/case-${c.slug}.jpg`} alt="" />
+              <p className="m"><span className={c.ai ? "pill" : "pill est"}>{c.ai ? "AI" : "Digital"}</span> {c.client} &middot; {c.sector}</p>
+              <h3>{c.title}</h3>
+              <div className="ws">{c.stats.slice(0, 2).map((s, i) => (
+                <div key={i}><b>{s.value}</b><span>{s.label}</span></div>
+              ))}</div>
+            </a>
+          ))}
         </div>
         <p style={{ marginTop: '30px' }}><a href="/work" style={{ fontWeight: 600 }}>All our work</a></p>
       </div></section>

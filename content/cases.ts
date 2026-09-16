@@ -13,6 +13,7 @@ export type CaseRecord = {
   client: string;
   sector: string;
   cat: string;
+  ai: boolean;
   title: string;
   sum: string;
   stats: CaseStat[];
@@ -33,6 +34,7 @@ export const cases: CaseRecord[] = [
     client: 'Capco',
     sector: 'Professional services',
     cat: 'AI, personalisation and lead scoring',
+    ai: true,
     title: 'AI personalisation and intelligent lead scoring that turned visitors into pipeline',
     sum: 'Capco had enterprise HubSpot and Sitecore but was serving every visitor the same generic experience. We designed a cross-channel personalisation and lead scoring system capturing over 100 data points per visitor, directly attributing more than £1 million in confirmed sales.',
     stats: [
@@ -60,6 +62,7 @@ export const cases: CaseRecord[] = [
     client: 'HSBC Commercial Banking',
     sector: 'Financial services',
     cat: 'CRO, experimentation and personalisation',
+    ai: true,
     title: 'A data-driven optimisation programme across six Asian markets at 12:1 ROI',
     sum: 'We partnered with HSBC Commercial Banking across six Asian markets to commercialise their marketing technology investment. Twenty-four experiments doubled conversion rates on key journeys and delivered $2.6M in client lifetime value from a $210k programme spend: a 12:1 return.',
     stats: [
@@ -80,6 +83,7 @@ export const cases: CaseRecord[] = [
     client: 'Wilderness Destinations',
     sector: 'Travel and leisure',
     cat: 'CRO, experimentation and paid media',
+    ai: false,
     title: 'Doubling conversion rate and cutting acquisition costs in half',
     sum: 'Wilderness\'s landing pages for paid traffic were underperforming. We mapped the customer journey, designed two purpose-built landing page variants and ran a structured A/B test, doubling enquiry conversion from 0.9% to 1.9% and cutting cost per acquisition by 63%.',
     stats: [
@@ -98,6 +102,7 @@ export const cases: CaseRecord[] = [
     client: 'Keith Prowse',
     sector: 'Sports and events hospitality',
     cat: 'Sitecore, platform and UX',
+    ai: false,
     title: 'Modernising the digital sales channel for the UK\'s leading sports hospitality brand',
     sum: 'Keith Prowse are the official hospitality provider for Wimbledon, Twickenham and The O2. As the industry shifted from telephone bookings to digital, they needed the website to become a performing commercial asset. We have been their technical partner since 2021, delivering the Sitecore upgrade and ongoing platform, UX and integration work.',
     stats: [
@@ -117,6 +122,7 @@ export const cases: CaseRecord[] = [
     client: 'Capco',
     sector: 'Professional services',
     cat: 'Platform engineering and Sitecore',
+    ai: false,
     title: 'Rebuilding a global digital platform from scratch, delivered in 120 days',
     sum: 'Following a demerger, Capco had to migrate their website off legacy infrastructure within 120 days or face daily penalties. We delivered a full Sitecore rebuild on deadline, cutting the update SLA from 14 days to 24 hours and handing the marketing team control for the first time.',
     stats: [
@@ -136,6 +142,7 @@ export const cases: CaseRecord[] = [
     client: 'The Experience Golf',
     sector: 'Travel and leisure',
     cat: 'Ecommerce, UX and Sitecore',
+    ai: false,
     title: 'Launching a luxury ecommerce website for the UK\'s leading golf tour operator',
     sum: 'The Experience Golf, a Keith Prowse subsidiary, had no ecommerce capability: every booking was made by phone. We designed and built a luxury ecommerce platform on Sitecore, live and bookable within a six-month deadline timed for peak season.',
     stats: [
@@ -155,6 +162,7 @@ export const cases: CaseRecord[] = [
     client: 'SunLife',
     sector: 'Financial services',
     cat: 'Data strategy and martech',
+    ai: true,
     title: 'Building the data foundations for a single customer view',
     sum: 'SunLife had a wealth of customer data but no true understanding of customer behaviour across the funnel. We ran a Digital Experience Assessment across six martech platforms, producing a gap analysis, an architecture blueprint and a prioritised roadmap toward a single customer view.',
     stats: [
@@ -174,6 +182,7 @@ export const cases: CaseRecord[] = [
     client: 'Cystic Fibrosis Trust',
     sector: 'Charity',
     cat: 'CRO, experimentation and Sitecore',
+    ai: false,
     title: 'Optimising the donation journey for one of the UK\'s most recognised health charities',
     sum: 'The Cystic Fibrosis Trust wanted to know how data-driven insight and A/B testing could improve its donation funnel. We ran an insight-led experimentation programme in which a single experiment, improving donation copy and messaging, increased donation page visits by 29%.',
     stats: [
@@ -193,6 +202,7 @@ export const cases: CaseRecord[] = [
     client: 'Jet2',
     sector: 'Travel and leisure',
     cat: 'Personalisation strategy',
+    ai: false,
     title: 'Building a personalisation measurement strategy for the UK\'s largest tour operator',
     sum: 'Jet2 had been running personalisation for three years but had no clear picture of whether it was working. We ran a strategy engagement, workshops, journey review and a personalisation audit, producing a playback that gave the digital team a framework to A/B test scenarios and measure their true revenue impact.',
     stats: [

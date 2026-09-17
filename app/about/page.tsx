@@ -151,9 +151,9 @@ export default function AboutPage() {
                 <img src={l.src} alt={l.alt} />
               </span>
             ))}
-            {/* duplicate for seamless loop */}
+            {/* duplicate for seamless loop — hidden on mobile */}
             {LOGOS.map((l) => (
-              <span className="lg" key={l.alt + "-2"}>
+              <span className="lg lg-dup" key={l.alt + "-2"}>
                 <img src={l.src} alt="" aria-hidden="true" />
               </span>
             ))}

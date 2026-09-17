@@ -12,7 +12,7 @@
 
 [[redirects]]
   from = "/ai-marketing"
-  to = "/"
+  to = "/services"
   status = 301
   force = true
 

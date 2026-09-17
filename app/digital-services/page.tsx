@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { cases } from "@/content/cases";
 
+const DXP_PARTNERS = [
+  { src: "/img/logo-sitecore.svg",    alt: "Sitecore" },
+  { src: "/img/logo-uniform.svg",     alt: "Uniform" },
+  { src: "/img/logo-optimizely.svg",  alt: "Optimizely" },
+  { src: "/img/logo-contentful.svg",  alt: "Contentful" },
+];
+
 export const metadata: Metadata = {
   title: "Digital services | Analogiq",
   description:
@@ -163,6 +170,23 @@ export default function DigitalServicesPage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 3b · DXP PARTNER LOGOS */}
+      <section style={{ padding: "clamp(40px,5vw,64px) 0", background: "#fff" }}>
+        <div className="wrap">
+          <h2 className="big">The platforms we work with.</h2>
+          <ul style={{
+            display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "flex-start",
+            gap: "clamp(28px,4vw,56px)", listStyle: "none", margin: "24px 0 0", padding: 0,
+          }}>
+            {DXP_PARTNERS.map((l) => (
+              <li key={l.alt}>
+                <img src={l.src} alt={l.alt} style={{ height: 28, width: "auto", filter: "grayscale(1)", opacity: 0.8 }} />
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

@@ -3,6 +3,23 @@ import "@/app/home.css";
 import ChallengeTabs from "@/app/components/home/ChallengeTabs";
 import { cases } from "@/content/cases";
 
+const CLIENT_LOGOS = [
+  { src: "/img/logo-hsbc.svg",                  alt: "HSBC" },
+  { src: "/img/logo-capco-logo.png",             alt: "Capco" },
+  { src: "/img/logo-keith-prowse-new.png",       alt: "Keith Prowse" },
+  { src: "/img/logo-sunlife.webp",               alt: "SunLife" },
+  { src: "/img/logo-jet2.svg",                   alt: "Jet2" },
+  { src: "/img/logo-bhf.svg",                    alt: "British Heart Foundation" },
+  { src: "/img/logo-cystic-fibrosis-trust.png",  alt: "Cystic Fibrosis Trust" },
+  { src: "/img/logo-shoosmiths.png",             alt: "Shoosmiths" },
+  { src: "/img/logo-premium-credit.png",         alt: "Premium Credit" },
+  { src: "/img/logo-costcutter.png",             alt: "Costcutter" },
+  { src: "/img/logo-bank-workers-charity.png",   alt: "Bank Workers Charity" },
+  { src: "/img/logo-leeds-beckett.png",          alt: "Leeds Beckett" },
+  { src: "/img/logo-maples.svg",                 alt: "Maples" },
+  { src: "/img/logo-experience-golf.png",        alt: "Experience Golf" },
+];
+
 export const metadata: Metadata = {
   title: "Analogiq | What should AI actually do in your business?",
   description: "An AI consultancy for businesses with real data and no AI team of their own. Strategy, engineering and measurement from one team.",
@@ -56,25 +73,23 @@ export default function HomePage() {
         </div>
       </div></section>
 
-      {/* 2 · CLIENTS */}
-      <div className="clients" style={{ position: 'relative', overflow: 'hidden' }}>
-        <div className="wrap vwrap" style={{ position: 'relative', zIndex: 2 }}>
-          <p className="lbl">The platforms we work on</p>
-          <div className="vrows">
-            <ul className="vendorlogos">
-              <li><img src="/img/logo-microsoft.svg" alt="Microsoft" /></li>
-              <li><img src="/img/logo-azure.svg" alt="Azure" /></li>
-              <li><img src="/img/logo-aws.svg" alt="AWS" /></li>
-              <li><img src="/img/logo-google.svg" alt="Google" /></li>
-              <li><img src="/img/logo-openai.svg" alt="OpenAI" /></li>
-              <li><img src="/img/logo-meta.svg" alt="Meta" /></li>
-            </ul>
-            <ul className="vendorlogos">
-              <li><img src="/img/logo-sitecore.svg" alt="Sitecore" /></li>
-              <li><img src="/img/logo-optimizely.svg" alt="Optimizely" /></li>
-              <li><img src="/img/logo-uniform.svg" alt="Uniform" /></li>
-              <li><img src="/img/logo-contentful.svg" alt="Contentful" /></li>
-            </ul>
+      {/* 2 · CLIENT LOGOS */}
+      <div style={{ marginTop: 'clamp(48px,6vw,84px)' }}>
+        <div className="wrap">
+          <h2 className="big">The clients who trusted us with the hard part.</h2>
+        </div>
+        <div className="logostrip" style={{ marginTop: 28 }}>
+          <div className="logotrack">
+            {CLIENT_LOGOS.map((l) => (
+              <span className="lg" key={l.alt}>
+                <img src={l.src} alt={l.alt} />
+              </span>
+            ))}
+            {CLIENT_LOGOS.map((l) => (
+              <span className="lg lg-dup" key={l.alt + "-2"}>
+                <img src={l.src} alt="" aria-hidden="true" />
+              </span>
+            ))}
           </div>
         </div>
       </div>
@@ -135,6 +150,21 @@ export default function HomePage() {
           </div>
         </div>
       </div></section>
+
+      {/* 6b · AI / CLOUD PARTNERS */}
+      <div className="clients" style={{ background: '#fff' }}>
+        <div className="wrap vwrap">
+          <h2 className="big">AI and cloud partners.</h2>
+          <ul className="vendorlogos" style={{ marginTop: 24 }}>
+            <li><img src="/img/logo-microsoft.svg" alt="Microsoft" /></li>
+            <li><img src="/img/logo-azure.svg" alt="Azure" /></li>
+            <li><img src="/img/logo-aws.svg" alt="AWS" /></li>
+            <li><img src="/img/logo-google.svg" alt="Google" /></li>
+            <li><img src="/img/logo-openai.svg" alt="OpenAI" /></li>
+            <li><img src="/img/logo-meta.svg" alt="Meta" /></li>
+          </ul>
+        </div>
+      </div>
 
       {/* 7 · WHAT WE SELL */}
       <section className="sec" id="sell" style={{ background: 'var(--lilac2)' }}><div className="wrap">

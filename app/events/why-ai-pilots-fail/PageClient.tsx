@@ -126,7 +126,7 @@ export default function PageClient() {
             </p>
             <div className="who">
               <img
-                src="https://analogiq.io/team/mario-kyriacou.jpg"
+                src="/img/team-mario-kyriacou.jpg"
                 alt=""
                 onError={(e) => {
                   const el = e.currentTarget;
@@ -290,7 +290,7 @@ export default function PageClient() {
         <div className="wrap">
           <div className="host">
             <img
-              src="https://analogiq.io/team/mario-kyriacou.jpg"
+              src="/img/team-mario-kyriacou.jpg"
               alt="Mario Kyriacou"
               onError={(e) => {
                 const el = e.currentTarget;

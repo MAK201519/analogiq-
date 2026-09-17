@@ -50,12 +50,12 @@ export async function generateMetadata({
   const c = cases.find((x) => x.slug === slug);
   if (!c) return {};
   return {
-    title: `${c.title} | Analogiq`,
-    description: c.sum,
+    title: `${c.metaTitle} | Analogiq`,
+    description: c.metaDescription,
     alternates: { canonical: `https://analogiq.io/work/${c.slug}` },
     openGraph: {
-      title: `${c.title} | Analogiq`,
-      description: c.sum,
+      title: `${c.metaTitle} | Analogiq`,
+      description: c.metaDescription,
       url: `https://analogiq.io/work/${c.slug}`,
     },
   };

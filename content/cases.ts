@@ -15,7 +15,9 @@ export type CaseRecord = {
   cat: string;
   ai: boolean;
   title: string;
+  metaTitle: string;
   sum: string;
+  metaDescription: string;
   stats: CaseStat[];
   problem: string;
   built: string;
@@ -36,7 +38,9 @@ export const cases: CaseRecord[] = [
     cat: 'AI, personalisation and lead scoring',
     ai: true,
     title: 'AI personalisation and intelligent lead scoring that turned visitors into pipeline',
+    metaTitle: 'Capco: AI personalisation, £1M+ confirmed sales',
     sum: 'Capco had enterprise HubSpot and Sitecore but was serving every visitor the same generic experience. We designed a cross-channel personalisation and lead scoring system capturing over 100 data points per visitor, directly attributing more than £1 million in confirmed sales.',
+    metaDescription: 'AI personalisation and lead scoring on Sitecore and HubSpot. 100+ data points per visitor, £1M+ in confirmed sales attributed, 32% uplift in MQL and SQL volume.',
     stats: [
       { value: '£1M+', label: 'confirmed sales generated' },
       { value: '100+', label: 'data points captured per visitor' },
@@ -64,7 +68,9 @@ export const cases: CaseRecord[] = [
     cat: 'CRO, experimentation and personalisation',
     ai: true,
     title: 'A data-driven optimisation programme across six Asian markets at 12:1 ROI',
+    metaTitle: 'HSBC: 12:1 ROI across six Asian markets',
     sum: 'We partnered with HSBC Commercial Banking across six Asian markets to commercialise their marketing technology investment. Twenty-four experiments doubled conversion rates on key journeys and delivered $2.6M in client lifetime value from a $210k programme spend: a 12:1 return.',
+    metaDescription: 'CRO and experimentation across six Asian markets for HSBC Commercial Banking. 24 experiments, $2.6M in client lifetime value from $210k spend: 12:1 ROI.',
     stats: [
       { value: '12:1', label: 'programme ROI over 12 months' },
       { value: '$2.6M', label: 'client lifetime value from $210k spend' },
@@ -85,7 +91,9 @@ export const cases: CaseRecord[] = [
     cat: 'CRO, experimentation and paid media',
     ai: false,
     title: 'Doubling conversion rate and cutting acquisition costs in half',
+    metaTitle: 'Wilderness: 2x conversion rate, CPA down 63%',
     sum: 'Wilderness\'s landing pages for paid traffic were underperforming. We mapped the customer journey, designed two purpose-built landing page variants and ran a structured A/B test, doubling enquiry conversion from 0.9% to 1.9% and cutting cost per acquisition by 63%.',
+    metaDescription: 'Landing page CRO for Wilderness Destinations. A/B tested variants doubled enquiry conversion from 0.9% to 1.9% and cut cost per acquisition by 63%.',
     stats: [
       { value: '2x', label: 'conversion rate: 0.9% to 1.9%' },
       { value: '63%', label: 'reduction in cost per acquisition' },
@@ -104,7 +112,9 @@ export const cases: CaseRecord[] = [
     cat: 'Sitecore, platform and UX',
     ai: false,
     title: 'Modernising the digital sales channel for the UK\'s leading sports hospitality brand',
+    metaTitle: 'Keith Prowse: Sitecore partner since 2021',
     sum: 'Keith Prowse are the official hospitality provider for Wimbledon, Twickenham and The O2. As the industry shifted from telephone bookings to digital, they needed the website to become a performing commercial asset. We have been their technical partner since 2021, delivering the Sitecore upgrade and ongoing platform, UX and integration work.',
+    metaDescription: 'Sitecore technical partner to Keith Prowse since 2021. Platform modernisation, UX, data and integrations for the UK\'s leading sports hospitality brand.',
     stats: [
       { value: '2021', label: 'partnership began' },
       { value: 'Ongoing', label: 'long-term technical partnership' },
@@ -124,7 +134,9 @@ export const cases: CaseRecord[] = [
     cat: 'Platform engineering and Sitecore',
     ai: false,
     title: 'Rebuilding a global digital platform from scratch, delivered in 120 days',
+    metaTitle: 'Capco: Sitecore rebuild in 120 days',
     sum: 'Following a demerger, Capco had to migrate their website off legacy infrastructure within 120 days or face daily penalties. We delivered a full Sitecore rebuild on deadline, cutting the update SLA from 14 days to 24 hours and handing the marketing team control for the first time.',
+    metaDescription: 'Full Sitecore rebuild for Capco in 120 days following a demerger deadline. Update SLA cut from 14 days to 24 hours, pages per session up 26%.',
     stats: [
       { value: '120 days', label: 'to full platform delivery' },
       { value: '14d to 24hr', label: 'website update SLA reduction' },
@@ -144,7 +156,9 @@ export const cases: CaseRecord[] = [
     cat: 'Ecommerce, UX and Sitecore',
     ai: false,
     title: 'Launching a luxury ecommerce website for the UK\'s leading golf tour operator',
+    metaTitle: 'Experience Golf: ecommerce live in six months',
     sum: 'The Experience Golf, a Keith Prowse subsidiary, had no ecommerce capability: every booking was made by phone. We designed and built a luxury ecommerce platform on Sitecore, live and bookable within a six-month deadline timed for peak season.',
+    metaDescription: 'Ecommerce platform on Sitecore for The Experience Golf. Launched in six months, taking the business from phone-only bookings to fully transactional online.',
     stats: [
       { value: '6 months', label: 'from brief to launch' },
       { value: '30+', label: 'iconic golf courses bookable online' },
@@ -164,7 +178,9 @@ export const cases: CaseRecord[] = [
     cat: 'Data strategy and martech',
     ai: true,
     title: 'Building the data foundations for a single customer view',
+    metaTitle: 'SunLife: data strategy and martech assessment',
     sum: 'SunLife had a wealth of customer data but no true understanding of customer behaviour across the funnel. We ran a Digital Experience Assessment across six martech platforms, producing a gap analysis, an architecture blueprint and a prioritised roadmap toward a single customer view.',
+    metaDescription: 'Digital Experience Assessment for SunLife across six martech platforms: gap analysis, architecture blueprint and roadmap to a single customer view.',
     stats: [
       { value: '6', label: 'martech platforms assessed' },
       { value: '4', label: 'key deliverables produced' },
@@ -184,7 +200,9 @@ export const cases: CaseRecord[] = [
     cat: 'CRO, experimentation and Sitecore',
     ai: false,
     title: 'Optimising the donation journey for one of the UK\'s most recognised health charities',
+    metaTitle: 'Cystic Fibrosis Trust: 29% more donation visits',
     sum: 'The Cystic Fibrosis Trust wanted to know how data-driven insight and A/B testing could improve its donation funnel. We ran an insight-led experimentation programme in which a single experiment, improving donation copy and messaging, increased donation page visits by 29%.',
+    metaDescription: 'CRO and Sitecore management for the Cystic Fibrosis Trust. One experiment improving donation messaging increased donation page visits by 29%.',
     stats: [
       { value: '29%', label: 'increase in donation page visits from one experiment' },
       { value: '2', label: 'workstreams: optimisation and Sitecore management' },
@@ -204,7 +222,9 @@ export const cases: CaseRecord[] = [
     cat: 'Personalisation strategy',
     ai: false,
     title: 'Building a personalisation measurement strategy for the UK\'s largest tour operator',
+    metaTitle: 'Jet2: personalisation measurement strategy',
     sum: 'Jet2 had been running personalisation for three years but had no clear picture of whether it was working. We ran a strategy engagement, workshops, journey review and a personalisation audit, producing a playback that gave the digital team a framework to A/B test scenarios and measure their true revenue impact.',
+    metaDescription: 'Personalisation strategy for Jet2. Workshops, journey review and audit. Output: a framework to A/B test personalisation scenarios and measure revenue impact.',
     stats: [
       { value: '3 years', label: 'of personalisation without clear measurement' },
       { value: '2', label: 'primary segments: families and non-families' },

@@ -21,11 +21,11 @@ const CLIENT_LOGOS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Analogiq | What should AI actually do in your business?",
+  title: "Analogiq | Practical AI for businesses with real data",
   description: "An AI consultancy for businesses with real data and no AI team of their own. Strategy, engineering and measurement from one team.",
   alternates: { canonical: "https://analogiq.io/" },
   openGraph: {
-    title: "Analogiq | What should AI actually do in your business?",
+    title: "Analogiq | Practical AI for businesses with real data",
     description: "An AI consultancy for businesses with real data and no AI team of their own.",
     url: "https://analogiq.io",
   },

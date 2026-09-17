@@ -81,3 +81,9 @@
   to = "/work/capco-personalisation"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/ai-in-the-wild/why-ai-pilots-fail"
+  to = "/events/why-ai-pilots-fail"
+  status = 301
+  force = true

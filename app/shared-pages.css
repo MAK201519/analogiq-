@@ -661,7 +661,8 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-0.035em}
 .evpic.ph{background:var(--lilac2);display:flex;align-items:center;justify-content:center;background-image:radial-gradient(var(--purple) 1.5px,transparent 1.6px);background-size:20px 20px}
 .evtag.ink{background:var(--ink);color:var(--amber)}
 .evgrid{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.evgrid{grid-template-columns:1fr}}
+.evgrid-2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.evgrid{grid-template-columns:1fr}.evgrid-2{grid-template-columns:1fr}}
 
 /* rotating logo strip (About) */
 .logostrip{margin-top:40px;overflow:hidden;border:1.5px solid var(--ink);border-radius:8px;background:#fff;padding:22px 0;position:relative}

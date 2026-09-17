@@ -40,6 +40,7 @@ export default function SiteFooter() {
               <li><a href="/about#people">People</a></li>
               <li><a href="/work">Our work</a></li>
               <li><a href="/about#careers">Careers</a></li>
+              <li><a href="/faq">FAQ</a></li>
             </ul>
           </div>
 

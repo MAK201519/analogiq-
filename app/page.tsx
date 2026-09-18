@@ -123,7 +123,7 @@ export default function HomePage() {
         <h2 className="big">Systems in production, not pilots.</h2>
         <p className="lede" style={{ marginTop: '18px' }}>Each started as a thin line inside the client&apos;s real constraints and grew. Each carries two figures: what changed, and where a person stayed in the loop.</p>
         <div className="wgrid">
-          {cases.filter(c => ['capco-platform','hsbc','wilderness'].includes(c.slug)).map(c => (
+          {cases.filter(c => ['capco-platform','global-commercial-bank','wilderness'].includes(c.slug)).map(c => (
             <a key={c.slug} href={`/work/${c.slug}`}>
               <img src={`/img/case-${c.slug}.jpg`} alt="" />
               <p className="m"><span className={c.ai ? "pill" : "pill est"}>{c.ai ? "AI" : "Digital"}</span> {c.client} &middot; {c.sector}</p>

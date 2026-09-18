@@ -77,6 +77,12 @@
   force = true
 
 [[redirects]]
+  from = "/work/hsbc"
+  to = "/work/global-commercial-bank"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/work/capco"
   to = "/work/capco-personalisation"
   status = 301

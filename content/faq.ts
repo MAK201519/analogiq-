@@ -10,11 +10,11 @@ export const faq: FaqRecord[] = [
   },
   {
     question: 'Who is Analogiq for?',
-    answer: 'We help businesses that want to use AI but do not have dedicated AI specialists. Most of our clients are mid-sized, usually between 100 and 1,000 people, based in the UK and Europe. They want expert help without the costs of the big consultancies. Our clients include HSBC, Capco, Keith Prowse, SunLife, Jet2, Wilderness Destinations, and the Cystic Fibrosis Trust.',
+    answer: 'We help businesses that want to use AI but do not have dedicated AI specialists. Most of our clients are mid-sized, usually between 100 and 1,000 people, based in the UK and Europe. They want expert help without the costs of the big consultancies. Our clients include Capco, Keith Prowse, SunLife, Jet2, Wilderness Destinations, and the Cystic Fibrosis Trust.',
   },
   {
     question: 'What results have you delivered?',
-    answer: 'We focus on outcomes you can measure. That includes a 12:1 return on a data-driven optimisation programme for HSBC Commercial Banking, over £1 million in confirmed sales from AI personalisation for Capco, rebuilding a global platform in 120 days, doubling conversion and halving acquisition cost for Wilderness, and a 29 percent lift in donation page visits for the Cystic Fibrosis Trust. We always share the numbers our clients have seen.',
+    answer: 'We focus on outcomes you can measure. That includes a 12:1 return on a data-driven optimisation programme for a global commercial bank, over £1 million in confirmed sales from AI personalisation for Capco, rebuilding a global platform in 120 days, doubling conversion and halving acquisition cost for Wilderness, and a 29 percent lift in donation page visits for the Cystic Fibrosis Trust. We always share the numbers our clients have seen.',
   },
   {
     question: 'How do you work?',

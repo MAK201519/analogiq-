@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const THUMB: Record<string, string> = {
   "capco-personalisation": "/img/case-capco-personalisation.jpg",
-  hsbc: "/img/case-hsbc.jpg",
+  "global-commercial-bank": "/img/case-global-commercial-bank.jpg",
   wilderness: "/img/case-wilderness.jpg",
   "keith-prowse": "/img/case-keith-prowse.jpg",
   "capco-platform": "/img/case-capco-platform.jpg",

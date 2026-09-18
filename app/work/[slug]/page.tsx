@@ -5,7 +5,7 @@ import { cases } from "@/content/cases";
 /* ── logo map ──────────────────────────────────────────────────────────── */
 const LOGO: Record<string, string | null> = {
   "capco-personalisation": "/img/logo-capco-logo.png",
-  hsbc: "/img/logo-hsbc.svg",
+  "global-commercial-bank": null,
   wilderness: null, // uses .m-ink brand mark, no logo
   "keith-prowse": "/img/logo-keith-prowse-new.png",
   "capco-platform": "/img/logo-capco-logo.png",
@@ -18,7 +18,7 @@ const LOGO: Record<string, string | null> = {
 /* ── thumbnail used in .mini and .wgrid cards ──────────────────────────── */
 const THUMB: Record<string, string> = {
   "capco-personalisation": "/img/case-capco-personalisation.jpg",
-  hsbc: "/img/case-hsbc.jpg",
+  "global-commercial-bank": "/img/case-global-commercial-bank.jpg",
   wilderness: "/img/case-wilderness.jpg",
   "keith-prowse": "/img/case-keith-prowse.jpg",
   "capco-platform": "/img/case-capco-platform.jpg",
@@ -163,7 +163,7 @@ export default async function CasePage({
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               />
             </div>
-          ) : (
+          ) : c.imgs.length > 0 ? (
             <div className="shots">
               {c.imgs.map((img, i) => (
                 <figure className="shot" key={i}>
@@ -171,7 +171,7 @@ export default async function CasePage({
                 </figure>
               ))}
             </div>
-          )}
+          ) : null}
         </div>
       </section>
 

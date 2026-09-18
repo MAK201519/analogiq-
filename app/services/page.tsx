@@ -173,7 +173,7 @@ export default function ServicesPage() {
             </div>
           </div>
           <div className="stat3">
-            <div><b>12:1</b><span>programme ROI at HSBC Commercial Banking</span></div>
+            <div><b>12:1</b><span>programme ROI for a global commercial bank</span></div>
             <div><b>&pound;1M+</b><span>attributed sales from AI personalisation at Capco</span></div>
             <div><b>2x</b><span>conversion rate at Wilderness Destinations</span></div>
           </div>

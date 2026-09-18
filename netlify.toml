@@ -9,3 +9,87 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+[[redirects]]
+  from = "/ai-marketing"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/platforms"
+  to = "/digital-services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/platforms/sitecore"
+  to = "/digital-services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/platforms/uniform"
+  to = "/digital-services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/website-platform-modernisation"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/ai-enablement"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/personalisation-experimentation"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/data-insights"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/ux-product-design"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/start"
+  to = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ratio"
+  to = "/approach#data"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/work/hsbc"
+  to = "/work/global-commercial-bank"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/work/capco"
+  to = "/work/capco-personalisation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ai-in-the-wild/why-ai-pilots-fail"
+  to = "/events/why-ai-pilots-fail"
+  status = 301
+  force = true

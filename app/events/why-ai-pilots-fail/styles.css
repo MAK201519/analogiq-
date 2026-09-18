@@ -1,0 +1,109 @@
+/* Scoped overrides — prevent cascade bleed onto site-wide pages */
+.wpf .wrap { max-width: 1180px }
+.wpf .sec  { padding: clamp(56px,7vw,104px) 0 }
+
+/* Minimal event header */
+.wpf header { background: #fff; border-bottom: 1px solid var(--line) }
+.wpf .nav { display: flex; align-items: center; justify-content: space-between; height: 78px; gap: 24px }
+.wpf .logo { display: flex; align-items: center; gap: 11px }
+.wpf .logo .word { font-weight: 800; font-size: 25px; letter-spacing: -0.04em; color: var(--ink) }
+.wpf .series { font-size: 14.5px; font-weight: 600; color: var(--muted) }
+.wpf .series b { color: var(--ink); font-weight: 700 }
+
+/* Hero — dark purple */
+.wpf .hero { background: var(--deep); color: #D9CFF0; position: relative; overflow: hidden; padding: clamp(48px,6vw,88px) 0 clamp(56px,7vw,96px) }
+.wpf .patband { position: absolute; inset: 0; opacity: .55; z-index: 1 }
+.wpf .heroGrid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px,5vw,72px); align-items: start }
+.wpf .kick { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; font-size: 14.5px; font-weight: 600; color: #C4B5FD; margin-bottom: 26px }
+.wpf .kick .tag { background: var(--amber); color: var(--ink); padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 700 }
+.wpf .hero h1 { font-size: clamp(38px,5.4vw,68px); color: #fff; max-width: 14ch; letter-spacing: -0.05em; line-height: .98 }
+.wpf .hero .lede { color: #CDBFEA; margin-top: 24px; font-size: 20px; max-width: 44ch }
+.wpf .hero .aud { margin-top: 18px; color: #fff; font-weight: 600; font-size: 16px }
+.wpf .hero .who { margin-top: 34px; display: flex; align-items: center; gap: 14px; color: #B3A4D4; font-size: 15px }
+.wpf .hero .who img, .wpf .hero .who .ini { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none; border: 2px solid rgba(255,255,255,.25) }
+.wpf .hero .who .ini { display: grid; place-items: center; background: var(--purple); color: #fff; font-weight: 800; font-size: 18px }
+.wpf .hero .who b { display: block; color: #fff; font-size: 16px }
+
+/* Registration card */
+.wpf .reg { background: #fff; border-radius: 22px; padding: clamp(24px,3vw,36px); color: var(--ink); box-shadow: 0 30px 60px rgba(24,10,46,.35) }
+.wpf .reg h2 { font-size: 26px; margin-bottom: 6px }
+.wpf .reg .when { color: var(--muted); font-size: 15.5px; margin-bottom: 22px }
+.wpf .reg .when b { color: var(--ink) }
+.wpf .reg label { display: block; font-size: 13.5px; font-weight: 600; color: var(--muted); margin-bottom: 6px }
+.wpf .reg input { width: 100%; font: inherit; font-size: 16px; padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink) }
+.wpf .reg input:focus { border-color: var(--purple); outline: none; box-shadow: 0 0 0 3px var(--lilac) }
+.wpf .reg .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+.wpf .reg .f { margin-bottom: 14px }
+.wpf .reg .btn { width: 100%; justify-content: center; margin-top: 6px }
+.wpf .reg .fine { font-size: 13px; color: var(--dim); margin-top: 14px; line-height: 1.45 }
+
+/* Takeaway strip */
+.wpf .strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line) }
+.wpf .strip .wrap { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; padding: 0 }
+.wpf .strip .item { padding: 26px clamp(16px,2vw,28px); border-left: 1px solid var(--line); font-size: 15.5px; color: var(--muted) }
+.wpf .strip .item:first-child { border-left: 0; padding-left: clamp(20px,4vw,48px) }
+.wpf .strip .item b { display: block; color: var(--ink); font-size: 16.5px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.02em }
+
+/* Takeaway cards */
+.wpf .tks { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 36px }
+.wpf .tk { border: 1.5px solid var(--line); border-radius: 18px; padding: 28px 26px 30px; display: flex; flex-direction: column; gap: 18px; min-height: 190px }
+.wpf .tk .n { font-weight: 800; font-size: 15px; color: #fff; background: var(--purple); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; letter-spacing: -0.02em }
+.wpf .tk p { font-size: clamp(19px,1.7vw,23px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.24; color: var(--ink) }
+.wpf .tk:nth-child(4), .wpf .tk:nth-child(5) { background: var(--lilac2); border-color: var(--lilac) }
+.wpf .tks .tk:nth-child(5) { grid-column: span 2 }
+
+/* Host card */
+.wpf .host { display: grid; grid-template-columns: 200px 1fr; gap: clamp(24px,4vw,48px); align-items: center; background: var(--lilac2); border: 1.5px solid var(--lilac); border-radius: 22px; padding: clamp(22px,3vw,36px) }
+.wpf .host img, .wpf .host .ini { width: 100%; aspect-ratio: 1; border-radius: 18px; object-fit: cover }
+.wpf .host .ini { display: grid; place-items: center; background: var(--purple); color: #fff; font-weight: 800; font-size: 44px }
+.wpf .host h3 { font-size: 24px; margin-bottom: 4px }
+.wpf .host .role { color: var(--purple); font-weight: 600; font-size: 15px; margin-bottom: 14px }
+.wpf .host p { color: var(--muted); font-size: 16.5px; max-width: 60ch }
+
+/* CTA section (purple) */
+.wpf .sec.cta { background: var(--purple); color: #fff; position: relative; overflow: hidden }
+.wpf .sec.cta h2 { color: #fff; font-size: clamp(30px,4.4vw,54px); max-width: 18ch }
+.wpf .sec.cta .inner { position: relative; z-index: 2 }
+.wpf .sec.cta p { color: #E3D9FA; font-size: 18px; max-width: 52ch; margin-top: 18px }
+.wpf .sec.cta .btn { margin-top: 30px; background: #fff; color: var(--purple) }
+.wpf .sec.cta .btn .arw { background: var(--purple) }
+.wpf .sec.cta .btn .arw svg path { stroke: #fff }
+
+/* Minimal footer */
+.wpf footer { background: var(--deep2); color: #9B90B4; padding: 44px 0 36px; font-size: 14.5px }
+.wpf footer .row { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap }
+.wpf footer .word { color: #fff; font-weight: 800; font-size: 22px; letter-spacing: -0.04em }
+.wpf footer a { color: #9B90B4 }
+.wpf footer a:hover { color: #fff }
+
+/* Success state */
+.wpf .reg-success { text-align: center; padding: 24px 0 }
+.wpf .reg-success .check { width: 52px; height: 52px; background: var(--lilac); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px }
+.wpf .reg-success h3 { font-size: 22px; margin-bottom: 8px }
+.wpf .reg-success p { color: var(--muted); font-size: 15.5px }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .wpf .heroGrid { grid-template-columns: 1fr }
+  .wpf .strip .wrap { grid-template-columns: 1fr 1fr }
+  .wpf .strip .item:nth-child(odd) { border-left: 0; padding-left: clamp(20px,4vw,48px) }
+  .wpf .tks { grid-template-columns: 1fr 1fr }
+  .wpf .tks .tk:nth-child(5) { grid-column: span 2 }
+  .wpf .host { grid-template-columns: 120px 1fr }
+  .wpf .series { display: none }
+}
+@media (max-width: 560px) {
+  .wpf .reg .row { grid-template-columns: 1fr }
+  .wpf .strip .wrap { grid-template-columns: 1fr }
+  .wpf .strip .item { border-left: 0; padding-left: clamp(20px,4vw,48px) }
+  .wpf .host { grid-template-columns: 1fr }
+  .wpf .tks { grid-template-columns: 1fr }
+  .wpf .tks .tk:nth-child(5) { grid-column: span 1 }
+  .wpf .host img, .wpf .host .ini { max-width: 160px }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .wpf .hero h1, .wpf .hero .lede, .wpf .hero .who { animation: wpf-rise .7s cubic-bezier(.2,.75,.2,1) both }
+  .wpf .hero .lede { animation-delay: .07s }
+  .wpf .hero .who { animation-delay: .14s }
+  @keyframes wpf-rise { from { opacity: 0; transform: translateY(12px) } to { opacity: 1; transform: none } }
+}

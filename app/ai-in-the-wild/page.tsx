@@ -58,7 +58,7 @@ export default function AIInTheWildPage() {
         <div className="wrap">
           <p className="q">What is on</p>
           <h2 className="big">Insights and events.</h2>
-          <div style={{ marginTop: 36, maxWidth: 480 }}>
+          <div className="evgrid evgrid-2">
             {/* Meetup card */}
             <a
               className="evcard"
@@ -78,8 +78,8 @@ export default function AIInTheWildPage() {
               </div>
             </a>
 
-            {/* Webinar card — hidden for launch, re-enable next week */}
-            {/* <a className="evcard" href="/events/why-ai-pilots-fail" target="_blank" rel="noopener noreferrer">
+            {/* Webinar card */}
+            <a className="evcard" href="/events/why-ai-pilots-fail" target="_blank" rel="noopener noreferrer">
               <div className="evpic">
                 <img src="/img/event-talk-ab.jpg" alt="" />
                 <span className="evtag lilac">Webinar</span>
@@ -91,9 +91,9 @@ export default function AIInTheWildPage() {
                   The practical reasons AI projects stall before production, and
                   how to spot them early.
                 </p>
-                <span className="igo">Watch &#8594;</span>
+                <span className="igo">Register &#8594;</span>
               </div>
-            </a> */}
+            </a>
           </div>
         </div>
       </section>

@@ -5,12 +5,12 @@ import "./styles.css";
 export const metadata: Metadata = {
   title: "Why most AI marketing pilots fail | AI in the Wild | Analogiq",
   description:
-    "Seven reasons AI proofs of concept stall inside marketing teams, and the six things the ones that survive have in common. A 45-minute webinar from the AI in the Wild meetup.",
+    "8 common reasons why AI pilots fail to take off, explored in a 45-minute webinar from the AI in the Wild meetup.",
   alternates: { canonical: "https://analogiq.io/events/why-ai-pilots-fail" },
   openGraph: {
     title: "Why most AI marketing pilots fail",
     description:
-      "Seven reasons AI proofs of concept stall inside marketing teams, and the six things the ones that survive have in common. A 45-minute webinar from the AI in the Wild meetup.",
+      "8 common reasons why AI pilots fail to take off, explored in a 45-minute webinar from the AI in the Wild meetup.",
     url: "https://analogiq.io/events/why-ai-pilots-fail",
   },
 };

@@ -81,11 +81,11 @@ export default function AIInTheWildPage() {
             {/* Webinar card */}
             <a className="evcard" href="/events/why-ai-pilots-fail" target="_blank" rel="noopener noreferrer">
               <div className="evpic">
-                <img src="/img/event-talk-ab.jpg" alt="" />
+                <img src="/img/event-webinar-tile.png" alt="" />
                 <span className="evtag lilac">Webinar</span>
               </div>
               <div className="evbody">
-                <p className="evmeta">Online · 45 minutes · On demand</p>
+                <p className="evmeta">Live online · 15 October · 2pm UK · 45 min</p>
                 <h3>Why most AI pilots fail</h3>
                 <p>
                   The practical reasons AI projects stall before production, and

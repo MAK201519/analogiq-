@@ -116,9 +116,7 @@ export default function PageClient() {
             </p>
             <h1>Why most AI marketing pilots fail</h1>
             <p className="lede">
-              Seven reasons AI proofs of concept stall inside marketing teams,
-              and the six things the ones that survive have in common. A
-              45-minute webinar.
+              We&rsquo;ll explore the 8 common reasons why pilots fail to take off
             </p>
             <p className="aud">
               For marketing and digital leads running, or about to run, an AI
@@ -227,14 +225,6 @@ export default function PageClient() {
             registers.
           </div>
           <div className="item">
-            <b>Seven failures, six fixes</b>Why AI marketing pilots stall, then
-            what the ones that survive had in place on day one.
-          </div>
-          <div className="item">
-            <b>One checklist to keep</b>The six checks every pilot needs before
-            it starts, sent as a one-pager after the session.
-          </div>
-          <div className="item">
             <b>For marketing and digital leads</b>If you&rsquo;re running an AI
             pilot, or being asked to, this is what to check before it starts.
           </div>
@@ -248,38 +238,23 @@ export default function PageClient() {
           <div className="tks">
             <div className="tk">
               <span className="n">1</span>
-              <p>
-                The four reasons marketing pilots get started that have nothing
-                to do with the customer.
-              </p>
+              <p>Why AI pilots typically fail to take off and scale</p>
             </div>
             <div className="tk">
               <span className="n">2</span>
-              <p>
-                Where the other forty grand goes when a ten grand pilot is
-                scoped loosely.
-              </p>
+              <p>We&rsquo;ll explore everything from vendor promises, defining AI use cases through to the typical challenges that we see</p>
             </div>
             <div className="tk">
               <span className="n">3</span>
-              <p>
-                How to choose a marketing use case without throwing one into the
-                air.
-              </p>
+              <p>Pilot scope and its impact on accurate budgets</p>
             </div>
             <div className="tk">
               <span className="n">4</span>
-              <p>
-                Why data problems bite twice, before you choose and after you
-                build.
-              </p>
+              <p>Setting expectations with what a marketing AI pilot can achieve</p>
             </div>
             <div className="tk">
               <span className="n">5</span>
-              <p>
-                What the pilots that worked had agreed before anything was
-                built.
-              </p>
+              <p>Typical examples of where we see AI pilots succeeding and the common traits that they have</p>
             </div>
           </div>
         </div>
@@ -323,9 +298,8 @@ export default function PageClient() {
             Decide what proved means before you build anything.
           </h2>
           <p>
-            Forty-five minutes, one checklist, and a recording you can send to
-            whoever has to sign it off. Date to be confirmed. Register now and
-            we will tell you first.
+            Forty-five minutes on Thursday 15 October, 2pm UK. Register now
+            and we will send you the joining link.
           </p>
           <button className="btn" onClick={scrollToReg}>
             Save my seat{" "}

@@ -678,9 +678,13 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-0.035em}
 @media(max-width:700px){.logostrip{padding:24px clamp(16px,4vw,32px);overflow:visible}.logostrip::before,.logostrip::after{display:none}.logotrack{animation:none;width:auto;flex-wrap:wrap;justify-content:center;gap:20px 28px}.logotrack .lg{height:40px;width:calc(33.333% - 20px);min-width:80px;max-width:110px}.logotrack .lg img{max-height:32px;max-width:100%;width:auto}.logotrack .lg-dup{display:none}}
 /* case body two-column */
 .casebody{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(32px,4vw,64px);align-items:start;margin-top:28px}
+.casebody.solo{grid-template-columns:1fr;max-width:860px}
 .caseprose h3{font-size:clamp(20px,2.2vw,26px);letter-spacing:-0.03em;margin:28px 0 10px}
 .caseprose h3:first-child{margin-top:0}
 .caseprose p{font-size:17px;line-height:1.6;color:var(--muted)}
+.caseprose p + p{margin-top:14px}
+.caseprose ol{list-style:decimal;padding-left:1.4em;margin:12px 0}
+.caseprose li{font-size:17px;line-height:1.6;color:var(--muted);margin-bottom:6px}
 .caseaside{position:sticky;top:100px;display:flex;flex-direction:column;gap:20px}
 .caseshot{border:1.5px solid var(--ink);border-radius:8px;overflow:hidden}
 .caseshot img{width:100%;display:block}

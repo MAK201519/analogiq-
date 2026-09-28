@@ -18,19 +18,90 @@ export type CaseRecord = {
   metaTitle: string;
   sum: string;
   metaDescription: string;
-  stats: CaseStat[];
+  stats?: CaseStat[];
   problem: string;
+  problemParagraphs?: string[];
+  problemListIntro?: string;
+  problemList?: string[];
+  problemPost?: string;
+  problemPostParagraphs?: string[];
   built: string;
-  after: string;
+  builtParagraphs?: string[];
+  builtListIntro?: string;
+  builtList?: string[];
+  after?: string;
   quote?: string;
   quoteBy?: string;
   video?: string;
-  imgs: string[];
+  imgs?: string[];
   roadmap?: CaseRoadmapStep[];
   rmnote?: string;
 };
 
 export const cases: CaseRecord[] = [
+  {
+    slug: 'ai-search',
+    client: 'A travel business',
+    sector: 'Travel',
+    cat: 'AI search and discovery',
+    ai: true,
+    title: 'Simplifying Search with AI',
+    metaTitle: 'Azure AI Search: semantic discovery for travel',
+    metaDescription: 'Azure AI Search with vector embeddings for a travel business. Customers describe what they want; results are ranked by intent as well as keyword.',
+    sum: 'A travel business with thousands of product categories needed to replace a slow browse-and-filter journey. We built an Azure AI Search solution with semantic embeddings that lets customers describe what they want and returns a ranked shortlist by intent, not just keyword.',
+    problem: 'Our travel client had thousands of product categories and SKUs, and getting the right customer to the right product was slow and cumbersome with a traditional navigation, search and filtering journey.',
+    problemParagraphs: [
+      'Our travel client had thousands of product categories and SKUs, and getting the right customer to the right product was slow and cumbersome with a traditional navigation, search and filtering journey.',
+      'We knew that each customer had a range of purchase criteria: category, price, location, number of people, and more nuanced ones such as "vibe", food and drink, live music, or family-friendly.',
+      'We wanted to replicate the offline sales experience by providing an entry point that allowed the customer to simply describe what they were looking for, and then return with a shortlist of options that made their buying decision easier.',
+    ],
+    built: 'We chose to implement Azure AI Search as the underlying technology to provide keyword and semantic capabilities to capture a customer\'s request and to search and rank options based on the closest fit, not just specific criteria but also their intent.',
+    builtParagraphs: [
+      'We chose to implement Azure AI Search as the underlying technology to provide keyword and semantic capabilities to capture a customer\'s request and to search and rank options based on the closest fit, not just specific criteria but also their intent.',
+      'We began by creating a search index schema with standard fields for keyword search and vector embeddings. We then created APIs to pull product, pricing and availability into a single search index, then deployed an embedding model via Azure OpenAI.',
+      'Following the initial evaluation, we built custom logic to ensure that selected key criteria were always assessed (for example day and month) and identified content gaps to improve search accuracy. Finally, we built the front-end interface, which combined Suggestive Search with Azure AI Search.',
+      'The new search now searches a vast catalogue in one to two seconds and ranks results not just by keyword but also by meaning, taking customers to the right result quickly. Even ambiguous terms like "a family day out", which a traditional search would fail to match, now bring back results suitable for kids.',
+      'The next phase will introduce LLM capabilities built on the existing search index to deepen understanding of a user\'s search, pass through filters to product selection pages, and enable full conversational guidance, providing customers with a full online concierge experience.',
+    ],
+  },
+  {
+    slug: 'campaign-assistant',
+    client: 'A multi-brand marketer',
+    sector: 'Marketing',
+    cat: 'AI campaign intelligence',
+    ai: true,
+    title: 'AI-Powered Campaign Assistant',
+    metaTitle: 'AI campaign assistant for a multi-brand marketer',
+    metaDescription: 'LLM on normalised multichannel campaign data. Performance history, benchmark flagging and natural-language querying for a marketing team.',
+    sum: 'A multi-brand marketer running several campaigns a year across multiple channels had no shared view of what had worked, no way to flag underperformance in real time, and a day\'s manual effort to produce a monthly report. We built an AI campaign assistant that normalises three years of multichannel data and answers questions in natural language.',
+    problem: 'Our client was delivering several campaigns every year, for different sectors, products and audience types, and through multiple channels.',
+    problemListIntro: 'Their challenge was threefold:',
+    problemList: [
+      'Knowledge: nobody had a clear idea which tactics or assets had worked for a previous similar campaign, so every new campaign was a "best guess".',
+      'Silos: different teams owned different channels, and there was no coordination of performance or learnings against benchmarks.',
+      'Reporting: monthly reporting required a day of someone\'s time to pull all the data together into one place, by which time it was already out of date.',
+    ],
+    problemPost: 'Whilst they had reviewed several "dashboard" platforms on the market, our initial consultation identified that this was really a time and institutional knowledge issue, and that a dashboard would only simplify an existing problem.',
+    problemPostParagraphs: [
+      'Whilst they had reviewed several "dashboard" platforms on the market, our initial consultation identified that this was really a time and institutional knowledge issue, and that a dashboard would only simplify an existing problem.',
+      'What the client needed more than anything else was a campaign data analyst to manage the process for them.',
+    ],
+    built: 'We began by auditing all available data across their web, email, social, CRM and paid ads platforms. This allowed us to identify data quality gaps, format inconsistencies (for example dates and KPIs), establish governance and ownership, and determine which tasks were consuming the most team time.',
+    builtParagraphs: [
+      'We began by auditing all available data across their web, email, social, CRM and paid ads platforms. This allowed us to identify data quality gaps, format inconsistencies (for example dates and KPIs), establish governance and ownership, and determine which tasks were consuming the most team time.',
+      'We then created an index to ingest and normalise the data into a single search index, flattening it into a single, consistent data set that shared common values across various campaign facets. This meant we could match values such as "5 Dec 2025" versus "05/12/25" and "CTR %" versus "Click-through %".',
+      'Custom rules around benchmarking, audiences, campaign theme and seasonality were key, so we created bespoke business logic to enable clearer data filtering, provide a mechanism to flag under- or over-performance at any time for any channel, and link campaign acquisition to performance and drop-off further down the website funnel.',
+      'Finally, we applied an LLM model on top of the data, which would allow a marketing team member to query the campaign knowledgebase in natural language, and added automated email and Slack alerts if a live campaign was underperforming or if a campaign was set up with missing facet data.',
+    ],
+    builtListIntro: 'The finished product was a bespoke AI solution that:',
+    builtList: [
+      'Opened up three years\' worth of multichannel campaign data insights to anybody within the marketing team at the push of a button.',
+      'Allowed campaign issues to be addressed promptly to reduce wasted spend by constantly measuring against benchmarks.',
+      'Provided insights into which assets and messaging were resonating most effectively for a particular audience and theme, so that future campaigns were built on evidence, not gut feeling.',
+      'Flagged acquisition-to-on-site-funnel drop-out issues to enable experimentation to maximise campaign spend ROI.',
+      'Became a real AI data analyst capable of condensing days of work into just a few seconds.',
+    ],
+  },
   {
     slug: 'capco-personalisation',
     client: 'Capco',

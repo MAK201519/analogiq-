@@ -13,6 +13,8 @@ const LOGO: Record<string, string | null> = {
   sunlife: "/img/logo-sunlife.webp",
   "cystic-fibrosis-trust": "/img/logo-cystic-fibrosis-trust.png",
   jet2: "/img/logo-jet2.svg",
+  "ai-search": null,
+  "campaign-assistant": null,
 };
 
 /* ── thumbnail used in .mini and .wgrid cards ──────────────────────────── */
@@ -26,6 +28,8 @@ const THUMB: Record<string, string> = {
   sunlife: "/img/case-sunlife.jpg",
   "cystic-fibrosis-trust": "/img/case-cystic-fibrosis-trust.jpg",
   jet2: "/img/case-jet2.jpg",
+  "ai-search": "/img/case-ai-search.jpg",
+  "campaign-assistant": "/img/case-campaign-assistant.jpg",
 };
 
 const MARK = (
@@ -105,29 +109,48 @@ export default async function CasePage({
       </section>
 
       {/* 2 · STATS */}
-      <section className="sec" style={{ paddingTop: 0 }}>
-        <div className="wrap">
-          <div className="statbig">
-            {c.stats.map((s, i) => (
-              <div key={i}><b>{s.value}</b><span>{s.label}</span></div>
-            ))}
+      {c.stats && c.stats.length > 0 && (
+        <section className="sec" style={{ paddingTop: 0 }}>
+          <div className="wrap">
+            <div className="statbig">
+              {c.stats.map((s, i) => (
+                <div key={i}><b>{s.value}</b><span>{s.label}</span></div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 3 · CASE BODY */}
       <section className="sec" style={{ paddingTop: 0 }}>
         <div className="wrap">
           <p className="q">What happened?</p>
           <h2 className="big">How it went.</h2>
-          <div className="casebody">
+          <div className={c.quote ? "casebody" : "casebody solo"}>
             <div className="caseprose">
               <h3>The problem</h3>
-              <p>{c.problem}</p>
+              {(c.problemParagraphs ?? [c.problem]).map((para, i) => <p key={`prob-${i}`}>{para}</p>)}
+              {c.problemListIntro && <p>{c.problemListIntro}</p>}
+              {c.problemList && (
+                <ol>
+                  {c.problemList.map((item, i) => <li key={`plist-${i}`}>{item}</li>)}
+                </ol>
+              )}
+              {c.problemPost && (c.problemPostParagraphs ?? [c.problemPost]).map((para, i) => <p key={`ppost-${i}`}>{para}</p>)}
               <h3>What we built</h3>
-              <p>{c.built}</p>
-              <h3>What came after</h3>
-              <p>{c.after}</p>
+              {(c.builtParagraphs ?? [c.built]).map((para, i) => <p key={`built-${i}`}>{para}</p>)}
+              {c.builtListIntro && <p>{c.builtListIntro}</p>}
+              {c.builtList && (
+                <ol>
+                  {c.builtList.map((item, i) => <li key={`blist-${i}`}>{item}</li>)}
+                </ol>
+              )}
+              {c.after && (
+                <>
+                  <h3>What came after</h3>
+                  {[c.after].map((para, i) => <p key={`after-${i}`}>{para}</p>)}
+                </>
+              )}
             </div>
             {c.quote && (
               <div className="caseaside">
@@ -163,7 +186,7 @@ export default async function CasePage({
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               />
             </div>
-          ) : c.imgs.length > 0 ? (
+          ) : (c.imgs && c.imgs.length > 0) ? (
             <div className="shots">
               {c.imgs.map((img, i) => (
                 <figure className="shot" key={i}>

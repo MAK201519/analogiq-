@@ -128,9 +128,11 @@ export default function HomePage() {
               <img src={`/img/case-${c.slug}.jpg`} alt="" />
               <p className="m"><span className={c.ai ? "pill" : "pill est"}>{c.ai ? "AI" : "Digital"}</span> {c.client} &middot; {c.sector}</p>
               <h3>{c.title}</h3>
-              <div className="ws">{c.stats.slice(0, 2).map((s, i) => (
-                <div key={i}><b>{s.value}</b><span>{s.label}</span></div>
-              ))}</div>
+              {c.stats && c.stats.length > 0 && (
+                <div className="ws">{c.stats.slice(0, 2).map((s, i) => (
+                  <div key={i}><b>{s.value}</b><span>{s.label}</span></div>
+                ))}</div>
+              )}
             </a>
           ))}
         </div>

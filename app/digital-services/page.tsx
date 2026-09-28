@@ -259,14 +259,16 @@ export default function DigitalServicesPage() {
                   {c.client} &middot; {c.sector}
                 </p>
                 <h3>{c.title}</h3>
-                <div className="ws">
-                  {c.stats.slice(0, 2).map((s, i) => (
-                    <div key={i}>
-                      <b>{s.value}</b>
-                      <span>{s.label}</span>
-                    </div>
-                  ))}
-                </div>
+                {c.stats && c.stats.length > 0 && (
+                  <div className="ws">
+                    {c.stats.slice(0, 2).map((s, i) => (
+                      <div key={i}>
+                        <b>{s.value}</b>
+                        <span>{s.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </a>
             ))}
           </div>

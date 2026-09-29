@@ -55,7 +55,6 @@ export default function PageClient() {
       try {
         await fetch(webhookUrl, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
         });
       } catch {

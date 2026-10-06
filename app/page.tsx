@@ -2,23 +2,7 @@ import type { Metadata } from "next";
 import "@/app/home.css";
 import ChallengeTabs from "@/app/components/home/ChallengeTabs";
 import { cases } from "@/content/cases";
-
-const CLIENT_LOGOS = [
-  { src: "/img/logo-hsbc.svg",                  alt: "HSBC" },
-  { src: "/img/logo-capco-logo.png",             alt: "Capco" },
-  { src: "/img/logo-keith-prowse-new.png",       alt: "Keith Prowse" },
-  { src: "/img/logo-sunlife.webp",               alt: "SunLife" },
-  { src: "/img/logo-jet2.svg",                   alt: "Jet2" },
-  { src: "/img/logo-bhf.svg",                    alt: "British Heart Foundation" },
-  { src: "/img/logo-cystic-fibrosis-trust.png",  alt: "Cystic Fibrosis Trust" },
-  { src: "/img/logo-shoosmiths.png",             alt: "Shoosmiths" },
-  { src: "/img/logo-premium-credit.png",         alt: "Premium Credit" },
-  { src: "/img/logo-costcutter.png",             alt: "Costcutter" },
-  { src: "/img/logo-bank-workers-charity.png",   alt: "Bank Workers Charity" },
-  { src: "/img/logo-leeds-beckett.png",          alt: "Leeds Beckett" },
-  { src: "/img/logo-maples.svg",                 alt: "Maples" },
-  { src: "/img/logo-experience-golf.png",        alt: "Experience Golf" },
-];
+import LogoStrip from "@/app/components/LogoStrip";
 
 export const metadata: Metadata = {
   title: "Analogiq | Practical AI for businesses with real data",
@@ -78,20 +62,7 @@ export default function HomePage() {
         <div className="wrap">
           <h2 className="big">The clients who trusted us with the hard part.</h2>
         </div>
-        <div className="logostrip" style={{ marginTop: 28 }}>
-          <div className="logotrack">
-            {CLIENT_LOGOS.map((l) => (
-              <span className="lg" key={l.alt}>
-                <img src={l.src} alt={l.alt} />
-              </span>
-            ))}
-            {CLIENT_LOGOS.map((l) => (
-              <span className="lg lg-dup" key={l.alt + "-2"}>
-                <img src={l.src} alt="" aria-hidden="true" />
-              </span>
-            ))}
-          </div>
-        </div>
+        <LogoStrip style={{ marginTop: 28 }} />
       </div>
 
       {/* 3 · WHO IS THIS FOR */}

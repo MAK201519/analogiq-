@@ -93,3 +93,16 @@
   to = "/events/why-ai-pilots-fail"
   status = 301
   force = true
+
+# /audit — Savoy business-card route. Added 2026-10-06.
+[[redirects]]
+  from = "/audit/"
+  to = "/audit"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Audit"
+  to = "/audit"
+  status = 301
+  force = true

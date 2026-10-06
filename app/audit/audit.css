@@ -1,0 +1,184 @@
+/* /audit page — layout and section styles not shared with the rest of the site.
+   Base tokens (.wrap, .sec, .q, h2.big, .lede, .btn, .btn-a, .card, .card .n etc.)
+   come from app/shared-pages.css which is loaded globally via app/layout.tsx.
+   Added 2026-10-06. */
+
+/* ── Header bar ──────────────────────────────────────────────────── */
+header.auditBar {
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+.auditBar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+}
+.auditBar .logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+.auditBar .auditMark {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-right: 10px;
+}
+.auditBar .auditMark i {
+  display: block;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--ink);
+}
+.auditBar .auditMark i:first-child { width: 26px; }
+.auditBar .auditMark i + i { width: 60%; background: var(--purple); }
+.auditBar .auditWord {
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.auditBar .auditTag {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ── Hero ────────────────────────────────────────────────────────── */
+.auditHero {
+  padding: clamp(56px, 8vw, 120px) 0 clamp(40px, 5vw, 72px);
+}
+.auditHero h1 {
+  font-size: clamp(38px, 6vw, 76px);
+  max-width: 14ch;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+}
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+.auditHero .lede { margin-top: 24px; font-size: 20px; max-width: 48ch; }
+.auditHero .alt {
+  margin-top: 18px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* ── Calendly widget ─────────────────────────────────────────────── */
+.cal {
+  border: 1.5px solid var(--line);
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* ── Light band sections ─────────────────────────────────────────── */
+.auditBand {
+  background: var(--lilac2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ── Step cards (4-column) ───────────────────────────────────────── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+/* shared-pages.css sets .card p { flex: 1 } which catches the eyebrow
+   <p className="n"> and pushes the heading down on short cards.
+   Pin the eyebrow so only the description paragraph stretches. */
+.steps .card .n,
+.auditTwoCol .card .n {
+  flex: none;
+}
+
+/* ── Two-column card row (bottom of audit-involve section) ───────── */
+/* Named .auditTwoCol not .grid2 — shared-pages.css adds auto-counters
+   to .grid2>div::before in the proportion pass. */
+.auditTwoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+/* ── Themes (room problems) ──────────────────────────────────────── */
+.themes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 40px;
+  margin-top: 40px;
+}
+.theme {
+  border-top: 1.5px solid var(--line);
+  padding-top: 22px;
+}
+.theme h3 { font-size: 22px; margin-bottom: 8px; }
+.theme p  { color: var(--muted); font-size: 16.5px; }
+
+/* ── Dark contact band ───────────────────────────────────────────── */
+.dark {
+  background: var(--deep2);
+  color: #fff;
+}
+.dark .q  { color: var(--amber); }
+.dark h2  { color: #fff; }
+.dark .lede { color: #D9D3E6; }
+
+.contactBlock {
+  max-width: 500px;
+  margin: 36px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.contactLines {
+  font-size: 18px;
+  line-height: 1.7;
+}
+.contactLines b {
+  display: block;
+  font-size: 15px;
+  color: var(--amber);
+  margin-top: 14px;
+}
+.contactLines b:first-child { margin-top: 0; }
+.contactLines a { color: #fff; }
+
+.fine {
+  font-size: 14px;
+  color: #9A93A8;
+  margin-top: 14px;
+  max-width: 60ch;
+}
+
+/* ── Page footer ─────────────────────────────────────────────────── */
+footer.auditFoot {
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--muted);
+}
+footer.auditFoot .wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .heroGrid,
+  .steps { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 860px) {
+  .auditTwoCol,
+  .themes      { grid-template-columns: 1fr; }
+  .auditHero .lede { font-size: 18px; }
+}

@@ -84,7 +84,7 @@ export default async function Page({ params }: Props) {
           __html: JSON.stringify(eventSchema),
         }}
       />
-      <PageClient />
+      <PageClient slug={slug} /> {/* Added 2026-10-10: pass slug for Meta Lead tracking */}
     </>
   );
 }

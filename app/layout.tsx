@@ -5,6 +5,7 @@ import "./shared-pages.css";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import SiteShell from "./components/SiteShell";
+import MetaPixelPageView from "./components/MetaPixelPageView"; // Added 2026-10-10
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -95,6 +96,16 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
+        {/* Added 2026-10-10: Meta pixel — gated behind Cookiebot marketing consent */}
+        {process.env.NEXT_PUBLIC_META_PIXEL_ID && (
+          <script
+            type="text/plain"
+            data-cookieconsent="marketing"
+            dangerouslySetInnerHTML={{
+              __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${process.env.NEXT_PUBLIC_META_PIXEL_ID}');fbq('track','PageView');`,
+            }}
+          />
+        )}
         <script
           type="text/plain"
           data-cookieconsent="statistics"
@@ -102,6 +113,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <MetaPixelPageView /> {/* Added 2026-10-10 */}
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

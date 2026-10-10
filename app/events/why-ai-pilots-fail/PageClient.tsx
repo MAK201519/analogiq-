@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { trackMetaLead } from "@/lib/metaPixel"; // Added 2026-10-10
 
 const MARK = (
   <svg viewBox="0 0 36 34" aria-hidden="true">
@@ -63,6 +64,7 @@ export default function PageClient() {
     }
 
     setRegistered(true);
+    trackMetaLead("why-ai-pilots-fail"); // Added 2026-10-10
     setSubmitting(false);
   }
 

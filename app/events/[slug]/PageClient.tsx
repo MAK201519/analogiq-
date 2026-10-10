@@ -3,6 +3,7 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Footer from "@/app/components/Footer";
+import { trackMetaLead } from "@/lib/metaPixel"; // Added 2026-10-10
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -409,7 +410,7 @@ function SuccessContent() {
 
 // ── Main page ──────────────────────────────────────────────────────────────
 
-export default function PageClient() {
+export default function PageClient({ slug }: { slug: string }) { // Added 2026-10-10: accepts slug prop
   const formRef = useRef<HTMLDivElement>(null);
   const [registered, setRegistered] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -481,6 +482,7 @@ export default function PageClient() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
       setRegistered(true);
+      trackMetaLead(slug); // Added 2026-10-10
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
       setSubmitError(

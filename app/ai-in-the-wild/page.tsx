@@ -85,7 +85,7 @@ export default function AIInTheWildPage() {
                 <span className="evtag lilac">Webinar</span>
               </div>
               <div className="evbody">
-                <p className="evmeta">Live online · 15 October · 2pm UK · 45 min</p>
+                <p className="evmeta">Live online · 21 October · 2pm UK · 45 min</p>
                 <h3>Why most AI pilots fail</h3>
                 <p>
                   The practical reasons AI projects stall before production, and

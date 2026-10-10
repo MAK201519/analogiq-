@@ -110,7 +110,7 @@ export default function PageClient() {
             <p className="kick">
               <span className="tag">Free webinar</span>
               <span>From the AI in the Wild meetup</span>
-              <span>Thursday 15 October, 2pm UK</span>
+              <span>Wednesday 21 October, 2pm UK</span>
               <span>45 minutes</span>
             </p>
             <h1>Why most AI marketing pilots fail</h1>
@@ -156,7 +156,7 @@ export default function PageClient() {
               <>
                 <h2>Save your seat</h2>
                 <p className="when">
-                  <b>Live webinar.</b> Thursday 15 October, 2pm UK. 45 minutes.
+                  <b>Live webinar.</b> Wednesday 21 October, 2pm UK. 45 minutes.
                   <br />
                   Can&rsquo;t make it live? Register anyway and we&rsquo;ll
                   send the recording.
@@ -297,7 +297,7 @@ export default function PageClient() {
             Decide what proved means before you build anything.
           </h2>
           <p>
-            Forty-five minutes on Thursday 15 October, 2pm UK. Register now
+            Forty-five minutes on Wednesday 21 October, 2pm UK. Register now
             and we will send you the joining link.
           </p>
           <button className="btn" onClick={scrollToReg}>

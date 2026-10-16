@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import NavigationBar from "../../components/NavigationBar";
+import SiteHeader from "../../components/SiteHeader";
 
 // ── Venue constants ───────────────────────────────────────────────────────────
 // All venue-specific strings live here. Nothing venue-related is typed inline.
@@ -102,10 +102,10 @@ export default function PageClient() {
   return (
     <div className="b2b">
 
-      {submitted && <NavigationBar />}
+      {submitted && <SiteHeader />}
 
       {/* ── Hero ───────────────────────────────────────────────────────── */}
-      <section className="b2b-hero-section" style={submitted ? { paddingTop: 104 } : undefined}>
+      <section className="b2b-hero-section">
         <div aria-hidden="true" className="b2b-orb b2b-orb-r" />
         <div aria-hidden="true" className="b2b-orb b2b-orb-l" />
         <div className="b2b-wrap">

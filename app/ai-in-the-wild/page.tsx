@@ -94,6 +94,31 @@ export default function AIInTheWildPage() {
                 <span className="igo">Register &#8594;</span>
               </div>
             </a>
+
+            {/* B2B workshop card: hidden until venue confirmed, 15 Oct 2026.
+                Uncomment once venue placeholder strings are replaced in PageClient.tsx. */}
+            {/*
+            <a
+              className="evcard"
+              href="/events/b2b-agentic-workforce"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="evpic">
+                <img src="/img/event-workshop.jpg" alt="" />
+                <span className="evtag amber">Workshop</span>
+              </div>
+              <div className="evbody">
+                <p className="evmeta">Tue 1 Dec 2026 · 2.00 to 5.00 · Marylebone</p>
+                <h3>Scaling B2B marketing with the agentic workforce</h3>
+                <p>
+                  A hands-on afternoon for B2B marketing leaders. Bring the tasks
+                  your team never gets round to, leave with a one-page plan.
+                </p>
+                <span className="igo">Request a seat &#8594;</span>
+              </div>
+            </a>
+            */}
           </div>
         </div>
       </section>

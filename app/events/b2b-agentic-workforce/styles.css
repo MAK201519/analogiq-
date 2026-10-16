@@ -1,0 +1,545 @@
+/* ── Switzer 900 ─────────────────────────────────────────────────────────────
+   File public/fonts/switzer-6.woff2 must be added by Mario (download from
+   Fontshare: switzer@900). Pattern matches prototype.css.
+   ────────────────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer-6.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Page root ───────────────────────────────────────────────────────────────
+   --b2b-lilac-mid is the only colour not covered by the global tokens in
+   prototype.css / shared-pages.css.
+   ────────────────────────────────────────────────────────────────────────── */
+.b2b {
+  --b2b-lilac-mid: #DCD6EE;
+  font-family: 'Switzer', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  overflow-x: clip;
+}
+
+/* Zero-specificity resets scoped to .b2b: do not outrank class rules */
+.b2b :where(*, *::before, *::after)      { box-sizing: border-box; }
+.b2b :where(p, h1, h2, h3)              { margin: 0; }
+.b2b :where(img)                         { display: block; max-width: 100%; }
+.b2b :where(a)                           { text-decoration: none; }
+/* Override global h1-h4 { color: var(--ink) } (specificity 0,0,1) in prototype.css /
+   shared-pages.css. .b2b class gives this rule specificity 0,1,0, which wins. */
+.b2b :where(h1, h2, h3, h4, p, li)      { color: inherit; }
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+.b2b-wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; position: relative; }
+.b2b-sec  { padding: clamp(72px, 8vw, 112px) 0; }
+
+/* ── Display type scale ─────────────────────────────────────────────────── */
+/* 128 px display headline (clamps to 56 px at narrow viewports) */
+.b2b-display {
+  font-size: clamp(56px, 7.4vw, 116px);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+/* Section h2 (~92 px at 1440) */
+.b2b-h2 {
+  font-size: clamp(44px, 6vw, 92px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+/* Smaller h2 for two-up section */
+.b2b-h2-sm {
+  font-size: clamp(36px, 4.4vw, 64px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+.b2b-eyebrow { font-size: 18px; font-weight: 700; margin: 0 0 20px; }
+.b2b-body    { font-size: 22px; line-height: 1.45; max-width: 720px; margin: 32px 0 0; }
+.b2b-body-sm { font-size: 19px; line-height: 1.45; max-width: 720px; margin: 32px 0 0; }
+
+/* ── Wordmark mark (two-bar logo) ───────────────────────────────────────── */
+.b2b-mark { display: flex; flex-direction: column; gap: 5px; flex: none; }
+.b2b-mark-bar { width: 34px; height: 7px; border-radius: 4px; background: #fff; }
+.b2b-mark-bar-bot { width: 22px; background: var(--amber); }
+
+/* ── Page header (inside hero section) ─────────────────────────────────── */
+.b2b-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 64px;
+}
+.b2b-wordmark { display: flex; align-items: center; gap: 10px; color: #fff; }
+.b2b-wordmark-text { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; }
+
+/* ── Sticker ────────────────────────────────────────────────────────────── */
+.b2b-sticker {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 10px 16px;
+  border-radius: 6px;
+  box-shadow: 0 6px 0 rgba(23, 17, 31, 0.25);
+}
+
+/* ── Hero section ───────────────────────────────────────────────────────── */
+.b2b-hero-section {
+  background: var(--purple);
+  color: #fff;
+  padding: 36px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+/* decorative orbs */
+.b2b-orb   { position: absolute; border-radius: 50%; pointer-events: none; }
+.b2b-orb-r { right: -10%; top: -30%;   width: 900px; height: 900px; background: var(--deep);      opacity: 0.5;  }
+.b2b-orb-l { left: -12%;  bottom: -35%; width: 700px; height: 700px; background: var(--purple-lt); opacity: 0.35; }
+
+/* hero two-column grid */
+.b2b-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: end;
+  padding-bottom: 96px;
+}
+.b2b-hero-left { position: relative; }
+
+/* pills row: date · time · venue · seats */
+.b2b-pills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.b2b-pill {
+  padding: 14px 20px;
+  border-right: 3px solid var(--ink);
+  font-weight: 800;
+  font-size: 15px;
+}
+.b2b-pill:last-child { border-right: 0; }
+.b2b-pill-amber { background: var(--amber); }
+
+/* ── Form card ──────────────────────────────────────────────────────────── */
+.b2b-form-card {
+  background: #fff;
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 10px 10px 0 var(--ink);
+  position: relative;
+}
+.b2b-form-card h2 {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin: 0 0 4px;
+}
+.b2b-form-card label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--deep);
+  letter-spacing: 0.02em;
+}
+.b2b-form-card input {
+  width: 100%;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  padding: 13px 14px;
+  font: inherit;
+  font-size: 16px; /* 16 px prevents iOS zoom */
+  background: #fff;
+  color: var(--ink);
+}
+.b2b-form-card input:focus {
+  border-color: var(--purple);
+  outline: 3px solid var(--purple);
+  outline-offset: 2px;
+}
+.b2b-form-grid  { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.b2b-fine        { font-size: 14px; color: var(--muted); }
+.b2b-form-detail { font-size: 15px; font-weight: 700; color: var(--purple); margin: 0; }
+.b2b-form-error  { font-size: 15px; color: var(--ink); }
+.b2b-form-error a { color: var(--purple); }
+
+/* "Only 20 seats" badge on form card */
+.b2b-badge {
+  position: absolute;
+  top: -26px;
+  right: 24px;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: var(--amber);
+  border: 3px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.05;
+  transform: rotate(12deg);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Button ─────────────────────────────────────────────────────────────── */
+.b2b-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  padding: 18px 34px;
+  font: inherit;
+  font-size: 19px;
+  font-weight: 800;
+  background: var(--amber);
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 5px 5px 0 var(--ink);
+  line-height: 1;
+  white-space: nowrap;
+}
+.b2b-btn:hover {
+  background: #ffc247;
+  color: var(--ink);
+  text-decoration: none;
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.b2b-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+/* ink variant used in "Can't make it" */
+.b2b-btn-ink { background: var(--ink); color: #fff; box-shadow: 5px 5px 0 var(--purple); }
+.b2b-btn-ink:hover { background: #2a1a38; color: #fff; box-shadow: 6px 6px 0 var(--purple); }
+/* Focus-visible: both button variants get an ink outline (amber section bg makes amber outline invisible) */
+.b2b-btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+/* Focus-visible on navigational links */
+.b2b-wordmark:focus-visible         { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+.b2b-map-link:focus-visible         { outline: 3px solid var(--ink);   outline-offset: 3px; border-radius: 2px; }
+.b2b-footer-email a:focus-visible,
+.b2b-footer-legal a:focus-visible   { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 2px; }
+
+/* ── Success card ───────────────────────────────────────────────────────── */
+.b2b-success-card {
+  background: #fff;
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  padding: 36px;
+  box-shadow: 10px 10px 0 var(--ink);
+  position: relative;
+}
+.b2b-success-card h2 {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  margin: 0 0 16px;
+}
+.b2b-success-card > p              { font-size: 19px; line-height: 1.45; }
+.b2b-success-divider               { height: 2px; background: var(--line); margin: 28px 0; }
+.b2b-success-card .b2b-success-sub { font-size: 17px; line-height: 1.5; color: var(--muted); margin: 0 0 20px; }
+
+/* ── Marquee ────────────────────────────────────────────────────────────── */
+.b2b-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--amber);
+  color: var(--ink);
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+}
+.b2b-marquee-track {
+  display: inline-block;
+  padding: 14px 0;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  animation: b2b-slide 28s linear infinite;
+}
+@keyframes b2b-slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .b2b-marquee-track { animation: none; }
+}
+
+/* ── Grids ──────────────────────────────────────────────────────────────── */
+.b2b-grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; }
+.b2b-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+
+/* ── Background alphabet letters ───────────────────────────────────────── */
+.b2b-bg-letter {
+  position: absolute;
+  font-size: 420px;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  color: #fff;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── Tracklist (problems) ───────────────────────────────────────────────── */
+.b2b-tracklist { border-bottom: 3px solid var(--ink); }
+.b2b-track {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-top: 3px solid var(--ink);
+  margin: 0;
+}
+.b2b-track-n { font-size: 22px; font-weight: 900; color: var(--purple); }
+.b2b-track-t { font-size: clamp(24px, 2.3vw, 36px); font-weight: 800; letter-spacing: -0.025em; line-height: 1; }
+.b2b-col-label {
+  margin: 0 0 18px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--purple);
+}
+
+/* ── Agent cards ────────────────────────────────────────────────────────── */
+.b2b-agent {
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  padding: 28px;
+  background: #fff;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.b2b-agent h3 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 10px; }
+.b2b-agent p  { font-size: 17px; line-height: 1.5; margin: 0; }
+.b2b-agent-purple { background: var(--purple); color: #fff; }
+.b2b-agent-purple h3 { color: var(--amber); }
+.b2b-agent-purple p  { color: rgba(255, 255, 255, 0.9); font-size: 19px; }
+/* First agent spans two columns at desktop; reset to one at mobile */
+.b2b-span-2 { grid-column: span 2; }
+
+/* ── Quote box (honesty section) ────────────────────────────────────────── */
+.b2b-quote {
+  border: 3px solid var(--amber);
+  border-radius: 22px;
+  padding: 32px;
+  transform: rotate(1.5deg);
+}
+.b2b-quote p                    { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin: 0; }
+.b2b-quote .b2b-quote-sub       { font-size: 18px; color: var(--amber); font-weight: 700; margin: 18px 0 0; }
+
+/* ── Agenda slots ───────────────────────────────────────────────────────── */
+.b2b-slots { border-bottom: 3px solid rgba(255, 255, 255, 0.3); margin-top: 56px; }
+.b2b-slot {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 24px;
+  padding: 30px 0;
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+}
+.b2b-slot-time { font-size: clamp(56px, 7vw, 112px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.85; color: var(--amber); }
+.b2b-slot h3   { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; }
+.b2b-slot p    { font-size: 18px; line-height: 1.5; color: rgba(255, 255, 255, 0.88); margin: 0; }
+
+/* ── Polaroids ──────────────────────────────────────────────────────────── */
+.b2b-polaroid {
+  background: #fff;
+  padding: 14px 14px 48px;
+  box-shadow: 0 20px 50px rgba(23, 17, 31, 0.3);
+  border: 1px solid var(--line);
+}
+.b2b-ph {
+  aspect-ratio: 4 / 3;
+  background: var(--deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  padding: 16px;
+  overflow: hidden;
+}
+.b2b-ph img       { width: 100%; height: 100%; object-fit: cover; }
+.b2b-polaroid > p { font-size: 16px; font-weight: 600; text-align: center; margin: 14px 0 0; }
+
+/* ── Map card ───────────────────────────────────────────────────────────── */
+.b2b-map-card {
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.b2b-map-placeholder {
+  aspect-ratio: 4 / 3;
+  background: var(--b2b-lilac-mid);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.b2b-map-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(23, 17, 31, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 17, 31, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.b2b-map-pin {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--purple);
+  border: 3px solid var(--ink);
+  transform: rotate(-45deg);
+  box-shadow: 4px 4px 0 rgba(23, 17, 31, 0.25);
+}
+.b2b-map-card iframe { width: 100%; aspect-ratio: 4 / 3; border: 0; display: block; }
+.b2b-map-body        { padding: 22px 24px; }
+.b2b-map-address     { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 6px; }
+.b2b-map-stations    { font-size: 15px; line-height: 1.5; color: var(--muted); margin: 0 0 14px; }
+.b2b-map-link        { font-size: 15px; font-weight: 700; color: var(--purple); }
+.b2b-map-link:hover  { color: var(--purple-lt); }
+
+/* ── Team headshots ─────────────────────────────────────────────────────── */
+.b2b-team-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 56px; max-width: 860px; }
+.b2b-headshot {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid var(--amber);
+  overflow: hidden;
+  background: var(--purple);
+}
+.b2b-headshot img  { width: 100%; height: 100%; object-fit: cover; }
+.b2b-person-name   { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin: 18px 0 0; }
+.b2b-person-role   { font-size: 15px; color: rgba(255, 255, 255, 0.7); margin: 4px 0 0; }
+
+/* ── Venue layout ───────────────────────────────────────────────────────── */
+.b2b-venue-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 48px;
+  margin-top: 64px;
+  align-items: start;
+}
+.b2b-venue-photos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+/* Middle polaroid offset matches mock */
+.b2b-polaroid-mid { margin-top: 40px; }
+/* Third polaroid: visible at desktop, hidden on mobile per phone mock */
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+.b2b-footer { background: var(--ink); color: #fff; padding: 80px 0; }
+.b2b-footer-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+.b2b-footer-mark    { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+.b2b-footer-tagline {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  max-width: 460px;
+  margin: 0;
+}
+.b2b-footer-tagline span { font-weight: 400; color: rgba(255, 255, 255, 0.7); }
+.b2b-footer-right    { text-align: right; }
+.b2b-footer-email    { font-size: 17px; margin: 0 0 12px; }
+.b2b-footer-email a  { color: #fff; }
+.b2b-footer-email a:hover { color: rgba(255, 255, 255, 0.75); }
+.b2b-footer-location { font-size: 15px; color: rgba(255, 255, 255, 0.7); margin: 0 0 40px; }
+.b2b-footer-legal    { font-size: 13px; color: rgba(255, 255, 255, 0.45); margin: 0; }
+.b2b-footer-legal a  { color: rgba(255, 255, 255, 0.45); }
+.b2b-footer-legal a:hover { color: rgba(255, 255, 255, 0.7); }
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .b2b-footer-inner    { grid-template-columns: 1fr; }
+  .b2b-footer-right    { text-align: left; }
+  .b2b-footer-location { margin-bottom: 24px; }
+}
+
+@media (max-width: 720px) {
+  .b2b-wrap          { padding: 0 20px; }
+  .b2b-sec           { padding: 56px 0; }
+  .b2b-page-header   { margin-bottom: 36px; }
+  .b2b-eyebrow       { font-size: 15px; margin-bottom: 14px; }
+  .b2b-body          { font-size: 17px; margin-top: 20px; }
+  .b2b-body-sm       { font-size: 16px; }
+  .b2b-sticker       { font-size: 12px; padding: 8px 12px; }
+  .b2b-bg-letter     { display: none; }
+  /* hero grid stacks */
+  .b2b-hero-grid     { grid-template-columns: 1fr; }
+  /* pills become 2x2 grid */
+  .b2b-pills         { display: grid; grid-template-columns: 1fr 1fr; }
+  .b2b-pill          { border-right: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+  .b2b-pill:nth-child(2) { border-right: 0; }
+  .b2b-pill:nth-child(3) { border-bottom: 0; }
+  .b2b-pill:last-child   { border-right: 0; border-bottom: 0; }
+  /* form grid stacks */
+  .b2b-form-grid     { grid-template-columns: 1fr; }
+  /* badge scales down */
+  .b2b-badge         { width: 76px; height: 76px; font-size: 11px; top: -22px; right: 16px; }
+  /* marquee */
+  .b2b-marquee-track { font-size: 16px; animation-duration: 22s; padding: 11px 0; }
+  /* grids stack */
+  .b2b-grid2         { grid-template-columns: 1fr; gap: 24px; }
+  .b2b-grid3         { grid-template-columns: 1fr; gap: 18px; }
+  .b2b-span-2        { grid-column: auto; }
+  /* tracklist */
+  .b2b-track         { grid-template-columns: 34px minmax(0, 1fr); gap: 10px; padding: 13px 0; }
+  .b2b-track-n       { font-size: 16px; }
+  .b2b-track-t       { font-size: 19px; letter-spacing: -0.03em; }
+  /* agenda slots stack */
+  .b2b-slot          { grid-template-columns: 1fr; gap: 6px; }
+  .b2b-slot-time     { font-size: 56px; margin: 0 0 10px; }
+  /* team stays 3-col on mobile (phone mock) */
+  .b2b-team-grid     { gap: 14px; }
+  .b2b-person-name   { font-size: 14px; margin-top: 12px; line-height: 1.2; }
+  .b2b-person-role   { font-size: 12px; }
+  /* polaroid */
+  .b2b-polaroid      { padding: 10px 10px 34px; }
+  .b2b-polaroid > p  { font-size: 14px; }
+  /* buttons */
+  .b2b-btn           { font-size: 17px; padding: 16px 28px; display: block; text-align: center; box-shadow: 4px 4px 0 var(--ink); }
+  .b2b-btn-ink       { box-shadow: 4px 4px 0 var(--purple); }
+  /* venue layout */
+  .b2b-venue-grid    { grid-template-columns: 1fr; }
+  .b2b-venue-photos  { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .b2b-polaroid-mid  { margin-top: 24px; }
+  .b2b-sleeve        { display: none; }
+}

@@ -110,3 +110,11 @@
   to = "/events/b2b-agentic-workforce"
   status = 301
   force = true
+
+# /events/from-search-to-suitcase: travel breakfast landing page. Added 2026-10-30.
+# Capitalisation guard only; no trailing-slash redirect (causes loop with Next.js).
+[[redirects]]
+  from = "/Events/from-search-to-suitcase"
+  to = "/events/from-search-to-suitcase"
+  status = 301
+  force = true

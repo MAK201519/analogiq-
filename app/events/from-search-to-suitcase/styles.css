@@ -1,0 +1,566 @@
+/* ── Switzer 900 ─────────────────────────────────────────────────────────────
+   Weights 400–800 are declared globally in prototype.css (switzer-1–5.woff2).
+   This file adds weight 900 only, used for display headings.
+   ────────────────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer-6.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Page root ───────────────────────────────────────────────────────────────
+   overflow-x: hidden keeps the absolute-positioned badge from causing
+   horizontal scroll at any viewport width.
+   ────────────────────────────────────────────────────────────────────────── */
+.trv {
+  font-family: 'Switzer', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Zero-specificity resets scoped to .trv */
+.trv :where(*, *::before, *::after) { box-sizing: border-box; }
+.trv :where(p, h1, h2, h3)         { margin: 0; }
+.trv :where(img)                    { display: block; max-width: 100%; }
+.trv :where(a)                      { text-decoration: none; }
+/* Override global h1–h4 colour rules with class-level specificity */
+.trv :where(h1, h2, h3, h4, p, li) { color: inherit; }
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+/* max-width and padding match mock (.wrap / .sec). B2B values not used. */
+.trv-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left:  max(16px, env(safe-area-inset-left,  0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  position: relative;
+}
+.trv-sec { padding-block: clamp(56px, 8vw, 100px); }
+
+/* ── Shared typography ──────────────────────────────────────────────────── */
+/* .trv-q colour is overridden per section; default purple matches the mock */
+.trv-q    { font-size: 15px; font-weight: 700; color: var(--purple); margin-bottom: 12px; }
+.trv-lede { font-size: clamp(17px, 1.5vw, 20px); max-width: 62ch; margin-top: 22px; }
+
+/* ── Header bar ─────────────────────────────────────────────────────────── */
+.trv-top {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 2px solid var(--ink);
+}
+.trv-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+}
+.trv-wordmark:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; border-radius: 2px; }
+.trv-mark     { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; }
+.trv-mark-bar { display: block; height: 4px; border-radius: 2px; background: var(--ink); width: 22px; }
+.trv-mark-bar-b { width: 14px; background: var(--purple); }
+.trv-word { font-weight: 800; font-size: 24px; letter-spacing: -0.04em; color: var(--ink); }
+.trv-tag  {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 2px solid var(--ink);
+  padding: 6px 10px;
+  color: var(--ink);
+}
+
+/* ── Hero section ───────────────────────────────────────────────────────── */
+.trv-hero {
+  background: var(--purple);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(48px, 6vw, 88px);
+}
+.trv-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+/* eyebrow colour override inside hero */
+.trv-hero .trv-q { color: var(--amber); font-size: 17px; max-width: 40ch; }
+
+.trv-h1 {
+  font-size: clamp(46px, 7vw, 96px);
+  font-weight: 900;
+  color: #fff;
+  max-width: 11ch;
+  letter-spacing: -0.05em;
+  line-height: 0.94;
+}
+.trv-sub {
+  display: block;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--amber);
+  margin-top: 14px;
+  max-width: 30ch;
+}
+/* lede colour + spacing overrides inside hero */
+.trv-hero .trv-lede          { color: #E6DDFF; max-width: 50ch; }
+.trv-hero .trv-lede + .trv-lede { margin-top: 12px; }
+
+.trv-who {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  color: #D9CFF0;
+  font-size: 15px;
+  max-width: 52ch;
+}
+.trv-who b { color: #fff; }
+
+/* ── Facts grid ─────────────────────────────────────────────────────────── */
+.trv-facts {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px 32px;
+  font-size: 15.5px;
+  width: fit-content;
+}
+.trv-facts b {
+  display: block;
+  color: var(--amber);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+/* ── Badge + form wrapper ───────────────────────────────────────────────── */
+.trv-form-wrap { position: relative; }
+
+.trv-badge {
+  position: absolute;
+  right: -22px;
+  top: -58px;
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  transform: rotate(8deg);
+  padding: 12px;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Card (form state and success state) ────────────────────────────────── */
+.trv-card {
+  background: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--amber);
+  padding: clamp(24px, 3vw, 34px);
+  color: var(--ink);
+}
+/* padding-right on h2 keeps text clear of the badge at all widths */
+.trv-card h2 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  margin-bottom: 6px;
+  padding-right: 80px;
+}
+.trv-when { color: var(--muted); font-size: 15px; margin-bottom: 20px; }
+.trv-card label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.trv-card input {
+  width: 100%;
+  font: inherit;
+  font-size: 16px; /* 16px prevents iOS zoom */
+  padding: 12px 13px;
+  border: 2px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 0;
+}
+.trv-card input:focus { outline: none; box-shadow: 0 0 0 3px var(--amber); }
+.trv-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.trv-f   { margin-bottom: 13px; }
+
+/* ── Button ─────────────────────────────────────────────────────────────── */
+.trv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-weight: 800;
+  font-size: 16px;
+  padding: 15px 24px;
+  background: var(--ink);
+  color: #fff;
+  border: 2px solid var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 var(--amber);
+  transition: transform 0.08s;
+}
+.trv-btn:hover         { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--amber); }
+.trv-btn:focus-visible { outline: 3px solid var(--purple); outline-offset: 2px; }
+.trv-btn:disabled      { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: 4px 4px 0 var(--amber); }
+/* Full-width inside the card */
+.trv-card .trv-btn { width: 100%; margin-top: 4px; }
+
+.trv-fine       { font-size: 13px; color: var(--muted); margin-top: 14px; line-height: 1.45; }
+.trv-form-error { font-size: 14px; color: var(--ink); margin-top: 8px; }
+.trv-form-error a { color: var(--purple); }
+
+/* ── Success state ──────────────────────────────────────────────────────── */
+/* h2 padding-right reset: no badge present in the success card */
+.trv-ok h2 { font-size: 28px; padding-right: 0; }
+.trv-ok p  { color: var(--muted); margin-top: 12px; }
+.trv-when2 {
+  margin-top: 18px;
+  padding: 16px 18px;
+  background: var(--lilac);
+  border: 2px solid var(--ink);
+  font-weight: 700;
+  font-size: 15.5px;
+}
+
+/* ── Section h2 (shared across sections) ───────────────────────────────── */
+.trv-big {
+  font-size: clamp(30px, 4.2vw, 54px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  max-width: 22ch;
+}
+
+/* ── Label badge shared class (.k in mock) ──────────────────────────────── */
+.trv-k {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 800;
+  background: var(--amber);
+  color: var(--ink);
+  padding: 5px 9px;
+  border: 2px solid var(--ink);
+}
+/* Inside a flex column the badge would stretch; keep it tight */
+.trv-stage .trv-k { align-self: flex-start; }
+
+/* ── Two questions section ──────────────────────────────────────────────── */
+/* Section background is white (body default). */
+.trv-stages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 44px;
+}
+.trv-stage {
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  background: #fff;
+  padding: 30px 28px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.trv-stage-back {
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 6px 6px 0 var(--amber);
+}
+.trv-stage h3            { font-size: clamp(22px, 2.2vw, 28px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.04; }
+.trv-stage > p           { color: var(--muted); font-size: 16.5px; }
+.trv-stage-back > p      { color: #D9CFF0; }
+.trv-cov                 { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 800; color: var(--purple); margin-top: 6px; }
+.trv-stage-back .trv-cov { color: var(--amber); }
+.trv-stage ul            { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+.trv-stage-back ul       { border-top-color: rgba(255, 255, 255, 0.2); }
+.trv-stage li            { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+.trv-stage-back li       { border-bottom-color: rgba(255, 255, 255, 0.2); }
+.trv-stage li span       { color: var(--muted); }
+.trv-stage-back li span  { color: #D9CFF0; }
+
+/* ── Roadmap panel ──────────────────────────────────────────────────────── */
+.trv-road {
+  margin-top: 36px;
+  background: var(--ink);
+  color: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--amber);
+  padding: 30px 28px;
+}
+.trv-road .trv-k  { margin-bottom: 16px; }
+.trv-road h3      { font-size: clamp(22px, 2.6vw, 32px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.04; max-width: 26ch; margin-bottom: 8px; }
+.trv-road > p     { color: #D9CFF0; font-size: 16px; max-width: 60ch; }
+.trv-road ul      {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 32px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.trv-road li      { padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.2); font-size: 16px; }
+.trv-road li b    { display: block; font-size: 17px; margin-bottom: 4px; }
+.trv-road li span { color: #D9CFF0; }
+
+/* ── "Next three years" section (.leave in mock) ───────────────────────── */
+.trv-leave             { background: var(--purple); color: #fff; }
+.trv-leave .trv-q      { color: var(--amber); }
+.trv-leave .trv-big    { color: #fff; }
+.trv-leave .trv-lede   { color: #E6DDFF; }
+
+.trv-takes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.trv-tk      { border: 2px solid #fff; padding: 22px 20px; min-width: 0; font-size: 16px; color: #fff; }
+.trv-tk b    { display: block; font-size: 20px; letter-spacing: -0.02em; margin-bottom: 8px; }
+.trv-tk span { color: #E6DDFF; font-size: 15.5px; }
+
+/* ── Running order section (.run in mock) ───────────────────────────────── */
+.trv-run          { background: var(--ink); color: #fff; }
+.trv-run .trv-q   { color: var(--amber); }
+.trv-run .trv-big { color: #fff; }
+
+.trv-sl {
+  margin-top: 40px;
+  border-top: 2px solid var(--amber);
+}
+.trv-sl-r {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  align-items: baseline;
+}
+.trv-sl-t {
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  font-size: 22px;
+  color: var(--amber);
+}
+.trv-sl-s { font-size: 19px; font-weight: 700; }
+.trv-sl-s span {
+  display: block;
+  font-weight: 400;
+  color: #B3A4D4;
+  font-size: 15.5px;
+  margin-top: 3px;
+}
+
+/* ── Venue section ──────────────────────────────────────────────────────── */
+/* 3-col × 2-row grid. Photo 1 spans both rows; bottom-right cell is empty by design. */
+.trv-photos {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 250px 250px;
+  gap: 18px;
+  margin-top: 40px;
+}
+.trv-ph {
+  background: linear-gradient(135deg, #2E1A5C, #5B2BD9);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+}
+.trv-ph:first-child      { grid-row: span 2; }
+.trv-ph:nth-child(3)     { transform: rotate(1.5deg); }
+.trv-ph:nth-child(4)     { grid-column: span 2; }
+.trv-ph img  { width: 100%; height: 100%; object-fit: cover; display: block; }
+.trv-ph span {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  background: var(--amber);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 8px;
+  border: 2px solid var(--ink);
+}
+
+/* Map: iframe loads after marketing consent; link always visible as fallback.
+   flex column so .trv-map-body stays pinned to the bottom via margin-top:auto
+   even when Cookiebot hides the iframe. min-height is on .trv-map-slot (the
+   iframe wrapper) so the bar height is never counted in that 300px. */
+.trv-map        { margin-top: 24px; border: 2px solid var(--ink); background: var(--lilac2); overflow: hidden; display: flex; flex-direction: column; }
+.trv-map-slot   { min-height: 300px; }
+.trv-map-frame  { width: 100%; height: 300px; border: 0; display: block; background: var(--lilac2); }
+.trv-map-body   { padding: 12px 16px; font-size: 15px; border-top: 2px solid var(--ink); margin-top: auto; }
+.trv-map-body a       { color: var(--purple); font-weight: 700; }
+.trv-map-body a:hover { text-decoration: underline; }
+
+/* Address below the map */
+.trv-addr   { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px 36px; font-size: 16px; color: var(--muted); }
+.trv-addr b { color: var(--ink); }
+
+/* ── Closing section (lilac) ─────────────────────────────────────────────── */
+.trv-close { background: var(--lilac); }
+
+/* Host cards: horizontal 88px-photo + text, ink border + shadow */
+.trv-hosts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+  max-width: 980px;
+}
+.trv-host {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  align-items: center;
+  background: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  min-width: 0;
+}
+.trv-host-pic {
+  height: 88px;
+  border-right: 2px solid var(--ink);
+  overflow: hidden;
+}
+.trv-host-pic img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.trv-host-tx      { padding: 14px 16px; }
+.trv-host-tx b    { display: block; font-size: 17px; letter-spacing: -0.02em; color: var(--ink); }
+.trv-host-tx span { color: var(--muted); font-size: 14.5px; }
+
+/* ── Audit offer (amber) ─────────────────────────────────────────────────── */
+.trv-audit { background: var(--amber); border-top: 2px solid var(--ink); }
+.trv-audit-wrap {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+/* q and lede colour overrides for amber background */
+.trv-audit .trv-q    { color: var(--ink); }
+.trv-audit .trv-lede { color: var(--ink); }
+
+/* Ink-coloured button variant for the audit section */
+.trv-btn-ink {
+  display: inline-block;
+  background: var(--ink);
+  color: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(0,0,0,.25);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: box-shadow .15s, transform .15s;
+}
+.trv-btn-ink:hover {
+  box-shadow: 3px 3px 0 rgba(0,0,0,.25);
+  transform: translate(3px, 3px);
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+.trv-foot {
+  background: var(--ink);
+  color: #B3A4D4;
+  padding-block: 36px;
+  font-size: 14px;
+}
+.trv-foot-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.trv-foot-word { color: #fff; font-weight: 800; font-size: 16px; display: block; margin-bottom: 6px; }
+.trv-foot a    { color: #B3A4D4; text-decoration: none; }
+.trv-foot a:hover { text-decoration: underline; }
+.trv-foot-links { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; }
+
+/* ── Marquee ─────────────────────────────────────────────────────────────── */
+.trv-mq {
+  background: var(--amber);
+  color: var(--ink);
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  overflow: hidden;
+  white-space: nowrap;
+  padding-block: 12px;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.trv-mq-track { display: inline-block; animation: trv-mq 30s linear infinite; }
+.trv-mq-track span { padding: 0 18px; }
+
+@keyframes trv-mq {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .trv-hero-grid  { grid-template-columns: 1fr; }
+  .trv-badge      { right: -6px; top: -48px; width: 100px; height: 100px; font-size: 11.5px; }
+  .trv-stages     { grid-template-columns: 1fr; }
+  .trv-takes      { grid-template-columns: 1fr; }
+  .trv-hosts      { grid-template-columns: 1fr 1fr; }
+  .trv-audit-wrap { grid-template-columns: 1fr; }
+  /* Photo grid: 2-col at tablet; photo 1 spans cols but not rows; photo 4 spans cols */
+  .trv-photos            { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; }
+  .trv-ph:first-child    { grid-column: span 2; grid-row: span 1; }
+  .trv-ph:nth-child(4)   { grid-column: span 2; }
+}
+@media (max-width: 700px) {
+  .trv-road ul   { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .trv-card .trv-row { grid-template-columns: 1fr; }
+  .trv-facts         { grid-template-columns: 1fr; }
+  .trv-sl-r          { grid-template-columns: 1fr; gap: 4px; }
+  .trv-hosts         { grid-template-columns: 1fr; }
+  /* Photo grid: single column at mobile; all spans reset */
+  .trv-photos              { grid-template-columns: 1fr; grid-template-rows: repeat(4, 180px); }
+  .trv-ph:first-child      { grid-column: span 1; }
+  .trv-ph:nth-child(4)     { grid-column: span 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trv-btn      { transition: none; }
+  .trv-mq-track { animation: none; }
+}

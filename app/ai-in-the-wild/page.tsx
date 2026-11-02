@@ -59,7 +59,75 @@ export default function AIInTheWildPage() {
           <p className="q">What is on</p>
           <h2 className="big">Insights and events.</h2>
           <div className="evgrid evgrid-2" style={{ marginTop: 36 }}>
-            {/* Meetup card */}
+            {/* Brighton meetup card: added 2026-11-02 */}
+            <a
+              className="evcard"
+              href="https://www.meetup.com/ai-in-the-wild-brighton/events/316993112/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="evpic">
+                <img src="/img/event-brighton.jpg" alt="" style={{ objectPosition: "center 70%" }} />
+                <span className="evtag amber">Meetup</span>
+              </div>
+              <div className="evbody">
+                <p className="evmeta">Thu 19 Nov · 6pm to 9pm · The Walrus, Brighton</p>
+                <h3>AI in the Wild Brighton</h3>
+                <p>
+                  Our first evening in Brighton. Short talks on how AI is actually
+                  being used in marketing teams, food when you arrive, drinks after.
+                </p>
+                <span className="igo">Reserve a place &#8599;</span>
+              </div>
+            </a>
+
+            {/* B2B workshop card: uncommented and updated 2026-11-02.
+                Image changed to event-b2b-mandeville.jpg, tag to lilac, meta and body updated.
+                Moved to second (date order: 1 Dec) 2026-11-02. */}
+            <a
+              className="evcard"
+              href="/events/b2b-agentic-workforce"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="evpic">
+                <img src="/img/event-b2b-mandeville.jpg" alt="" />
+                <span className="evtag lilac">Workshop</span>
+              </div>
+              <div className="evbody">
+                <p className="evmeta">Tue 1 Dec · 2.00 to 5.00 · The Mandeville, Marylebone</p>
+                <h3>Scaling B2B marketing with the agentic workforce</h3>
+                <p>
+                  A hands-on afternoon for B2B marketing leaders on which day-to-day
+                  tasks an agent can take, with a human still in the loop.
+                </p>
+                <span className="igo">Request a seat &#8594;</span>
+              </div>
+            </a>
+
+            {/* From search to suitcase card: added 2026-11-02 */}
+            <a
+              className="evcard"
+              href="/events/from-search-to-suitcase"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="evpic">
+                <img src="/img/event-from-search-to-suitcase-venue-1.jpg" alt="" />
+                <span className="evtag ink">Breakfast</span>
+              </div>
+              <div className="evbody">
+                <p className="evmeta">Tue 8 Dec · 8.30 to 10.30 · Duck and Waffle, Bishopsgate</p>
+                <h3>From search to suitcase</h3>
+                <p>
+                  AI agents in travel, now to 2030. A morning with marketing peers
+                  from across the industry.
+                </p>
+                <span className="igo">Request a seat &#8594;</span>
+              </div>
+            </a>
+
+            {/* Meetup card: moved to fourth (no date, evergreen) 2026-11-02 */}
             <a
               className="evcard"
               href="https://www.meetup.com/ai-in-the-wild"
@@ -78,7 +146,8 @@ export default function AIInTheWildPage() {
               </div>
             </a>
 
-            {/* Webinar card */}
+            {/* Webinar card: commented out 2026-11-02, date (21 October) has passed. */}
+            {/*
             <a className="evcard" href="/events/why-ai-pilots-fail">
               <div className="evpic">
                 <img src="/img/event-webinar-tile.png" alt="" />
@@ -92,30 +161,6 @@ export default function AIInTheWildPage() {
                   how to spot them early.
                 </p>
                 <span className="igo">Register &#8594;</span>
-              </div>
-            </a>
-
-            {/* B2B workshop card: hidden until venue confirmed, 15 Oct 2026.
-                Uncomment once venue placeholder strings are replaced in PageClient.tsx. */}
-            {/*
-            <a
-              className="evcard"
-              href="/events/b2b-agentic-workforce"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="evpic">
-                <img src="/img/event-workshop.jpg" alt="" />
-                <span className="evtag amber">Workshop</span>
-              </div>
-              <div className="evbody">
-                <p className="evmeta">Tue 1 Dec 2026 · 2.00 to 5.00 · Marylebone</p>
-                <h3>Scaling B2B marketing with the agentic workforce</h3>
-                <p>
-                  A hands-on afternoon for B2B marketing leaders. Bring the tasks
-                  your team never gets round to, leave with a one-page plan.
-                </p>
-                <span className="igo">Request a seat &#8594;</span>
               </div>
             </a>
             */}

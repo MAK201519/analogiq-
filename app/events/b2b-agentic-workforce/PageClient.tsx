@@ -20,32 +20,12 @@ const POLAROIDS: { caption: string; img: string }[] = [
 ];
 // ─────────────────────────────────────────────────────────────────────────────
 
-// ── Problems content ──────────────────────────────────────────────────────────
-const BOARD_PROBLEMS = [
-  "A six-month sale, and a board that measures marketing by the quarter.",
-  "Nobody can say what marketing contributed to the last ten deals closed.",
-  "A board asking what you're doing with AI, and no answer you'd defend.",
-  "Leads you pass to sales and never hear about again.",
-  "Account-based marketing you can do for twenty accounts but not three hundred.",
-  "A CRM everyone uses and nobody trusts.",
-  "A team at capacity and a headcount freeze.",
-];
-
-const TEAM_PROBLEMS = [
-  "The weekly report takes a day to build and nobody reads past page one.",
-  "Inbound sits in a shared inbox until Monday.",
-  "Leads that wait in a queue because nobody has decided who owns them.",
-  "Event follow-up goes out three weeks late, if at all.",
-  "Every campaign starts with a data export and a clean-up.",
-  "Lead scoring that everyone ignores because nobody can explain it.",
-  "A CRM where fixing one record means finding its three duplicates.",
-];
 // ─────────────────────────────────────────────────────────────────────────────
 
 // Marquee text segment: doubled in JSX for the translateX(-50%) loop.
 // \u2726 = ✦, \u00a0 = non-breaking space.
 const MARQUEE_SEG =
-  `THREE HOURS \u00a0\u2726\u00a0 ONE AGENT BUILT \u00a0\u2726\u00a0 TWENTY SEATS \u00a0\u2726\u00a0 ${VENUE_MARQUEE_AREA.toUpperCase()} \u00a0\u2726\u00a0 `;
+  `THREE HOURS \u00a0\u2726\u00a0 ONE WORKING AGENT \u00a0\u2726\u00a0 TWENTY SEATS \u00a0\u2726\u00a0 ${VENUE_MARQUEE_AREA.toUpperCase()} \u00a0\u2726\u00a0 `;
 
 const MARK = (
   <div className="b2b-mark" aria-hidden="true">
@@ -138,9 +118,7 @@ export default function PageClient() {
                 Scaling B2B marketing with the agentic workforce
               </h1>
               <p className="b2b-body" style={{ color: "rgba(255,255,255,0.92)" }}>
-                A hands-on afternoon in London for B2B marketing leaders. You bring the
-                tasks your team never gets round to. You leave knowing which
-                ones an agent can take, and how to build the first.
+                A hands-on afternoon in London for B2B marketing leaders. You bring the tasks your team never gets round to. You leave knowing which ones an agent can take, and what it takes to build one.
               </p>
               <div className="b2b-pills">
                 <div className="b2b-pill">Tue 1 Dec</div>
@@ -291,36 +269,20 @@ export default function PageClient() {
             AI and B2B: what does that mean?
           </p>
           <h2 className="b2b-h2">Most B2B marketing teams have the same problems.</h2>
-          <div className="b2b-grid2" style={{ marginTop: 56, alignItems: "start" }}>
-            <div>
-              <p className="b2b-col-label">WHAT THE BOARD SEES</p>
-              <div className="b2b-tracklist">
-                {BOARD_PROBLEMS.map((text, i) => (
-                  <p key={i} className="b2b-track">
-                    <span className="b2b-track-n">{i + 1}</span>
-                    <span className="b2b-track-t">{text}</span>
-                  </p>
-                ))}
-              </div>
-            </div>
-            <div>
-              <p className="b2b-col-label">WHAT THE TEAM SEES</p>
-              <div className="b2b-tracklist">
-                {TEAM_PROBLEMS.map((text, i) => (
-                  <p key={i} className="b2b-track">
-                    <span className="b2b-track-n">{i + 1}</span>
-                    <span className="b2b-track-t">{text}</span>
-                  </p>
-                ))}
-              </div>
-            </div>
+          <div className="b2b-tracklist" style={{ marginTop: 56 }}>
+            {[
+              "More to do, and the same size team.",
+              "Leads go to sales and nothing comes back.",
+              "A six-month sale, measured by the quarter. Nobody can say what marketing contributed to the last ten deals.",
+              "Data nobody trusts.",
+              "A board asking what you\u2019re doing with AI.",
+            ].map((text, i) => (
+              <p key={i} className="b2b-track">
+                <span className="b2b-track-n">{i + 1}</span>
+                <span className="b2b-track-t">{text}</span>
+              </p>
+            ))}
           </div>
-          <p className="b2b-body" style={{ marginTop: 48 }}>
-            None of this is new. What&rsquo;s new is that it now costs you
-            headcount you can&rsquo;t get and budget you have to justify.
-            Validity&rsquo;s 2026 CRM report found 62% of organisations have
-            lost revenue to poor CRM data alone.
-          </p>
         </div>
       </section>
 
@@ -436,7 +398,7 @@ export default function PageClient() {
           <p className="b2b-eyebrow" style={{ color: "var(--amber)", marginTop: 28 }}>
             What will we actually do?
           </p>
-          <h2 className="b2b-h2">Three hours. One agent built.</h2>
+          <h2 className="b2b-h2">Three hours. One working agent, up close.</h2>
           <div className="b2b-slots">
             <div className="b2b-slot">
               <div className="b2b-slot-time">2.00</div>
@@ -444,20 +406,19 @@ export default function PageClient() {
                 <h3>The B2B funnel, broken down</h3>
                 <p>
                   Lead generation, nurture, allocation, handover, reporting, retention,
-                  expansion. At each stage: where do people make repetitive judgement
-                  calls, which of those can an agent take on, and which should stay human.
+                  expansion. At each stage: where people make repetitive judgement
+                  calls, which of those an agent can take on, and which should stay human.
                 </p>
               </div>
             </div>
             <div className="b2b-slot">
               <div className="b2b-slot-time">3.00</div>
               <div>
-                <h3>Build one, live</h3>
+                <h3>An agent, up close</h3>
                 <p>
-                  Pick a daily task: lead allocation, lead scoring, data cleansing, inbound
-                  triage or post-event follow-up. We build a working agent in front of you
-                  on real-looking B2B data. You watch it make its first decision, get one
-                  wrong, and see the sign-off catch it.
+                  A working agent on one everyday B2B task, in a test environment, walked
+                  through end to end: what goes in, what it decides, what comes out, and
+                  where a human signs off.
                 </p>
               </div>
             </div>
@@ -474,8 +435,8 @@ export default function PageClient() {
             <div className="b2b-slot">
               <div className="b2b-slot-time">4.45</div>
               <div>
-                <h3>Your one-page plan</h3>
-                <p>Reviewed in the room.</p>
+                <h3>What to do first</h3>
+                <p>Your own list of the jobs an agent could take off your team, and which one to start with.</p>
               </div>
             </div>
             <div className="b2b-slot">
@@ -573,8 +534,7 @@ export default function PageClient() {
               <p className="b2b-body-sm">
                 One page that says where the agentic workforce fits in your marketing
                 operation, what to automate first, what data it needs and what it costs
-                to run. Plus the agent we built together on the day, as a worked example
-                you can take back to your team.
+                to run. Plus a clear picture of what a working agent involves, from the walkthrough on the day.
               </p>
             </div>
             <div>

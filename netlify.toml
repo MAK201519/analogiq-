@@ -118,3 +118,16 @@
   to = "/events/from-search-to-suitcase"
   status = 301
   force = true
+
+# /bside: vinyl sleeve QR code for the "From search to suitcase" travel event. Added 2026-11-11.
+# 302 (not 301): /bside may be repurposed after the event; 301s are cached by browsers.
+# No force=true, no trailing-slash rule: Netlify matches /bside/ natively; force=true caused loops before.
+[[redirects]]
+  from = "/bside"
+  to = "/events/from-search-to-suitcase?utm_source=vinyl&utm_medium=direct-mail&utm_campaign=from-search-to-suitcase"
+  status = 302
+
+[[redirects]]
+  from = "/b-side"
+  to = "/events/from-search-to-suitcase?utm_source=vinyl&utm_medium=direct-mail&utm_campaign=from-search-to-suitcase"
+  status = 302
